@@ -9,6 +9,7 @@
 #import "_DCTManagedObjectDeserializer.h"
 #import "DCTManagedObjectSerialization.h"
 #import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
+#import "NSManagedObject+DCTManagedObjectSerialization.h"
 
 @implementation _DCTManagedObjectDeserializer {
 	NSDictionary *_dictionary;
@@ -29,7 +30,7 @@
 	return self;
 }
 
-- (id)object {
+- (id)deserializedObject {
 
 	NSManagedObject *managedObject = [self _existingObject];
 
@@ -43,13 +44,13 @@
 
 - (void)_setupManagedObject:(NSManagedObject *)managedObject {
 
-	[_dictionary enumerateKeysAndObjectsUsingBlock:^(id serializationName, id value, BOOL *stop) {
+	[_dictionary enumerateKeysAndObjectsUsingBlock:^(id serializationName, id serializedValue, BOOL *stop) {
 
 		NSString *propertyName = [self _propertyNameForSerializationName:serializationName];
 
 		if (!propertyName) return;
 
-		[managedObject setValue:value forKey:propertyName];
+		[managedObject dct_setSerializedValue:serializedValue forKey:propertyName];
 	}];
 }
 

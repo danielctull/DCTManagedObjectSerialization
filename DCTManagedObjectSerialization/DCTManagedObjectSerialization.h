@@ -12,6 +12,9 @@
 #import "NSPropertyDescription+DCTManagedObjectSerialization.h"
 #import "NSEntityDescription+DCTManagedObjectSerialization.h"
 
+extern NSString *const DCTManagedObjectSerializationSecondsSince1970ValueTransformerName;	// SecondsSince1970ValueTransformer
+extern NSString *const DCTManagedObjectSerializationISO8601ValueTransformerName;			// ISO8601ValueTransformer
+
 @interface DCTManagedObjectSerialization : NSObject
 
 + (id)objectFromDictionary:(NSDictionary *)dictionary
