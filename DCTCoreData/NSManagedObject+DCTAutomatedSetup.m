@@ -34,7 +34,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <DCTCoreData/DCTCoreData.h>
+#import "DCTCoreData.h"
 #import "NSEntityDescription+DCTObjectCheck.h"
 #import "NSAttributeDescription+DCTObjectCheck.h"
 #import "NSDictionary+DCTKeyForObject.h"

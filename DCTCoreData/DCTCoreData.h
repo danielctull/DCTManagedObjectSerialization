@@ -22,20 +22,16 @@
 #define dctcoredata         dctcoredata_2_2
 #endif
 
-#import <DCTCoreData/NSArray+DCTSortDescriptors.h>
-#import <DCTCoreData/NSFetchedResultsController+DCTExtras.h>
-#import <DCTCoreData/NSFetchRequest+DCTExtras.h>
-#import <DCTCoreData/NSManagedObject+DCTExtras.h>
-#import <DCTCoreData/NSManagedObject+DCTOrdering.h>
-#import <DCTCoreData/NSManagedObject+DCTRelatedObjects.h>
-#import <DCTCoreData/NSManagedObjectContext+DCTDataFetching.h>
-#import <DCTCoreData/NSManagedObjectContext+DCTExtras.h>
-#import <DCTCoreData/NSPredicate+DCTExtras.h>
+#import "NSArray+DCTSortDescriptors.h"
+#import "NSFetchedResultsController+DCTExtras.h"
+#import "NSFetchRequest+DCTExtras.h"
+#import "NSManagedObject+DCTExtras.h"
+#import "NSManagedObject+DCTOrdering.h"
+#import "NSManagedObject+DCTRelatedObjects.h"
+#import "NSManagedObjectContext+DCTDataFetching.h"
+#import "NSManagedObjectContext+DCTExtras.h"
+#import "NSPredicate+DCTExtras.h"
 
 // Automated Setup
 #import "NSManagedObject+DCTAutomatedSetup.h"
 #import "NSManagedObject+DCTAutomatedSync.h"
-
-// Asynchronous
-#import "NSManagedObjectContext+DCTAsynchronousDataFetching.h"
-#import "NSManagedObjectContext+DCTAsynchronousTasks.h"
