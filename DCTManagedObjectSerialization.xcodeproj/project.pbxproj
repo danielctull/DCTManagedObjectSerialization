@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24217C66164EC4E000B7DE98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
+		24217C6F164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217C6E164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m */; };
+		24217C75164EC50E00B7DE98 /* libDCTManagedObjectSerialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */; };
+		24217C77164EC51500B7DE98 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24217C76164EC51500B7DE98 /* CoreData.framework */; };
+		24217C79164EC55600B7DE98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24217C78164EC55600B7DE98 /* UIKit.framework */; };
+		24217C7B164EC56300B7DE98 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24217C7A164EC56300B7DE98 /* SenTestingKit.framework */; };
 		245CD699164EA29300600BFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
 		245CD6C1164EA2BF00600BFF /* DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6AC164EA2BF00600BFF /* DCTManagedObjectSerialization.m */; };
 		245CD6C2164EA2BF00600BFF /* NSAttributeDescription+DCTObjectCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6AE164EA2BF00600BFF /* NSAttributeDescription+DCTObjectCheck.m */; };
@@ -44,6 +50,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24217C61164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTManagedObjectSerializationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24217C69164EC4E000B7DE98 /* DCTManagedObjectSerializationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTManagedObjectSerializationTests-Info.plist"; sourceTree = "<group>"; };
+		24217C6D164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerializationTests.h; sourceTree = "<group>"; };
+		24217C6E164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectSerializationTests.m; sourceTree = "<group>"; };
+		24217C76164EC51500B7DE98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		24217C78164EC55600B7DE98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		24217C7A164EC56300B7DE98 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTManagedObjectSerialization.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		245CD698164EA29300600BFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization.h; sourceTree = "<group>"; };
@@ -76,6 +89,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		24217C5D164EC4E000B7DE98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24217C7B164EC56300B7DE98 /* SenTestingKit.framework in Frameworks */,
+				24217C79164EC55600B7DE98 /* UIKit.framework in Frameworks */,
+				24217C77164EC51500B7DE98 /* CoreData.framework in Frameworks */,
+				24217C75164EC50E00B7DE98 /* libDCTManagedObjectSerialization.a in Frameworks */,
+				24217C66164EC4E000B7DE98 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		245CD692164EA29300600BFF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,10 +112,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24217C67164EC4E000B7DE98 /* DCTManagedObjectSerializationTests */ = {
+			isa = PBXGroup;
+			children = (
+				24217C6D164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.h */,
+				24217C6E164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m */,
+				24217C69164EC4E000B7DE98 /* DCTManagedObjectSerializationTests-Info.plist */,
+			);
+			path = DCTManagedObjectSerializationTests;
+			sourceTree = "<group>";
+		};
 		245CD68A164EA29300600BFF = {
 			isa = PBXGroup;
 			children = (
 				245CD6AA164EA2BF00600BFF /* DCTManagedObjectSerialization */,
+				24217C67164EC4E000B7DE98 /* DCTManagedObjectSerializationTests */,
 				245CD697164EA29300600BFF /* Frameworks */,
 				245CD696164EA29300600BFF /* Products */,
 			);
@@ -100,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */,
+				24217C61164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +144,9 @@
 		245CD697164EA29300600BFF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24217C7A164EC56300B7DE98 /* SenTestingKit.framework */,
+				24217C78164EC55600B7DE98 /* UIKit.framework */,
+				24217C76164EC51500B7DE98 /* CoreData.framework */,
 				245CD698164EA29300600BFF /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -157,6 +197,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		24217C60164EC4E000B7DE98 /* DCTManagedObjectSerializationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24217C73164EC4E000B7DE98 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerializationTests" */;
+			buildPhases = (
+				24217C5C164EC4E000B7DE98 /* Sources */,
+				24217C5D164EC4E000B7DE98 /* Frameworks */,
+				24217C5E164EC4E000B7DE98 /* Resources */,
+				24217C5F164EC4E000B7DE98 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DCTManagedObjectSerializationTests;
+			productName = DCTManagedObjectSerializationTests;
+			productReference = 24217C61164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		245CD694164EA29300600BFF /* DCTManagedObjectSerialization */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 245CD6A3164EA29300600BFF /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization" */;
@@ -196,11 +254,46 @@
 			projectRoot = "";
 			targets = (
 				245CD694164EA29300600BFF /* DCTManagedObjectSerialization */,
+				24217C60164EC4E000B7DE98 /* DCTManagedObjectSerializationTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		24217C5E164EC4E000B7DE98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24217C5F164EC4E000B7DE98 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		24217C5C164EC4E000B7DE98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24217C6F164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		245CD691164EA29300600BFF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -224,6 +317,34 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		24217C71164EC4E000B7DE98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "DCTManagedObjectSerializationTests/DCTManagedObjectSerializationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		24217C72164EC4E000B7DE98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = "DCTManagedObjectSerializationTests/DCTManagedObjectSerializationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		245CD6A1164EA29300600BFF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -296,6 +417,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		24217C73164EC4E000B7DE98 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerializationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24217C71164EC4E000B7DE98 /* Debug */,
+				24217C72164EC4E000B7DE98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		245CD68F164EA29300600BFF /* Build configuration list for PBXProject "DCTManagedObjectSerialization" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
