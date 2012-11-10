@@ -1,0 +1,290 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		245CD699164EA29300600BFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
+		245CD6C1164EA2BF00600BFF /* DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6AC164EA2BF00600BFF /* DCTManagedObjectSerialization.m */; };
+		245CD6C2164EA2BF00600BFF /* NSAttributeDescription+DCTObjectCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6AE164EA2BF00600BFF /* NSAttributeDescription+DCTObjectCheck.m */; };
+		245CD6C3164EA2BF00600BFF /* NSDictionary+DCTKeyForObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6B0164EA2BF00600BFF /* NSDictionary+DCTKeyForObject.m */; };
+		245CD6C4164EA2BF00600BFF /* NSEntityDescription+DCTObjectCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6B2164EA2BF00600BFF /* NSEntityDescription+DCTObjectCheck.m */; };
+		245CD6C5164EA2BF00600BFF /* NSFetchRequest+DCTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6B4164EA2BF00600BFF /* NSFetchRequest+DCTExtras.m */; };
+		245CD6C6164EA2BF00600BFF /* NSManagedObject+DCTAutomatedSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6B6164EA2BF00600BFF /* NSManagedObject+DCTAutomatedSetup.m */; };
+		245CD6C7164EA2BF00600BFF /* NSManagedObject+DCTOrdering.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6B8164EA2BF00600BFF /* NSManagedObject+DCTOrdering.m */; };
+		245CD6C8164EA2BF00600BFF /* NSManagedObject+DCTRelatedObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6BA164EA2BF00600BFF /* NSManagedObject+DCTRelatedObjects.m */; };
+		245CD6C9164EA2BF00600BFF /* NSManagedObjectContext+DCTDataFetching.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6BC164EA2BF00600BFF /* NSManagedObjectContext+DCTDataFetching.m */; };
+		245CD6CA164EA2BF00600BFF /* NSManagedObjectContext+DCTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6BE164EA2BF00600BFF /* NSManagedObjectContext+DCTExtras.m */; };
+		245CD6CB164EA2BF00600BFF /* NSPredicate+DCTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6C0164EA2BF00600BFF /* NSPredicate+DCTExtras.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		245CD693164EA29300600BFF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTManagedObjectSerialization.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		245CD698164EA29300600BFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization.h; sourceTree = "<group>"; };
+		245CD6AC164EA2BF00600BFF /* DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectSerialization.m; sourceTree = "<group>"; };
+		245CD6AD164EA2BF00600BFF /* NSAttributeDescription+DCTObjectCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+DCTObjectCheck.h"; sourceTree = "<group>"; };
+		245CD6AE164EA2BF00600BFF /* NSAttributeDescription+DCTObjectCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributeDescription+DCTObjectCheck.m"; sourceTree = "<group>"; };
+		245CD6AF164EA2BF00600BFF /* NSDictionary+DCTKeyForObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+DCTKeyForObject.h"; sourceTree = "<group>"; };
+		245CD6B0164EA2BF00600BFF /* NSDictionary+DCTKeyForObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+DCTKeyForObject.m"; sourceTree = "<group>"; };
+		245CD6B1164EA2BF00600BFF /* NSEntityDescription+DCTObjectCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEntityDescription+DCTObjectCheck.h"; sourceTree = "<group>"; };
+		245CD6B2164EA2BF00600BFF /* NSEntityDescription+DCTObjectCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEntityDescription+DCTObjectCheck.m"; sourceTree = "<group>"; };
+		245CD6B3164EA2BF00600BFF /* NSFetchRequest+DCTExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchRequest+DCTExtras.h"; sourceTree = "<group>"; };
+		245CD6B4164EA2BF00600BFF /* NSFetchRequest+DCTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchRequest+DCTExtras.m"; sourceTree = "<group>"; };
+		245CD6B5164EA2BF00600BFF /* NSManagedObject+DCTAutomatedSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DCTAutomatedSetup.h"; sourceTree = "<group>"; };
+		245CD6B6164EA2BF00600BFF /* NSManagedObject+DCTAutomatedSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DCTAutomatedSetup.m"; sourceTree = "<group>"; };
+		245CD6B7164EA2BF00600BFF /* NSManagedObject+DCTOrdering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DCTOrdering.h"; sourceTree = "<group>"; };
+		245CD6B8164EA2BF00600BFF /* NSManagedObject+DCTOrdering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DCTOrdering.m"; sourceTree = "<group>"; };
+		245CD6B9164EA2BF00600BFF /* NSManagedObject+DCTRelatedObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DCTRelatedObjects.h"; sourceTree = "<group>"; };
+		245CD6BA164EA2BF00600BFF /* NSManagedObject+DCTRelatedObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DCTRelatedObjects.m"; sourceTree = "<group>"; };
+		245CD6BB164EA2BF00600BFF /* NSManagedObjectContext+DCTDataFetching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+DCTDataFetching.h"; sourceTree = "<group>"; };
+		245CD6BC164EA2BF00600BFF /* NSManagedObjectContext+DCTDataFetching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+DCTDataFetching.m"; sourceTree = "<group>"; };
+		245CD6BD164EA2BF00600BFF /* NSManagedObjectContext+DCTExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+DCTExtras.h"; sourceTree = "<group>"; };
+		245CD6BE164EA2BF00600BFF /* NSManagedObjectContext+DCTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+DCTExtras.m"; sourceTree = "<group>"; };
+		245CD6BF164EA2BF00600BFF /* NSPredicate+DCTExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+DCTExtras.h"; sourceTree = "<group>"; };
+		245CD6C0164EA2BF00600BFF /* NSPredicate+DCTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+DCTExtras.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		245CD692164EA29300600BFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				245CD699164EA29300600BFF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		245CD68A164EA29300600BFF = {
+			isa = PBXGroup;
+			children = (
+				245CD6AA164EA2BF00600BFF /* DCTManagedObjectSerialization */,
+				245CD697164EA29300600BFF /* Frameworks */,
+				245CD696164EA29300600BFF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		245CD696164EA29300600BFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		245CD697164EA29300600BFF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				245CD698164EA29300600BFF /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		245CD6AA164EA2BF00600BFF /* DCTManagedObjectSerialization */ = {
+			isa = PBXGroup;
+			children = (
+				245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */,
+				245CD6AC164EA2BF00600BFF /* DCTManagedObjectSerialization.m */,
+				245CD6AD164EA2BF00600BFF /* NSAttributeDescription+DCTObjectCheck.h */,
+				245CD6AE164EA2BF00600BFF /* NSAttributeDescription+DCTObjectCheck.m */,
+				245CD6AF164EA2BF00600BFF /* NSDictionary+DCTKeyForObject.h */,
+				245CD6B0164EA2BF00600BFF /* NSDictionary+DCTKeyForObject.m */,
+				245CD6B1164EA2BF00600BFF /* NSEntityDescription+DCTObjectCheck.h */,
+				245CD6B2164EA2BF00600BFF /* NSEntityDescription+DCTObjectCheck.m */,
+				245CD6B3164EA2BF00600BFF /* NSFetchRequest+DCTExtras.h */,
+				245CD6B4164EA2BF00600BFF /* NSFetchRequest+DCTExtras.m */,
+				245CD6B5164EA2BF00600BFF /* NSManagedObject+DCTAutomatedSetup.h */,
+				245CD6B6164EA2BF00600BFF /* NSManagedObject+DCTAutomatedSetup.m */,
+				245CD6B7164EA2BF00600BFF /* NSManagedObject+DCTOrdering.h */,
+				245CD6B8164EA2BF00600BFF /* NSManagedObject+DCTOrdering.m */,
+				245CD6B9164EA2BF00600BFF /* NSManagedObject+DCTRelatedObjects.h */,
+				245CD6BA164EA2BF00600BFF /* NSManagedObject+DCTRelatedObjects.m */,
+				245CD6BB164EA2BF00600BFF /* NSManagedObjectContext+DCTDataFetching.h */,
+				245CD6BC164EA2BF00600BFF /* NSManagedObjectContext+DCTDataFetching.m */,
+				245CD6BD164EA2BF00600BFF /* NSManagedObjectContext+DCTExtras.h */,
+				245CD6BE164EA2BF00600BFF /* NSManagedObjectContext+DCTExtras.m */,
+				245CD6BF164EA2BF00600BFF /* NSPredicate+DCTExtras.h */,
+				245CD6C0164EA2BF00600BFF /* NSPredicate+DCTExtras.m */,
+			);
+			path = DCTManagedObjectSerialization;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		245CD694164EA29300600BFF /* DCTManagedObjectSerialization */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 245CD6A3164EA29300600BFF /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization" */;
+			buildPhases = (
+				245CD691164EA29300600BFF /* Sources */,
+				245CD692164EA29300600BFF /* Frameworks */,
+				245CD693164EA29300600BFF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DCTManagedObjectSerialization;
+			productName = DCTManagedObjectSerialization;
+			productReference = 245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		245CD68C164EA29300600BFF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Daniel Tull";
+			};
+			buildConfigurationList = 245CD68F164EA29300600BFF /* Build configuration list for PBXProject "DCTManagedObjectSerialization" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 245CD68A164EA29300600BFF;
+			productRefGroup = 245CD696164EA29300600BFF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				245CD694164EA29300600BFF /* DCTManagedObjectSerialization */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		245CD691164EA29300600BFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				245CD6C1164EA2BF00600BFF /* DCTManagedObjectSerialization.m in Sources */,
+				245CD6C2164EA2BF00600BFF /* NSAttributeDescription+DCTObjectCheck.m in Sources */,
+				245CD6C3164EA2BF00600BFF /* NSDictionary+DCTKeyForObject.m in Sources */,
+				245CD6C4164EA2BF00600BFF /* NSEntityDescription+DCTObjectCheck.m in Sources */,
+				245CD6C5164EA2BF00600BFF /* NSFetchRequest+DCTExtras.m in Sources */,
+				245CD6C6164EA2BF00600BFF /* NSManagedObject+DCTAutomatedSetup.m in Sources */,
+				245CD6C7164EA2BF00600BFF /* NSManagedObject+DCTOrdering.m in Sources */,
+				245CD6C8164EA2BF00600BFF /* NSManagedObject+DCTRelatedObjects.m in Sources */,
+				245CD6C9164EA2BF00600BFF /* NSManagedObjectContext+DCTDataFetching.m in Sources */,
+				245CD6CA164EA2BF00600BFF /* NSManagedObjectContext+DCTExtras.m in Sources */,
+				245CD6CB164EA2BF00600BFF /* NSPredicate+DCTExtras.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		245CD6A1164EA29300600BFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		245CD6A2164EA29300600BFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		245CD6A4164EA29300600BFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/DCTManagedObjectSerialization.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		245CD6A5164EA29300600BFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/DCTManagedObjectSerialization.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		245CD68F164EA29300600BFF /* Build configuration list for PBXProject "DCTManagedObjectSerialization" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				245CD6A1164EA29300600BFF /* Debug */,
+				245CD6A2164EA29300600BFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		245CD6A3164EA29300600BFF /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				245CD6A4164EA29300600BFF /* Debug */,
+				245CD6A5164EA29300600BFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 245CD68C164EA29300600BFF /* Project object */;
+}

@@ -1,15 +1,15 @@
 //
-//  DCTCoreDataSerialization.m
-//  DCTCoreDataSerialization
+//  DCTManagedObjectSerialization.m
+//  DCTManagedObjectSerialization
 //
 //  Created by Daniel Tull on 10/11/2012.
 //  Copyright (c) 2012 Daniel Tull. All rights reserved.
 //
 
-#import "DCTCoreDataSerialization.h"
+#import "DCTManagedObjectSerialization.h"
 #import "NSManagedObject+DCTAutomatedSetup.h"
 
-@implementation DCTCoreDataSerialization
+@implementation DCTManagedObjectSerialization
 
 + (NSManagedObject *)objectFromDictionary:(NSDictionary *)dictionary
 							   rootEntity:(NSEntityDescription *)entity
