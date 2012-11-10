@@ -23,13 +23,12 @@ NSString *const DCTSerializationTransformerClass = @"serializationTransformerCla
 	[self dct_setUserInfoValue:[dct_serializationName copy] forKey:DCTSerializationName];
 }
 
-- (Class)dct_serializationTransformerClass {
-	NSString *className = [self.userInfo objectForKey:DCTSerializationTransformerClass];
-	return NSClassFromString(className);
+- (NSString *)dct_serializationTransformerName {
+	return [self.userInfo objectForKey:DCTSerializationTransformerClass];
 }
 
-- (void)setDct_serializationTransformerClass:(Class)dct_serializationTransformerClass {
-	[self dct_setUserInfoValue:NSStringFromClass(dct_serializationTransformerClass) forKey:DCTSerializationTransformerClass];
+- (void)setDct_serializationTransformerName:(NSString *)dct_serializationTransformerName {
+	[self dct_setUserInfoValue:dct_serializationTransformerName forKey:DCTSerializationTransformerClass];
 }
 
 - (void)dct_setUserInfoValue:(id)value forKey:(NSString *)key {

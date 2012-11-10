@@ -7,7 +7,7 @@
 //
 
 #import "DCTManagedObjectSerialization.h"
-#import "NSManagedObject+DCTAutomatedSetup.h"
+#import "_DCTManagedObjectDeserializer.h"
 
 @implementation DCTManagedObjectSerialization
 
@@ -15,11 +15,11 @@
 				rootEntity:(NSEntityDescription *)entity
 	  managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
 
-	Class managedObjectClass = NSClassFromString([entity managedObjectClassName]);
+	_DCTManagedObjectDeserializer *deserializer = [[_DCTManagedObjectDeserializer alloc] initWithDictionary:dictionary
+																									 entity:entity
+																					   managedObjectContext:managedObjectContext];
 
-	if (![managedObjectClass conformsToProtocol:@protocol(DCTManagedObjectAutomatedSetup)]) return nil;
-	
-	return [managedObjectClass dct_objectFromDictionary:dictionary insertIntoManagedObjectContext:managedObjectContext];
+	return [deserializer deserializedObject];
 }
 
 @end

@@ -1,0 +1,100 @@
+//
+//  _DCTManagedObjectDeserializer.m
+//  DCTManagedObjectSerialization
+//
+//  Created by Daniel Tull on 10.11.2012.
+//  Copyright (c) 2012 Daniel Tull. All rights reserved.
+//
+
+#import "_DCTManagedObjectDeserializer.h"
+#import "DCTManagedObjectSerialization.h"
+#import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
+
+@implementation _DCTManagedObjectDeserializer {
+	NSDictionary *_dictionary;
+	NSEntityDescription *_entity;
+	NSManagedObjectContext *_managedObjectContext;
+	NSDictionary *_serializationNameToPropertyNameMapping;
+}
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
+				  entity:(NSEntityDescription *)entity
+	managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+
+	self = [self init];
+	if (!self) return nil;
+	_dictionary = dictionary;
+	_entity = entity;
+	_managedObjectContext = managedObjectContext;
+	return self;
+}
+
+- (id)object {
+
+	NSManagedObject *managedObject = [self _existingObject];
+
+	if (!managedObject)
+		managedObject = [[NSManagedObject alloc] initWithEntity:_entity insertIntoManagedObjectContext:_managedObjectContext];
+
+	[self _setupManagedObject:managedObject];
+
+	return managedObject;
+}
+
+- (void)_setupManagedObject:(NSManagedObject *)managedObject {
+
+	[_dictionary enumerateKeysAndObjectsUsingBlock:^(id serializationName, id value, BOOL *stop) {
+
+		NSString *propertyName = [self _propertyNameForSerializationName:serializationName];
+
+		if (!propertyName) return;
+
+		[managedObject setValue:value forKey:propertyName];
+	}];
+}
+
+- (NSManagedObject *)_existingObject {
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:_entity.name];
+	fetchRequest.predicate = [self _uniqueKeysPredicate];
+	NSArray *result = [_managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+	return [result lastObject];
+}
+
+- (NSPredicate *)_uniqueKeysPredicate {
+	NSArray *uniqueKeys = _entity.dct_serializationUniqueKeys;
+	NSMutableArray *predicates = [[NSMutableArray alloc] initWithCapacity:uniqueKeys.count];
+	[uniqueKeys enumerateObjectsUsingBlock:^(NSString *uniqueKey, NSUInteger i, BOOL *stop) {
+
+		NSPropertyDescription *property = [_entity.propertiesByName objectForKey:uniqueKey];
+
+		NSAssert(property != nil, @"A unique key has been set that doesn't exist.");
+
+		NSString *serializationName = [self _propertyNameForSerializationName:uniqueKey];
+		id serializedValue = [_dictionary objectForKey:serializationName];
+		id value = [property dct_valueForSerializedValue:serializedValue inManagedObjectContext:_managedObjectContext];
+		[NSPredicate predicateWithFormat:@"%K == %@", uniqueKey, value];
+	}];
+	return [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
+}
+
+#pragma mark -
+
+- (NSString *)_propertyNameForSerializationName:(NSString *)serializationName {
+	return [[self _serializationNameToPropertyNameMapping] objectForKey:serializationName];
+}
+
+- (NSDictionary *)_serializationNameToPropertyNameMapping {
+
+	if (!_serializationNameToPropertyNameMapping) {
+		NSArray *properties = _entity.properties;
+		NSMutableDictionary *serializationNameToPropertyNameMapping = [[NSMutableDictionary alloc] initWithCapacity:properties.count];
+		[properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
+			[serializationNameToPropertyNameMapping setObject:property.name forKey:property.dct_serializationName];
+		}];
+		_serializationNameToPropertyNameMapping = [serializationNameToPropertyNameMapping copy];
+	}
+
+	return _serializationNameToPropertyNameMapping;
+}
+
+@end
