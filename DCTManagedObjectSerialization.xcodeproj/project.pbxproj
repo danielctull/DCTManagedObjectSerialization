@@ -23,6 +23,8 @@
 		24A23539164EA59000BD92ED /* DCTManagedObjectAutomatedSetup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24A23535164EA52500BD92ED /* DCTManagedObjectAutomatedSetup.h */; };
 		24A2353C164EA70D00BD92ED /* NSPropertyDescription+DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A2353B164EA70D00BD92ED /* NSPropertyDescription+DCTManagedObjectSerialization.m */; };
 		24A23542164EA95600BD92ED /* NSEntityDescription+DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A23541164EA95600BD92ED /* NSEntityDescription+DCTManagedObjectSerialization.m */; };
+		24A23549164EACC000BD92ED /* NSPropertyDescription+DCTManagedObjectSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24A2353A164EA70D00BD92ED /* NSPropertyDescription+DCTManagedObjectSerialization.h */; };
+		24A2354B164EACC200BD92ED /* NSEntityDescription+DCTManagedObjectSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24A23540164EA95600BD92ED /* NSEntityDescription+DCTManagedObjectSerialization.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +36,8 @@
 			files = (
 				24A23538164EA58E00BD92ED /* DCTManagedObjectSerialization.h in CopyFiles */,
 				24A23539164EA59000BD92ED /* DCTManagedObjectAutomatedSetup.h in CopyFiles */,
+				24A23549164EACC000BD92ED /* NSPropertyDescription+DCTManagedObjectSerialization.h in CopyFiles */,
+				24A2354B164EACC200BD92ED /* NSEntityDescription+DCTManagedObjectSerialization.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

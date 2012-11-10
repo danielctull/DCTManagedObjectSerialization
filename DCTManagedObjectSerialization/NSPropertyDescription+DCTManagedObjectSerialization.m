@@ -14,7 +14,9 @@ NSString *const DCTSerializationTransformerClass = @"serializationTransformerCla
 @implementation NSPropertyDescription (DCTManagedObjectSerialization)
 
 - (NSString *)dct_serializationName {
-	return [self.userInfo objectForKey:DCTSerializationName];
+	NSString *serializationName = [self.userInfo objectForKey:DCTSerializationName];
+	if (serializationName.length > 0) return serializationName;
+	return self.name;
 }
 
 - (void)setDct_serializationName:(NSString *)dct_serializationName {
