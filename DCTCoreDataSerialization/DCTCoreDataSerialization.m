@@ -7,13 +7,19 @@
 //
 
 #import "DCTCoreDataSerialization.h"
+#import "NSManagedObject+DCTAutomatedSetup.h"
 
 @implementation DCTCoreDataSerialization
 
 + (NSManagedObject *)objectFromDictionary:(NSDictionary *)dictionary
 							   rootEntity:(NSEntityDescription *)entity
 					 managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
-	return nil;
+
+	Class managedObjectClass = NSClassFromString([entity managedObjectClassName]);
+
+	if (![managedObjectClass conformsToProtocol:@protocol(DCTManagedObjectAutomatedSetup)]) return nil;
+	
+	return [managedObjectClass dct_objectFromDictionary:dictionary insertIntoManagedObjectContext:managedObjectContext];
 }
 
 @end
