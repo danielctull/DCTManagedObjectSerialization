@@ -34,10 +34,15 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTCoreData.h"
+#import "NSManagedObjectContext+DCTExtras.h"
+#import "NSManagedObject+DCTAutomatedSetup.h"
+#import "NSManagedObject+DCTOrdering.h"
 #import "NSEntityDescription+DCTObjectCheck.h"
 #import "NSAttributeDescription+DCTObjectCheck.h"
 #import "NSDictionary+DCTKeyForObject.h"
+#import "NSManagedObjectContext+DCTDataFetching.h"
+#import "NSManagedObject+DCTRelatedObjects.h"
+#import "NSPredicate+DCTExtras.h"
 
 /* Define these for logging problems:
  
