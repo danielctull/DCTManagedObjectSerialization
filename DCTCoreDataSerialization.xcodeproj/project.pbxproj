@@ -13,7 +13,6 @@
 		2441EBCC164E9D9F006B284A /* NSEntityDescription+DCTObjectCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441EBB4164E9D9F006B284A /* NSEntityDescription+DCTObjectCheck.m */; };
 		2441EBCE164E9D9F006B284A /* NSFetchRequest+DCTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441EBB8164E9D9F006B284A /* NSFetchRequest+DCTExtras.m */; };
 		2441EBCF164E9D9F006B284A /* NSManagedObject+DCTAutomatedSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441EBBA164E9D9F006B284A /* NSManagedObject+DCTAutomatedSetup.m */; };
-		2441EBD1164E9D9F006B284A /* NSManagedObject+DCTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441EBBE164E9D9F006B284A /* NSManagedObject+DCTExtras.m */; };
 		2441EBD2164E9D9F006B284A /* NSManagedObject+DCTOrdering.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441EBC0164E9D9F006B284A /* NSManagedObject+DCTOrdering.m */; };
 		2441EBD3164E9D9F006B284A /* NSManagedObject+DCTRelatedObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441EBC2164E9D9F006B284A /* NSManagedObject+DCTRelatedObjects.m */; };
 		2441EBD4164E9D9F006B284A /* NSManagedObjectContext+DCTDataFetching.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441EBC4164E9D9F006B284A /* NSManagedObjectContext+DCTDataFetching.m */; };
@@ -48,8 +47,6 @@
 		2441EBB8164E9D9F006B284A /* NSFetchRequest+DCTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchRequest+DCTExtras.m"; sourceTree = "<group>"; };
 		2441EBB9164E9D9F006B284A /* NSManagedObject+DCTAutomatedSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DCTAutomatedSetup.h"; sourceTree = "<group>"; };
 		2441EBBA164E9D9F006B284A /* NSManagedObject+DCTAutomatedSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DCTAutomatedSetup.m"; sourceTree = "<group>"; };
-		2441EBBD164E9D9F006B284A /* NSManagedObject+DCTExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DCTExtras.h"; sourceTree = "<group>"; };
-		2441EBBE164E9D9F006B284A /* NSManagedObject+DCTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DCTExtras.m"; sourceTree = "<group>"; };
 		2441EBBF164E9D9F006B284A /* NSManagedObject+DCTOrdering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DCTOrdering.h"; sourceTree = "<group>"; };
 		2441EBC0164E9D9F006B284A /* NSManagedObject+DCTOrdering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DCTOrdering.m"; sourceTree = "<group>"; };
 		2441EBC1164E9D9F006B284A /* NSManagedObject+DCTRelatedObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DCTRelatedObjects.h"; sourceTree = "<group>"; };
@@ -119,8 +116,6 @@
 				2441EBB8164E9D9F006B284A /* NSFetchRequest+DCTExtras.m */,
 				2441EBB9164E9D9F006B284A /* NSManagedObject+DCTAutomatedSetup.h */,
 				2441EBBA164E9D9F006B284A /* NSManagedObject+DCTAutomatedSetup.m */,
-				2441EBBD164E9D9F006B284A /* NSManagedObject+DCTExtras.h */,
-				2441EBBE164E9D9F006B284A /* NSManagedObject+DCTExtras.m */,
 				2441EBBF164E9D9F006B284A /* NSManagedObject+DCTOrdering.h */,
 				2441EBC0164E9D9F006B284A /* NSManagedObject+DCTOrdering.m */,
 				2441EBC1164E9D9F006B284A /* NSManagedObject+DCTRelatedObjects.h */,
@@ -191,7 +186,6 @@
 				2441EBCC164E9D9F006B284A /* NSEntityDescription+DCTObjectCheck.m in Sources */,
 				2441EBCE164E9D9F006B284A /* NSFetchRequest+DCTExtras.m in Sources */,
 				2441EBCF164E9D9F006B284A /* NSManagedObject+DCTAutomatedSetup.m in Sources */,
-				2441EBD1164E9D9F006B284A /* NSManagedObject+DCTExtras.m in Sources */,
 				2441EBD2164E9D9F006B284A /* NSManagedObject+DCTOrdering.m in Sources */,
 				2441EBD3164E9D9F006B284A /* NSManagedObject+DCTRelatedObjects.m in Sources */,
 				2441EBD4164E9D9F006B284A /* NSManagedObjectContext+DCTDataFetching.m in Sources */,
