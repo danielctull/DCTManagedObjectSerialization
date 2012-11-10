@@ -11,9 +11,9 @@
 
 @implementation DCTManagedObjectSerialization
 
-+ (NSManagedObject *)objectFromDictionary:(NSDictionary *)dictionary
-							   rootEntity:(NSEntityDescription *)entity
-					 managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
++ (id)objectFromDictionary:(NSDictionary *)dictionary
+				rootEntity:(NSEntityDescription *)entity
+	  managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
 
 	Class managedObjectClass = NSClassFromString([entity managedObjectClassName]);
 

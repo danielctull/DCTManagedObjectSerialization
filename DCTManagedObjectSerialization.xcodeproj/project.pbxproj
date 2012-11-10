@@ -13,6 +13,9 @@
 		24217C77164EC51500B7DE98 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24217C76164EC51500B7DE98 /* CoreData.framework */; };
 		24217C79164EC55600B7DE98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24217C78164EC55600B7DE98 /* UIKit.framework */; };
 		24217C7B164EC56300B7DE98 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24217C7A164EC56300B7DE98 /* SenTestingKit.framework */; };
+		24217C7E164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24217C7C164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld */; };
+		24217CAD164EC9A800B7DE98 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CAA164EC9A800B7DE98 /* _Person.m */; };
+		24217CAE164EC9A800B7DE98 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CAC164EC9A800B7DE98 /* Person.m */; };
 		245CD699164EA29300600BFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
 		245CD6C1164EA2BF00600BFF /* DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6AC164EA2BF00600BFF /* DCTManagedObjectSerialization.m */; };
 		245CD6C2164EA2BF00600BFF /* NSAttributeDescription+DCTObjectCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6AE164EA2BF00600BFF /* NSAttributeDescription+DCTObjectCheck.m */; };
@@ -57,6 +60,11 @@
 		24217C76164EC51500B7DE98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		24217C78164EC55600B7DE98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		24217C7A164EC56300B7DE98 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		24217C7D164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DCTManagedObjectSerializationTests.xcdatamodel; sourceTree = "<group>"; };
+		24217CA9164EC9A800B7DE98 /* _Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Person.h; sourceTree = "<group>"; };
+		24217CAA164EC9A800B7DE98 /* _Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Person.m; sourceTree = "<group>"; };
+		24217CAB164EC9A800B7DE98 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		24217CAC164EC9A800B7DE98 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTManagedObjectSerialization.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		245CD698164EA29300600BFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization.h; sourceTree = "<group>"; };
@@ -115,11 +123,32 @@
 		24217C67164EC4E000B7DE98 /* DCTManagedObjectSerializationTests */ = {
 			isa = PBXGroup;
 			children = (
+				24217CA7164EC9A800B7DE98 /* Model */,
 				24217C6D164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.h */,
 				24217C6E164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m */,
 				24217C69164EC4E000B7DE98 /* DCTManagedObjectSerializationTests-Info.plist */,
+				24217C7C164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld */,
 			);
 			path = DCTManagedObjectSerializationTests;
+			sourceTree = "<group>";
+		};
+		24217CA7164EC9A800B7DE98 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24217CA8164EC9A800B7DE98 /* Generated */,
+				24217CAB164EC9A800B7DE98 /* Person.h */,
+				24217CAC164EC9A800B7DE98 /* Person.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24217CA8164EC9A800B7DE98 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				24217CA9164EC9A800B7DE98 /* _Person.h */,
+				24217CAA164EC9A800B7DE98 /* _Person.m */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		245CD68A164EA29300600BFF = {
@@ -291,6 +320,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				24217C6F164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m in Sources */,
+				24217C7E164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld in Sources */,
+				24217CAD164EC9A800B7DE98 /* _Person.m in Sources */,
+				24217CAE164EC9A800B7DE98 /* Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +358,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "DCTManagedObjectSerializationTests/DCTManagedObjectSerializationTests-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -340,6 +373,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "DCTManagedObjectSerializationTests/DCTManagedObjectSerializationTests-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -444,6 +478,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		24217C7C164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				24217C7D164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodel */,
+			);
+			currentVersion = 24217C7D164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodel */;
+			path = DCTManagedObjectSerializationTests.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 245CD68C164EA29300600BFF /* Project object */;
 }

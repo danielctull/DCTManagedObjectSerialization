@@ -12,8 +12,8 @@
 
 @interface DCTManagedObjectSerialization : NSObject
 
-+ (NSManagedObject *)objectFromDictionary:(NSDictionary *)dictionary
-							   rootEntity:(NSEntityDescription *)entity
-					 managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
++ (id)objectFromDictionary:(NSDictionary *)dictionary
+				rootEntity:(NSEntityDescription *)entity
+	  managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 @end

@@ -1,0 +1,1 @@
+mogenerator -m DCTManagedObjectSerializationTests/DCTManagedObjectSerializationTests.xcdatamodeld/DCTManagedObjectSerializationTests.xcdatamodel -M DCTManagedObjectSerializationTests/Model/Generated -H DCTManagedObjectSerializationTests/Model --template-var arc=true
