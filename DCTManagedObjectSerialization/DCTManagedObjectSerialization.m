@@ -9,6 +9,9 @@
 #import "DCTManagedObjectSerialization.h"
 #import "_DCTManagedObjectDeserializer.h"
 
+NSString *const DCTManagedObjectSerializationSecondsSince1970ValueTransformerName = @"SecondsSince1970";
+NSString *const DCTManagedObjectSerializationISO8601ValueTransformerName = @"ISO8601";
+
 @implementation DCTManagedObjectSerialization
 
 + (id)objectFromDictionary:(NSDictionary *)dictionary

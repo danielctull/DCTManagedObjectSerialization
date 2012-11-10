@@ -9,7 +9,7 @@
 #import "NSPropertyDescription+DCTManagedObjectSerialization.h"
 
 NSString *const DCTSerializationName = @"serializationName";
-NSString *const DCTSerializationTransformerClass = @"serializationTransformerClass";
+NSString *const DCTSerializationTransformerName = @"serializationTransformerName";
 
 @implementation NSPropertyDescription (DCTManagedObjectSerialization)
 
@@ -24,11 +24,11 @@ NSString *const DCTSerializationTransformerClass = @"serializationTransformerCla
 }
 
 - (NSString *)dct_serializationTransformerName {
-	return [self.userInfo objectForKey:DCTSerializationTransformerClass];
+	return [self.userInfo objectForKey:DCTSerializationTransformerName];
 }
 
 - (void)setDct_serializationTransformerName:(NSString *)dct_serializationTransformerName {
-	[self dct_setUserInfoValue:dct_serializationTransformerName forKey:DCTSerializationTransformerClass];
+	[self dct_setUserInfoValue:dct_serializationTransformerName forKey:DCTSerializationTransformerName];
 }
 
 - (void)dct_setUserInfoValue:(id)value forKey:(NSString *)key {

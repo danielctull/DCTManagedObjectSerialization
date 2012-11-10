@@ -32,15 +32,21 @@
 - (void)testObjectCreation {
 
 
-
+	NSDate *date = [NSDate date];
+	NSNumber *timeInterval = @([date timeIntervalSince1970]);
+	NSString *dob = [NSString stringWithFormat:@"%@", @([date timeIntervalSince1970])];
 	NSEntityDescription *entity = [Person entityInManagedObjectContext:_managedObjectContext];
-	Person *person = [DCTManagedObjectSerialization objectFromDictionary:@{ @"id" : @"1" }
+	Person *person = [DCTManagedObjectSerialization objectFromDictionary:@{ @"id" : @"1", @"dob" : dob }
 															  rootEntity:entity
 													managedObjectContext:_managedObjectContext];
 
 
 	STAssertNotNil(person, @"Not returning an object.");
-	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (personID = %@).", person.personID);
+	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
+
+	NSNumber *personTimeInterval = @([person.dateOfBirth timeIntervalSince1970]);
+	STAssertTrue([personTimeInterval isEqualToNumber:timeInterval], @"Incorrect dateOfBirth (%@ not %@).", personTimeInterval, timeInterval);
 }
 
 @end
+ 

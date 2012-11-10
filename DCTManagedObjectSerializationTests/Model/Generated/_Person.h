@@ -5,6 +5,7 @@
 
 
 extern const struct PersonAttributes {
+	__unsafe_unretained NSString *dateOfBirth;
 	__unsafe_unretained NSString *personID;
 } PersonAttributes;
 
@@ -17,6 +18,7 @@ extern const struct PersonFetchedProperties {
 
 
 
+
 @interface PersonID : NSManagedObjectID {}
 @end
 
@@ -25,6 +27,14 @@ extern const struct PersonFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (PersonID*)objectID;
+
+
+
+
+@property (nonatomic, strong) NSDate* dateOfBirth;
+
+
+//- (BOOL)validateDateOfBirth:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -46,6 +56,12 @@ extern const struct PersonFetchedProperties {
 @end
 
 @interface _Person (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSDate*)primitiveDateOfBirth;
+- (void)setPrimitiveDateOfBirth:(NSDate*)value;
+
+
 
 
 - (NSString*)primitivePersonID;

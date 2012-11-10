@@ -21,7 +21,7 @@
 	if (transformerName) {
 		NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:transformerName];
 		if (transformer)
-			value = [transformer transformedValue:value];
+			value = [transformer reverseTransformedValue:value];
 	}
 
 	if (![value isKindOfClass:NSClassFromString([self attributeValueClassName])])
