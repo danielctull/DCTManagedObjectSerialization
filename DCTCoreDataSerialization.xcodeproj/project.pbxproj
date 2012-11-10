@@ -22,6 +22,8 @@
 		2441EBD4164E9D9F006B284A /* NSManagedObjectContext+DCTDataFetching.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441EBC4164E9D9F006B284A /* NSManagedObjectContext+DCTDataFetching.m */; };
 		2441EBD5164E9D9F006B284A /* NSManagedObjectContext+DCTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441EBC6164E9D9F006B284A /* NSManagedObjectContext+DCTExtras.m */; };
 		2441EBD6164E9D9F006B284A /* NSPredicate+DCTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441EBC8164E9D9F006B284A /* NSPredicate+DCTExtras.m */; };
+		2441EBD9164E9E42006B284A /* DCTCoreDataSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2441EBD8164E9E42006B284A /* DCTCoreDataSerialization.m */; };
+		2441EBDE164E9E7B006B284A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2441EBDD164E9E7B006B284A /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,6 +69,9 @@
 		2441EBC6164E9D9F006B284A /* NSManagedObjectContext+DCTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+DCTExtras.m"; sourceTree = "<group>"; };
 		2441EBC7164E9D9F006B284A /* NSPredicate+DCTExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+DCTExtras.h"; sourceTree = "<group>"; };
 		2441EBC8164E9D9F006B284A /* NSPredicate+DCTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+DCTExtras.m"; sourceTree = "<group>"; };
+		2441EBD7164E9E42006B284A /* DCTCoreDataSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTCoreDataSerialization.h; sourceTree = "<group>"; };
+		2441EBD8164E9E42006B284A /* DCTCoreDataSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTCoreDataSerialization.m; sourceTree = "<group>"; };
+		2441EBDD164E9E7B006B284A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2441EBDE164E9E7B006B284A /* CoreData.framework in Frameworks */,
 				2441EB9A164E9D71006B284A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +107,7 @@
 		2441EB98164E9D71006B284A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2441EBDD164E9E7B006B284A /* CoreData.framework */,
 				2441EB99164E9D71006B284A /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -109,6 +116,8 @@
 		2441EBAB164E9D9F006B284A /* DCTCoreDataSerialization */ = {
 			isa = PBXGroup;
 			children = (
+				2441EBD7164E9E42006B284A /* DCTCoreDataSerialization.h */,
+				2441EBD8164E9E42006B284A /* DCTCoreDataSerialization.m */,
 				2441EBAD164E9D9F006B284A /* NSArray+DCTSortDescriptors.h */,
 				2441EBAE164E9D9F006B284A /* NSArray+DCTSortDescriptors.m */,
 				2441EBAF164E9D9F006B284A /* NSAttributeDescription+DCTObjectCheck.h */,
@@ -206,6 +215,7 @@
 				2441EBD4164E9D9F006B284A /* NSManagedObjectContext+DCTDataFetching.m in Sources */,
 				2441EBD5164E9D9F006B284A /* NSManagedObjectContext+DCTExtras.m in Sources */,
 				2441EBD6164E9D9F006B284A /* NSPredicate+DCTExtras.m in Sources */,
+				2441EBD9164E9E42006B284A /* DCTCoreDataSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
