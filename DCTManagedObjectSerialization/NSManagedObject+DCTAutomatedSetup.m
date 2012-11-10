@@ -43,6 +43,7 @@
 #import "NSManagedObjectContext+DCTDataFetching.h"
 #import "NSManagedObject+DCTRelatedObjects.h"
 #import "NSPredicate+DCTExtras.h"
+#import "DCTManagedObjectAutomatedSetup.h"
 
 /* Define these for logging problems:
  

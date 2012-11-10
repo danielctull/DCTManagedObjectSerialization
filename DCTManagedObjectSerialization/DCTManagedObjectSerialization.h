@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "DCTManagedObjectAutomatedSetup.h"
 
 @interface DCTManagedObjectSerialization : NSObject
 
