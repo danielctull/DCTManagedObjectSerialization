@@ -55,14 +55,17 @@
 }
 
 - (NSManagedObject *)_existingObject {
+	NSPredicate *predicate = [self _uniqueKeysPredicate];
+	if (!predicate) return nil;
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:_entity.name];
-	fetchRequest.predicate = [self _uniqueKeysPredicate];
+	fetchRequest.predicate = predicate;
 	NSArray *result = [_managedObjectContext executeFetchRequest:fetchRequest error:NULL];
 	return [result lastObject];
 }
 
 - (NSPredicate *)_uniqueKeysPredicate {
 	NSArray *uniqueKeys = _entity.dct_serializationUniqueKeys;
+	if (uniqueKeys.count == 0) return nil;
 	NSMutableArray *predicates = [[NSMutableArray alloc] initWithCapacity:uniqueKeys.count];
 	[uniqueKeys enumerateObjectsUsingBlock:^(NSString *uniqueKey, NSUInteger i, BOOL *stop) {
 
@@ -81,7 +84,12 @@
 #pragma mark -
 
 - (NSString *)_propertyNameForSerializationName:(NSString *)serializationName {
-	return [[self _serializationNameToPropertyNameMapping] objectForKey:serializationName];
+	NSString *propertyName = [[self _serializationNameToPropertyNameMapping] objectForKey:serializationName];
+
+	if (propertyName.length == 0 && [[[_entity propertiesByName] allKeys] containsObject:serializationName])
+		propertyName = serializationName;
+
+	return propertyName;
 }
 
 - (NSDictionary *)_serializationNameToPropertyNameMapping {
