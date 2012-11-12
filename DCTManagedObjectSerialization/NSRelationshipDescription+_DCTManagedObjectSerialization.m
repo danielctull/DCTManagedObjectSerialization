@@ -11,7 +11,7 @@
 
 @implementation NSRelationshipDescription (_DCTManagedObjectSerialization)
 
-- (id)dct_valueForSerializedValue:(id)value managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+- (id)dct_valueForSerializedValue:(id)value inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
 
 	if (!self.isToMany)
 		return [self dct_valueForSerializedDictionary:value managedObjectContext:managedObjectContext];
@@ -43,7 +43,7 @@
 
 	if (![dictionary isKindOfClass:[NSDictionary class]]) return nil;
 
-	NSEntityDescription *entity = self.entity;
+	NSEntityDescription *entity = self.destinationEntity;
 	_DCTManagedObjectDeserializer *deserializer = [[_DCTManagedObjectDeserializer alloc] initWithDictionary:dictionary
 																									 entity:entity
 																					   managedObjectContext:managedObjectContext];
