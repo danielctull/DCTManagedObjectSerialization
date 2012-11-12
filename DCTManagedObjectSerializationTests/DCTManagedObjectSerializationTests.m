@@ -150,5 +150,26 @@
 	STAssertFalse([person1 isEqual:person2], @"%@ should not equal %@", person1.objectID, person2.objectID);
 }
 
+- (void)testObjectDuplication3 {
+
+	NSManagedObjectContext *managedObjectContext = [self newManagedObjectContext];
+
+	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
+	entity.dct_serializationUniqueKeys = @[PersonAttributes.personID];
+
+	NSAttributeDescription *idAttribute = [[entity propertiesByName] objectForKey:PersonAttributes.personID];
+	idAttribute.dct_serializationName = @"id";
+	
+	Person *person1 = [DCTManagedObjectSerialization objectFromDictionary:@{ @"id" : @"1" }
+															   rootEntity:entity
+													 managedObjectContext:managedObjectContext];
+
+	Person *person2 = [DCTManagedObjectSerialization objectFromDictionary:@{ @"id" : @"1" }
+															   rootEntity:entity
+													 managedObjectContext:managedObjectContext];
+
+	STAssertTrue([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
+}
+
 @end
  
