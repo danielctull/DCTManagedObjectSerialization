@@ -16,7 +16,7 @@
 	if (!self.isToMany)
 		return [self dct_valueForSerializedDictionary:value managedObjectContext:managedObjectContext];
 
-	if (self.isOrdered)
+	if ([self respondsToSelector:@selector(isOrdered)] && self.isOrdered)
 		return [self dct_orderedSetForSerializedArray:value managedObjectContext:managedObjectContext];
 
 	return [self dct_setForSerializedArray:value managedObjectContext:managedObjectContext];
