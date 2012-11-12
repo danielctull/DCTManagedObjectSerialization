@@ -14,7 +14,7 @@
 - (void)dct_setSerializedValue:(id)value forKey:(NSString *)key {
 	NSPropertyDescription *property = [self.entity.propertiesByName objectForKey:key];
 	id transformedValue = [property dct_valueForSerializedValue:value inManagedObjectContext:self.managedObjectContext];
-	if (transformedValue) [self setValue:transformedValue forKey:key];
+	[self setValue:transformedValue forKey:key];
 }
 
 @end
