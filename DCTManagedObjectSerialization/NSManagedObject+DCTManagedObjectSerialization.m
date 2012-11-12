@@ -17,4 +17,9 @@
 	[self setValue:transformedValue forKey:key];
 }
 
+- (void)dct_awakeFromDeserialize;
+{
+    // Nothingto do for now. Ask subclasses to call super first so as to mimic existing -awakeFrom… methods in case we come across a good reason later
+}
+
 @end

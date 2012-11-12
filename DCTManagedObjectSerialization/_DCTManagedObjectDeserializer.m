@@ -33,6 +33,7 @@
 		managedObject = [[NSManagedObject alloc] initWithEntity:_entity insertIntoManagedObjectContext:_managedObjectContext];
 
 	[self _setupManagedObject:managedObject];
+    [managedObject dct_awakeFromDeserialize];
 
 	return managedObject;
 }
