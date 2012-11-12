@@ -73,7 +73,7 @@
 
 		NSAssert(property != nil, @"A unique key has been set that doesn't exist.");
 
-		NSString *serializationName = [self _propertyNameForSerializationName:uniqueKey];
+		NSString *serializationName = [self _serializationNameForPropertyName:uniqueKey];
 		id serializedValue = [_dictionary objectForKey:serializationName];
 		id value = [property dct_valueForSerializedValue:serializedValue inManagedObjectContext:_managedObjectContext];
 		if (!value) return;
@@ -85,6 +85,11 @@
 }
 
 #pragma mark -
+
+- (NSString *)_serializationNameForPropertyName:(NSString *)propertyName {
+	NSPropertyDescription *property = [[_entity propertiesByName] objectForKey:propertyName];
+	return property.dct_serializationName;
+}
 
 - (NSString *)_propertyNameForSerializationName:(NSString *)serializationName {
 	NSString *propertyName = [[self _serializationNameToPropertyNameMapping] objectForKey:serializationName];
