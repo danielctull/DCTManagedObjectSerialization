@@ -17,4 +17,6 @@
 				rootEntity:(NSEntityDescription *)entity
 	  managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
++ (NSString *)serializationDescriptionForEntitiesInManagedObjectModel:(NSManagedObjectModel *)managedObjectModel;
+
 @end
