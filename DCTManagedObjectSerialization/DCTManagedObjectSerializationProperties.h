@@ -1,0 +1,34 @@
+//
+//  DCTManagedObjectSerializationProperties.h
+//  DCTManagedObjectSerialization
+//
+//  Created by Daniel Tull on 12.11.2012.
+//  Copyright (c) 2012 Daniel Tull. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
+
+
+@interface NSEntityDescription (DCTManagedObjectSerializationProperties)
+@property (nonatomic, copy) NSArray *dct_serializationUniqueKeys; // serializationUniqueKeys
+@end
+
+
+
+@interface NSPropertyDescription (DCTManagedObjectSerializationProperties)
+@property (nonatomic, copy) NSString *dct_serializationName; // serializationName
+@end
+
+
+
+@interface NSAttributeDescription (DCTManagedObjectSerializationProperties)
+@property (nonatomic, copy) NSArray *dct_serializationTransformerNames; // serializationTransformerNames
+@end
+
+
+
+@interface NSRelationshipDescription (DCTManagedObjectSerializationProperties)
+@property (nonatomic, assign) BOOL dct_serializationShouldBeUnion; // serializationShouldBeUnion (values are "0" for NO or "1" for YES)
+@end

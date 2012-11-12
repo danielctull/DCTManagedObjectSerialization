@@ -13,12 +13,30 @@
 
 - (id)dct_valueForSerializedValue:(id)value managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
 
-	return nil;
+	if (!self.isToMany)
+		return [self dct_valueForSerializedDictionary:value managedObjectContext:managedObjectContext];
 
+	if (self.isOrdered)
+		return [self dct_orderedSetForSerializedArray:value managedObjectContext:managedObjectContext];
+
+	return [self dct_setForSerializedArray:value managedObjectContext:managedObjectContext];
 }
 
-- (NSArray *)dct_arrayForSerializedDictionary:(NSArray *)array managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
-	return nil;
+- (NSSet *)dct_setForSerializedArray:(NSArray *)array managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+	NSOrderedSet *orderedSet = [self dct_orderedSetForSerializedArray:array managedObjectContext:managedObjectContext];
+	return [orderedSet set];
+}
+
+- (NSOrderedSet *)dct_orderedSetForSerializedArray:(NSArray *)array managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+
+	NSMutableOrderedSet *orderedSet = [NSMutableOrderedSet new];
+
+	[array enumerateObjectsUsingBlock:^(NSDictionary *dictionary, NSUInteger i, BOOL *stop) {
+		id object = [self dct_valueForSerializedDictionary:dictionary managedObjectContext:managedObjectContext];
+		[orderedSet addObject:object];
+	}];	
+
+	return [orderedSet copy];
 }
 
 - (id)dct_valueForSerializedDictionary:(NSDictionary *)dictionary managedObjectContext:(NSManagedObjectContext *)managedObjectContext {

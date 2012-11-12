@@ -14,4 +14,10 @@
 	return nil;
 }
 
+- (void)dct_setUserInfoValue:(id)value forKey:(NSString *)key {
+	NSMutableDictionary *userInfo = [self.userInfo mutableCopy];
+	[userInfo setObject:value forKey:key];
+	self.userInfo = [userInfo copy];
+}
+
 @end

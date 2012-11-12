@@ -8,12 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-
-#import "NSPropertyDescription+DCTManagedObjectSerialization.h"
-#import "NSEntityDescription+DCTManagedObjectSerialization.h"
-
-extern NSString *const DCTManagedObjectSerializationSecondsSince1970ValueTransformerName;	// SecondsSince1970
-extern NSString *const DCTManagedObjectSerializationISO8601ValueTransformerName;			// ISO8601
+#import "DCTManagedObjectSerializationProperties.h"
+#import "NSManagedObject+DCTManagedObjectSerialization.h"
 
 @interface DCTManagedObjectSerialization : NSObject
 

@@ -11,5 +11,6 @@
 @interface NSPropertyDescription (_DCTManagedObjectSerialization)
 
 - (id)dct_valueForSerializedValue:(id)value inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+- (void)dct_setUserInfoValue:(id)value forKey:(NSString *)key;
 
 @end

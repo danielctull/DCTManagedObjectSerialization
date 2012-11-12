@@ -1,0 +1,92 @@
+//
+//  DCTManagedObjectSerializationProperties.m
+//  DCTManagedObjectSerialization
+//
+//  Created by Daniel Tull on 12.11.2012.
+//  Copyright (c) 2012 Daniel Tull. All rights reserved.
+//
+
+#import "DCTManagedObjectSerializationProperties.h"
+#import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
+
+NSString *const DCTSerializationUniqueKeys = @"serializationUniqueKeys";
+NSString *const DCTSerializationName = @"serializationName";
+NSString *const DCTSerializationTransformerNames = @"serializationTransformerNames";
+NSString *const DCTSerializationShouldBeUnion = @"serializationShouldBeUnion";
+
+
+
+
+@implementation NSEntityDescription (DCTManagedObjectSerializationProperties)
+
+- (NSArray *)dct_serializationUniqueKeys {
+	NSString *uniqueKeys = [self.userInfo objectForKey:DCTSerializationUniqueKeys];
+	return [uniqueKeys componentsSeparatedByString:@","];
+}
+
+- (void)setDct_serializationUniqueKeys:(NSArray *)dct_serializationUniqueKeys {
+	NSString *uniqueKeys = [dct_serializationUniqueKeys componentsJoinedByString:@","];
+	[self dct_setUserInfoValue:uniqueKeys forKey:DCTSerializationUniqueKeys];
+}
+
+- (void)dct_setUserInfoValue:(id)value forKey:(NSString *)key {
+	NSMutableDictionary *userInfo = [self.userInfo mutableCopy];
+	[userInfo setObject:value forKey:key];
+	self.userInfo = [userInfo copy];
+}
+
+@end
+
+
+
+
+
+@implementation NSPropertyDescription (DCTManagedObjectSerializationProperties)
+
+- (NSString *)dct_serializationName {
+	NSString *serializationName = [self.userInfo objectForKey:DCTSerializationName];
+	if (serializationName.length > 0) return serializationName;
+	return self.name;
+}
+
+- (void)setDct_serializationName:(NSString *)dct_serializationName {
+	[self dct_setUserInfoValue:[dct_serializationName copy] forKey:DCTSerializationName];
+}
+
+@end
+
+
+
+
+
+@implementation NSAttributeDescription (DCTManagedObjectSerializationProperties)
+
+- (NSArray *)dct_serializationTransformerNames {
+	NSString *serializationTransformerNames = [self.userInfo objectForKey:DCTSerializationTransformerNames];
+	return [serializationTransformerNames componentsSeparatedByString:@","];
+}
+
+- (void)setDct_serializationTransformerNames:(NSArray *)dct_serializationTransformerNames {
+	NSString *serializationTransformerNames = [dct_serializationTransformerNames componentsJoinedByString:@","];
+	[self dct_setUserInfoValue:serializationTransformerNames forKey:DCTSerializationTransformerNames];
+}
+
+@end
+
+
+
+
+
+@implementation NSRelationshipDescription (DCTManagedObjectSerializationProperties)
+
+- (BOOL)dct_serializationShouldBeUnion {
+	NSString *serializationShouldBeUnion = [self.userInfo objectForKey:DCTSerializationName];
+	return [serializationShouldBeUnion boolValue];
+}
+
+- (void)setDct_serializationShouldBeUnion:(BOOL)dct_serializationShouldBeUnion {
+	NSString *serializationShouldBeUnion = [@(dct_serializationShouldBeUnion) description];
+	[self dct_setUserInfoValue:serializationShouldBeUnion forKey:DCTSerializationShouldBeUnion];
+}
+
+@end
