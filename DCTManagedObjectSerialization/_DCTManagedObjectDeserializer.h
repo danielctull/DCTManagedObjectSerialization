@@ -10,6 +10,13 @@
 #import <CoreData/CoreData.h>
 
 @interface _DCTManagedObjectDeserializer : NSObject
+{
+  @private
+	NSDictionary *_dictionary;
+	NSEntityDescription *_entity;
+	NSManagedObjectContext *_managedObjectContext;
+	NSDictionary *_serializationNameToPropertyNameMapping;
+}
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 				  entity:(NSEntityDescription *)entity

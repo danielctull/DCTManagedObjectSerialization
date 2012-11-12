@@ -11,12 +11,7 @@
 #import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
 #import "NSManagedObject+DCTManagedObjectSerialization.h"
 
-@implementation _DCTManagedObjectDeserializer {
-	NSDictionary *_dictionary;
-	NSEntityDescription *_entity;
-	NSManagedObjectContext *_managedObjectContext;
-	NSDictionary *_serializationNameToPropertyNameMapping;
-}
+@implementation _DCTManagedObjectDeserializer
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 				  entity:(NSEntityDescription *)entity
