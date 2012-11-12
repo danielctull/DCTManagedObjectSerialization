@@ -76,8 +76,11 @@
 		NSString *serializationName = [self _propertyNameForSerializationName:uniqueKey];
 		id serializedValue = [_dictionary objectForKey:serializationName];
 		id value = [property dct_valueForSerializedValue:serializedValue inManagedObjectContext:_managedObjectContext];
-		[NSPredicate predicateWithFormat:@"%K == %@", uniqueKey, value];
+		if (!value) return;
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", uniqueKey, value];
+		[predicates addObject:predicate];
 	}];
+	if (predicates.count == 0) return nil;
 	return [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
 }
 

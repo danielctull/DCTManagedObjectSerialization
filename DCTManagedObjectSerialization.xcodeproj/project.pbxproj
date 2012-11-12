@@ -22,6 +22,7 @@
 		24217CC1164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */; };
 		24217CC4164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */; };
 		24217CC9164EEF7D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */; };
+		24217CD01650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CCF1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m */; };
 		245CD699164EA29300600BFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
 		245CD6C1164EA2BF00600BFF /* DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6AC164EA2BF00600BFF /* DCTManagedObjectSerialization.m */; };
 		24A23538164EA58E00BD92ED /* DCTManagedObjectSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */; };
@@ -70,6 +71,8 @@
 		24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRelationshipDescription+_DCTManagedObjectSerialization.m"; sourceTree = "<group>"; };
 		24217CC2164EE68F00B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPropertyDescription+_DCTManagedObjectSerialization.h"; sourceTree = "<group>"; };
 		24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPropertyDescription+_DCTManagedObjectSerialization.m"; sourceTree = "<group>"; };
+		24217CCE1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTestNumberToStringValueTransformer.h; sourceTree = "<group>"; };
+		24217CCF1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTestNumberToStringValueTransformer.m; sourceTree = "<group>"; };
 		245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTManagedObjectSerialization.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		245CD698164EA29300600BFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization.h; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 				24217C6E164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m */,
 				24217C69164EC4E000B7DE98 /* DCTManagedObjectSerializationTests-Info.plist */,
 				24217C7C164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld */,
+				24217CCE1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.h */,
+				24217CCF1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m */,
 			);
 			path = DCTManagedObjectSerializationTests;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				24217C7E164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld in Sources */,
 				24217CAD164EC9A800B7DE98 /* _Person.m in Sources */,
 				24217CAE164EC9A800B7DE98 /* Person.m in Sources */,
+				24217CD01650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

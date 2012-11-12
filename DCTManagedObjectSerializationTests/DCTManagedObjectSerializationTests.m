@@ -9,6 +9,7 @@
 #import "DCTManagedObjectSerializationTests.h"
 #import <DCTManagedObjectSerialization/DCTManagedObjectSerialization.h>
 #import "Person.h"
+#import "DCTTestNumberToStringValueTransformer.h"
 
 @implementation DCTManagedObjectSerializationTests
 
@@ -75,33 +76,32 @@
 - (void)testObjectCreationSettingStringAttributeWithNumber {
 	NSManagedObjectContext *managedObjectContext = [self newManagedObjectContext];
 	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
+	NSAttributeDescription *idAttribute = [[entity propertiesByName] objectForKey:PersonAttributes.personID];
+	idAttribute.dct_serializationTransformerNames = @[NSStringFromClass([DCTTestNumberToStringValueTransformer class])];
 	Person *person = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @(1) }
 															  rootEntity:entity
 													managedObjectContext:managedObjectContext];
 	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
 }
 
-- (void)testObjectCreation222 {
+- (void)testObjectDuplication {
 
 	NSManagedObjectContext *managedObjectContext = [self newManagedObjectContext];
 
-	NSDate *date = [NSDate date];
-	NSNumber *timeInterval = @([date timeIntervalSince1970]);
-	NSString *dob = [NSString stringWithFormat:@"%@", @([date timeIntervalSince1970])];
 	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
-	Person *person = [DCTManagedObjectSerialization objectFromDictionary:@{ @"id" : @"1", @"dob" : dob }
-															  rootEntity:entity
-													managedObjectContext:managedObjectContext];
+	entity.dct_serializationUniqueKeys = @[PersonAttributes.personID];
+	Person *person1 = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @"1" }
+															   rootEntity:entity
+													 managedObjectContext:managedObjectContext];
 
+	Person *person2 = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @"1" }
+															   rootEntity:entity
+													 managedObjectContext:managedObjectContext];
 
-	STAssertNotNil(person, @"Not returning an object.");
-	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
-
-	NSNumber *personTimeInterval = @([person.dateOfBirth timeIntervalSince1970]);
-	STAssertTrue([personTimeInterval isEqualToNumber:timeInterval], @"Incorrect dateOfBirth (%@ not %@).", personTimeInterval, timeInterval);
+	STAssertTrue([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
 }
 
-- (void)testObjectDuplication {
+- (void)testObjectDuplicationNotSame {
 
 	NSManagedObjectContext *managedObjectContext = [self newManagedObjectContext];
 
@@ -115,7 +115,23 @@
 															   rootEntity:entity
 													 managedObjectContext:managedObjectContext];
 
-	STAssertTrue([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
+	STAssertFalse([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
+}
+
+- (void)testObjectDuplicationNotSame2 {
+
+	NSManagedObjectContext *managedObjectContext = [self newManagedObjectContext];
+
+	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
+	Person *person1 = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @"1" }
+															   rootEntity:entity
+													 managedObjectContext:managedObjectContext];
+
+	Person *person2 = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @"2" }
+															   rootEntity:entity
+													 managedObjectContext:managedObjectContext];
+
+	STAssertFalse([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
 }
 
 - (void)testObjectDuplication2 {
