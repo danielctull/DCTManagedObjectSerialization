@@ -41,9 +41,23 @@
 
 - (id)dct_valueForSerializedDictionary:(NSDictionary *)dictionary managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
 
-	if (![dictionary isKindOfClass:[NSDictionary class]]) return nil;
+	if (![dictionary isKindOfClass:[NSDictionary class]]) return nil;    // likely corrupt serialization
 
-	NSEntityDescription *entity = self.destinationEntity;
+	NSEntityDescription *entity = nil;
+    if ([dictionary objectForKey:@"entity"])
+    {
+        NSString *name = [dictionary objectForKey:@"entity"];
+        if ([name isKindOfClass:[NSString class]])
+        {
+            entity = [NSEntityDescription entityForName:name inManagedObjectContext:managedObjectContext];
+        }
+        if (!entity) return nil;    // likely corrupt serialization
+    }
+    else
+    {
+        entity = self.destinationEntity;
+    }
+    
 	_DCTManagedObjectDeserializer *deserializer = [[_DCTManagedObjectDeserializer alloc] initWithDictionary:dictionary
 																									 entity:entity
 																					   managedObjectContext:managedObjectContext];
