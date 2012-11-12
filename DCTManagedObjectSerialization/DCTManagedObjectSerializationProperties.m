@@ -10,6 +10,7 @@
 #import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
 
 NSString *const DCTSerializationUniqueKeys = @"serializationUniqueKeys";
+NSString *const DCTSerializationShouldDeserializeNilValues = @"shouldDeserializeNilValues";
 NSString *const DCTSerializationName = @"serializationName";
 NSString *const DCTSerializationTransformerNames = @"serializationTransformerNames";
 NSString *const DCTSerializationShouldBeUnion = @"serializationShouldBeUnion";
@@ -27,6 +28,17 @@ NSString *const DCTSerializationShouldBeUnion = @"serializationShouldBeUnion";
 - (void)setDct_serializationUniqueKeys:(NSArray *)dct_serializationUniqueKeys {
 	NSString *uniqueKeys = [dct_serializationUniqueKeys componentsJoinedByString:@","];
 	[self dct_setUserInfoValue:uniqueKeys forKey:DCTSerializationUniqueKeys];
+}
+
+- (BOOL)dct_shouldDeserializeNilValues {
+	NSString *shouldDeserializeNilValues = [self.userInfo objectForKey:DCTSerializationShouldDeserializeNilValues];
+	if (shouldDeserializeNilValues.length == 0) return YES;
+	return [shouldDeserializeNilValues boolValue];
+}
+
+- (void)setDct_shouldDeserializeNilValues:(BOOL)dct_shouldDeserializeNilValues {
+	NSString *shouldDeserializeNilValues = [@(dct_shouldDeserializeNilValues) description];
+	[self dct_setUserInfoValue:shouldDeserializeNilValues forKey:DCTSerializationShouldDeserializeNilValues];
 }
 
 - (void)dct_setUserInfoValue:(id)value forKey:(NSString *)key {

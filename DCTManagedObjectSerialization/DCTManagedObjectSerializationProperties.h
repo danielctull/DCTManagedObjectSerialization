@@ -13,6 +13,7 @@
 
 @interface NSEntityDescription (DCTManagedObjectSerializationProperties)
 @property (nonatomic, copy) NSArray *dct_serializationUniqueKeys; // serializationUniqueKeys
+@property (nonatomic, assign) BOOL dct_shouldDeserializeNilValues; // shouldDeserializeNilValues (values are "0" for NO or "1" for YES, default is YES)
 @end
 
 
@@ -30,5 +31,5 @@
 
 
 @interface NSRelationshipDescription (DCTManagedObjectSerializationProperties)
-@property (nonatomic, assign) BOOL dct_serializationShouldBeUnion; // serializationShouldBeUnion (values are "0" for NO or "1" for YES)
+@property (nonatomic, assign) BOOL dct_serializationShouldBeUnion; // serializationShouldBeUnion (values are "0" for NO or "1" for YES, default is NO)
 @end
