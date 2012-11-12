@@ -17,17 +17,23 @@
 
 - (id)dct_valueForSerializedValue:(id)value {
 
-	NSString *transformerName = self.dct_serializationTransformerName;
-	if (transformerName) {
+	__block id transformedValue = value;
+
+	NSArray *transformerNames = self.dct_serializationTransformerNames;
+	[transformerNames enumerateObjectsUsingBlock:^(NSString *transformerName, NSUInteger idx, BOOL *stop) {
 		NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:transformerName];
-		if (transformer)
-			value = [transformer reverseTransformedValue:value];
-	}
+		transformedValue = [transformer transformedValue:transformedValue];
+	}];
 
-	if (![value isKindOfClass:NSClassFromString([self attributeValueClassName])])
-		return nil;
+	Class attributeClass = NSClassFromString([self attributeValueClassName]);
 
-	return value;
+	if ([transformedValue isKindOfClass:attributeClass])
+		return transformedValue;
+
+	if ([value isKindOfClass:attributeClass])
+			return value;
+
+	return nil;
 }
 
 @end

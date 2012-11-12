@@ -11,6 +11,6 @@
 @interface NSPropertyDescription (DCTManagedObjectSerialization)
 
 @property (nonatomic, copy) NSString *dct_serializationName;
-@property (nonatomic, copy) NSString *dct_serializationTransformerName;
+@property (nonatomic, copy) NSArray *dct_serializationTransformerNames;
 
 @end
