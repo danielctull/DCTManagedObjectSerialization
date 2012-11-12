@@ -26,6 +26,7 @@
 		245CD699164EA29300600BFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
 		245CD6C1164EA2BF00600BFF /* DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6AC164EA2BF00600BFF /* DCTManagedObjectSerialization.m */; };
 		2492B5A01650F470004BB997 /* DCTManagedObjectSerializationProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492B59F1650F470004BB997 /* DCTManagedObjectSerializationProperties.m */; };
+		2492B60B165107A7004BB997 /* DCTManagedObjectSerializationProperties.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2492B59E1650F470004BB997 /* DCTManagedObjectSerializationProperties.h */; };
 		24A23538164EA58E00BD92ED /* DCTManagedObjectSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				2492B60B165107A7004BB997 /* DCTManagedObjectSerializationProperties.h in CopyFiles */,
 				24A23538164EA58E00BD92ED /* DCTManagedObjectSerialization.h in CopyFiles */,
 				24217CC9164EEF7D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h in CopyFiles */,
 			);
