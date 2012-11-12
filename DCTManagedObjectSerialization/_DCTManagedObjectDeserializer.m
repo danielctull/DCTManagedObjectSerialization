@@ -38,14 +38,16 @@
 }
 
 - (void)_setupManagedObject:(NSManagedObject *)managedObject {
+	NSEntityDescription *entity = managedObject.entity;
 
-	[_dictionary enumerateKeysAndObjectsUsingBlock:^(id serializationName, id serializedValue, BOOL *stop) {
+	[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
 
-		NSString *propertyName = [self _propertyNameForSerializationName:serializationName];
+		NSString *propertyName = property.name;
+		NSString *serializationName = [self _serializationNameForPropertyName:propertyName];
+		id serializedValue = [_dictionary objectForKey:serializationName];
 
-		if (!propertyName) return;
-
-		[managedObject dct_setSerializedValue:serializedValue forKey:propertyName];
+		if (serializedValue || entity.dct_shouldDeserializeNilValues)
+			[managedObject dct_setSerializedValue:serializedValue forKey:propertyName];
 	}];
 }
 
