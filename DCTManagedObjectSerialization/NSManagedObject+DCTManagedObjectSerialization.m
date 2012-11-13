@@ -15,7 +15,18 @@
 - (void)dct_setSerializedValue:(id)value forKey:(NSString *)key {
 	NSPropertyDescription *property = [self.entity.propertiesByName objectForKey:key];
 	id transformedValue = [property dct_valueForSerializedValue:value inManagedObjectContext:self.managedObjectContext];
-	[self setValue:transformedValue forKey:key];
+    
+    // For attributes, know we can set primitive value so as to avoid any possible side effects from custom setter methods. Other properties fall back to generic KVC
+    if ([property isKindOfClass:[NSAttributeDescription class]])
+    {
+        [self willChangeValueForKey:key];
+        [self setPrimitiveValue:transformedValue forKey:key];
+        [self didChangeValueForKey:key];
+    }
+    else
+    {
+        [self setValue:transformedValue forKey:key];
+    }
 }
 
 - (void)dct_awakeFromSerializedRepresentation:(NSObject *)rep;
