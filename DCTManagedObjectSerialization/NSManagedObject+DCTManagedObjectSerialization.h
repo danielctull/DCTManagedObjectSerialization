@@ -14,6 +14,7 @@
 
 // Performs deserialization
 // You can override to tack on additional functionality *after* calling through to super, although overriding -dct_setSerializedValue:forKey: is often more appropriate
-- (void)dct_awakeFromSerializedRepresentation:(NSDictionary *)rep;
+// The serialized form is guaranteed to adopt Key Value Coding, but that's it
+- (void)dct_awakeFromSerializedRepresentation:(NSObject *)rep;
 
 @end

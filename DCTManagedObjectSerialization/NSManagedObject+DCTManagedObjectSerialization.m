@@ -18,14 +18,14 @@
 	[self setValue:transformedValue forKey:key];
 }
 
-- (void)dct_awakeFromSerializedRepresentation:(NSDictionary *)rep;
+- (void)dct_awakeFromSerializedRepresentation:(NSObject *)rep;
 {
     NSEntityDescription *entity = self.entity;
     
 	[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
         
         NSString *serializationName = property.dct_serializationName;
-		id serializedValue = [rep objectForKey:serializationName];
+		id serializedValue = [rep valueForKey:serializationName];
         
 		if (serializedValue || entity.dct_shouldDeserializeNilValues)
 			[self dct_setSerializedValue:serializedValue forKey:property.name];
