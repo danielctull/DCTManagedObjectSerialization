@@ -7,6 +7,7 @@
 //
 
 #import "NSManagedObject+DCTManagedObjectSerialization.h"
+#import "DCTManagedObjectSerialization.h"
 #import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
 
 @implementation NSManagedObject (DCTManagedObjectSerialization)
@@ -17,9 +18,18 @@
 	[self setValue:transformedValue forKey:key];
 }
 
-- (void)dct_awakeFromDeserialize;
+- (void)dct_awakeFromSerializedRepresentation:(NSDictionary *)rep;
 {
-    // Nothingto do for now. Ask subclasses to call super first so as to mimic existing -awakeFrom… methods in case we come across a good reason later
+    NSEntityDescription *entity = self.entity;
+    
+	[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
+        
+        NSString *serializationName = property.dct_serializationName;
+		id serializedValue = [rep objectForKey:serializationName];
+        
+		if (serializedValue || entity.dct_shouldDeserializeNilValues)
+			[self dct_setSerializedValue:serializedValue forKey:property.name];
+	}];
 }
 
 @end

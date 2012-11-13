@@ -12,7 +12,8 @@
 
 - (void)dct_setSerializedValue:(id)object forKey:(NSString *)key;
 
-// Called at end of deserialization. Subclass to tack on additional functionality after calling through to super
-- (void)dct_awakeFromDeserialize;
+// Performs deserialization
+// You can override to tack on additional functionality *after* calling through to super, although overriding -dct_setSerializedValue:forKey: is often more appropriate
+- (void)dct_awakeFromSerializedRepresentation:(NSDictionary *)rep;
 
 @end

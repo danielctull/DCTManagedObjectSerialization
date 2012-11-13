@@ -32,24 +32,9 @@
 	if (!managedObject)
 		managedObject = [[NSManagedObject alloc] initWithEntity:_entity insertIntoManagedObjectContext:_managedObjectContext];
 
-	[self _setupManagedObject:managedObject];
-    [managedObject dct_awakeFromDeserialize];
+	[managedObject dct_awakeFromSerializedRepresentation:_dictionary];
 
 	return managedObject;
-}
-
-- (void)_setupManagedObject:(NSManagedObject *)managedObject {
-	NSEntityDescription *entity = managedObject.entity;
-
-	[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
-
-		NSString *propertyName = property.name;
-		NSString *serializationName = [self _serializationNameForPropertyName:propertyName];
-		id serializedValue = [_dictionary objectForKey:serializationName];
-
-		if (serializedValue || entity.dct_shouldDeserializeNilValues)
-			[managedObject dct_setSerializedValue:serializedValue forKey:propertyName];
-	}];
 }
 
 - (NSManagedObject *)_existingObject {
