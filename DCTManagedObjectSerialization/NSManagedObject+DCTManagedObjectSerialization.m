@@ -35,6 +35,9 @@
     
 	[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
         
+		// Skip transient properties
+		if ([property isTransient]) return;
+		
         NSString *serializationName = property.dct_serializationName;
 		id serializedValue = [rep valueForKey:serializationName];
         
