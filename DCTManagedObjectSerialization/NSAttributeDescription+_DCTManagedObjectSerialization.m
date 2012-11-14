@@ -25,7 +25,10 @@
 		transformedValue = [transformer transformedValue:transformedValue];
 	}];
 
-	Class attributeClass = NSClassFromString([self attributeValueClassName]);
+	if (self.attributeType == NSTransformableAttributeType)
+		return transformedValue;
+
+	Class attributeClass = NSClassFromString(self.attributeValueClassName);
 
 	if ([transformedValue isKindOfClass:attributeClass])
 		return transformedValue;
