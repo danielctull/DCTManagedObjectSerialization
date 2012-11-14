@@ -16,27 +16,25 @@
 	if (!self.isToMany)
 		return [self dct_valueForSerializedDictionary:value managedObjectContext:managedObjectContext];
 
-	if ([self respondsToSelector:@selector(isOrdered)] && self.isOrdered)
-		return [self dct_orderedSetForSerializedArray:value managedObjectContext:managedObjectContext];
-
-	return [self dct_setForSerializedArray:value managedObjectContext:managedObjectContext];
+	if ([self respondsToSelector:@selector(isOrdered)] && self.isOrdered) {
+		
+		NSMutableOrderedSet *result = [NSMutableOrderedSet orderedSetWithCapacity:[value count]];
+		[self dct_populateCollection:result fromSerializedObjects:value managedObjectContext:managedObjectContext];
+		return result;
+	}
+	else {
+		NSMutableSet *result = [NSMutableSet setWithCapacity:[value count]];
+		[self dct_populateCollection:result fromSerializedObjects:value managedObjectContext:managedObjectContext];
+		return result;
+	}
 }
 
-- (NSSet *)dct_setForSerializedArray:(NSArray *)array managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
-	NSOrderedSet *orderedSet = [self dct_orderedSetForSerializedArray:array managedObjectContext:managedObjectContext];
-	return [orderedSet set];
-}
-
-- (NSOrderedSet *)dct_orderedSetForSerializedArray:(NSArray *)array managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
-
-	NSMutableOrderedSet *orderedSet = [NSMutableOrderedSet new];
+- (void)dct_populateCollection:(id)collection fromSerializedObjects:(NSArray *)array managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
 
 	[array enumerateObjectsUsingBlock:^(NSDictionary *dictionary, NSUInteger i, BOOL *stop) {
 		id object = [self dct_valueForSerializedDictionary:dictionary managedObjectContext:managedObjectContext];
-		[orderedSet addObject:object];
-	}];	
-
-	return [orderedSet copy];
+		[collection addObject:object];
+	}];
 }
 
 - (id)dct_valueForSerializedDictionary:(NSDictionary *)dictionary managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
