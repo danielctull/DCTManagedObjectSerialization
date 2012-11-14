@@ -27,7 +27,7 @@
 	STAssertNotNil(managedObjectContext, @"managedObjectContext is nil.");
 	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
 	Person *person = [DCTManagedObjectSerialization objectFromDictionary:nil
-															  rootEntity:entity
+														  rootEntityName:[entity name]
 													managedObjectContext:managedObjectContext];
 	STAssertNotNil(person, @"person should not be nil.");
 	STAssertNil(person.personID, @"personID should not be set (%@).", person.personID);
@@ -37,7 +37,7 @@
 	NSManagedObjectContext *managedObjectContext = [self newManagedObjectContext];
 	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
 	Person *person = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @"1" }
-															  rootEntity:entity
+														  rootEntityName:[entity name]
 													managedObjectContext:managedObjectContext];
 	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
 }
@@ -48,7 +48,7 @@
 	NSAttributeDescription *idAttribute = [[entity propertiesByName] objectForKey:PersonAttributes.personID];
 	idAttribute.dct_serializationName = @"id";
 	Person *person = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @"1" }
-															  rootEntity:entity
+														  rootEntityName:[entity name]
 													managedObjectContext:managedObjectContext];
 	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
 }
@@ -59,7 +59,7 @@
 	NSAttributeDescription *idAttribute = [[entity propertiesByName] objectForKey:PersonAttributes.personID];
 	idAttribute.dct_serializationName = @"id";
 	Person *person = [DCTManagedObjectSerialization objectFromDictionary:@{ @"id" : @"1" }
-															  rootEntity:entity
+														  rootEntityName:[entity name]
 													managedObjectContext:managedObjectContext];
 	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
 }
@@ -68,7 +68,7 @@
 	NSManagedObjectContext *managedObjectContext = [self newManagedObjectContext];
 	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
 	Person *person = [DCTManagedObjectSerialization objectFromDictionary:@{ @"id" : @"1" }
-															  rootEntity:entity
+														  rootEntityName:[entity name]
 													managedObjectContext:managedObjectContext];
 	STAssertNil(person.personID, @"personID should not be set (%@).", person.personID);
 }
@@ -79,7 +79,7 @@
 	NSAttributeDescription *idAttribute = [[entity propertiesByName] objectForKey:PersonAttributes.personID];
 	idAttribute.dct_serializationTransformerNames = @[NSStringFromClass([DCTTestNumberToStringValueTransformer class])];
 	Person *person = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @(1) }
-															  rootEntity:entity
+														  rootEntityName:[entity name]
 													managedObjectContext:managedObjectContext];
 	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
 }
@@ -91,11 +91,11 @@
 	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
 	entity.dct_serializationUniqueKeys = @[PersonAttributes.personID];
 	Person *person1 = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @"1" }
-															   rootEntity:entity
+														   rootEntityName:[entity name]
 													 managedObjectContext:managedObjectContext];
 
 	Person *person2 = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @"1" }
-															   rootEntity:entity
+														   rootEntityName:[entity name]
 													 managedObjectContext:managedObjectContext];
 
 	STAssertTrue([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
@@ -108,11 +108,11 @@
 	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
 	entity.dct_serializationUniqueKeys = @[PersonAttributes.personID];
 	Person *person1 = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @"1" }
-															   rootEntity:entity
+														   rootEntityName:[entity name]
 													 managedObjectContext:managedObjectContext];
 
 	Person *person2 = [DCTManagedObjectSerialization objectFromDictionary:@{ @"id" : @"1" }
-															   rootEntity:entity
+														   rootEntityName:[entity name]
 													 managedObjectContext:managedObjectContext];
 
 	STAssertFalse([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
@@ -124,11 +124,11 @@
 
 	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
 	Person *person1 = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @"1" }
-															   rootEntity:entity
+														   rootEntityName:[entity name]
 													 managedObjectContext:managedObjectContext];
 
 	Person *person2 = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @"2" }
-															   rootEntity:entity
+														   rootEntityName:[entity name]
 													 managedObjectContext:managedObjectContext];
 
 	STAssertFalse([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
@@ -140,11 +140,11 @@
 
 	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
 	Person *person1 = [DCTManagedObjectSerialization objectFromDictionary:@{ @"id" : @"1" }
-															   rootEntity:entity
+														   rootEntityName:[entity name]
 													 managedObjectContext:managedObjectContext];
 
 	Person *person2 = [DCTManagedObjectSerialization objectFromDictionary:@{ @"id" : @"1" }
-															   rootEntity:entity
+														   rootEntityName:[entity name]
 													 managedObjectContext:managedObjectContext];
 
 	STAssertFalse([person1 isEqual:person2], @"%@ should not equal %@", person1.objectID, person2.objectID);
@@ -161,11 +161,11 @@
 	idAttribute.dct_serializationName = @"id";
 	
 	Person *person1 = [DCTManagedObjectSerialization objectFromDictionary:@{ @"id" : @"1" }
-															   rootEntity:entity
+														   rootEntityName:[entity name]
 													 managedObjectContext:managedObjectContext];
 
 	Person *person2 = [DCTManagedObjectSerialization objectFromDictionary:@{ @"id" : @"1" }
-															   rootEntity:entity
+														   rootEntityName:[entity name]
 													 managedObjectContext:managedObjectContext];
 
 	STAssertTrue([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
