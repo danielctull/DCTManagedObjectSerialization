@@ -144,6 +144,7 @@
 				245CD696164EA29300600BFF /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		245CD696164EA29300600BFF /* Products */ = {
 			isa = PBXGroup;
