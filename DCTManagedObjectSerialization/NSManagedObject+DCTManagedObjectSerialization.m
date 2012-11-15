@@ -36,7 +36,7 @@
 	[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
         
         NSString *serializationName = property.dct_serializationName;
-		id serializedValue = [rep valueForKey:serializationName];
+		id serializedValue = [rep valueForKeyPath:serializationName];
         
 		if (serializedValue || entity.dct_shouldDeserializeNilValues)
 			[self dct_setSerializedValue:serializedValue forKey:property.name];
