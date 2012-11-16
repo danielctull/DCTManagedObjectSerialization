@@ -19,19 +19,43 @@
 
 	self = [self init];
 	if (!self) return nil;
-	_dictionary = dictionary;
+
+	_dictionary = [dictionary copy];
 	_entity = entity;
 	_managedObjectContext = managedObjectContext;
+	
+#if !__has_feature(objc_arc)
+	[_entity retain];
+	[_managedObjectContext retain];
+#endif
+	
 	return self;
 }
+
+#if !__has_feature(objc_arc)
+- (void)dealloc {
+	
+	[_dictionary release];
+	[_entity release];
+	[_managedObjectContext release];
+	[_serializationNameToPropertyNameMapping release];
+	
+	[super dealloc];
+}
+#endif
 
 - (id)deserializedObject {
 
 	NSManagedObject *managedObject = [self _existingObject];
 
-	if (!managedObject)
+	if (!managedObject) {
 		managedObject = [[NSManagedObject alloc] initWithEntity:_entity insertIntoManagedObjectContext:_managedObjectContext];
-
+		
+#if !__has_feature(objc_arc)
+		[managedObject autorelease];
+#endif
+	}
+	
 	[managedObject dct_awakeFromSerializedRepresentation:_dictionary];
 
 	return managedObject;
@@ -40,7 +64,7 @@
 - (NSManagedObject *)_existingObject {
 	NSPredicate *predicate = [self _uniqueKeysPredicate];
 	if (!predicate) return nil;
-	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:_entity.name];
+	NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:_entity.name];
 	fetchRequest.predicate = predicate;
 	NSArray *result = [_managedObjectContext executeFetchRequest:fetchRequest error:NULL];
 	return [result lastObject];
@@ -49,7 +73,7 @@
 - (NSPredicate *)_uniqueKeysPredicate {
 	NSArray *uniqueKeys = _entity.dct_serializationUniqueKeys;
 	if (uniqueKeys.count == 0) return nil;
-	NSMutableArray *predicates = [[NSMutableArray alloc] initWithCapacity:uniqueKeys.count];
+	NSMutableArray *predicates = [NSMutableArray arrayWithCapacity:uniqueKeys.count];
 	[uniqueKeys enumerateObjectsUsingBlock:^(NSString *uniqueKey, NSUInteger i, BOOL *stop) {
 
 		NSPropertyDescription *property = [_entity.propertiesByName objectForKey:uniqueKey];
@@ -91,7 +115,7 @@
 		[properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
 			[serializationNameToPropertyNameMapping setObject:property.name forKey:property.dct_serializationName];
 		}];
-		_serializationNameToPropertyNameMapping = [serializationNameToPropertyNameMapping copy];
+		_serializationNameToPropertyNameMapping = serializationNameToPropertyNameMapping;
 	}
 
 	return _serializationNameToPropertyNameMapping;

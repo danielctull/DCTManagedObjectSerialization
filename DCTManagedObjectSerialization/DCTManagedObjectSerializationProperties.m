@@ -44,7 +44,11 @@ NSString *const DCTSerializationShouldBeUnion = @"serializationShouldBeUnion";
 - (void)dct_setUserInfoValue:(id)value forKey:(NSString *)key {
 	NSMutableDictionary *userInfo = [self.userInfo mutableCopy];
 	[userInfo setObject:value forKey:key];
-	self.userInfo = [userInfo copy];
+	self.userInfo = userInfo;
+
+#if !__has_feature(objc_arc)
+	[userInfo release];
+#endif
 }
 
 @end
@@ -62,7 +66,12 @@ NSString *const DCTSerializationShouldBeUnion = @"serializationShouldBeUnion";
 }
 
 - (void)setDct_serializationName:(NSString *)dct_serializationName {
-	[self dct_setUserInfoValue:[dct_serializationName copy] forKey:DCTSerializationName];
+	dct_serializationName = [dct_serializationName copy];
+	[self dct_setUserInfoValue:dct_serializationName forKey:DCTSerializationName];
+	
+#if !__has_feature(objc_arc)
+	[dct_serializationName release];
+#endif
 }
 
 @end

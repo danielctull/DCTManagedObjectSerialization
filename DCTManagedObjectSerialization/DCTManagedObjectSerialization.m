@@ -25,23 +25,29 @@ NSString *const DCTManagedObjectSerializationISO8601ValueTransformerName = @"ISO
 																									 entity:entity
 																					   managedObjectContext:managedObjectContext];
 
-	return [deserializer deserializedObject];
+	NSManagedObject *result = [deserializer deserializedObject];
+	
+#if !__has_feature(objc_arc)
+	[deserializer release];
+#endif
+	
+    return result;
 }
 
 + (NSString *)serializationDescriptionForEntitiesInManagedObjectModel:(NSManagedObjectModel *)managedObjectModel {
 
-	NSMutableDictionary *entityDictionary = [NSMutableDictionary new];
+	NSMutableDictionary *entityDictionary = [NSMutableDictionary dictionary];
 
 	[[managedObjectModel entities] enumerateObjectsUsingBlock:^(NSEntityDescription *entity, NSUInteger i, BOOL *stop) {
 
-		NSMutableArray *propertyArray = [NSMutableArray new];
+		NSMutableArray *propertyArray = [NSMutableArray array];
 
 		[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
 
-			NSMutableString *string = [NSMutableString new];
+			NSMutableString *string = [NSMutableString string];
 			[string appendFormat:@"%@", property.name];
 
-			NSMutableString *serializationPropertyString = [NSMutableString new];
+			NSMutableString *serializationPropertyString = [NSMutableString string];
 			[serializationPropertyString appendString:@"("];
 
 			NSString *serializationName = [property.userInfo objectForKey:@"serializationName"];

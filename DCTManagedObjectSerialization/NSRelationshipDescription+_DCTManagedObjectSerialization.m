@@ -59,7 +59,13 @@
 	_DCTManagedObjectDeserializer *deserializer = [[_DCTManagedObjectDeserializer alloc] initWithDictionary:dictionary
 																									 entity:entity
 																					   managedObjectContext:managedObjectContext];
-	return [deserializer deserializedObject];
+	NSManagedObject *result = [deserializer deserializedObject];
+	
+#if !__has_feature(objc_arc)
+	[deserializer release];
+#endif
+	
+	return result;
 }
 
 @end
