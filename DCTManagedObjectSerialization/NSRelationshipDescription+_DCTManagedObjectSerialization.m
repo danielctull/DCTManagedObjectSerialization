@@ -16,7 +16,7 @@
 	if (!self.isToMany)
 		return [self dct_valueForSerializedDictionary:value managedObjectContext:managedObjectContext];
 
-	if ([self respondsToSelector:@selector(isOrdered)] && self.isOrdered)
+	if (self.dct_isOrdered)
 		return [self dct_orderedSetForSerializedArray:value managedObjectContext:managedObjectContext];
 
 	return [self dct_setForSerializedArray:value managedObjectContext:managedObjectContext];
@@ -62,6 +62,10 @@
 																									 entity:entity
 																					   managedObjectContext:managedObjectContext];
 	return [deserializer deserializedObject];
+}
+
+- (BOOL)dct_isOrdered {
+	return [self respondsToSelector:@selector(isOrdered)] && self.isOrdered;
 }
 
 @end

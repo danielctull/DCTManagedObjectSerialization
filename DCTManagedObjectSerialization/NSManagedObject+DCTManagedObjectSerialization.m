@@ -9,14 +9,17 @@
 #import "NSManagedObject+DCTManagedObjectSerialization.h"
 #import "DCTManagedObjectSerialization.h"
 #import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
+#import "NSRelationshipDescription+_DCTManagedObjectSerialization.h"
 
 @implementation NSManagedObject (DCTManagedObjectSerialization)
 
 - (void)dct_setSerializedValue:(id)value forKey:(NSString *)key {
+
 	NSPropertyDescription *property = [self.entity.propertiesByName objectForKey:key];
 	id transformedValue = [property dct_valueForSerializedValue:value inManagedObjectContext:self.managedObjectContext];
 
-	// For attributes, know we can set primitive value so as to avoid any possible side effects from custom setter methods. Other properties fall back to generic KVC
+	// For attributes, know we can set primitive value so as to avoid any possible side
+	// effects from custom setter methods. Other properties fall back to generic KVC
 	if ([property isKindOfClass:[NSAttributeDescription class]]) {
 
 		[self willChangeValueForKey:key];
@@ -25,21 +28,14 @@
 
 	} else if ([property isKindOfClass:[NSRelationshipDescription class]]) {
 
-		NSLog(@"%@ %@", key, transformedValue);
-
 		NSRelationshipDescription *relationship = (NSRelationshipDescription *)property;
 		if (relationship.dct_serializationShouldBeUnion) {
 
-			if (relationship.isOrdered) {
-				NSMutableOrderedSet *set = [self dct_orderedSetForKey:key];
-				[self willChangeValueForKey:key];
+			if (relationship.dct_isOrdered) {
+				NSMutableOrderedSet *set = [self mutableOrderedSetValueForKey:key];
 				[set unionOrderedSet:transformedValue];
-				[self didChangeValueForKey:key];
-
-				NSLog(@"%@", set);
-
 			} else {
-				NSMutableSet *set = [self dct_SetForKey:key];
+				NSMutableSet *set = [self mutableSetValueForKey:key];
 				[set unionSet:transformedValue];
 			}
 
@@ -49,30 +45,14 @@
 	}
 }
 
-- (NSMutableOrderedSet *)dct_orderedSetForKey:(NSString *)key {
-	[self willAccessValueForKey:key];
-	NSMutableOrderedSet *result = [self mutableOrderedSetValueForKey:key];
-	[self didAccessValueForKey:key];
-	return result;
-}
+- (void)dct_awakeFromSerializedRepresentation:(NSObject *)serializedRepresentation {
 
-- (NSMutableSet *)dct_SetForKey:(NSString *)key {
-	[self willAccessValueForKey:key];
-	NSMutableSet *result = [self mutableSetValueForKey:key];
-	[self didAccessValueForKey:key];
-	return result;
-}
-
-
-- (void)dct_awakeFromSerializedRepresentation:(NSObject *)rep;
-{
-    NSEntityDescription *entity = self.entity;
-    
+	NSEntityDescription *entity = self.entity;
 	[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
-        
-        NSString *serializationName = property.dct_serializationName;
-		id serializedValue = [rep valueForKeyPath:serializationName];
-        
+
+		NSString *serializationName = property.dct_serializationName;
+		id serializedValue = [serializedRepresentation valueForKeyPath:serializationName];
+
 		if (serializedValue || entity.dct_shouldDeserializeNilValues)
 			[self dct_setSerializedValue:serializedValue forKey:property.name];
 	}];

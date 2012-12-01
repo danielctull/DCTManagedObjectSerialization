@@ -9,4 +9,5 @@
 #import <CoreData/CoreData.h>
 
 @interface NSRelationshipDescription (_DCTManagedObjectSerialization)
+@property (nonatomic, readonly) BOOL dct_isOrdered;
 @end
