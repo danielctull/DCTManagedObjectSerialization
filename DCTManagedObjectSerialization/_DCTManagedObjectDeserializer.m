@@ -40,7 +40,9 @@
 }
 
 - (NSManagedObject *)_existingObject {
-	NSPredicate *predicate = [self _uniqueKeysPredicate];
+	NSPredicate *predicate = [self predicateForUniqueObjectWithEntity:_entity
+														   dictionary:_dictionary
+												 managedObjectContext:_managedObjectContext];
 	if (!predicate) return nil;
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:_entity.name];
 	fetchRequest.predicate = predicate;
@@ -48,19 +50,22 @@
 	return [result lastObject];
 }
 
-- (NSPredicate *)_uniqueKeysPredicate {
-	NSArray *uniqueKeys = _entity.dct_serializationUniqueKeys;
+- (NSPredicate *)predicateForUniqueObjectWithEntity:(NSEntityDescription *)entity
+										 dictionary:(NSDictionary *)dictionary
+							   managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+	
+	NSArray *uniqueKeys = entity.dct_serializationUniqueKeys;
 	if (uniqueKeys.count == 0) return nil;
 	NSMutableArray *predicates = [[NSMutableArray alloc] initWithCapacity:uniqueKeys.count];
 	[uniqueKeys enumerateObjectsUsingBlock:^(NSString *uniqueKey, NSUInteger i, BOOL *stop) {
 
-		NSPropertyDescription *property = [_entity.propertiesByName objectForKey:uniqueKey];
+		NSPropertyDescription *property = [entity.propertiesByName objectForKey:uniqueKey];
 
 		NSAssert(property != nil, @"A unique key has been set that doesn't exist.");
 
 		NSString *serializationName = [self _serializationNameForPropertyName:uniqueKey];
-		id serializedValue = [_dictionary objectForKey:serializationName];
-		id value = [property dct_valueForSerializedValue:serializedValue inManagedObjectContext:_managedObjectContext];
+		id serializedValue = [dictionary objectForKey:serializationName];
+		id value = [property dct_valueForSerializedValue:serializedValue inManagedObjectContext:managedObjectContext];
 		if (!value) return;
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", uniqueKey, value];
 		[predicates addObject:predicate];
