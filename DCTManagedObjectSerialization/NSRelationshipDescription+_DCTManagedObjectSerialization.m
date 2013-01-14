@@ -58,10 +58,11 @@
         entity = self.destinationEntity;
     }
     
-	_DCTManagedObjectDeserializer *deserializer = [[_DCTManagedObjectDeserializer alloc] initWithDictionary:dictionary
-																									 entity:entity
-																					   managedObjectContext:managedObjectContext];
-	return [deserializer deserializedObject];
+	_DCTManagedObjectDeserializer *deserializer = [[_DCTManagedObjectDeserializer alloc] initWithManagedObjectModel:managedObjectContext.persistentStoreCoordinator.managedObjectModel];
+
+	return [deserializer deserializedObjectFromDictionary:dictionary
+											   rootEntity:entity
+									 managedObjectContext:managedObjectContext];
 }
 
 - (BOOL)dct_isOrdered {

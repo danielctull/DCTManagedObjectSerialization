@@ -13,19 +13,21 @@
 
 @implementation _DCTManagedObjectDeserializer
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
-				  entity:(NSEntityDescription *)entity
-	managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
-
+- (id)initWithManagedObjectModel:(NSManagedObjectModel *)managedObjectModel {
 	self = [self init];
 	if (!self) return nil;
-	_dictionary = dictionary;
-	_entity = entity;
-	_managedObjectContext = managedObjectContext;
+	_managedObjectModel = managedObjectModel;
 	return self;
 }
 
-- (id)deserializedObject {
+- (id)deserializedObjectFromDictionary:(NSDictionary *)dictionary
+							rootEntity:(NSEntityDescription *)entity
+				  managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+
+
+	_dictionary = dictionary;
+	_entity = entity;
+	_managedObjectContext = managedObjectContext;
 
 	NSManagedObject *managedObject = [self _existingObject];
 

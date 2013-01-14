@@ -12,16 +12,17 @@
 @interface _DCTManagedObjectDeserializer : NSObject
 {
   @private
+	NSManagedObjectModel *_managedObjectModel;
 	NSDictionary *_dictionary;
 	NSEntityDescription *_entity;
 	NSManagedObjectContext *_managedObjectContext;
 	NSDictionary *_serializationNameToPropertyNameMapping;
 }
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
-				  entity:(NSEntityDescription *)entity
-	managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+- (id)initWithManagedObjectModel:(NSManagedObjectModel *)managedObjectModel;
 
-- (id)deserializedObject;
+- (id)deserializedObjectFromDictionary:(NSDictionary *)dictionary
+							rootEntity:(NSEntityDescription *)entity
+				  managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 @end
