@@ -24,19 +24,15 @@
 							rootEntity:(NSEntityDescription *)entity
 				  managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
 
-
-	_dictionary = dictionary;
-	_entity = entity;
-	_managedObjectContext = managedObjectContext;
-
 	NSManagedObject *managedObject = [self existingObjectWithDictionary:dictionary
 																 entity:entity
 												   managedObjectContext:managedObjectContext];
 
 	if (!managedObject)
-		managedObject = [[NSManagedObject alloc] initWithEntity:_entity insertIntoManagedObjectContext:_managedObjectContext];
+		managedObject = [[NSManagedObject alloc] initWithEntity:entity
+								 insertIntoManagedObjectContext:managedObjectContext];
 
-	[managedObject dct_awakeFromSerializedRepresentation:_dictionary];
+	[managedObject dct_awakeFromSerializedRepresentation:dictionary];
 
 	return managedObject;
 }
@@ -68,7 +64,7 @@
 
 		NSAssert(property != nil, @"A unique key has been set that doesn't exist.");
 
-		NSString *serializationName = [self _serializationNameForPropertyName:uniqueKey];
+		NSString *serializationName = [self serializationNameForPropertyName:uniqueKey entity:entity];
 		id serializedValue = [dictionary objectForKey:serializationName];
 		id value = [property dct_valueForSerializedValue:serializedValue inManagedObjectContext:managedObjectContext];
 		if (!value) return;
@@ -81,32 +77,10 @@
 
 #pragma mark -
 
-- (NSString *)_serializationNameForPropertyName:(NSString *)propertyName {
-	NSPropertyDescription *property = [[_entity propertiesByName] objectForKey:propertyName];
+- (NSString *)serializationNameForPropertyName:(NSString *)propertyName
+										entity:(NSEntityDescription *)entity {
+	NSPropertyDescription *property = [[entity propertiesByName] objectForKey:propertyName];
 	return property.dct_serializationName;
-}
-
-- (NSString *)_propertyNameForSerializationName:(NSString *)serializationName {
-	NSString *propertyName = [[self _serializationNameToPropertyNameMapping] objectForKey:serializationName];
-
-	if (propertyName.length == 0 && [[[_entity propertiesByName] allKeys] containsObject:serializationName])
-		propertyName = serializationName;
-
-	return propertyName;
-}
-
-- (NSDictionary *)_serializationNameToPropertyNameMapping {
-
-	if (!_serializationNameToPropertyNameMapping) {
-		NSArray *properties = _entity.properties;
-		NSMutableDictionary *serializationNameToPropertyNameMapping = [[NSMutableDictionary alloc] initWithCapacity:properties.count];
-		[properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
-			[serializationNameToPropertyNameMapping setObject:property.name forKey:property.dct_serializationName];
-		}];
-		_serializationNameToPropertyNameMapping = [serializationNameToPropertyNameMapping copy];
-	}
-
-	return _serializationNameToPropertyNameMapping;
 }
 
 @end
