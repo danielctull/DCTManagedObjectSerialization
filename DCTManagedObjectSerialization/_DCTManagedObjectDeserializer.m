@@ -29,7 +29,9 @@
 	_entity = entity;
 	_managedObjectContext = managedObjectContext;
 
-	NSManagedObject *managedObject = [self _existingObject];
+	NSManagedObject *managedObject = [self existingObjectWithDictionary:dictionary
+																 entity:entity
+												   managedObjectContext:managedObjectContext];
 
 	if (!managedObject)
 		managedObject = [[NSManagedObject alloc] initWithEntity:_entity insertIntoManagedObjectContext:_managedObjectContext];
@@ -39,14 +41,17 @@
 	return managedObject;
 }
 
-- (NSManagedObject *)_existingObject {
-	NSPredicate *predicate = [self predicateForUniqueObjectWithEntity:_entity
-														   dictionary:_dictionary
-												 managedObjectContext:_managedObjectContext];
+- (NSManagedObject *)existingObjectWithDictionary:(NSDictionary *)dictionary
+										   entity:(NSEntityDescription *)entity
+							 managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+	
+	NSPredicate *predicate = [self predicateForUniqueObjectWithEntity:entity
+														   dictionary:dictionary
+												 managedObjectContext:managedObjectContext];
 	if (!predicate) return nil;
-	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:_entity.name];
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
 	fetchRequest.predicate = predicate;
-	NSArray *result = [_managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+	NSArray *result = [managedObjectContext executeFetchRequest:fetchRequest error:NULL];
 	return [result lastObject];
 }
 
