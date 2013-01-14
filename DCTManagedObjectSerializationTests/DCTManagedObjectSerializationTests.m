@@ -50,7 +50,7 @@
 	Person *person = [DCTManagedObjectSerialization objectFromDictionary:@{ PersonAttributes.personID : @"1" }
 															  rootEntity:entity
 													managedObjectContext:managedObjectContext];
-	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
+	STAssertNil(person.personID, @"personID should be nil (%@).", person.personID);
 }
 
 - (void)testObjectCreationSettingAttributeWithSerializationNameWhileHavingSerializationNameSet {
