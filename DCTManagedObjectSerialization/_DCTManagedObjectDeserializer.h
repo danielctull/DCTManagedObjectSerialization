@@ -12,7 +12,6 @@
 @interface _DCTManagedObjectDeserializer : NSObject
 {
   @private
-	NSManagedObjectModel *_managedObjectModel;
 	NSMutableDictionary *_uniqueKeysByEntity;
 	NSMutableDictionary *_shouldDeserializeNilValuesByEntity;
 	NSMutableDictionary *_serializationNamesByProperty;
@@ -21,6 +20,7 @@
 }
 
 - (id)initWithManagedObjectModel:(NSManagedObjectModel *)managedObjectModel;
+@property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
 
 - (id)deserializedObjectFromDictionary:(NSDictionary *)dictionary
 							rootEntity:(NSEntityDescription *)entity
