@@ -56,9 +56,7 @@ NSString *const DCTSerializationShouldBeUnion = @"serializationShouldBeUnion";
 @implementation NSPropertyDescription (DCTManagedObjectSerializationProperties)
 
 - (NSString *)dct_serializationName {
-	NSString *serializationName = [self.userInfo objectForKey:DCTSerializationName];
-	if (serializationName.length > 0) return serializationName;
-	return self.name;
+	return [self.userInfo objectForKey:DCTSerializationName];
 }
 
 - (void)setDct_serializationName:(NSString *)dct_serializationName {

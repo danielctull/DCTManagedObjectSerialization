@@ -45,17 +45,6 @@
 	}
 }
 
-- (void)dct_awakeFromSerializedRepresentation:(NSObject *)serializedRepresentation {
-
-	NSEntityDescription *entity = self.entity;
-	[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
-
-		NSString *serializationName = property.dct_serializationName;
-		id serializedValue = [serializedRepresentation valueForKeyPath:serializationName];
-
-		if (serializedValue || entity.dct_shouldDeserializeNilValues)
-			[self dct_setSerializedValue:serializedValue forKey:property.name];
-	}];
-}
+- (void)dct_awakeFromSerializedRepresentation:(NSObject *)serializedRepresentation {}
 
 @end
