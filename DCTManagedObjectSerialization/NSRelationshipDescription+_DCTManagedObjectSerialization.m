@@ -7,7 +7,7 @@
 //
 
 #import "NSRelationshipDescription+_DCTManagedObjectSerialization.h"
-#import "_DCTManagedObjectDeserializer.h"
+#import "DCTManagedObjectDeserializer.h"
 
 @implementation NSRelationshipDescription (_DCTManagedObjectSerialization)
 
@@ -56,7 +56,7 @@
         entity = self.destinationEntity;
     }
     
-	_DCTManagedObjectDeserializer *deserializer = [[_DCTManagedObjectDeserializer alloc] initWithDictionary:dictionary
+	DCTManagedObjectDeserializer *deserializer = [[DCTManagedObjectDeserializer alloc] initWithDictionary:dictionary
 																									 entity:entity
 																					   managedObjectContext:managedObjectContext];
 	NSManagedObject *result = [deserializer deserializedObject];

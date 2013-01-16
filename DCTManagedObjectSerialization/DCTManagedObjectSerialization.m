@@ -7,7 +7,7 @@
 //
 
 #import "DCTManagedObjectSerialization.h"
-#import "_DCTManagedObjectDeserializer.h"
+#import "DCTManagedObjectDeserializer.h"
 #import "DCTManagedObjectSerializationProperties.h"
 
 NSString *const DCTManagedObjectSerializationSecondsSince1970ValueTransformerName = @"SecondsSince1970";
@@ -21,7 +21,7 @@ NSString *const DCTManagedObjectSerializationISO8601ValueTransformerName = @"ISO
 
 	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext];
 	
-	_DCTManagedObjectDeserializer *deserializer = [[_DCTManagedObjectDeserializer alloc] initWithDictionary:dictionary
+	DCTManagedObjectDeserializer *deserializer = [[DCTManagedObjectDeserializer alloc] initWithDictionary:dictionary
 																									 entity:entity
 																					   managedObjectContext:managedObjectContext];
 

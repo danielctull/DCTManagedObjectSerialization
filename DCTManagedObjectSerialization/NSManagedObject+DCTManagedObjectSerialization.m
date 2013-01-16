@@ -32,7 +32,7 @@
     }
 }
 
-- (void)dct_awakeFromSerializedRepresentation:(NSObject *)rep;
+- (void)dct_deserialize:(DCTManagedObjectDeserializer *)deserializier;
 {
     NSEntityDescription *entity = self.entity;
     
@@ -41,11 +41,15 @@
 		// Skip transient properties
 		if ([property isTransient]) return;
 		
-        NSString *serializationName = property.dct_serializationName;
-		id serializedValue = [rep valueForKeyPath:serializationName];
-        
-		if (serializedValue || entity.dct_shouldDeserializeNilValues)
-			[self dct_setSerializedValue:serializedValue forKey:property.name];
+        Class class = property.deserializationClass;
+        if (class)
+        {
+            NSString *serializationName = property.dct_serializationName;
+            id serializedValue = [deserializier deserializeObjectOfClass:class forKey:serializationName];
+            
+            if (serializedValue || entity.dct_shouldDeserializeNilValues)
+                [self dct_setSerializedValue:serializedValue forKey:property.name];
+        }
 	}];
 }
 

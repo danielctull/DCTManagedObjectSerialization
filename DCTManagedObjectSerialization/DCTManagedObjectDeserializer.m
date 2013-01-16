@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 Daniel Tull. All rights reserved.
 //
 
-#import "_DCTManagedObjectDeserializer.h"
+#import "DCTManagedObjectDeserializer.h"
 #import "DCTManagedObjectSerialization.h"
 #import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
 #import "NSManagedObject+DCTManagedObjectSerialization.h"
 
-@implementation _DCTManagedObjectDeserializer
+@implementation DCTManagedObjectDeserializer
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 				  entity:(NSEntityDescription *)entity
@@ -44,6 +44,24 @@
 }
 #endif
 
+- (id)deserializeObjectOfClass:(Class)class forKey:(NSString *)key __attribute__((nonnull(1,2)));
+{
+    id result = [_dictionary valueForKeyPath:key];
+    if (![result isKindOfClass:class]) result = nil;
+    return result;
+}
+
+- (NSURL *)deserializeURLForKey:(NSString *)key __attribute__((nonnull(1)));
+{
+    NSString *urlString = [self deserializeObjectOfClass:[NSString class] forKey:key];
+    return (urlString ? [NSURL URLWithString:urlString] : nil);
+}
+
+- (BOOL)containsValueForKey:(NSString *)key __attribute__((nonnull(1)));
+{
+    return [_dictionary valueForKeyPath:key] != nil;
+}
+
 - (id)deserializedObject {
 
 	NSManagedObject *managedObject = [self _existingObject];
@@ -56,7 +74,7 @@
 #endif
 	}
 	
-	[managedObject dct_awakeFromSerializedRepresentation:_dictionary];
+	[managedObject dct_deserialize:self];
 
 	return managedObject;
 }
