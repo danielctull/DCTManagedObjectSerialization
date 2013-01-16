@@ -19,6 +19,9 @@
     // For attributes, know we can set primitive value so as to avoid any possible side effects from custom setter methods. Other properties fall back to generic KVC
     if ([property isKindOfClass:[NSAttributeDescription class]])
     {
+        // Check the value will be OK
+        if (![self validateValue:&transformedValue forKey:key error:NULL]) return;
+        
         [self willChangeValueForKey:key];
         [self setPrimitiveValue:transformedValue forKey:key];
         [self didChangeValueForKey:key];
