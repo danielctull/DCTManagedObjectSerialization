@@ -36,6 +36,8 @@
 // Figures out the key and class from the property
 - (id)deserializeProperty:(NSPropertyDescription *)property __attribute__((nonnull(1)));
 
+- (NSString *)deserializeStringForKey:(NSString *)key __attribute__((nonnull(1)));
+
 // Generally goes from string form to URL
 - (NSURL *)deserializeURLForKey:(NSString *)key __attribute__((nonnull(1)));
 

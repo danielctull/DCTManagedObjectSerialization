@@ -69,9 +69,14 @@
     return (class ? [self deserializeObjectOfClass:class forKey:property.dct_serializationName] : nil);
 }
 
+- (NSString *)deserializeStringForKey:(NSString *)key __attribute__((nonnull(1)));
+{
+    return [self deserializeObjectOfClass:[NSString class] forKey:key];
+}
+
 - (NSURL *)deserializeURLForKey:(NSString *)key __attribute__((nonnull(1)));
 {
-    NSString *urlString = [self deserializeObjectOfClass:[NSString class] forKey:key];
+    NSString *urlString = [self deserializeStringForKey:key];
     return (urlString ? [NSURL URLWithString:urlString] : nil);
 }
 
