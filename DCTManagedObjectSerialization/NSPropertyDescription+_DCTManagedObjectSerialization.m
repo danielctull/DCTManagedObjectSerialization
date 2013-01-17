@@ -10,7 +10,8 @@
 
 @implementation NSPropertyDescription (_DCTManagedObjectSerialization)
 
-- (id)dct_valueForSerializedValue:(id)value inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+- (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer;
+{
 	return nil;
 }
 
