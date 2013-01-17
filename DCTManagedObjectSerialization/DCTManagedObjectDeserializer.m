@@ -93,8 +93,10 @@
 }
 #endif
 
-- (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary __attribute__((nonnull(1,2)));
-{
+- (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary __attribute__((nonnull(1,2))) {
+	NSAssert(entity, @"entity should not be nil");
+	NSAssert(dictionary, @"dictionary should not be nil");
+
     return [self deserializeObjectUsingBlock:^id{
         
         NSDictionary *oldDictionary = _dictionary;
@@ -123,8 +125,7 @@
     }];
 }
 
-- (id)deserializeObjectUsingBlock:(id (^)(void))block;
-{
+- (id)deserializeObjectUsingBlock:(id (^)(void))block __attribute__((nonnull(1))) {
     // Outermost call to this requires some setup
     if (!_dictionary)
     {
@@ -183,12 +184,10 @@
 
 #pragma mark Deserializing Individual Keys
 
-- (id)deserializeObjectOfClass:(Class)class forKey:(NSString *)key __attribute__((nonnull(1,2)));
-{
+- (id)deserializeObjectOfClass:(Class)class forKey:(NSString *)key __attribute__((nonnull(1,2))) {
     id result = [_dictionary valueForKeyPath:key];
     
-    if (result && ![result isKindOfClass:class])
-    {
+    if (result && ![result isKindOfClass:class]) {
         [self recordError:[NSError errorWithDomain:NSCocoaErrorDomain code:NSManagedObjectValidationError userInfo:@{
                        NSValidationObjectErrorKey : _dictionary,
                           NSValidationKeyErrorKey : key,
@@ -201,25 +200,21 @@
     return result;
 }
 
-- (id)deserializeProperty:(NSPropertyDescription *)property;
-{
+- (id)deserializeProperty:(NSPropertyDescription *)property {
     Class class = [property deserializationClass];
     return (class ? [self deserializeObjectOfClass:class forKey:property.dct_serializationName] : nil);
 }
 
-- (NSString *)deserializeStringForKey:(NSString *)key __attribute__((nonnull(1)));
-{
+- (NSString *)deserializeStringForKey:(NSString *)key __attribute__((nonnull(1))) {
     return [self deserializeObjectOfClass:[NSString class] forKey:key];
 }
 
-- (NSURL *)deserializeURLForKey:(NSString *)key __attribute__((nonnull(1)));
-{
+- (NSURL *)deserializeURLForKey:(NSString *)key __attribute__((nonnull(1))) {
     NSString *urlString = [self deserializeStringForKey:key];
     return (urlString ? [NSURL URLWithString:urlString] : nil);
 }
 
-- (BOOL)containsValueForKey:(NSString *)key __attribute__((nonnull(1)));
-{
+- (BOOL)containsValueForKey:(NSString *)key __attribute__((nonnull(1))) {
     return [_dictionary valueForKeyPath:key] != nil;
 }
 
@@ -365,7 +360,7 @@
 
 - (NSManagedObject *)existingObjectWithDictionary:(NSDictionary *)dictionary
 										   entity:(NSEntityDescription *)entity
-							 managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+							 managedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1,2,3))) {
 
 	NSPredicate *predicate = [self predicateForUniqueObjectWithEntity:entity
 														   dictionary:dictionary
@@ -379,7 +374,7 @@
 
 - (NSPredicate *)predicateForUniqueObjectWithEntity:(NSEntityDescription *)entity
 										 dictionary:(NSDictionary *)dictionary
-							   managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+							   managedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1,2,3))) {
 
 	NSArray *uniqueKeys = [self uniqueKeysForEntity:entity];
 	if (uniqueKeys.count == 0) return nil;
