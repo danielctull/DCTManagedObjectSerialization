@@ -94,7 +94,13 @@ NSString *const DCTSerializationShouldBeUnion = @"serializationShouldBeUnion";
 	[self dct_setUserInfoValue:serializationTransformerNames forKey:DCTSerializationTransformerNames];
 }
 
-- (Class)deserializationClass; { return NSClassFromString([self attributeValueClassName]); }
+- (Class)deserializationClass;
+{
+	// For transformable attributes, have no good idea what the source class is. Assume that the transformer will reject anything unsuitable, so allow basically anything
+	return (self.attributeType == NSTransformableAttributeType || self.dct_serializationTransformerNames.count ?
+			[NSObject class] :
+			NSClassFromString([self attributeValueClassName]));
+}
 
 @end
 
