@@ -16,7 +16,7 @@
 - (void)dct_deserializeProperty:(NSPropertyDescription *)property withDeserializer:(DCTManagedObjectDeserializer *)deserializer __attribute__((nonnull(1,2)));
 
 // Performs deserialization
-// You can override to tack on additional functionality *after* calling through to super, although overriding -dct_setSerializedValue:forKey: is often more appropriate
+// You can override to tack on additional functionality *after* calling through to super, although overriding -dct_deserializeProperty:withDeserializer: is often more appropriate
 - (void)dct_deserialize:(DCTManagedObjectDeserializer *)deserializier;
 
 @end
