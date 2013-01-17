@@ -20,12 +20,14 @@
     NSMutableArray  *_errors;
 }
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
-				  entity:(NSEntityDescription *)entity
-	managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+#pragma mark Deserializing a Whole Dictionary
+
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1)));
+
+- (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary __attribute__((nonnull(1,2)));
 
 
-#pragma mark Deserialization
+#pragma mark Deserializing Individual Keys
 
 // Returns nil if the object was found to be of an unsuitable class, recording that as an error (unlike -decodeObjectOfClass:forKey: which throws)
 // Also returns nil if the key simply isn't present
@@ -42,9 +44,6 @@
 - (NSURL *)deserializeURLForKey:(NSString *)key __attribute__((nonnull(1)));
 
 - (BOOL)containsValueForKey:(NSString *)key __attribute__((nonnull(1)));
-
-
-- (id)deserializedObject;
 
 
 #pragma mark Error Reporting

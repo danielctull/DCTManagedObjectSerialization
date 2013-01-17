@@ -56,10 +56,8 @@
         entity = self.destinationEntity;
     }
     
-	DCTManagedObjectDeserializer *deserializer = [[DCTManagedObjectDeserializer alloc] initWithDictionary:dictionary
-																									 entity:entity
-																					   managedObjectContext:managedObjectContext];
-	NSManagedObject *result = [deserializer deserializedObject];
+	DCTManagedObjectDeserializer *deserializer = [[DCTManagedObjectDeserializer alloc] initWithManagedObjectContext:managedObjectContext];
+	NSManagedObject *result = [deserializer deserializeObjectWithEntity:entity fromDictionary:dictionary];
 	
 #if !__has_feature(objc_arc)
 	[deserializer release];
