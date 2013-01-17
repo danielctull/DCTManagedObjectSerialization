@@ -36,7 +36,7 @@
     return result;
 }
 
-- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1)));
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 {
 	self = [self init];
 	if (!self) return nil;
