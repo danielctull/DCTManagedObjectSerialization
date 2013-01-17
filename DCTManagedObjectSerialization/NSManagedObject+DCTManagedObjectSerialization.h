@@ -13,10 +13,10 @@
 
 // Override in your custom classes to ignore certain properties, or do custom deserialization
 // Default implementation calls [deserializer deserializeProperty:], checks the result is valid, and applies (using primitive setter method for attributes)
-- (void)dct_deserializeProperty:(NSPropertyDescription *)property withDeserializer:(DCTManagedObjectDeserializer *)deserializer __attribute__((nonnull(1,2)));
+- (void)dct_deserializeProperty:(NSPropertyDescription *)property withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer __attribute__((nonnull(1,2)));
 
 // Performs deserialization
 // You can override to tack on additional functionality *after* calling through to super, although overriding -dct_deserializeProperty:withDeserializer: is often more appropriate
-- (void)dct_deserialize:(DCTManagedObjectDeserializer *)deserializier;
+- (void)dct_deserialize:(id <DCTManagedObjectDeserializing>)deserializier;
 
 @end

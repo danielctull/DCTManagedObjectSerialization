@@ -9,20 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@interface DCTManagedObjectDeserializer : NSObject
-{
-  @private
-	NSDictionary *_dictionary;
-	NSEntityDescription *_entity;
-	NSManagedObjectContext *_managedObjectContext;
-	NSDictionary *_serializationNameToPropertyNameMapping;
-    
-    NSMutableArray  *_errors;
-}
+
+@protocol DCTManagedObjectDeserializing <NSObject>
 
 #pragma mark Deserializing a Whole Dictionary
-
-- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1)));
 
 - (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary __attribute__((nonnull(1,2)));
 
@@ -53,6 +43,27 @@
 
 // Raw error methods
 - (void)recordError:(NSError *)error __attribute__((nonnull(1)));
+
+
+@end
+
+
+#pragma mark -
+
+
+@interface DCTManagedObjectDeserializer : NSObject <DCTManagedObjectDeserializing>
+{
+  @private
+	NSDictionary *_dictionary;
+	NSEntityDescription *_entity;
+	NSManagedObjectContext *_managedObjectContext;
+	NSDictionary *_serializationNameToPropertyNameMapping;
+    
+    NSMutableArray  *_errors;
+}
+
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1)));
+
 - (NSArray *)errors;
 
 

@@ -12,7 +12,7 @@
 
 @implementation NSManagedObject (DCTManagedObjectSerialization)
 
-- (void)dct_deserializeProperty:(NSPropertyDescription *)property withDeserializer:(DCTManagedObjectDeserializer *)deserializer;
+- (void)dct_deserializeProperty:(NSPropertyDescription *)property withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer __attribute__((nonnull(1,2)));
 {
     id value = [deserializer deserializeProperty:property];
     
@@ -60,7 +60,7 @@
     }
 }
 
-- (void)dct_deserialize:(DCTManagedObjectDeserializer *)deserializier;
+- (void)dct_deserialize:(id <DCTManagedObjectDeserializing>)deserializier;
 {
     NSEntityDescription *entity = self.entity;
     
