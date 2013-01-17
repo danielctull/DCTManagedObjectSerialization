@@ -9,7 +9,4 @@
 #import <CoreData/CoreData.h>
 
 @interface NSAttributeDescription (_DCTManagedObjectSerialization)
-
-- (id)dct_valueForSerializedValue:(id)value;
-
 @end
