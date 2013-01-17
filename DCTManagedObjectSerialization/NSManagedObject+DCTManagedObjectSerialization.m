@@ -12,16 +12,32 @@
 
 @implementation NSManagedObject (DCTManagedObjectSerialization)
 
-- (void)dct_setSerializedValue:(id)value forKey:(NSString *)key {
-	NSPropertyDescription *property = [self.entity.propertiesByName objectForKey:key];
-	id transformedValue = [property dct_valueForSerializedValue:value inManagedObjectContext:self.managedObjectContext];
+- (void)dct_deserializeProperty:(NSPropertyDescription *)property withDeserializer:(DCTManagedObjectDeserializer *)deserializer;
+{
+    id value = [deserializer deserializeProperty:property];
+    
+    // Bail out if nil value is unacceptable, or due to an error
+    if (!value)
+    {
+        if ([deserializer containsValueForKey:property.dct_serializationName] || !self.entity.dct_shouldDeserializeNilValues) return;
+    }
+    
+    // Apply any transform the property uses
+    id transformedValue = [property dct_valueForSerializedValue:value inManagedObjectContext:self.managedObjectContext];
+    
+    // Check the value will be OK
+    NSString *key = [property name];
+    
+    NSError *error;
+    if (![self validateValue:&transformedValue forKey:key error:&error])
+    {
+        [deserializer recordError:error forKey:property.dct_serializationName];
+        return;
+    }
     
     // For attributes, know we can set primitive value so as to avoid any possible side effects from custom setter methods. Other properties fall back to generic KVC
     if ([property isKindOfClass:[NSAttributeDescription class]])
     {
-        // Check the value will be OK
-        if (![self validateValue:&transformedValue forKey:key error:NULL]) return;
-        
         [self willChangeValueForKey:key];
         [self setPrimitiveValue:transformedValue forKey:key];
         [self didChangeValueForKey:key];
@@ -41,15 +57,7 @@
 		// Skip transient properties
 		if ([property isTransient]) return;
 		
-        Class class = property.deserializationClass;
-        if (class)
-        {
-            NSString *serializationName = property.dct_serializationName;
-            id serializedValue = [deserializier deserializeObjectOfClass:class forKey:serializationName];
-            
-            if (serializedValue || entity.dct_shouldDeserializeNilValues)
-                [self dct_setSerializedValue:serializedValue forKey:property.name];
-        }
+        [self dct_deserializeProperty:property withDeserializer:deserializier];
 	}];
 }
 
