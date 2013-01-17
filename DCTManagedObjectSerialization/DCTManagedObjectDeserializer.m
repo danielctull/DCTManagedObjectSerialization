@@ -60,7 +60,10 @@
 
 - (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary __attribute__((nonnull(1,2)));
 {
+    NSDictionary *oldDictionary = _dictionary;
     _dictionary = dictionary;
+    
+    NSEntityDescription *oldEntity = _entity;
     _entity = entity;
     
 	NSManagedObject *managedObject = [self _existingObject];
@@ -75,8 +78,9 @@
 	
 	[managedObject dct_deserialize:self];
     
-    _dictionary = nil;
-    _entity = nil;
+    // Restore the old entity & dictionary, which is crucial when this method is called reentrantly
+    _dictionary = oldDictionary;
+    _entity = oldEntity;
     
 	return managedObject;
 }
