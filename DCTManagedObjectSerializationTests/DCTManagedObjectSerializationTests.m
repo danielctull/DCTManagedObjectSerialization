@@ -50,6 +50,8 @@
 	Person *person = [DCTManagedObjectDeserializer deserializeObjectWithEntityName:[entity name]
 															  managedObjectContext:managedObjectContext
 																	fromDictionary:@{ PersonAttributes.personID : @"1" }];
+	
+	STAssertNotNil(person, @"Person wasn't created");
 	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
 }
 
@@ -81,6 +83,8 @@
 	Person *person = [DCTManagedObjectDeserializer deserializeObjectWithEntityName:[entity name]
 															  managedObjectContext:managedObjectContext
 																	fromDictionary:@{ PersonAttributes.personID : @(1) }];
+
+	STAssertNotNil(person, @"Person wasn't created");
 	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
 }
 
