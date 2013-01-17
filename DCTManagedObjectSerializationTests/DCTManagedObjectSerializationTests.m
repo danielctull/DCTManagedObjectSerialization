@@ -42,7 +42,7 @@
 	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
 }
 
-- (void)testObjectCreationSettingAttributeWithPropertyNameWhileHavingSerializationNameSet {
+- (void)testObjectCreationSettingAttributeWithPropertyNameWhileHavingSerializationNameSetYetProvidingThePropertyNameInTheDictionary {
 	NSManagedObjectContext *managedObjectContext = [self newManagedObjectContext];
 	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
 	NSAttributeDescription *idAttribute = [[entity propertiesByName] objectForKey:PersonAttributes.personID];
@@ -52,7 +52,7 @@
 																	fromDictionary:@{ PersonAttributes.personID : @"1" }];
 	
 	STAssertNotNil(person, @"Person wasn't created");
-	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
+	STAssertNil(person.personID, @"The dictionary doesn't contain the key 'id', so should leave the person in its raw, untouched state");
 }
 
 - (void)testObjectCreationSettingAttributeWithSerializationNameWhileHavingSerializationNameSet {
