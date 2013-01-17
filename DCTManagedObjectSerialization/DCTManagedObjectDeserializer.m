@@ -99,7 +99,10 @@
     if (!_dictionary)
     {
         // Previous deserializations must be cleared away
-        [_errors release]; _errors = nil;
+#if !__has_feature(objc_arc)
+        [_errors release];
+#endif
+		_errors = nil;
         
         // For the outermost call, install a undo group to perform error recovery with
         // TODO: On 10.7/iOS5+ could instead do the changes into a child MOC
@@ -115,7 +118,11 @@
             
             // Clear up
             [[self managedObjectContext] setUndoManager:nil];
+
+#if !__has_feature(objc_arc)
             [undoManager release];
+#endif
+			
             return  result;
         }
         
