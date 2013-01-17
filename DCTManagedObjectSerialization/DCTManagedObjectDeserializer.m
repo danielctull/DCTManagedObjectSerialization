@@ -11,6 +11,11 @@
 #import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
 #import "NSManagedObject+DCTManagedObjectSerialization.h"
 
+
+@interface DCTManagedObjectDeserializer () <DCTManagedObjectDeserializing>
+@end
+
+
 @implementation DCTManagedObjectDeserializer
 
 #pragma mark Deserializing a Whole Dictionary

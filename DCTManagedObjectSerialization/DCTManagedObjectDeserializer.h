@@ -10,9 +10,46 @@
 #import <CoreData/CoreData.h>
 
 
+@interface DCTManagedObjectDeserializer : NSObject
+{
+  @private
+	NSDictionary *_dictionary;
+	NSEntityDescription *_entity;
+	NSManagedObjectContext *_managedObjectContext;
+	NSDictionary *_serializationNameToPropertyNameMapping;
+    
+    NSMutableArray  *_errors;
+}
+
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1)));
+
+- (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary __attribute__((nonnull(1,2)));
+
+// Convenience to deserialize quickly in one go
++ (id)deserializeObjectWithEntityName:(NSString *)entityName
+                 managedObjectContext:(NSManagedObjectContext *)managedObjectContext
+                       fromDictionary:(NSDictionary *)dictionary;
+
+
+#pragma mark Properties
+
+@property(readonly, retain) NSManagedObjectContext *managedObjectContext;
+- (NSArray *)errors;
+
+
+#pragma mark Debugging
++ (NSString *)serializationDescriptionForEntitiesInManagedObjectModel:(NSManagedObjectModel *)managedObjectModel;
+
+
+@end
+
+
+#pragma mark -
+
+
 @protocol DCTManagedObjectDeserializing <NSObject>
 
-#pragma mark Deserializing a Whole Dictionary
+#pragma mark Supplying Your Own Serialized Form
 
 - (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary __attribute__((nonnull(1,2)));
 
@@ -41,41 +78,8 @@
 // Takes care of generating an error that references the faulty serialized data
 - (void)recordError:(NSError *)error forKey:(NSString *)key __attribute__((nonnull(2)));
 
-// Raw error methods
+// Raw error method
 - (void)recordError:(NSError *)error __attribute__((nonnull(1)));
-
-
-@end
-
-
-#pragma mark -
-
-
-@interface DCTManagedObjectDeserializer : NSObject <DCTManagedObjectDeserializing>
-{
-  @private
-	NSDictionary *_dictionary;
-	NSEntityDescription *_entity;
-	NSManagedObjectContext *_managedObjectContext;
-	NSDictionary *_serializationNameToPropertyNameMapping;
-    
-    NSMutableArray  *_errors;
-}
-
-// Convenience to deserialize quickly in one go
-+ (id)deserializeObjectWithEntityName:(NSString *)entityName
-                 managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-                       fromDictionary:(NSDictionary *)dictionary;
-
-- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1)));
-
-@property(readonly, retain) NSManagedObjectContext *managedObjectContext;
-
-- (NSArray *)errors;
-
-
-#pragma mark Debugging
-+ (NSString *)serializationDescriptionForEntitiesInManagedObjectModel:(NSManagedObjectModel *)managedObjectModel;
 
 
 @end
