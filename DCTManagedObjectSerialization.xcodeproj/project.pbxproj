@@ -16,7 +16,6 @@
 		24217C7E164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24217C7C164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld */; };
 		24217CAD164EC9A800B7DE98 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CAA164EC9A800B7DE98 /* _Person.m */; };
 		24217CAE164EC9A800B7DE98 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CAC164EC9A800B7DE98 /* Person.m */; };
-		24217CB7164ECF3300B7DE98 /* _DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CB6164ECF3300B7DE98 /* _DCTManagedObjectDeserializer.m */; };
 		24217CBB164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */; };
 		24217CBE164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBD164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m */; };
 		24217CC1164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */; };
@@ -24,7 +23,7 @@
 		24217CC9164EEF7D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */; };
 		24217CD01650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CCF1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m */; };
 		245CD699164EA29300600BFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
-		245CD6C1164EA2BF00600BFF /* DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 245CD6AC164EA2BF00600BFF /* DCTManagedObjectSerialization.m */; };
+		247E440B16A83A13005C4B7B /* DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */; };
 		2492B5A01650F470004BB997 /* DCTManagedObjectSerializationProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492B59F1650F470004BB997 /* DCTManagedObjectSerializationProperties.m */; };
 		2492B60B165107A7004BB997 /* DCTManagedObjectSerializationProperties.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2492B59E1650F470004BB997 /* DCTManagedObjectSerializationProperties.h */; };
 		24A23538164EA58E00BD92ED /* DCTManagedObjectSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */; };
@@ -58,8 +57,6 @@
 		24217CAA164EC9A800B7DE98 /* _Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Person.m; sourceTree = "<group>"; };
 		24217CAB164EC9A800B7DE98 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		24217CAC164EC9A800B7DE98 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		24217CB5164ECF3300B7DE98 /* _DCTManagedObjectDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DCTManagedObjectDeserializer.h; sourceTree = "<group>"; };
-		24217CB6164ECF3300B7DE98 /* _DCTManagedObjectDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DCTManagedObjectDeserializer.m; sourceTree = "<group>"; };
 		24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DCTManagedObjectSerialization.h"; sourceTree = "<group>"; };
 		24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DCTManagedObjectSerialization.m"; sourceTree = "<group>"; };
 		24217CBC164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+_DCTManagedObjectSerialization.h"; sourceTree = "<group>"; };
@@ -73,7 +70,8 @@
 		245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTManagedObjectSerialization.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		245CD698164EA29300600BFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization.h; sourceTree = "<group>"; };
-		245CD6AC164EA2BF00600BFF /* DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectSerialization.m; sourceTree = "<group>"; };
+		247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectDeserializer.h; sourceTree = "<group>"; };
+		247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectDeserializer.m; sourceTree = "<group>"; };
 		2492B59E1650F470004BB997 /* DCTManagedObjectSerializationProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerializationProperties.h; sourceTree = "<group>"; };
 		2492B59F1650F470004BB997 /* DCTManagedObjectSerializationProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectSerializationProperties.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,11 +168,12 @@
 			isa = PBXGroup;
 			children = (
 				245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */,
-				245CD6AC164EA2BF00600BFF /* DCTManagedObjectSerialization.m */,
 				2492B59E1650F470004BB997 /* DCTManagedObjectSerializationProperties.h */,
 				2492B59F1650F470004BB997 /* DCTManagedObjectSerializationProperties.m */,
 				24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */,
 				24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */,
+				247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */,
+				247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */,
 				24A23533164EA4F600BD92ED /* Private */,
 			);
 			path = DCTManagedObjectSerialization;
@@ -183,8 +182,6 @@
 		24A23533164EA4F600BD92ED /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				24217CB5164ECF3300B7DE98 /* _DCTManagedObjectDeserializer.h */,
-				24217CB6164ECF3300B7DE98 /* _DCTManagedObjectDeserializer.m */,
 				24217CBC164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.h */,
 				24217CBD164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m */,
 				24217CBF164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h */,
@@ -303,13 +300,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				245CD6C1164EA2BF00600BFF /* DCTManagedObjectSerialization.m in Sources */,
-				24217CB7164ECF3300B7DE98 /* _DCTManagedObjectDeserializer.m in Sources */,
 				24217CBB164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
 				24217CBE164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */,
 				24217CC1164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
 				24217CC4164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
 				2492B5A01650F470004BB997 /* DCTManagedObjectSerializationProperties.m in Sources */,
+				247E440B16A83A13005C4B7B /* DCTManagedObjectDeserializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
