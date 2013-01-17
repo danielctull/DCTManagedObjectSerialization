@@ -24,11 +24,17 @@
 				  entity:(NSEntityDescription *)entity
 	managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
+
+#pragma mark Deserialization
+
 // Returns nil if the object was found to be of an unsuitable class, recording that as an error (unlike -decodeObjectOfClass:forKey: which throws)
 // Also returns nil if the key simply isn't present
 // Can use -containsValueForKey: to differentiate between the two
 // If key is key path, it will be correctly followed down inside the source serialization
 - (id)deserializeObjectOfClass:(Class)class forKey:(NSString *)key __attribute__((nonnull(1,2)));
+
+// Figures out the key and class from the property
+- (id)deserializeProperty:(NSPropertyDescription *)property __attribute__((nonnull(1)));
 
 // Generally goes from string form to URL
 - (NSURL *)deserializeURLForKey:(NSString *)key __attribute__((nonnull(1)));

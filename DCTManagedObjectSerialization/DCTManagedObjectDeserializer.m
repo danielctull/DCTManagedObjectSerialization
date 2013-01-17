@@ -63,6 +63,12 @@
     return result;
 }
 
+- (id)deserializeProperty:(NSPropertyDescription *)property;
+{
+    Class class = [property deserializationClass];
+    return (class ? [self deserializeObjectOfClass:class forKey:property.dct_serializationName] : nil);
+}
+
 - (NSURL *)deserializeURLForKey:(NSString *)key __attribute__((nonnull(1)));
 {
     NSString *urlString = [self deserializeObjectOfClass:[NSString class] forKey:key];
