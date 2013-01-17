@@ -10,7 +10,3 @@
 #import <CoreData/CoreData.h>
 #import "DCTManagedObjectSerializationProperties.h"
 #import "NSManagedObject+DCTManagedObjectSerialization.h"
-
-@interface DCTManagedObjectSerialization : NSObject
-
-@end
