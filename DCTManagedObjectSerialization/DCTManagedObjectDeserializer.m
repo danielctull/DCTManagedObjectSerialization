@@ -227,7 +227,11 @@
 
 - (NSArray *)errors;
 {
-    return [[_errors mutableCopy] autorelease];
+#if __has_feature(objc_arc)
+	return [_errors mutableCopy];
+#else
+	return [[_errors mutableCopy] autorelease];
+#endif
 }
 
 #pragma mark Debugging
