@@ -221,13 +221,6 @@
     return [_dictionary valueForKeyPath:key] != nil;
 }
 
-#pragma mark -
-
-- (NSString *)_serializationNameForPropertyName:(NSString *)propertyName {
-	NSPropertyDescription *property = [[_entity propertiesByName] objectForKey:propertyName];
-	return property.dct_serializationName;
-}
-
 #pragma mark Error Reporting
 
 - (void)recordError:(NSError *)error forKey:(NSString *)key;
