@@ -228,9 +228,9 @@
 - (NSArray *)errors;
 {
 #if __has_feature(objc_arc)
-	return [_errors mutableCopy];
+	return [_errors copy];
 #else
-	return [[_errors mutableCopy] autorelease];
+	return [[_errors copy] autorelease];
 #endif
 }
 
