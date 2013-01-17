@@ -39,6 +39,7 @@
 	[_entity release];
 	[_managedObjectContext release];
 	[_serializationNameToPropertyNameMapping release];
+    [_errors release];
 	
 	[super dealloc];
 }
@@ -47,7 +48,18 @@
 - (id)deserializeObjectOfClass:(Class)class forKey:(NSString *)key __attribute__((nonnull(1,2)));
 {
     id result = [_dictionary valueForKeyPath:key];
-    if (![result isKindOfClass:class]) result = nil;
+    
+    if (result && ![result isKindOfClass:class])
+    {
+        [self recordError:[NSError errorWithDomain:NSCocoaErrorDomain code:NSManagedObjectValidationError userInfo:@{
+                       NSValidationObjectErrorKey : _dictionary,
+                          NSValidationKeyErrorKey : key,
+                        NSValidationValueErrorKey : result,
+                           }]];
+        
+        result = nil;
+    }
+    
     return result;
 }
 
@@ -137,6 +149,32 @@
 	}
 
 	return _serializationNameToPropertyNameMapping;
+}
+
+#pragma mark Error Reporting
+
+- (void)recordError:(NSError *)error forKey:(NSString *)key;
+{
+    // Construct an error around the serialized state
+    error = [NSError errorWithDomain:[error domain] code:[error code] userInfo:@{
+         NSValidationObjectErrorKey : _dictionary,
+            NSValidationKeyErrorKey : key,
+          NSValidationValueErrorKey : [_dictionary valueForKeyPath:key],
+               NSUnderlyingErrorKey : error
+             }];
+    
+    [self recordError:error];
+}
+
+- (void)recordError:(NSError *)error __attribute__((nonnull(1)));
+{
+    if (!_errors) _errors = [[NSMutableArray alloc] initWithCapacity:1];
+    [_errors addObject:error];
+}
+
+- (NSArray *)errors;
+{
+    return [[_errors mutableCopy] autorelease];
 }
 
 @end
