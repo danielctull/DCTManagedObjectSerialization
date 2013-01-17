@@ -36,13 +36,13 @@
     return result;
 }
 
-- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
-{
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+	NSAssert(managedObjectContext != nil, @"managedObjectContext should not be nil");
 	self = [self init];
 	if (!self) return nil;
 
 	_managedObjectContext = managedObjectContext;
-	
+
 #if !__has_feature(objc_arc)
 	[_managedObjectContext retain];
 #endif
@@ -80,13 +80,15 @@
 
 #if !__has_feature(objc_arc)
 - (void)dealloc {
-	
 	[_dictionary release];
 	[_entity release];
 	[_managedObjectContext release];
-	[_serializationNameToPropertyNameMapping release];
     [_errors release];
-	
+	[_uniqueKeysByEntity release];
+	[_shouldDeserializeNilValuesByEntity release];
+	[_serializationNamesByProperty release];
+	[_transformerNamesByAttribute release];
+	[_serializationShouldBeUnionByRelationship release];
 	[super dealloc];
 }
 #endif
