@@ -167,12 +167,25 @@
 - (void)recordError:(NSError *)error forKey:(NSString *)key;
 {
     // Construct an error around the serialized state
-    error = [NSError errorWithDomain:[error domain] code:[error code] userInfo:@{
-         NSValidationObjectErrorKey : _dictionary,
-            NSValidationKeyErrorKey : key,
-          NSValidationValueErrorKey : [_dictionary valueForKeyPath:key],
-               NSUnderlyingErrorKey : error
-             }];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:[error userInfo]];
+    [userInfo setValue:[error localizedDescription] forKey:NSLocalizedDescriptionKey];
+    [userInfo setValue:[error localizedFailureReason] forKey:NSLocalizedFailureReasonErrorKey];
+    [userInfo setValue:[error localizedRecoverySuggestion] forKey:NSLocalizedRecoverySuggestionErrorKey];
+    
+    [userInfo setObject:_dictionary forKey:NSValidationObjectErrorKey];
+    [userInfo setObject:key forKey:NSValidationKeyErrorKey];
+    [userInfo setValue:[_dictionary valueForKeyPath:key] forKey:NSValidationValueErrorKey];
+    [userInfo setValue:error forKey:NSUnderlyingErrorKey];
+    
+    if (error)
+    {
+        error = [NSError errorWithDomain:[error domain] code:[error code] userInfo:userInfo];
+    }
+    else
+    {
+        // Fallback to generic error
+        error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSManagedObjectValidationError userInfo:userInfo];
+    }
     
     [self recordError:error];
 }

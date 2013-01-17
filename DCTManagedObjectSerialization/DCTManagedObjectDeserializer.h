@@ -50,7 +50,7 @@
 #pragma mark Error Reporting
 
 // Takes care of generating an error that references the faulty serialized data
-- (void)recordError:(NSError *)error forKey:(NSString *)key __attribute__((nonnull(1,2)));
+- (void)recordError:(NSError *)error forKey:(NSString *)key __attribute__((nonnull(2)));
 
 // Raw error methods
 - (void)recordError:(NSError *)error __attribute__((nonnull(1)));
