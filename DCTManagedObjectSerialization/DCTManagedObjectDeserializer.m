@@ -81,7 +81,6 @@
 #if !__has_feature(objc_arc)
 - (void)dealloc {
 	[_dictionary release];
-	[_entity release];
 	[_managedObjectContext release];
     [_errors release];
 	[_uniqueKeysByEntity release];
@@ -102,13 +101,10 @@
         NSDictionary *oldDictionary = _dictionary;
         _dictionary = dictionary;
         
-        NSEntityDescription *oldEntity = _entity;
-        _entity = entity;
-        
         NSManagedObject *managedObject = [self existingObjectWithDictionary:dictionary entity:entity managedObjectContext:_managedObjectContext];
         
         if (!managedObject) {
-            managedObject = [[NSManagedObject alloc] initWithEntity:_entity insertIntoManagedObjectContext:_managedObjectContext];
+            managedObject = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:_managedObjectContext];
             
 #if !__has_feature(objc_arc)
             [managedObject autorelease];
@@ -117,9 +113,8 @@
         
         [managedObject dct_deserialize:self];
         
-        // Restore the old entity & dictionary, which is crucial when this method is called reentrantly
+        // Restore the old dictionary, which is crucial when this method is called reentrantly
         _dictionary = oldDictionary;
-        _entity = oldEntity;
         
         return managedObject;
     }];

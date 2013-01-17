@@ -14,7 +14,6 @@
 {
   @private
 	NSDictionary *_dictionary;
-	NSEntityDescription *_entity;
 	NSManagedObjectContext *_managedObjectContext;
     
     NSMutableArray  *_errors;
