@@ -15,6 +15,22 @@
 
 #pragma mark Deserializing a Whole Dictionary
 
++ (id)deserializeObjectWithEntityName:(NSString *)entityName
+                 managedObjectContext:(NSManagedObjectContext *)managedObjectContext
+                       fromDictionary:(NSDictionary *)dictionary;
+{
+	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext];
+	
+	DCTManagedObjectDeserializer *deserializer = [[self alloc] initWithManagedObjectContext:managedObjectContext];
+	NSManagedObject *result = [deserializer deserializeObjectWithEntity:entity fromDictionary:dictionary];
+	
+#if !__has_feature(objc_arc)
+	[deserializer release];
+#endif
+	
+    return result;
+}
+
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1)));
 {
 	self = [self init];

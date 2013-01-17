@@ -62,6 +62,11 @@
     NSMutableArray  *_errors;
 }
 
+// Convenience to deserialize quickly in one go
++ (id)deserializeObjectWithEntityName:(NSString *)entityName
+                 managedObjectContext:(NSManagedObjectContext *)managedObjectContext
+                       fromDictionary:(NSDictionary *)dictionary;
+
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1)));
 
 - (NSArray *)errors;

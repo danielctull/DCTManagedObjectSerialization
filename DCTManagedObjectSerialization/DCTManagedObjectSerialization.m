@@ -15,22 +15,6 @@ NSString *const DCTManagedObjectSerializationISO8601ValueTransformerName = @"ISO
 
 @implementation DCTManagedObjectSerialization
 
-+ (id)objectFromDictionary:(NSDictionary *)dictionary
-			rootEntityName:(NSString *)entityName
-	  managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
-
-	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext];
-	
-	DCTManagedObjectDeserializer *deserializer = [[DCTManagedObjectDeserializer alloc] initWithManagedObjectContext:managedObjectContext];
-	NSManagedObject *result = [deserializer deserializeObjectWithEntity:entity fromDictionary:dictionary];
-	
-#if !__has_feature(objc_arc)
-	[deserializer release];
-#endif
-	
-    return result;
-}
-
 + (NSString *)serializationDescriptionForEntitiesInManagedObjectModel:(NSManagedObjectModel *)managedObjectModel {
 
 	NSMutableDictionary *entityDictionary = [NSMutableDictionary dictionary];
