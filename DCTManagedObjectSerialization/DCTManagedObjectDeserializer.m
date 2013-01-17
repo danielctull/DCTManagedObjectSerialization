@@ -47,6 +47,34 @@
 	[_managedObjectContext retain];
 #endif
 	
+	_uniqueKeysByEntity = [NSMutableDictionary new];
+	_shouldDeserializeNilValuesByEntity = [NSMutableDictionary new];
+	_serializationNamesByProperty = [NSMutableDictionary new];
+	_transformerNamesByAttribute = [NSMutableDictionary new];
+	_serializationShouldBeUnionByRelationship = [NSMutableDictionary new];
+
+	NSArray *entities = [_managedObjectContext.persistentStoreCoordinator.managedObjectModel entities];
+	[entities enumerateObjectsUsingBlock:^(NSEntityDescription *entity, NSUInteger i, BOOL *stop) {
+
+		[self setUniqueKeys:entity.dct_serializationUniqueKeys forEntity:entity];
+		[self setShouldDeserializeNilValues:entity.dct_shouldDeserializeNilValues forEntity:entity];
+
+		[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
+
+			[self setSerializationName:property.dct_serializationName forProperty:property];
+
+			if ([property isKindOfClass:[NSAttributeDescription class]]) {
+				NSAttributeDescription *attribute = (NSAttributeDescription *)property;
+				[self setTransformerNames:attribute.dct_serializationTransformerNames forAttibute:attribute];
+			}
+
+			if ([property isKindOfClass:[NSRelationshipDescription class]]) {
+				NSRelationshipDescription *relationship = (NSRelationshipDescription *)property;
+				[self setSerializationShouldBeUnion:relationship.dct_serializationShouldBeUnion forRelationship:relationship];
+			}
+		}];
+	}];
+	
 	return self;
 }
 
@@ -342,6 +370,53 @@
 		[entityDictionary setObject:propertyArray forKey:entityName];
 	}];
 	return [entityDictionary description];
+}
+
+#pragma mark - Serialization Properties
+
+- (NSArray *)uniqueKeysForEntity:(NSEntityDescription *)entity {
+	return [_uniqueKeysByEntity objectForKey:entity];
+}
+
+- (void)setUniqueKeys:(NSArray *)keys forEntity:(NSEntityDescription *)entity {
+	if (keys.count == 0) return;
+	[_uniqueKeysByEntity setObject:[keys copy] forKey:entity];
+}
+
+- (BOOL)shouldDeserializeNilValuesForEntity:(NSEntityDescription *)entity {
+	return [[_shouldDeserializeNilValuesByEntity objectForKey:entity] boolValue];
+}
+
+- (void)setShouldDeserializeNilValues:(BOOL)shouldDeserializeNilValues forEntity:(NSEntityDescription *)entity {
+	[_shouldDeserializeNilValuesByEntity setObject:@(shouldDeserializeNilValues) forKey:entity];
+}
+
+- (NSString *)serializationNameForProperty:(NSPropertyDescription *)property {
+	NSString *serializationName = [_serializationNamesByProperty objectForKey:property];
+	if (serializationName.length == 0) serializationName = property.name;
+	return serializationName;
+}
+
+- (void)setSerializationName:(NSString *)serializationName forProperty:(NSPropertyDescription *)property {
+	if (serializationName.length == 0) return;
+	[_serializationNamesByProperty setObject:[serializationName copy] forKey:property];
+}
+
+- (NSArray *)transformerNamesForAttibute:(NSAttributeDescription *)attribute {
+	return [_transformerNamesByAttribute objectForKey:attribute];
+}
+
+- (void)setTransformerNames:(NSArray *)transformerNames forAttibute:(NSAttributeDescription *)attribute {
+	if (transformerNames.count == 0) return;
+	[_transformerNamesByAttribute setObject:[transformerNames copy] forKey:attribute];
+}
+
+- (BOOL)serializationShouldBeUnionForRelationship:(NSRelationshipDescription *)relationship {
+	return [[_serializationShouldBeUnionByRelationship objectForKey:relationship] boolValue];
+}
+
+- (void)setSerializationShouldBeUnion:(BOOL)serializationShouldBeUnion forRelationship:(NSRelationshipDescription *)relationship {
+	[_serializationShouldBeUnionByRelationship setObject:@(serializationShouldBeUnion) forKey:relationship];
 }
 
 @end
