@@ -228,29 +228,6 @@
 	return property.dct_serializationName;
 }
 
-- (NSString *)_propertyNameForSerializationName:(NSString *)serializationName {
-	NSString *propertyName = [[self _serializationNameToPropertyNameMapping] objectForKey:serializationName];
-
-	if (propertyName.length == 0 && [[[_entity propertiesByName] allKeys] containsObject:serializationName])
-		propertyName = serializationName;
-
-	return propertyName;
-}
-
-- (NSDictionary *)_serializationNameToPropertyNameMapping {
-
-	if (!_serializationNameToPropertyNameMapping) {
-		NSArray *properties = _entity.properties;
-		NSMutableDictionary *serializationNameToPropertyNameMapping = [[NSMutableDictionary alloc] initWithCapacity:properties.count];
-		[properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
-			[serializationNameToPropertyNameMapping setObject:property.name forKey:property.dct_serializationName];
-		}];
-		_serializationNameToPropertyNameMapping = serializationNameToPropertyNameMapping;
-	}
-
-	return _serializationNameToPropertyNameMapping;
-}
-
 #pragma mark Error Reporting
 
 - (void)recordError:(NSError *)error forKey:(NSString *)key;

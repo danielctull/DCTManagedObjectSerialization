@@ -16,7 +16,6 @@
 	NSDictionary *_dictionary;
 	NSEntityDescription *_entity;
 	NSManagedObjectContext *_managedObjectContext;
-	NSDictionary *_serializationNameToPropertyNameMapping;
     
     NSMutableArray  *_errors;
 
