@@ -16,10 +16,22 @@
 {
     id value = [deserializer deserializeProperty:property];
     
-    // Bail out if nil value is unacceptable, or due to an error
+    // Nil can arise because:
+    //  * the serialization is corrupt (i.e. contains the wrong class)
+    //  * there's no such key in the serialization, which can be because:
+    //      * it's a property that was nil in the source
+    //      * the serialization only covers a subset of attributes (common when deserializing JSON from a server). Entity's dct_shouldDeserializeNilValues property covers this
+    //      * it's a relationship not intended to be serialized/deserialized (e.g. relationship to parent object)
+    //
+    // Only the first one merits reporting an error (which -deserializeProperty:) will have done internally. For the others, they're not errors; just continue on
     if (!value)
     {
-        if ([deserializer containsValueForKey:property.dct_serializationName] || !self.entity.dct_shouldDeserializeNilValues) return;
+        if ([deserializer containsValueForKey:property.dct_serializationName] ||
+            !self.entity.dct_shouldDeserializeNilValues ||
+            [property isKindOfClass:[NSRelationshipDescription class]])
+        {
+            return;
+        }
     }
     
     // Apply any transform the property uses
