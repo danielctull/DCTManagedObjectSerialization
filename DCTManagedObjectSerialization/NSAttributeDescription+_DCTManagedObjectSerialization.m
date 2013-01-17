@@ -7,11 +7,12 @@
 //
 
 #import "NSAttributeDescription+_DCTManagedObjectSerialization.h"
-#import "DCTManagedObjectSerializationProperties.h"
+#import "DCTManagedObjectSerialization.h"
 
 @implementation NSAttributeDescription (_DCTManagedObjectSerialization)
 
-- (id)dct_valueForSerializedValue:(id)value inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+- (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer;
+{
 	return [self dct_valueForSerializedValue:value];
 }
 

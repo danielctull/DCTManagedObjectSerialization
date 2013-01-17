@@ -11,57 +11,58 @@
 
 @implementation NSRelationshipDescription (_DCTManagedObjectSerialization)
 
-- (id)dct_valueForSerializedValue:(id)value inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
-
+- (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer;
+{
 	if (!self.isToMany)
-		return [self dct_valueForSerializedDictionary:value managedObjectContext:managedObjectContext];
+		return [self dct_valueForSerializedDictionary:value deserializer:deserializer];
 
 	if ([self respondsToSelector:@selector(isOrdered)] && self.isOrdered) {
 		
 		NSMutableOrderedSet *result = [NSMutableOrderedSet orderedSetWithCapacity:[value count]];
-		[self dct_populateCollection:result fromSerializedObjects:value managedObjectContext:managedObjectContext];
+		[self dct_populateCollection:result fromSerializedObjects:value deserializer:deserializer];
 		return result;
 	}
 	else {
 		NSMutableSet *result = [NSMutableSet setWithCapacity:[value count]];
-		[self dct_populateCollection:result fromSerializedObjects:value managedObjectContext:managedObjectContext];
+		[self dct_populateCollection:result fromSerializedObjects:value deserializer:deserializer];
 		return result;
 	}
 }
 
-- (void)dct_populateCollection:(id)collection fromSerializedObjects:(NSArray *)array managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
-
+- (void)dct_populateCollection:(id)collection fromSerializedObjects:(NSArray *)array deserializer:(id <DCTManagedObjectDeserializing>)deserializer;
+{
 	[array enumerateObjectsUsingBlock:^(NSDictionary *dictionary, NSUInteger i, BOOL *stop) {
-		id object = [self dct_valueForSerializedDictionary:dictionary managedObjectContext:managedObjectContext];
+		
+        if (![dictionary isKindOfClass:[NSDictionary class]])
+        {
+            // Likely corrupt serialization
+            [deserializer recordError:[NSError errorWithDomain:NSCocoaErrorDomain
+                                                          code:NSManagedObjectValidationError
+                                                      userInfo:@{ NSValidationValueErrorKey : dictionary }]];
+            return;
+        }
+        
+        id object = [self dct_valueForSerializedDictionary:dictionary deserializer:deserializer];
 		[collection addObject:object];
 	}];
 }
 
-- (id)dct_valueForSerializedDictionary:(NSDictionary *)dictionary managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
-
-	if (![dictionary isKindOfClass:[NSDictionary class]]) return nil;    // likely corrupt serialization
-
+- (id)dct_valueForSerializedDictionary:(NSDictionary *)dictionary deserializer:(id <DCTManagedObjectDeserializing>)deserializer;
+{
 	NSEntityDescription *entity = nil;
     if ([dictionary objectForKey:@"entity"])
     {
         NSString *name = [dictionary objectForKey:@"entity"];
         if ([name isKindOfClass:[NSString class]])
         {
-            entity = [NSEntityDescription entityForName:name inManagedObjectContext:managedObjectContext];
+            entity = [NSEntityDescription entityForName:name
+                                 inManagedObjectContext:[(id)deserializer managedObjectContext]];   // HACK
         }
-        if (!entity) return nil;    // likely corrupt serialization
-    }
-    else
-    {
-        entity = self.destinationEntity;
     }
     
-	DCTManagedObjectDeserializer *deserializer = [[DCTManagedObjectDeserializer alloc] initWithManagedObjectContext:managedObjectContext];
+    if (!entity) entity = self.destinationEntity;
+    
 	NSManagedObject *result = [deserializer deserializeObjectWithEntity:entity fromDictionary:dictionary];
-	
-#if !__has_feature(objc_arc)
-	[deserializer release];
-#endif
 	
 	return result;
 }

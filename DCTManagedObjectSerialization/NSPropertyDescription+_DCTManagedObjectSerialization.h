@@ -6,11 +6,12 @@
 //  Copyright (c) 2012 Daniel Tull. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
+#import "DCTManagedObjectSerialization.h"
+
 
 @interface NSPropertyDescription (_DCTManagedObjectSerialization)
 
-- (id)dct_valueForSerializedValue:(id)value inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+- (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer;
 - (void)dct_setUserInfoValue:(id)value forKey:(NSString *)key;
 
 @end

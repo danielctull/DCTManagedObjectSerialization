@@ -35,7 +35,7 @@
     }
     
     // Apply any transform the property uses
-    id transformedValue = [property dct_valueForSerializedValue:value inManagedObjectContext:self.managedObjectContext];
+    id transformedValue = [property dct_valueForSerializedValue:value withDeserializer:deserializer];
     
     // Check the value will be OK
     NSString *key = [property name];

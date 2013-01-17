@@ -111,7 +111,7 @@
         
 		NSString *serializationName = [self _serializationNameForPropertyName:uniqueKey];
 		id serializedValue = [_dictionary objectForKey:serializationName];
-		id value = [property dct_valueForSerializedValue:serializedValue inManagedObjectContext:_managedObjectContext];
+		id value = [property dct_valueForSerializedValue:serializedValue withDeserializer:self];
 		if (!value) return;
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", uniqueKey, value];
 		[predicates addObject:predicate];
