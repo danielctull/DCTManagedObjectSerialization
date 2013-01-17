@@ -111,6 +111,10 @@
 	return [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
 }
 
+#pragma mark Properties
+
+@synthesize managedObjectContext = _managedObjectContext;
+
 #pragma mark Deserializing Individual Keys
 
 - (id)deserializeObjectOfClass:(Class)class forKey:(NSString *)key __attribute__((nonnull(1,2)));

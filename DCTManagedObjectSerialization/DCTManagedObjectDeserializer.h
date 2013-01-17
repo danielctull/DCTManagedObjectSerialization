@@ -69,6 +69,8 @@
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1)));
 
+@property(readonly, retain) NSManagedObjectContext *managedObjectContext;
+
 - (NSArray *)errors;
 
 
