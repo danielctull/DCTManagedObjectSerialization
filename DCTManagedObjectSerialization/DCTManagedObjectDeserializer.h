@@ -74,4 +74,8 @@
 - (NSArray *)errors;
 
 
+#pragma mark Debugging
++ (NSString *)serializationDescriptionForEntitiesInManagedObjectModel:(NSManagedObjectModel *)managedObjectModel;
+
+
 @end

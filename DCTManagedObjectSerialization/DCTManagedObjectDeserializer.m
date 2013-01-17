@@ -230,4 +230,52 @@
     return [[_errors mutableCopy] autorelease];
 }
 
+#pragma mark Debugging
+
++ (NSString *)serializationDescriptionForEntitiesInManagedObjectModel:(NSManagedObjectModel *)managedObjectModel {
+    
+	NSMutableDictionary *entityDictionary = [NSMutableDictionary dictionary];
+    
+	[[managedObjectModel entities] enumerateObjectsUsingBlock:^(NSEntityDescription *entity, NSUInteger i, BOOL *stop) {
+        
+		NSMutableArray *propertyArray = [NSMutableArray array];
+        
+		[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
+            
+			NSMutableString *string = [NSMutableString string];
+			[string appendFormat:@"%@", property.name];
+            
+			NSMutableString *serializationPropertyString = [NSMutableString string];
+			[serializationPropertyString appendString:@"("];
+            
+			NSString *serializationName = [property.userInfo objectForKey:@"serializationName"];
+			if (serializationName) [serializationPropertyString appendFormat:@"serializationName = %@", serializationName];
+            
+			if ([property isKindOfClass:[NSRelationshipDescription class]]) {
+				NSRelationshipDescription *relationship = (NSRelationshipDescription *)property;
+				if (relationship.isToMany)
+					[serializationPropertyString appendFormat:@"; serializationShouldBeUnion = %@", @(relationship.dct_serializationShouldBeUnion)];
+			}
+            
+			if ([property isKindOfClass:[NSAttributeDescription class]]) {
+				NSAttributeDescription *attribute = (NSAttributeDescription *)property;
+				NSArray *serializationTransformerNames = attribute.dct_serializationTransformerNames;
+				if (serializationTransformerNames)
+					[serializationPropertyString appendFormat:@"; serializationTransformerNames = %@", [serializationTransformerNames componentsJoinedByString:@","]];
+			}
+			[serializationPropertyString appendString:@")"];
+            
+			if (serializationPropertyString.length > 2) [string appendFormat:@" %@", serializationPropertyString];
+            
+			[propertyArray addObject:string];
+		}];
+        
+        
+		NSArray *serializationUniqueKeys = entity.dct_serializationUniqueKeys;
+		NSString *entityName = [NSString stringWithFormat:@"%@ (serializationUniqueKeys = %@)", entity.name, serializationUniqueKeys ? [serializationUniqueKeys componentsJoinedByString:@","] : @"none"];
+		[entityDictionary setObject:propertyArray forKey:entityName];
+	}];
+	return [entityDictionary description];
+}
+
 @end

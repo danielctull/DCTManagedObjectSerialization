@@ -13,6 +13,4 @@
 
 @interface DCTManagedObjectSerialization : NSObject
 
-+ (NSString *)serializationDescriptionForEntitiesInManagedObjectModel:(NSManagedObjectModel *)managedObjectModel;
-
 @end
