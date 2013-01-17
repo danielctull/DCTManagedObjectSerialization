@@ -65,29 +65,79 @@
 
 - (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary __attribute__((nonnull(1,2)));
 {
-    NSDictionary *oldDictionary = _dictionary;
-    _dictionary = dictionary;
-    
-    NSEntityDescription *oldEntity = _entity;
-    _entity = entity;
-    
-	NSManagedObject *managedObject = [self _existingObject];
-    
-	if (!managedObject) {
-		managedObject = [[NSManagedObject alloc] initWithEntity:_entity insertIntoManagedObjectContext:_managedObjectContext];
-		
+    return [self deserializeObjectUsingBlock:^id{
+        
+        NSDictionary *oldDictionary = _dictionary;
+        _dictionary = dictionary;
+        
+        NSEntityDescription *oldEntity = _entity;
+        _entity = entity;
+        
+        NSManagedObject *managedObject = [self _existingObject];
+        
+        if (!managedObject) {
+            managedObject = [[NSManagedObject alloc] initWithEntity:_entity insertIntoManagedObjectContext:_managedObjectContext];
+            
 #if !__has_feature(objc_arc)
-		[managedObject autorelease];
+            [managedObject autorelease];
 #endif
-	}
-	
-	[managedObject dct_deserialize:self];
-    
-    // Restore the old entity & dictionary, which is crucial when this method is called reentrantly
-    _dictionary = oldDictionary;
-    _entity = oldEntity;
-    
-	return managedObject;
+        }
+        
+        [managedObject dct_deserialize:self];
+        
+        // Restore the old entity & dictionary, which is crucial when this method is called reentrantly
+        _dictionary = oldDictionary;
+        _entity = oldEntity;
+        
+        return managedObject;
+    }];
+}
+
+- (id)deserializeObjectUsingBlock:(id (^)(void))block;
+{
+    // Outermost call to this requires some setup
+    if (!_dictionary)
+    {
+        // Previous deserializations must be cleared away
+        [_errors release]; _errors = nil;
+        
+        // For the outermost call, install a undo group to perform error recovery with
+        // TODO: On 10.7/iOS5+ could instead do the changes into a child MOC
+        NSUndoManager *undoManager = [[self managedObjectContext] undoManager];
+        if (!undoManager)
+        {
+            // Install an undo manager temporarily
+            undoManager = [[NSUndoManager alloc] init];
+            [[self managedObjectContext] setUndoManager:undoManager];
+            
+            // Try again now we have an undo manager
+            id result = [self deserializeObjectUsingBlock:block];
+            
+            // Clear up
+            [[self managedObjectContext] setUndoManager:nil];
+            [undoManager release];
+            return  result;
+        }
+        
+        [undoManager beginUndoGrouping];
+        
+        id result = block();
+        
+        [undoManager endUndoGrouping];
+        
+        // If there were one or more errors, pretend those changes never happened
+        if ([self errors])
+        {
+            [undoManager undoNestedGroup];
+            result = nil;
+        }
+        
+        return result;
+    }
+    else
+    {
+        return block();
+    }
 }
 
 - (NSManagedObject *)_existingObject {

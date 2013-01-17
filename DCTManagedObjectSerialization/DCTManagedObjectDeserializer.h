@@ -23,6 +23,7 @@
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1)));
 
+// If there were one or more errors during deserialization, undoes that process, and returns nil
 - (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary __attribute__((nonnull(1,2)));
 
 // Convenience to deserialize quickly in one go
