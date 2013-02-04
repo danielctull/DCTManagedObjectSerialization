@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Daniel Tull. All rights reserved.
 //
 
-#import "DCTManagedObjectSerializationProperties.h"
+#import "_DCTManagedObjectSerializationProperties.h"
 #import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
 
 NSString *const DCTSerializationUniqueKeys = @"serializationUniqueKeys";

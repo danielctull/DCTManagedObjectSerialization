@@ -7,7 +7,7 @@
 //
 
 #import "DCTManagedObjectDeserializer.h"
-#import "DCTManagedObjectSerializationProperties.h"
+#import "_DCTManagedObjectSerializationProperties.h"
 #import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
 #import "NSManagedObject+DCTManagedObjectSerialization.h"
 
