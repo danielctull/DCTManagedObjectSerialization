@@ -382,7 +382,9 @@
 
 		NSAssert(property != nil, @"A unique key has been set that doesn't exist.");
 
-		id value = [self deserializeProperty:property];
+		NSString *serializationName = [self serializationNameForProperty:property];
+		id serializationValue = [dictionary valueForKeyPath:serializationName];
+		id value = [property dct_valueForSerializedValue:serializationValue withDeserializer:self];
 		if (!value) return;
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", uniqueKey, value];
 		[predicates addObject:predicate];
