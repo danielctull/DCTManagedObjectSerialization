@@ -197,7 +197,9 @@
 
 - (id)deserializeProperty:(NSPropertyDescription *)property {
     Class class = [property dct_deserializationClassWithDeserializer:self];
-    return (class ? [self deserializeObjectOfClass:class forKey:property.dct_serializationName] : nil);
+	if (!class) return nil;
+	NSString *serializationName = [self serializationNameForProperty:property];
+    return [self deserializeObjectOfClass:class forKey:serializationName];
 }
 
 - (NSString *)deserializeStringForKey:(NSString *)key __attribute__((nonnull(1))) {
