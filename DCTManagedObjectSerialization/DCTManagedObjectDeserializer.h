@@ -44,19 +44,10 @@
 
 #pragma mark - Serialization Properties
 
-- (NSArray *)uniqueKeysForEntity:(NSEntityDescription *)entity;
 - (void)setUniqueKeys:(NSArray *)keys forEntity:(NSEntityDescription *)entity;
-
-- (BOOL)shouldDeserializeNilValuesForEntity:(NSEntityDescription *)entity;
 - (void)setShouldDeserializeNilValues:(BOOL)shouldDeserializeNilValues forEntity:(NSEntityDescription *)entity;
-
-- (NSString *)serializationNameForProperty:(NSPropertyDescription *)property;
 - (void)setSerializationName:(NSString *)serializationName forProperty:(NSPropertyDescription *)property;
-
-- (NSArray *)transformerNamesForAttibute:(NSAttributeDescription *)attribute;
 - (void)setTransformerNames:(NSArray *)transformerNames forAttibute:(NSAttributeDescription *)attribute;
-
-- (BOOL)serializationShouldBeUnionForRelationship:(NSRelationshipDescription *)relationship;
 - (void)setSerializationShouldBeUnion:(BOOL)serializationShouldBeUnion forRelationship:(NSRelationshipDescription *)relationship;
 
 #pragma mark Debugging
@@ -102,6 +93,14 @@
 
 // Raw error method
 - (void)recordError:(NSError *)error __attribute__((nonnull(1)));
+
+#pragma mark - Serialization Properties
+
+- (NSArray *)uniqueKeysForEntity:(NSEntityDescription *)entity;
+- (BOOL)shouldDeserializeNilValuesForEntity:(NSEntityDescription *)entity;
+- (NSString *)serializationNameForProperty:(NSPropertyDescription *)property;
+- (NSArray *)transformerNamesForAttibute:(NSAttributeDescription *)attribute;
+- (BOOL)serializationShouldBeUnionForRelationship:(NSRelationshipDescription *)relationship;
 
 
 @end

@@ -11,16 +11,11 @@
 
 @implementation NSAttributeDescription (_DCTManagedObjectSerialization)
 
-- (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer;
-{
-	return [self dct_valueForSerializedValue:value];
-}
-
-- (id)dct_valueForSerializedValue:(id)value {
+- (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer {
 
 	__block id transformedValue = value;
 
-	NSArray *transformerNames = self.dct_serializationTransformerNames;
+	NSArray *transformerNames = [deserializer transformerNamesForAttibute:self];
 	[transformerNames enumerateObjectsUsingBlock:^(NSString *transformerName, NSUInteger idx, BOOL *stop) {
 		NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:transformerName];
 		transformedValue = [transformer transformedValue:transformedValue];

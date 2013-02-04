@@ -8,5 +8,4 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "DCTManagedObjectSerializationProperties.h"
 #import "NSManagedObject+DCTManagedObjectSerialization.h"
