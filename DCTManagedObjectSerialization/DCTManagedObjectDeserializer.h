@@ -12,6 +12,8 @@
 
 @interface DCTManagedObjectDeserializer : NSObject
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-interface-ivars"
   @private
 	NSDictionary *_dictionary;
 	NSManagedObjectContext *_managedObjectContext;
@@ -23,6 +25,7 @@
 	NSMutableDictionary *_serializationNamesByProperty;
 	NSMutableDictionary *_transformerNamesByAttribute;
 	NSMutableDictionary *_serializationShouldBeUnionByRelationship;
+#pragma clang diagnostic pop
 }
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1)));
@@ -38,7 +41,7 @@
 
 #pragma mark Properties
 
-@property(readonly, retain) NSManagedObjectContext *managedObjectContext;
+@property(nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 - (NSArray *)errors;
 
 
