@@ -27,6 +27,7 @@
 		2492B5A01650F470004BB997 /* DCTManagedObjectSerializationProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492B59F1650F470004BB997 /* DCTManagedObjectSerializationProperties.m */; };
 		2492B60B165107A7004BB997 /* DCTManagedObjectSerializationProperties.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2492B59E1650F470004BB997 /* DCTManagedObjectSerializationProperties.h */; };
 		24A23538164EA58E00BD92ED /* DCTManagedObjectSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */; };
+		24C1F67216BEB98800866032 /* DCTManagedObjectDeserializer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,8 +37,9 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				2492B60B165107A7004BB997 /* DCTManagedObjectSerializationProperties.h in CopyFiles */,
+				24C1F67216BEB98800866032 /* DCTManagedObjectDeserializer.h in CopyFiles */,
 				24A23538164EA58E00BD92ED /* DCTManagedObjectSerialization.h in CopyFiles */,
+				2492B60B165107A7004BB997 /* DCTManagedObjectSerializationProperties.h in CopyFiles */,
 				24217CC9164EEF7D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,11 +83,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24217C77164EC51500B7DE98 /* CoreData.framework in Frameworks */,
+				24217C66164EC4E000B7DE98 /* Foundation.framework in Frameworks */,
+				24217C75164EC50E00B7DE98 /* libDCTManagedObjectSerialization.a in Frameworks */,
 				24217C7B164EC56300B7DE98 /* SenTestingKit.framework in Frameworks */,
 				24217C79164EC55600B7DE98 /* UIKit.framework in Frameworks */,
-				24217C77164EC51500B7DE98 /* CoreData.framework in Frameworks */,
-				24217C75164EC50E00B7DE98 /* libDCTManagedObjectSerialization.a in Frameworks */,
-				24217C66164EC4E000B7DE98 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,9 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				24217CA7164EC9A800B7DE98 /* Model */,
+				24217C69164EC4E000B7DE98 /* DCTManagedObjectSerializationTests-Info.plist */,
 				24217C6D164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.h */,
 				24217C6E164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m */,
-				24217C69164EC4E000B7DE98 /* DCTManagedObjectSerializationTests-Info.plist */,
 				24217C7C164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld */,
 				24217CCE1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.h */,
 				24217CCF1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m */,
@@ -147,8 +149,8 @@
 		245CD696164EA29300600BFF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */,
 				24217C61164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.octest */,
+				245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,10 +158,10 @@
 		245CD697164EA29300600BFF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				24217C7A164EC56300B7DE98 /* SenTestingKit.framework */,
-				24217C78164EC55600B7DE98 /* UIKit.framework */,
 				24217C76164EC51500B7DE98 /* CoreData.framework */,
 				245CD698164EA29300600BFF /* Foundation.framework */,
+				24217C7A164EC56300B7DE98 /* SenTestingKit.framework */,
+				24217C78164EC55600B7DE98 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,14 +169,14 @@
 		245CD6AA164EA2BF00600BFF /* DCTManagedObjectSerialization */ = {
 			isa = PBXGroup;
 			children = (
+				24A23533164EA4F600BD92ED /* Private */,
+				247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */,
+				247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */,
 				245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */,
 				2492B59E1650F470004BB997 /* DCTManagedObjectSerializationProperties.h */,
 				2492B59F1650F470004BB997 /* DCTManagedObjectSerializationProperties.m */,
 				24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */,
 				24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */,
-				247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */,
-				247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */,
-				24A23533164EA4F600BD92ED /* Private */,
 			);
 			path = DCTManagedObjectSerialization;
 			sourceTree = "<group>";
@@ -184,10 +186,10 @@
 			children = (
 				24217CBC164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.h */,
 				24217CBD164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m */,
-				24217CBF164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h */,
-				24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */,
 				24217CC2164EE68F00B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.h */,
 				24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */,
+				24217CBF164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h */,
+				24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */,
 			);
 			name = Private;
 			sourceTree = "<group>";
@@ -288,11 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24217CAD164EC9A800B7DE98 /* _Person.m in Sources */,
 				24217C6F164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m in Sources */,
 				24217C7E164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld in Sources */,
-				24217CAD164EC9A800B7DE98 /* _Person.m in Sources */,
-				24217CAE164EC9A800B7DE98 /* Person.m in Sources */,
 				24217CD01650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m in Sources */,
+				24217CAE164EC9A800B7DE98 /* Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,12 +302,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24217CBB164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
-				24217CBE164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */,
-				24217CC1164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
-				24217CC4164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
-				2492B5A01650F470004BB997 /* DCTManagedObjectSerializationProperties.m in Sources */,
 				247E440B16A83A13005C4B7B /* DCTManagedObjectDeserializer.m in Sources */,
+				2492B5A01650F470004BB997 /* DCTManagedObjectSerializationProperties.m in Sources */,
+				24217CBE164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */,
+				24217CBB164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
+				24217CC4164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
+				24217CC1164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
