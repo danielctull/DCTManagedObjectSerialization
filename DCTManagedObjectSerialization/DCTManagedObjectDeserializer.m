@@ -309,12 +309,12 @@
 #pragma mark - Serialization Properties
 
 - (NSArray *)uniqueKeysForEntity:(NSEntityDescription *)entity {
-	return [_uniqueKeysByEntity objectForKey:entity];
+	return [_uniqueKeysByEntity objectForKey:entity.name];
 }
 
 - (void)setUniqueKeys:(NSArray *)keys forEntity:(NSEntityDescription *)entity {
 	if (keys.count == 0) return;
-	[_uniqueKeysByEntity setObject:[keys copy] forKey:entity];
+	[_uniqueKeysByEntity setObject:[keys copy] forKey:entity.name];
 }
 
 - (BOOL)shouldDeserializeNilValuesForEntity:(NSEntityDescription *)entity {
