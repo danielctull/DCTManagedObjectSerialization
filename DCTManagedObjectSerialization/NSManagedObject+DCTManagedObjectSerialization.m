@@ -8,7 +8,6 @@
 
 #import "NSManagedObject+DCTManagedObjectSerialization.h"
 #import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
-#import "DCTManagedObjectSerializationProperties.h"
 
 @implementation NSManagedObject (DCTManagedObjectSerialization)
 
@@ -26,12 +25,10 @@
     // Only the first one merits reporting an error (which -deserializeProperty:) will have done internally. For the others, they're not errors; just continue on
     if (!value)
     {
-        if ([deserializer containsValueForKey:property.dct_serializationName] ||
-            !self.entity.dct_shouldDeserializeNilValues ||
-            [property isKindOfClass:[NSRelationshipDescription class]])
-        {
-            return;
-        }
+		NSString *serializationName = [deserializer serializationNameForProperty:property];
+		if ([deserializer containsValueForKey:serializationName]) return;
+		if (![deserializer shouldDeserializeNilValuesForEntity:self.entity]) return;
+		if ([property isKindOfClass:[NSRelationshipDescription class]]) return;
     }
     
     // Apply any transform the property uses
@@ -43,7 +40,8 @@
     NSError *error;
     if (![self validateValue:&transformedValue forKey:key error:&error])
     {
-        [deserializer recordError:error forKey:property.dct_serializationName];
+		NSString *serializationName = [deserializer serializationNameForProperty:property];
+        [deserializer recordError:error forKey:serializationName];
         return;
     }
     
