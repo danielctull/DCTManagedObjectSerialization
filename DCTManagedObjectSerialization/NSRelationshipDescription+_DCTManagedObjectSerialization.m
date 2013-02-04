@@ -11,6 +11,10 @@
 
 @implementation NSRelationshipDescription (_DCTManagedObjectSerialization)
 
+- (Class)dct_deserializationClassWithDeserializer:(id <DCTManagedObjectDeserializing>)deserializer {
+	return ([self isToMany] ? [NSArray class] : [NSDictionary class]);
+}
+
 - (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer;
 {
 	if (!self.isToMany)

@@ -7,9 +7,19 @@
 //
 
 #import "NSAttributeDescription+_DCTManagedObjectSerialization.h"
+#import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
 #import "DCTManagedObjectSerialization.h"
 
 @implementation NSAttributeDescription (_DCTManagedObjectSerialization)
+
+- (Class)dct_deserializationClassWithDeserializer:(id<DCTManagedObjectDeserializing>)deserializer {
+
+	// For transformable attributes, have no good idea what the source class is.
+	// Assume that the transformer will reject anything unsuitable, so allow basically anything
+
+	BOOL classUnknown = (self.attributeType == NSTransformableAttributeType || [deserializer transformerNamesForAttibute:self].count);
+	return classUnknown ? [NSObject class] : NSClassFromString([self attributeValueClassName]);
+}
 
 - (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer {
 

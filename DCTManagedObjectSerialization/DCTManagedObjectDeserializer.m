@@ -196,7 +196,7 @@
 }
 
 - (id)deserializeProperty:(NSPropertyDescription *)property {
-    Class class = [property deserializationClass];
+    Class class = [property dct_deserializationClassWithDeserializer:self];
     return (class ? [self deserializeObjectOfClass:class forKey:property.dct_serializationName] : nil);
 }
 

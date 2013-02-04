@@ -22,9 +22,6 @@
 
 @property (nonatomic, copy) NSString *dct_serializationName; // serializationName
 
-// The class that we expect to retreive from a serialized form of the entity. Nil if not suitable for serialization
-- (Class)deserializationClass;
-
 @end
 
 
