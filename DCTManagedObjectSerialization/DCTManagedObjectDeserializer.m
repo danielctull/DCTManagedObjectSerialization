@@ -25,7 +25,7 @@
                        fromDictionary:(NSDictionary *)dictionary;
 {
 	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext];
-	
+
 	DCTManagedObjectDeserializer *deserializer = [[self alloc] initWithManagedObjectContext:managedObjectContext];
 	NSManagedObject *result = [deserializer deserializeObjectWithEntity:entity fromDictionary:dictionary];
 	
@@ -92,7 +92,7 @@
 }
 #endif
 
-- (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary __attribute__((nonnull(1,2))) {
+- (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary {
 	NSAssert(entity, @"entity should not be nil");
 	NSAssert(dictionary, @"dictionary should not be nil");
 
@@ -120,7 +120,7 @@
     }];
 }
 
-- (id)deserializeObjectUsingBlock:(id (^)(void))block __attribute__((nonnull(1))) {
+- (id)deserializeObjectUsingBlock:(id (^)(void))block {
     // Outermost call to this requires some setup
     if (!_dictionary)
     {
@@ -173,13 +173,13 @@
     }
 }
 
-#pragma mark Properties
+#pragma mark - Properties
 
 @synthesize managedObjectContext = _managedObjectContext;
 
-#pragma mark Deserializing Individual Keys
+#pragma mark - Deserializing Individual Keys
 
-- (id)deserializeObjectOfClass:(Class)class forKey:(NSString *)key __attribute__((nonnull(1,2))) {
+- (id)deserializeObjectOfClass:(Class)class forKey:(NSString *)key {
     id result = [_dictionary valueForKeyPath:key];
     
     if (result && ![result isKindOfClass:class]) {
@@ -202,20 +202,20 @@
     return [self deserializeObjectOfClass:class forKey:serializationName];
 }
 
-- (NSString *)deserializeStringForKey:(NSString *)key __attribute__((nonnull(1))) {
+- (NSString *)deserializeStringForKey:(NSString *)key {
     return [self deserializeObjectOfClass:[NSString class] forKey:key];
 }
 
-- (NSURL *)deserializeURLForKey:(NSString *)key __attribute__((nonnull(1))) {
+- (NSURL *)deserializeURLForKey:(NSString *)key {
     NSString *urlString = [self deserializeStringForKey:key];
     return (urlString ? [NSURL URLWithString:urlString] : nil);
 }
 
-- (BOOL)containsValueForKey:(NSString *)key __attribute__((nonnull(1))) {
+- (BOOL)containsValueForKey:(NSString *)key {
     return [_dictionary valueForKeyPath:key] != nil;
 }
 
-#pragma mark Error Reporting
+#pragma mark - Error Reporting
 
 - (void)recordError:(NSError *)error forKey:(NSString *)key;
 {
@@ -243,8 +243,7 @@
     [self recordError:error];
 }
 
-- (void)recordError:(NSError *)error __attribute__((nonnull(1)));
-{
+- (void)recordError:(NSError *)error {
     if (!_errors) _errors = [[NSMutableArray alloc] initWithCapacity:1];
     [_errors addObject:error];
 }
@@ -258,7 +257,7 @@
 #endif
 }
 
-#pragma mark Debugging
+#pragma mark - Debugging
 
 + (NSString *)serializationDescriptionForEntitiesInManagedObjectModel:(NSManagedObjectModel *)managedObjectModel {
     
@@ -357,7 +356,7 @@
 
 - (NSManagedObject *)existingObjectWithDictionary:(NSDictionary *)dictionary
 										   entity:(NSEntityDescription *)entity
-							 managedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1,2,3))) {
+							 managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
 
 	NSPredicate *predicate = [self predicateForUniqueObjectWithEntity:entity
 														   dictionary:dictionary
@@ -371,7 +370,7 @@
 
 - (NSPredicate *)predicateForUniqueObjectWithEntity:(NSEntityDescription *)entity
 										 dictionary:(NSDictionary *)dictionary
-							   managedObjectContext:(NSManagedObjectContext *)managedObjectContext __attribute__((nonnull(1,2,3))) {
+							   managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
 
 	NSArray *uniqueKeys = [self uniqueKeysForEntity:entity];
 	if (uniqueKeys.count == 0) return nil;
