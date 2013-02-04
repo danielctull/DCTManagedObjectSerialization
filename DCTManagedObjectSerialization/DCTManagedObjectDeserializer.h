@@ -85,6 +85,7 @@
 
 - (BOOL)containsValueForKey:(NSString *)key __attribute__((nonnull(1)));
 
+- (id)serializedValueForKey:(NSString *)key __attribute__((nonnull(1)));
 
 #pragma mark Error Reporting
 

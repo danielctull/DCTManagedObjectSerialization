@@ -215,6 +215,10 @@
     return [_dictionary valueForKeyPath:key] != nil;
 }
 
+- (id)serializedValueForKey:(NSString *)key {
+	return [_dictionary valueForKeyPath:key];
+}
+
 #pragma mark - Error Reporting
 
 - (void)recordError:(NSError *)error forKey:(NSString *)key;
