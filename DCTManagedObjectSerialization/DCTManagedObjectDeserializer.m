@@ -296,8 +296,15 @@
 
 - (void)setUniqueKeys:(NSArray *)keys forEntity:(NSEntityDescription *)entity {
 	NSString *key = [self keyForEntity:entity];
-	if (keys.count == 0) [_uniqueKeysByEntity removeObjectForKey:key];
-	else [_uniqueKeysByEntity setObject:[keys copy] forKey:key];
+	if (keys.count == 0)
+		[_uniqueKeysByEntity removeObjectForKey:key];
+	else {
+		NSArray *keysCopy = [keys copy];
+		[_uniqueKeysByEntity setObject:keysCopy forKey:key];
+#if !__has_feature(objc_arc)
+		[keysCopy release];
+#endif
+	}
 }
 
 - (BOOL)shouldDeserializeNilValuesForEntity:(NSEntityDescription *)entity {
@@ -321,8 +328,15 @@
 
 - (void)setSerializationName:(NSString *)serializationName forProperty:(NSPropertyDescription *)property {
 	NSString *key = [self keyForProperty:property];
-	if (serializationName.length == 0) return;
-	[_serializationNamesByProperty setObject:[serializationName copy] forKey:key];
+	if (serializationName.length == 0)
+		[_serializationNamesByProperty removeObjectForKey:key];
+	else {
+		NSArray *serializationNameCopy = [serializationName copy];
+		[_serializationNamesByProperty setObject:serializationNameCopy forKey:key];
+#if !__has_feature(objc_arc)
+		[serializationNameCopy release];
+#endif
+	}
 }
 
 - (NSArray *)transformerNamesForAttibute:(NSAttributeDescription *)attribute {
@@ -332,8 +346,15 @@
 
 - (void)setTransformerNames:(NSArray *)transformerNames forAttibute:(NSAttributeDescription *)attribute {
 	NSString *key = [self keyForProperty:attribute];
-	if (transformerNames.count == 0) [_transformerNamesByAttribute removeObjectForKey:key];
-	else [_transformerNamesByAttribute setObject:[transformerNames copy] forKey:key];
+	if (transformerNames.count == 0)
+		[_transformerNamesByAttribute removeObjectForKey:key];
+	else {
+		NSArray *transformerNamesCopy = [transformerNames copy];
+		[_transformerNamesByAttribute setObject:transformerNamesCopy forKey:key];
+#if !__has_feature(objc_arc)
+		[transformerNamesCopy release];
+#endif
+	}
 }
 
 - (BOOL)serializationShouldBeUnionForRelationship:(NSRelationshipDescription *)relationship {
