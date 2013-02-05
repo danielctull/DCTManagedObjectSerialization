@@ -57,7 +57,9 @@
 	[entities enumerateObjectsUsingBlock:^(NSEntityDescription *entity, NSUInteger i, BOOL *stop) {
 
 		[self setUniqueKeys:entity.dct_serializationUniqueKeys forEntity:entity];
-		[self setShouldDeserializeNilValues:entity.dct_shouldDeserializeNilValues forEntity:entity];
+
+		NSNumber *shouldDeserializeNilValues = entity.dct_shouldDeserializeNilValues;
+		if (shouldDeserializeNilValues) [self setShouldDeserializeNilValues:shouldDeserializeNilValues forEntity:entity];
 
 		[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
 
@@ -70,7 +72,8 @@
 
 			if ([property isKindOfClass:[NSRelationshipDescription class]]) {
 				NSRelationshipDescription *relationship = (NSRelationshipDescription *)property;
-				[self setSerializationShouldBeUnion:relationship.dct_serializationShouldBeUnion forRelationship:relationship];
+				NSNumber *serializationShouldBeUnion = relationship.dct_serializationShouldBeUnion;
+				if (serializationShouldBeUnion) [self setSerializationShouldBeUnion:serializationShouldBeUnion forRelationship:relationship];
 			}
 		}];
 	}];
@@ -263,97 +266,86 @@
 
 #pragma mark - Debugging
 
-+ (NSString *)serializationDescriptionForEntitiesInManagedObjectModel:(NSManagedObjectModel *)managedObjectModel {
-    
-	NSMutableDictionary *entityDictionary = [NSMutableDictionary dictionary];
-    
-	[[managedObjectModel entities] enumerateObjectsUsingBlock:^(NSEntityDescription *entity, NSUInteger i, BOOL *stop) {
-        
-		NSMutableArray *propertyArray = [NSMutableArray array];
-        
-		[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
-            
-			NSMutableString *string = [NSMutableString string];
-			[string appendFormat:@"%@", property.name];
-            
-			NSMutableString *serializationPropertyString = [NSMutableString string];
-			[serializationPropertyString appendString:@"("];
-            
-			NSString *serializationName = [property.userInfo objectForKey:@"serializationName"];
-			if (serializationName) [serializationPropertyString appendFormat:@"serializationName = %@", serializationName];
-            
-			if ([property isKindOfClass:[NSRelationshipDescription class]]) {
-				NSRelationshipDescription *relationship = (NSRelationshipDescription *)property;
-				if (relationship.isToMany)
-					[serializationPropertyString appendFormat:@"; serializationShouldBeUnion = %@", @(relationship.dct_serializationShouldBeUnion)];
-			}
-            
-			if ([property isKindOfClass:[NSAttributeDescription class]]) {
-				NSAttributeDescription *attribute = (NSAttributeDescription *)property;
-				NSArray *serializationTransformerNames = attribute.dct_serializationTransformerNames;
-				if (serializationTransformerNames)
-					[serializationPropertyString appendFormat:@"; serializationTransformerNames = %@", [serializationTransformerNames componentsJoinedByString:@","]];
-			}
-			[serializationPropertyString appendString:@")"];
-            
-			if (serializationPropertyString.length > 2) [string appendFormat:@" %@", serializationPropertyString];
-            
-			[propertyArray addObject:string];
-		}];
-        
-        
-		NSArray *serializationUniqueKeys = entity.dct_serializationUniqueKeys;
-		NSString *entityName = [NSString stringWithFormat:@"%@ (serializationUniqueKeys = %@)", entity.name, serializationUniqueKeys ? [serializationUniqueKeys componentsJoinedByString:@","] : @"none"];
-		[entityDictionary setObject:propertyArray forKey:entityName];
-	}];
-	return [entityDictionary description];
+- (NSString *)serializationPropertiesDescription {
+
+	NSDictionary *dictionary = @{
+		@"uniqueKeys": _uniqueKeysByEntity,
+		@"serializationNames" : _serializationNamesByProperty,
+		@"shouldDeserializeNilValues" : _shouldDeserializeNilValuesByEntity,
+		@"transformerNames" : _transformerNamesByAttribute,
+		@"serializationShouldBeUnion" : _serializationShouldBeUnionByRelationship
+	};
+
+	return [dictionary description];
 }
 
 #pragma mark - Serialization Properties
 
+- (NSString *)keyForProperty:(NSPropertyDescription *)property {
+	return [NSString stringWithFormat:@"%@.%@", property.entity.name, property.name];
+}
+
+- (NSString *)keyForEntity:(NSEntityDescription *)entity {
+	return entity.name;
+}
+
 - (NSArray *)uniqueKeysForEntity:(NSEntityDescription *)entity {
-	return [_uniqueKeysByEntity objectForKey:entity.name];
+	NSString *key = [self keyForEntity:entity];
+	return [_uniqueKeysByEntity objectForKey:key];
 }
 
 - (void)setUniqueKeys:(NSArray *)keys forEntity:(NSEntityDescription *)entity {
-	if (keys.count == 0) return;
-	[_uniqueKeysByEntity setObject:[keys copy] forKey:entity.name];
+	NSString *key = [self keyForEntity:entity];
+	if (keys.count == 0) [_uniqueKeysByEntity removeObjectForKey:key];
+	else [_uniqueKeysByEntity setObject:[keys copy] forKey:key];
 }
 
 - (BOOL)shouldDeserializeNilValuesForEntity:(NSEntityDescription *)entity {
-	return [[_shouldDeserializeNilValuesByEntity objectForKey:entity] boolValue];
+	NSString *key = [self keyForEntity:entity];
+	NSNumber *shouldDeserializeNilValues = [_shouldDeserializeNilValuesByEntity objectForKey:key];
+	if (!shouldDeserializeNilValues) return YES;
+	return [shouldDeserializeNilValues boolValue];
 }
 
 - (void)setShouldDeserializeNilValues:(BOOL)shouldDeserializeNilValues forEntity:(NSEntityDescription *)entity {
-	[_shouldDeserializeNilValuesByEntity setObject:@(shouldDeserializeNilValues) forKey:entity];
+	NSString *key = [self keyForEntity:entity];
+	[_shouldDeserializeNilValuesByEntity setObject:@(shouldDeserializeNilValues) forKey:key];
 }
 
 - (NSString *)serializationNameForProperty:(NSPropertyDescription *)property {
-	NSString *serializationName = [_serializationNamesByProperty objectForKey:property];
+	NSString *key = [self keyForProperty:property];
+	NSString *serializationName = [_serializationNamesByProperty objectForKey:key];
 	if (serializationName.length == 0) serializationName = property.name;
 	return serializationName;
 }
 
 - (void)setSerializationName:(NSString *)serializationName forProperty:(NSPropertyDescription *)property {
+	NSString *key = [self keyForProperty:property];
 	if (serializationName.length == 0) return;
-	[_serializationNamesByProperty setObject:[serializationName copy] forKey:property];
+	[_serializationNamesByProperty setObject:[serializationName copy] forKey:key];
 }
 
 - (NSArray *)transformerNamesForAttibute:(NSAttributeDescription *)attribute {
-	return [_transformerNamesByAttribute objectForKey:attribute];
+	NSString *key = [self keyForProperty:attribute];
+	return [_transformerNamesByAttribute objectForKey:key];
 }
 
 - (void)setTransformerNames:(NSArray *)transformerNames forAttibute:(NSAttributeDescription *)attribute {
-	if (transformerNames.count == 0) return;
-	[_transformerNamesByAttribute setObject:[transformerNames copy] forKey:attribute];
+	NSString *key = [self keyForProperty:attribute];
+	if (transformerNames.count == 0) [_transformerNamesByAttribute removeObjectForKey:key];
+	else [_transformerNamesByAttribute setObject:[transformerNames copy] forKey:key];
 }
 
 - (BOOL)serializationShouldBeUnionForRelationship:(NSRelationshipDescription *)relationship {
-	return [[_serializationShouldBeUnionByRelationship objectForKey:relationship] boolValue];
+	NSString *key = [self keyForProperty:relationship];
+	NSNumber *serializationShouldBeUnion = [_serializationShouldBeUnionByRelationship objectForKey:key];
+	if (!serializationShouldBeUnion) return NO;
+	return [serializationShouldBeUnion boolValue];
 }
 
 - (void)setSerializationShouldBeUnion:(BOOL)serializationShouldBeUnion forRelationship:(NSRelationshipDescription *)relationship {
-	[_serializationShouldBeUnionByRelationship setObject:@(serializationShouldBeUnion) forKey:relationship];
+	NSString *key = [self keyForProperty:relationship];
+	[_serializationShouldBeUnionByRelationship setObject:@(serializationShouldBeUnion) forKey:key];
 }
 
 #pragma mark - Internal

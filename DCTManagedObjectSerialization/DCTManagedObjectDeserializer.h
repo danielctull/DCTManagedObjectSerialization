@@ -54,7 +54,7 @@
 - (void)setSerializationShouldBeUnion:(BOOL)serializationShouldBeUnion forRelationship:(NSRelationshipDescription *)relationship;
 
 #pragma mark Debugging
-+ (NSString *)serializationDescriptionForEntitiesInManagedObjectModel:(NSManagedObjectModel *)managedObjectModel;
+- (NSString *)serializationPropertiesDescription;
 
 
 @end

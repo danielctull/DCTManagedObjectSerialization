@@ -12,26 +12,24 @@
 
 
 @interface NSEntityDescription (DCTManagedObjectSerializationProperties)
-@property (nonatomic, copy) NSArray *dct_serializationUniqueKeys; // serializationUniqueKeys
-@property (nonatomic, assign) BOOL dct_shouldDeserializeNilValues; // shouldDeserializeNilValues (values are "0" for NO or "1" for YES, default is YES)
+@property (nonatomic, readonly) NSArray *dct_serializationUniqueKeys; // serializationUniqueKeys
+@property (nonatomic, readonly) NSNumber *dct_shouldDeserializeNilValues; // shouldDeserializeNilValues (values are "0" for NO or "1" for YES, default is YES)
 @end
 
 
 
 @interface NSPropertyDescription (DCTManagedObjectSerializationProperties)
-
-@property (nonatomic, copy) NSString *dct_serializationName; // serializationName
-
+@property (nonatomic, readonly) NSString *dct_serializationName; // serializationName
 @end
 
 
 
 @interface NSAttributeDescription (DCTManagedObjectSerializationProperties)
-@property (nonatomic, copy) NSArray *dct_serializationTransformerNames; // serializationTransformerNames
+@property (nonatomic, readonly) NSArray *dct_serializationTransformerNames; // serializationTransformerNames
 @end
 
 
 
 @interface NSRelationshipDescription (DCTManagedObjectSerializationProperties)
-@property (nonatomic, assign) BOOL dct_serializationShouldBeUnion; // serializationShouldBeUnion (values are "0" for NO or "1" for YES, default is NO)
+@property (nonatomic, readonly) NSNumber *dct_serializationShouldBeUnion; // serializationShouldBeUnion (values are "0" for NO or "1" for YES, default is NO)
 @end
