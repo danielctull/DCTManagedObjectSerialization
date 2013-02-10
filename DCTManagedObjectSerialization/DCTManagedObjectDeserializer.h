@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@protocol DCTManagedObjectDeserializerDelegate;
 
 @interface DCTManagedObjectDeserializer : NSObject
 {
@@ -41,6 +42,8 @@
 
 #pragma mark Properties
 
+@property (nonatomic, weak) id<DCTManagedObjectDeserializerDelegate> delegate;
+
 @property(nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 - (NSArray *)errors;
 
@@ -59,6 +62,11 @@
 
 @end
 
+
+@protocol DCTManagedObjectDeserializerDelegate <NSObject>
+@optional
+- (void)deserializer:(DCTManagedObjectDeserializer *)deserializer didDeserializeObject:(NSManagedObject *)managedObject;
+@end
 
 #pragma mark -
 

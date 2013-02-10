@@ -118,7 +118,10 @@
         
         // Restore the old dictionary, which is crucial when this method is called reentrantly
         _dictionary = oldDictionary;
-        
+
+		if ([self.delegate respondsToSelector:@selector(deserializer:didDeserializeObject:)])
+			[self.delegate deserializer:self didDeserializeObject:managedObject];
+
         return managedObject;
     }];
 }
