@@ -42,7 +42,11 @@
 
 #pragma mark Properties
 
+#if __has_feature(objc_arc)
 @property (nonatomic, weak) id<DCTManagedObjectDeserializerDelegate> delegate;
+#else
+@property (nonatomic, assign) id<DCTManagedObjectDeserializerDelegate> delegate;
+#endif
 
 @property(nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 - (NSArray *)errors;
