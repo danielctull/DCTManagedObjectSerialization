@@ -383,7 +383,8 @@
 														   dictionary:dictionary
 												 managedObjectContext:managedObjectContext];
 	if (!predicate) return nil;
-	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.entity = entity;
 	fetchRequest.predicate = predicate;
 	NSArray *result = [managedObjectContext executeFetchRequest:fetchRequest error:NULL];
     
