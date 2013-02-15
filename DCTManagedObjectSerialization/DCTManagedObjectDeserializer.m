@@ -342,7 +342,7 @@
 	}
 }
 
-- (NSArray *)transformerNamesForAttibute:(NSAttributeDescription *)attribute {
+- (NSArray *)transformerNamesForAttribute:(NSAttributeDescription *)attribute {
 	NSString *key = [self keyForProperty:attribute];
 	return [_transformerNamesByAttribute objectForKey:key];
 }

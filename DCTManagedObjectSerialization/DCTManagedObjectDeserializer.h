@@ -111,7 +111,7 @@
 - (NSArray *)uniqueKeysForEntity:(NSEntityDescription *)entity;
 - (BOOL)shouldDeserializeNilValuesForEntity:(NSEntityDescription *)entity;
 - (NSString *)serializationNameForProperty:(NSPropertyDescription *)property;
-- (NSArray *)transformerNamesForAttibute:(NSAttributeDescription *)attribute;
+- (NSArray *)transformerNamesForAttribute:(NSAttributeDescription *)attribute;
 - (BOOL)serializationShouldBeUnionForRelationship:(NSRelationshipDescription *)relationship;
 
 
