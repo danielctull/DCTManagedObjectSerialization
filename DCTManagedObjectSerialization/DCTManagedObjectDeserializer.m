@@ -385,6 +385,11 @@
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
 	fetchRequest.predicate = predicate;
 	NSArray *result = [managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+    
+#if !__has_feature(objc_arc)
+    [fetchRequest release];
+#endif
+    
 	return [result lastObject];
 }
 
