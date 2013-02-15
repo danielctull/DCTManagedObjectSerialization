@@ -18,6 +18,7 @@
   @private
 	NSDictionary *_dictionary;
 	NSManagedObjectContext *_managedObjectContext;
+    id <DCTManagedObjectDeserializerDelegate> _delegate;
     
     NSMutableArray  *_errors;
 

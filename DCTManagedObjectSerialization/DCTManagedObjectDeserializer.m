@@ -182,6 +182,7 @@
 #pragma mark - Properties
 
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize delegate = _delegate;
 
 #pragma mark - Deserializing Individual Keys
 
