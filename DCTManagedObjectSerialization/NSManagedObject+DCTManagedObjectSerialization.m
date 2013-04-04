@@ -60,15 +60,13 @@
 
 - (void)dct_deserialize:(id <DCTManagedObjectDeserializing>)deserializier;
 {
-    NSEntityDescription *entity = self.entity;
-    
-	[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
+    for (NSPropertyDescription *property in self.entity.properties) {
         
 		// Skip transient properties
-		if ([property isTransient]) return;
+		if ([property isTransient]) continue;
 		
         [self dct_deserializeProperty:property withDeserializer:deserializier];
-	}];
+	}
 }
 
 @end
