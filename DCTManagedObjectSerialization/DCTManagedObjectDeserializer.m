@@ -24,7 +24,11 @@
                  managedObjectContext:(NSManagedObjectContext *)managedObjectContext
                        fromDictionary:(NSDictionary *)dictionary;
 {
+    NSParameterAssert(entityName);
+    NSParameterAssert(managedObjectContext);
+    
 	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext];
+    NSAssert(entity, @"Entity not found: %@", entityName);
 
 	DCTManagedObjectDeserializer *deserializer = [[self alloc] initWithManagedObjectContext:managedObjectContext];
 	NSManagedObject *result = [deserializer deserializeObjectWithEntity:entity fromDictionary:dictionary];
