@@ -188,6 +188,9 @@
 - (id)deserializeObjectOfClass:(Class)class forKey:(NSString *)key {
     id result = [_dictionary valueForKeyPath:key];
     
+	if (result && ![result isKindOfClass:class] && class == [NSArray class])
+		result = @[result];
+	
     if (result && ![result isKindOfClass:class]) {
         [self recordError:[NSError errorWithDomain:NSCocoaErrorDomain code:NSManagedObjectValidationError userInfo:@{
                        NSValidationObjectErrorKey : _dictionary,
