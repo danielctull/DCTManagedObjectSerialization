@@ -188,6 +188,9 @@
 - (id)deserializeObjectOfClass:(Class)class forKey:(NSString *)key {
     id result = [_dictionary valueForKeyPath:key];
     
+	if ([result isKindOfClass:[NSNull class]])
+		return nil;
+	
 	if (result && ![result isKindOfClass:class] && class == [NSArray class])
 		result = @[result];
 	
