@@ -189,7 +189,7 @@
     id result = [_dictionary valueForKeyPath:key];
     
 	if ([result isKindOfClass:[NSNull class]])
-		return nil;
+		return result;
 	
 	if (result && ![result isKindOfClass:class] && class == [NSArray class])
 		result = @[result];
@@ -215,7 +215,9 @@
 }
 
 - (NSString *)deserializeStringForKey:(NSString *)key {
-    return [self deserializeObjectOfClass:[NSString class] forKey:key];
+    id string = [self deserializeObjectOfClass:[NSString class] forKey:key];
+	if ([string isKindOfClass:[NSString class]]) return string;
+	return nil;
 }
 
 - (NSURL *)deserializeURLForKey:(NSString *)key {
