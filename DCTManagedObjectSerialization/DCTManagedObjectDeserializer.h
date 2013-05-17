@@ -51,10 +51,10 @@
 #pragma mark - Serialization Properties
 
 - (void)setUniqueKeys:(NSArray *)keys forEntity:(NSEntityDescription *)entity;
-- (void)setShouldDeserializeNilValues:(BOOL)shouldDeserializeNilValues forEntity:(NSEntityDescription *)entity;
+- (void)setShouldDeserializeNilValues:(NSNumber *)shouldDeserializeNilValues forEntity:(NSEntityDescription *)entity;
 - (void)setSerializationName:(NSString *)serializationName forProperty:(NSPropertyDescription *)property;
 - (void)setTransformerNames:(NSArray *)transformerNames forAttibute:(NSAttributeDescription *)attribute;
-- (void)setSerializationShouldBeUnion:(BOOL)serializationShouldBeUnion forRelationship:(NSRelationshipDescription *)relationship;
+- (void)setSerializationShouldBeUnion:(NSNumber *)serializationShouldBeUnion forRelationship:(NSRelationshipDescription *)relationship;
 
 #pragma mark Debugging
 - (NSString *)serializationPropertiesDescription;

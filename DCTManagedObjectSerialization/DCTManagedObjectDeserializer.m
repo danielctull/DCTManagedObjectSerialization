@@ -325,9 +325,9 @@
 	return [shouldDeserializeNilValues boolValue];
 }
 
-- (void)setShouldDeserializeNilValues:(BOOL)shouldDeserializeNilValues forEntity:(NSEntityDescription *)entity {
+- (void)setShouldDeserializeNilValues:(NSNumber *)shouldDeserializeNilValues forEntity:(NSEntityDescription *)entity {
 	NSString *key = [self keyForEntity:entity];
-	[_shouldDeserializeNilValuesByEntity setObject:@(shouldDeserializeNilValues) forKey:key];
+	[_shouldDeserializeNilValuesByEntity setObject:shouldDeserializeNilValues forKey:key];
 }
 
 - (NSString *)serializationNameForProperty:(NSPropertyDescription *)property {
@@ -375,9 +375,9 @@
 	return [serializationShouldBeUnion boolValue];
 }
 
-- (void)setSerializationShouldBeUnion:(BOOL)serializationShouldBeUnion forRelationship:(NSRelationshipDescription *)relationship {
+- (void)setSerializationShouldBeUnion:(NSNumber *)serializationShouldBeUnion forRelationship:(NSRelationshipDescription *)relationship {
 	NSString *key = [self keyForProperty:relationship];
-	[_serializationShouldBeUnionByRelationship setObject:@(serializationShouldBeUnion) forKey:key];
+	[_serializationShouldBeUnionByRelationship setObject:serializationShouldBeUnion forKey:key];
 }
 
 #pragma mark - Internal
