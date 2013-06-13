@@ -101,65 +101,27 @@
 	
 	NSAssert(entity, @"entity should not be nil");
 	NSAssert(array, @"array should not be nil");
-	
-	NSArray *uniqueKeys = entity.dct_serializationUniqueKeys;
-	NSMutableArray *arraySortDescriptors = [[NSMutableArray alloc] initWithCapacity:uniqueKeys.count];
-	NSMutableArray *objectsSortDescriptors = [[NSMutableArray alloc] initWithCapacity:uniqueKeys.count];
-	__block BOOL allUniqueKeysAreAttributes = YES;
-	[uniqueKeys enumerateObjectsUsingBlock:^(NSString *uniqueKey, NSUInteger i, BOOL *stop) {
-		NSPropertyDescription *property = [[entity propertiesByName] objectForKey:uniqueKey];
-
-		if (![property isKindOfClass:[NSAttributeDescription class]])
-			*stop = allUniqueKeysAreAttributes = NO;
-
-		NSString *serializationUniqueKey = [self serializationNameForProperty:property];
-		[arraySortDescriptors addObject:[[NSSortDescriptor alloc] initWithKey:serializationUniqueKey ascending:YES]];
-		[objectsSortDescriptors addObject:[[NSSortDescriptor alloc] initWithKey:uniqueKey ascending:YES]];
-	}];
 
 	NSMutableArray *managedObjects = [[NSMutableArray alloc] initWithCapacity:array.count];
 
-	if (!allUniqueKeysAreAttributes) {
-		[array enumerateObjectsUsingBlock:^(NSDictionary *dictionary, NSUInteger i, BOOL *stop) {
-			id object = [self deserializeObjectWithEntity:entity fromDictionary:dictionary];
-			[managedObjects addObject:object];
-		}];
-		return managedObjects;
-	}
-
-	NSArray *sortedArray = [array sortedArrayUsingDescriptors:arraySortDescriptors];
-	NSEnumerator *enumerator = [sortedArray objectEnumerator];
-
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
-	fetchRequest.sortDescriptors = objectsSortDescriptors;
 	fetchRequest.predicate = existingObjectsPredicate;
 	NSArray *existingObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:NULL];
-	NSEnumerator *existingObjectsEnumerator = [existingObjects objectEnumerator];
 
-	NSDictionary *dictionary;
-	__block NSManagedObject *existingObject = [existingObjectsEnumerator nextObject];
-	while (dictionary = [enumerator nextObject]) {
+	[array enumerateObjectsUsingBlock:^(NSDictionary *dictionary, NSUInteger i, BOOL *stop) {
 
 		NSManagedObject *managedObject = [self deserializeObjectUsingBlock:^id{
 
 			NSDictionary *oldDictionary = _dictionary;
 			_dictionary = dictionary;
 
-			NSManagedObject *managedObject;
 			NSPredicate *predicate = [self predicateForUniqueObjectWithEntity:entity
 																   dictionary:dictionary
 														 managedObjectContext:self.managedObjectContext];
-			
-			if ([predicate evaluateWithObject:existingObject]) {
-				managedObject = existingObject;
-				existingObject = [existingObjectsEnumerator nextObject];
-			} else {
 
-				managedObject = [[sortedArray filteredArrayUsingPredicate:predicate] lastObject];
-
-				if (!managedObject)
-					managedObject = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
-			}
+			NSManagedObject *managedObject = [[existingObjects filteredArrayUsingPredicate:predicate] lastObject];
+			if (!managedObject)
+				managedObject = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
 
 #if !__has_feature(objc_arc)
 			[managedObject autorelease];
@@ -176,7 +138,7 @@
 		}];
 
 		[managedObjects addObject:managedObject];
-	}
+	}];
 
 	return [managedObjects copy];
 }
