@@ -34,7 +34,7 @@
 // If there were one or more errors during deserialization, undoes that process, and returns nil
 - (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary __attribute__((nonnull(1,2)));
 
-- (NSArray *)deserializeObjectsWithEntity:(NSEntityDescription *)entity fromArray:(NSArray *)array __attribute__((nonnull(1,2)));
+- (NSArray *)deserializeObjectsWithEntity:(NSEntityDescription *)entity fromArray:(NSArray *)array existingObjectsPredicate:(NSPredicate *)existingObjectsPredicate __attribute__((nonnull(1,2)));
 
 // Convenience to deserialize quickly in one go
 + (id)deserializeObjectWithEntityName:(NSString *)entityName

@@ -95,10 +95,13 @@
 }
 #endif
 
-- (NSArray *)deserializeObjectsWithEntity:(NSEntityDescription *)entity fromArray:(NSArray *)array {
+- (NSArray *)deserializeObjectsWithEntity:(NSEntityDescription *)entity
+								fromArray:(NSArray *)array
+				 existingObjectsPredicate:(NSPredicate *)existingObjectsPredicate {
+	
 	NSAssert(entity, @"entity should not be nil");
 	NSAssert(array, @"array should not be nil");
-
+	
 	NSArray *uniqueKeys = entity.dct_serializationUniqueKeys;
 	NSMutableArray *arraySortDescriptors = [[NSMutableArray alloc] initWithCapacity:uniqueKeys.count];
 	NSMutableArray *objectsSortDescriptors = [[NSMutableArray alloc] initWithCapacity:uniqueKeys.count];
@@ -129,6 +132,7 @@
 
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
 	fetchRequest.sortDescriptors = objectsSortDescriptors;
+	fetchRequest.predicate = existingObjectsPredicate;
 	NSArray *existingObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:NULL];
 	NSEnumerator *existingObjectsEnumerator = [existingObjects objectEnumerator];
 
