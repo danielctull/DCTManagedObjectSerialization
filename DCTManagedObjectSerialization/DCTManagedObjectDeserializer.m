@@ -106,6 +106,17 @@
 
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
 	fetchRequest.predicate = existingObjectsPredicate;
+
+	NSString *objectIDKey = @"objectID";
+	NSExpressionDescription* objectIdDesc = [NSExpressionDescription new];
+	objectIdDesc.name = objectIDKey;
+	objectIdDesc.expression = [NSExpression expressionForEvaluatedObject];
+	objectIdDesc.expressionResultType = NSObjectIDAttributeType;
+
+	NSArray *properties = @[objectIdDesc];
+	fetchRequest.propertiesToFetch = [properties arrayByAddingObjectsFromArray:entity.dct_serializationUniqueKeys];
+	[fetchRequest setResultType:NSDictionaryResultType];
+
 	NSArray *existingObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:NULL];
 
 	[array enumerateObjectsUsingBlock:^(NSDictionary *dictionary, NSUInteger i, BOOL *stop) {
@@ -119,7 +130,13 @@
 																   dictionary:dictionary
 														 managedObjectContext:self.managedObjectContext];
 
-			NSManagedObject *managedObject = [[existingObjects filteredArrayUsingPredicate:predicate] lastObject];
+			NSDictionary *dict = [[existingObjects filteredArrayUsingPredicate:predicate] lastObject];
+			NSManagedObjectID *objectID = dict[objectIDKey];
+			NSManagedObject *managedObject;
+
+			if (objectID)
+				managedObject = [self.managedObjectContext objectWithID:objectID];
+
 			if (!managedObject)
 				managedObject = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
 
