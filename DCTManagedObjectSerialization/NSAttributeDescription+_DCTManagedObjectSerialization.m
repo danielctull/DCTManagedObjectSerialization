@@ -17,7 +17,7 @@
 	// For transformable attributes, have no good idea what the source class is.
 	// Assume that the transformer will reject anything unsuitable, so allow basically anything
 
-	BOOL classUnknown = (self.attributeType == NSTransformableAttributeType || [deserializer transformerNamesForAttibute:self].count);
+	BOOL classUnknown = (self.attributeType == NSTransformableAttributeType || [deserializer transformerNamesForAttribute:self].count);
 	return classUnknown ? [NSObject class] : NSClassFromString([self attributeValueClassName]);
 }
 
@@ -25,7 +25,7 @@
 
 	__block id transformedValue = value;
 
-	NSArray *transformerNames = [deserializer transformerNamesForAttibute:self];
+	NSArray *transformerNames = [deserializer transformerNamesForAttribute:self];
 	[transformerNames enumerateObjectsUsingBlock:^(NSString *transformerName, NSUInteger idx, BOOL *stop) {
 		NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:transformerName];
 		transformedValue = [transformer transformedValue:transformedValue];

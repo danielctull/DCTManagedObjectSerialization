@@ -247,6 +247,7 @@
 #pragma mark - Properties
 
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize delegate = _delegate;
 
 #pragma mark - Deserializing Individual Keys
 
@@ -415,7 +416,7 @@
 	}
 }
 
-- (NSArray *)transformerNamesForAttibute:(NSAttributeDescription *)attribute {
+- (NSArray *)transformerNamesForAttribute:(NSAttributeDescription *)attribute {
 	NSString *key = [self keyForProperty:attribute];
 	return [_transformerNamesByAttribute objectForKey:key];
 }
@@ -455,9 +456,15 @@
 														   dictionary:dictionary
 												 managedObjectContext:managedObjectContext];
 	if (!predicate) return nil;
-	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.entity = entity;
 	fetchRequest.predicate = predicate;
 	NSArray *result = [managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+    
+#if !__has_feature(objc_arc)
+    [fetchRequest release];
+#endif
+    
 	return [result lastObject];
 }
 

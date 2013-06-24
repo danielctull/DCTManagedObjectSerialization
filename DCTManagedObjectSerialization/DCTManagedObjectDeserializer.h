@@ -18,6 +18,7 @@
   @private
 	NSDictionary *_dictionary;
 	NSManagedObjectContext *_managedObjectContext;
+    id <DCTManagedObjectDeserializerDelegate> _delegate;
     
     NSMutableArray  *_errors;
 
@@ -44,7 +45,11 @@
 
 #pragma mark Properties
 
+#if __has_feature(objc_arc)
 @property (nonatomic, weak) id<DCTManagedObjectDeserializerDelegate> delegate;
+#else
+@property (nonatomic, assign) id<DCTManagedObjectDeserializerDelegate> delegate;
+#endif
 
 @property(nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 - (NSArray *)errors;
@@ -113,7 +118,7 @@
 - (NSArray *)uniqueKeysForEntity:(NSEntityDescription *)entity;
 - (BOOL)shouldDeserializeNilValuesForEntity:(NSEntityDescription *)entity;
 - (NSString *)serializationNameForProperty:(NSPropertyDescription *)property;
-- (NSArray *)transformerNamesForAttibute:(NSAttributeDescription *)attribute;
+- (NSArray *)transformerNamesForAttribute:(NSAttributeDescription *)attribute;
 - (BOOL)serializationShouldBeUnionForRelationship:(NSRelationshipDescription *)relationship;
 
 
