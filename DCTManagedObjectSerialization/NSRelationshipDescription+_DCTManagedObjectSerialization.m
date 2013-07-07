@@ -13,15 +13,30 @@
 @implementation NSRelationshipDescription (_DCTManagedObjectSerialization)
 
 - (Class)dct_deserializationClassWithDeserializer:(id <DCTManagedObjectDeserializing>)deserializer {
-	return ([self isToMany] ? [NSArray class] : [NSDictionary class]);
+
+	if (self.isToMany) return [NSArray class];
+
+	// If there's any transformers, allow anything (like attributes).
+	NSArray *transformerNames = [deserializer transformerNamesForProperty:self];
+	if (transformerNames.count > 0) return [NSObject class];
+
+	return [NSDictionary class];
 }
 
 - (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer {
 
-	id transformedValue = [super dct_valueForSerializedValue:value withDeserializer:deserializer];
+	if (!self.isToMany) {
 
-	if (!self.isToMany)
-		return [self dct_valueForSerializedDictionary:transformedValue deserializer:deserializer];
+		id transformedValue = [super dct_valueForSerializedValue:value withDeserializer:deserializer];
+		
+		if ([transformedValue isKindOfClass:[NSDictionary class]])
+			return [self dct_valueForSerializedDictionary:transformedValue deserializer:deserializer];
+
+		if ([value isKindOfClass:[NSDictionary class]])
+			return [self dct_valueForSerializedDictionary:value deserializer:deserializer];
+
+		return nil;
+	}
 
 	if ([self respondsToSelector:@selector(isOrdered)] && self.isOrdered) {
 		
