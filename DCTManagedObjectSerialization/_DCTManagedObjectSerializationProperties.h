@@ -20,11 +20,6 @@
 
 @interface NSPropertyDescription (DCTManagedObjectSerializationProperties)
 @property (nonatomic, readonly) NSString *dct_serializationName; // serializationName
-@end
-
-
-
-@interface NSAttributeDescription (DCTManagedObjectSerializationProperties)
 @property (nonatomic, readonly) NSArray *dct_serializationTransformerNames; // serializationTransformerNames
 @end
 

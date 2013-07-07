@@ -7,6 +7,7 @@
 //
 
 #import "NSRelationshipDescription+_DCTManagedObjectSerialization.h"
+#import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
 #import "DCTManagedObjectDeserializer.h"
 
 @implementation NSRelationshipDescription (_DCTManagedObjectSerialization)
@@ -15,10 +16,12 @@
 	return ([self isToMany] ? [NSArray class] : [NSDictionary class]);
 }
 
-- (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer;
-{
+- (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer {
+
+	id transformedValue = [super dct_valueForSerializedValue:value withDeserializer:deserializer];
+
 	if (!self.isToMany)
-		return [self dct_valueForSerializedDictionary:value deserializer:deserializer];
+		return [self dct_valueForSerializedDictionary:transformedValue deserializer:deserializer];
 
 	if ([self respondsToSelector:@selector(isOrdered)] && self.isOrdered) {
 		

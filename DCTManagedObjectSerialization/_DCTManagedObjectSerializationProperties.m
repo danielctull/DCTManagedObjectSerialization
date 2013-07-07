@@ -43,14 +43,6 @@ NSString *const DCTSerializationShouldBeUnion = @"serializationShouldBeUnion";
 	return [self.userInfo objectForKey:DCTSerializationName];
 }
 
-@end
-
-
-
-
-
-@implementation NSAttributeDescription (DCTManagedObjectSerializationProperties)
-
 - (NSArray *)dct_serializationTransformerNames {
 	NSString *serializationTransformerNames = [self.userInfo objectForKey:DCTSerializationTransformerNames];
 	return [serializationTransformerNames componentsSeparatedByString:@","];

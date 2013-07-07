@@ -50,7 +50,7 @@
 	_uniqueKeysByEntity = [NSMutableDictionary new];
 	_shouldDeserializeNilValuesByEntity = [NSMutableDictionary new];
 	_serializationNamesByProperty = [NSMutableDictionary new];
-	_transformerNamesByAttribute = [NSMutableDictionary new];
+	_transformerNamesByProperty = [NSMutableDictionary new];
 	_serializationShouldBeUnionByRelationship = [NSMutableDictionary new];
 
 	NSArray *entities = [_managedObjectContext.persistentStoreCoordinator.managedObjectModel entities];
@@ -67,7 +67,7 @@
 
 			if ([property isKindOfClass:[NSAttributeDescription class]]) {
 				NSAttributeDescription *attribute = (NSAttributeDescription *)property;
-				[self setTransformerNames:attribute.dct_serializationTransformerNames forAttibute:attribute];
+				[self setTransformerNames:attribute.dct_serializationTransformerNames forProperty:property];
 			}
 
 			if ([property isKindOfClass:[NSRelationshipDescription class]]) {
@@ -349,7 +349,7 @@
 		@"uniqueKeys": _uniqueKeysByEntity,
 		@"serializationNames" : _serializationNamesByProperty,
 		@"shouldDeserializeNilValues" : _shouldDeserializeNilValuesByEntity,
-		@"transformerNames" : _transformerNamesByAttribute,
+		@"transformerNames" : _transformerNamesByProperty,
 		@"serializationShouldBeUnion" : _serializationShouldBeUnionByRelationship
 	};
 
@@ -416,18 +416,18 @@
 	}
 }
 
-- (NSArray *)transformerNamesForAttribute:(NSAttributeDescription *)attribute {
-	NSString *key = [self keyForProperty:attribute];
-	return [_transformerNamesByAttribute objectForKey:key];
+- (NSArray *)transformerNamesForProperty:(NSPropertyDescription *)property {
+	NSString *key = [self keyForProperty:property];
+	return [_transformerNamesByProperty objectForKey:key];
 }
 
-- (void)setTransformerNames:(NSArray *)transformerNames forAttibute:(NSAttributeDescription *)attribute {
-	NSString *key = [self keyForProperty:attribute];
+- (void)setTransformerNames:(NSArray *)transformerNames forProperty:(NSPropertyDescription *)property {
+	NSString *key = [self keyForProperty:property];
 	if (transformerNames.count == 0)
-		[_transformerNamesByAttribute removeObjectForKey:key];
+		[_transformerNamesByProperty removeObjectForKey:key];
 	else {
 		NSArray *transformerNamesCopy = [transformerNames copy];
-		[_transformerNamesByAttribute setObject:transformerNamesCopy forKey:key];
+		[_transformerNamesByProperty setObject:transformerNamesCopy forKey:key];
 #if !__has_feature(objc_arc)
 		[transformerNamesCopy release];
 #endif

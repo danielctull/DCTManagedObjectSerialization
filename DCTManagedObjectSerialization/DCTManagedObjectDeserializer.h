@@ -25,7 +25,7 @@
 	NSMutableDictionary *_uniqueKeysByEntity;
 	NSMutableDictionary *_shouldDeserializeNilValuesByEntity;
 	NSMutableDictionary *_serializationNamesByProperty;
-	NSMutableDictionary *_transformerNamesByAttribute;
+	NSMutableDictionary *_transformerNamesByProperty;
 	NSMutableDictionary *_serializationShouldBeUnionByRelationship;
 #pragma clang diagnostic pop
 }
@@ -60,7 +60,7 @@
 - (void)setUniqueKeys:(NSArray *)keys forEntity:(NSEntityDescription *)entity;
 - (void)setShouldDeserializeNilValues:(NSNumber *)shouldDeserializeNilValues forEntity:(NSEntityDescription *)entity;
 - (void)setSerializationName:(NSString *)serializationName forProperty:(NSPropertyDescription *)property;
-- (void)setTransformerNames:(NSArray *)transformerNames forAttibute:(NSAttributeDescription *)attribute;
+- (void)setTransformerNames:(NSArray *)transformerNames forProperty:(NSPropertyDescription *)property;
 - (void)setSerializationShouldBeUnion:(NSNumber *)serializationShouldBeUnion forRelationship:(NSRelationshipDescription *)relationship;
 
 #pragma mark Debugging
@@ -118,7 +118,7 @@
 - (NSArray *)uniqueKeysForEntity:(NSEntityDescription *)entity;
 - (BOOL)shouldDeserializeNilValuesForEntity:(NSEntityDescription *)entity;
 - (NSString *)serializationNameForProperty:(NSPropertyDescription *)property;
-- (NSArray *)transformerNamesForAttribute:(NSAttributeDescription *)attribute;
+- (NSArray *)transformerNamesForProperty:(NSPropertyDescription *)property;
 - (BOOL)serializationShouldBeUnionForRelationship:(NSRelationshipDescription *)relationship;
 
 

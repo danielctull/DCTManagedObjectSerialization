@@ -17,19 +17,13 @@
 	// For transformable attributes, have no good idea what the source class is.
 	// Assume that the transformer will reject anything unsuitable, so allow basically anything
 
-	BOOL classUnknown = (self.attributeType == NSTransformableAttributeType || [deserializer transformerNamesForAttribute:self].count);
+	BOOL classUnknown = (self.attributeType == NSTransformableAttributeType || [deserializer transformerNamesForProperty:self].count);
 	return classUnknown ? [NSObject class] : NSClassFromString([self attributeValueClassName]);
 }
 
 - (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer {
 
-	__block id transformedValue = value;
-
-	NSArray *transformerNames = [deserializer transformerNamesForAttribute:self];
-	[transformerNames enumerateObjectsUsingBlock:^(NSString *transformerName, NSUInteger idx, BOOL *stop) {
-		NSValueTransformer *transformer = [NSValueTransformer valueTransformerForName:transformerName];
-		transformedValue = [transformer transformedValue:transformedValue];
-	}];
+	id transformedValue = [super dct_valueForSerializedValue:value withDeserializer:deserializer];
 
 	if (self.attributeType == NSTransformableAttributeType)
 		return transformedValue;
