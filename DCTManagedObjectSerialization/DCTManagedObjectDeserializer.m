@@ -129,8 +129,10 @@
 			NSPredicate *predicate = [self predicateForUniqueObjectWithEntity:entity
 																   dictionary:dictionary
 														 managedObjectContext:self.managedObjectContext];
-
-			NSDictionary *dict = [[existingObjects filteredArrayUsingPredicate:predicate] lastObject];
+			NSDictionary *dict;
+			if (predicate)
+				dict = [[existingObjects filteredArrayUsingPredicate:predicate] lastObject];
+			
 			NSManagedObjectID *objectID = dict[objectIDKey];
 			NSManagedObject *managedObject;
 
