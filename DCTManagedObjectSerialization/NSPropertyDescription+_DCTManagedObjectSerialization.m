@@ -11,7 +11,7 @@
 @implementation NSPropertyDescription (_DCTManagedObjectSerialization)
 
 - (Class)dct_deserializationClassWithDeserializer:(id <DCTManagedObjectDeserializing>)deserializer {
-	return Nil;
+	return nil;
 }
 
 - (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer {
