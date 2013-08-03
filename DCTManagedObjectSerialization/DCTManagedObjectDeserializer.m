@@ -138,6 +138,9 @@
 				managedObject = [self.managedObjectContext objectWithID:objectID];
 
 			if (!managedObject)
+				managedObject = [self existingObjectWithDictionary:dictionary entity:entity managedObjectContext:self.managedObjectContext];
+
+			if (!managedObject)
 				managedObject = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:self.managedObjectContext];
 
 #if !__has_feature(objc_arc)
