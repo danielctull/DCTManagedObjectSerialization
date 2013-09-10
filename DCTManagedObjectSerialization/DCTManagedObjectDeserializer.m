@@ -100,7 +100,7 @@
 				 existingObjectsPredicate:(NSPredicate *)existingObjectsPredicate {
 	
 	NSAssert(entity, @"entity should not be nil");
-	NSAssert(array, @"array should not be nil");
+	if (!array) return nil;
 
 	NSMutableArray *managedObjects = [[NSMutableArray alloc] initWithCapacity:array.count];
 
