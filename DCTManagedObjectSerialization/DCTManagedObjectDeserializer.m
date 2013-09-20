@@ -64,11 +64,7 @@
 		[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
 
 			[self setSerializationName:property.dct_serializationName forProperty:property];
-
-			if ([property isKindOfClass:[NSAttributeDescription class]]) {
-				NSAttributeDescription *attribute = (NSAttributeDescription *)property;
-				[self setTransformerNames:attribute.dct_serializationTransformerNames forProperty:property];
-			}
+			[self setTransformerNames:property.dct_serializationTransformerNames forProperty:property];
 
 			if ([property isKindOfClass:[NSRelationshipDescription class]]) {
 				NSRelationshipDescription *relationship = (NSRelationshipDescription *)property;
@@ -129,8 +125,10 @@
 			NSPredicate *predicate = [self predicateForUniqueObjectWithEntity:entity
 																   dictionary:dictionary
 														 managedObjectContext:self.managedObjectContext];
-
-			NSDictionary *dict = [[existingObjects filteredArrayUsingPredicate:predicate] lastObject];
+			NSDictionary *dict;
+			if (predicate)
+				dict = [[existingObjects filteredArrayUsingPredicate:predicate] lastObject];
+			
 			NSManagedObjectID *objectID = dict[objectIDKey];
 			NSManagedObject *managedObject;
 

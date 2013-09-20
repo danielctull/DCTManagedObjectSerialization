@@ -14,39 +14,34 @@
 
 - (Class)dct_deserializationClassWithDeserializer:(id <DCTManagedObjectDeserializing>)deserializer {
 
-	if (self.isToMany) return [NSArray class];
-
 	// If there's any transformers, allow anything (like attributes).
 	NSArray *transformerNames = [deserializer transformerNamesForProperty:self];
 	if (transformerNames.count > 0) return [NSObject class];
+
+	if (self.isToMany) return [NSArray class];
 
 	return [NSDictionary class];
 }
 
 - (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer {
 
-	if (!self.isToMany) {
+	id transformedValue = [super dct_valueForSerializedValue:value withDeserializer:deserializer];
 
-		id transformedValue = [super dct_valueForSerializedValue:value withDeserializer:deserializer];
+	if (!self.isToMany) {
 		
 		if ([transformedValue isKindOfClass:[NSDictionary class]])
 			return [self dct_valueForSerializedDictionary:transformedValue deserializer:deserializer];
-
-		if ([value isKindOfClass:[NSDictionary class]])
-			return [self dct_valueForSerializedDictionary:value deserializer:deserializer];
 
 		return nil;
 	}
 
 	if ([self respondsToSelector:@selector(isOrdered)] && self.isOrdered) {
-		
-		NSMutableOrderedSet *result = [NSMutableOrderedSet orderedSetWithCapacity:[value count]];
-		[self dct_populateCollection:result fromSerializedObjects:value deserializer:deserializer];
+		NSMutableOrderedSet *result = [NSMutableOrderedSet orderedSetWithCapacity:[transformedValue count]];
+		[self dct_populateCollection:result fromSerializedObjects:transformedValue deserializer:deserializer];
 		return result;
-	}
-	else {
-		NSMutableSet *result = [NSMutableSet setWithCapacity:[value count]];
-		[self dct_populateCollection:result fromSerializedObjects:value deserializer:deserializer];
+	} else {
+		NSMutableSet *result = [NSMutableSet setWithCapacity:[transformedValue count]];
+		[self dct_populateCollection:result fromSerializedObjects:transformedValue deserializer:deserializer];
 		return result;
 	}
 }
