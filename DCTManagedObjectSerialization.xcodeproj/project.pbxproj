@@ -47,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		240BE44617ED809D007AB802 /* Universal.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Universal.xcconfig; sourceTree = "<group>"; };
 		24217C61164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTManagedObjectSerializationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24217C69164EC4E000B7DE98 /* DCTManagedObjectSerializationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTManagedObjectSerializationTests-Info.plist"; sourceTree = "<group>"; };
 		24217C6D164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerializationTests.h; sourceTree = "<group>"; };
@@ -138,6 +139,7 @@
 		245CD68A164EA29300600BFF = {
 			isa = PBXGroup;
 			children = (
+				240BE44617ED809D007AB802 /* Universal.xcconfig */,
 				245CD6AA164EA2BF00600BFF /* DCTManagedObjectSerialization */,
 				24217C67164EC4E000B7DE98 /* DCTManagedObjectSerializationTests */,
 				245CD697164EA29300600BFF /* Frameworks */,
@@ -396,25 +398,23 @@
 		};
 		245CD6A4164EA29300600BFF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 240BE44617ED809D007AB802 /* Universal.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/DCTManagedObjectSerialization.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
-				VALID_ARCHS = "armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
 		245CD6A5164EA29300600BFF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 240BE44617ED809D007AB802 /* Universal.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/DCTManagedObjectSerialization.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
-				VALID_ARCHS = "armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
