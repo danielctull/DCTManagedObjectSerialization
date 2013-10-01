@@ -73,6 +73,7 @@
 @protocol DCTManagedObjectDeserializerDelegate <NSObject>
 @optional
 - (void)deserializer:(DCTManagedObjectDeserializer *)deserializer didDeserializeObject:(NSManagedObject *)managedObject;
+- (void)deserializer:(DCTManagedObjectDeserializer *)deserializer didFail:(NSError *)error;
 @end
 
 #pragma mark -

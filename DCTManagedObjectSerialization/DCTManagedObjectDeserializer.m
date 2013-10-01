@@ -329,6 +329,8 @@
 }
 
 - (void)recordError:(NSError *)error {
+	if ([self.delegate respondsToSelector:@selector(deserializer:didFail:)])
+		[self.delegate deserializer:self didFail:error];
     if (!_errors) _errors = [[NSMutableArray alloc] initWithCapacity:1];
     [_errors addObject:error];
 }
