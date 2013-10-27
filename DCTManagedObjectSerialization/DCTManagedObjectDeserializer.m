@@ -115,9 +115,16 @@
 
 	NSArray *existingObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:NULL];
 
-	[array enumerateObjectsUsingBlock:^(NSDictionary *dictionary, NSUInteger i, BOOL *stop) {
+	[array enumerateObjectsUsingBlock:^(NSDictionary *objectDictionary, NSUInteger i, BOOL *stop) {
 
 		NSManagedObject *managedObject = [self deserializeObjectUsingBlock:^id{
+
+			NSDictionary *dictionary = objectDictionary;
+			if ([self.delegate respondsToSelector:@selector(deserializer:willDeserializeEntity:withDictionary:)]) {
+				NSMutableDictionary *mutableDictionary = [dictionary mutableCopy];
+				[self.delegate deserializer:self willDeserializeEntity:entity withDictionary:mutableDictionary];
+				dictionary = [mutableDictionary copy];
+			}
 
 			NSDictionary *oldDictionary = _dictionary;
 			_dictionary = dictionary;
