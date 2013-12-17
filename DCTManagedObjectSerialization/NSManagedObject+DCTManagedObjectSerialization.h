@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Daniel Tull. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
+@import CoreData;
 #import "DCTManagedObjectDeserializer.h"
 
 @interface NSManagedObject (DCTManagedObjectSerialization)

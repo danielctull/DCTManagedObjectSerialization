@@ -6,6 +6,6 @@
 //  Copyright (c) 2012 Daniel Tull. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+@import Foundation;
+@import CoreData;
 #import "NSManagedObject+DCTManagedObjectSerialization.h"
