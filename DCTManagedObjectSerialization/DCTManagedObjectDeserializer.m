@@ -24,7 +24,11 @@
                  managedObjectContext:(NSManagedObjectContext *)managedObjectContext
                        fromDictionary:(NSDictionary *)dictionary;
 {
+    NSParameterAssert(entityName);
+    NSParameterAssert(managedObjectContext);
+    
 	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext];
+    NSAssert(entity, @"Entity not found: %@", entityName);
 
 	DCTManagedObjectDeserializer *deserializer = [[self alloc] initWithManagedObjectContext:managedObjectContext];
 	NSManagedObject *result = [deserializer deserializeObjectWithEntity:entity fromDictionary:dictionary];
@@ -59,7 +63,7 @@
 		[self setUniqueKeys:entity.dct_serializationUniqueKeys forEntity:entity];
 
 		NSNumber *shouldDeserializeNilValues = entity.dct_shouldDeserializeNilValues;
-		if (shouldDeserializeNilValues) [self setShouldDeserializeNilValues:shouldDeserializeNilValues forEntity:entity];
+		if (shouldDeserializeNilValues) [self setShouldDeserializeNilValues:shouldDeserializeNilValues.boolValue forEntity:entity];
 
 		[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {
 
@@ -69,7 +73,7 @@
 			if ([property isKindOfClass:[NSRelationshipDescription class]]) {
 				NSRelationshipDescription *relationship = (NSRelationshipDescription *)property;
 				NSNumber *serializationShouldBeUnion = relationship.dct_serializationShouldBeUnion;
-				if (serializationShouldBeUnion) [self setSerializationShouldBeUnion:serializationShouldBeUnion forRelationship:relationship];
+				if (serializationShouldBeUnion) [self setSerializationShouldBeUnion:serializationShouldBeUnion.boolValue forRelationship:relationship];
 			}
 		}];
 	}];
