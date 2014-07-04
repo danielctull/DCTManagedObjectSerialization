@@ -6,10 +6,13 @@
 //  Copyright (c) 2012 Daniel Tull. All rights reserved.
 //
 
-#import "DCTManagedObjectSerializationTests.h"
+@import XCTest;
 #import <DCTManagedObjectSerialization/DCTManagedObjectSerialization.h>
 #import "Person.h"
 #import "DCTTestNumberToStringValueTransformer.h"
+
+@interface DCTManagedObjectSerializationTests : XCTestCase
+@end
 
 @implementation DCTManagedObjectSerializationTests
 
@@ -24,13 +27,13 @@
 
 - (void)testBasicObjectCreation {
 	NSManagedObjectContext *managedObjectContext = [self newManagedObjectContext];
-	STAssertNotNil(managedObjectContext, @"managedObjectContext is nil.");
+	XCTAssertNotNil(managedObjectContext, @"managedObjectContext is nil.");
 	NSEntityDescription *entity = [Person entityInManagedObjectContext:managedObjectContext];
 	Person *person = [DCTManagedObjectDeserializer deserializeObjectWithEntityName:[entity name]
 															  managedObjectContext:managedObjectContext
 																	fromDictionary:nil];
-	STAssertNotNil(person, @"person should not be nil.");
-	STAssertNil(person.personID, @"personID should not be set (%@).", person.personID);
+	XCTAssertNotNil(person, @"person should not be nil.");
+	XCTAssertNil(person.personID, @"personID should not be set (%@).", person.personID);
 }
 
 - (void)testObjectCreationSettingAttributeWithPropertyNameWhileNotHavingSerializationNameSet {
@@ -39,7 +42,7 @@
 	Person *person = [DCTManagedObjectDeserializer deserializeObjectWithEntityName:[entity name]
 															  managedObjectContext:managedObjectContext
 																	fromDictionary:@{ PersonAttributes.personID : @"1" }];
-	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
+	XCTAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
 }
 
 - (void)testObjectCreationSettingAttributeWithPropertyNameWhileHavingSerializationNameSetYetProvidingThePropertyNameInTheDictionary {
@@ -50,9 +53,9 @@
 	Person *person = [DCTManagedObjectDeserializer deserializeObjectWithEntityName:[entity name]
 															  managedObjectContext:managedObjectContext
 																	fromDictionary:@{ PersonAttributes.personID : @"1" }];
-	
-	STAssertNotNil(person, @"Person wasn't created");
-	STAssertNil(person.personID, @"The dictionary doesn't contain the key 'id', so should leave the person in its raw, untouched state");
+
+	XCTAssertNotNil(person, @"Person wasn't created");
+	XCTAssertNil(person.personID, @"The dictionary doesn't contain the key 'id', so should leave the person in its raw, untouched state");
 }
 
 - (void)testObjectCreationSettingAttributeWithSerializationNameWhileHavingSerializationNameSet {
@@ -63,7 +66,7 @@
 	Person *person = [DCTManagedObjectDeserializer deserializeObjectWithEntityName:[entity name]
 															  managedObjectContext:managedObjectContext
 																	fromDictionary:@{ @"id" : @"1" }];
-	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
+	XCTAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
 }
 
 - (void)testObjectCreationSettingAttributeWithSerializationNameWhileNotHavingSerializationNameSet {
@@ -72,7 +75,7 @@
 	Person *person = [DCTManagedObjectDeserializer deserializeObjectWithEntityName:[entity name]
 															  managedObjectContext:managedObjectContext
 																	fromDictionary:@{ @"id" : @"1" }];
-	STAssertNil(person.personID, @"personID should not be set (%@).", person.personID);
+	XCTAssertNil(person.personID, @"personID should not be set (%@).", person.personID);
 }
 
 - (void)testObjectCreationSettingStringAttributeWithNumber {
@@ -84,8 +87,8 @@
 															  managedObjectContext:managedObjectContext
 																	fromDictionary:@{ PersonAttributes.personID : @(1) }];
 
-	STAssertNotNil(person, @"Person wasn't created");
-	STAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
+	XCTAssertNotNil(person, @"Person wasn't created");
+	XCTAssertTrue([person.personID isEqualToString:@"1"], @"Incorrect personID (%@).", person.personID);
 }
 
 - (void)testObjectDuplication {
@@ -102,7 +105,7 @@
 															   managedObjectContext:managedObjectContext
 																	 fromDictionary:@{ PersonAttributes.personID : @"1" }];
 
-	STAssertTrue([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
+	XCTAssertTrue([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
 }
 
 - (void)testObjectDuplicationNotSame {
@@ -118,7 +121,7 @@
 															   managedObjectContext:managedObjectContext
 																	 fromDictionary:@{ @"id" : @"1" }];
 
-	STAssertFalse([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
+	XCTAssertFalse([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
 }
 
 - (void)testObjectDuplicationNotSame2 {
@@ -134,7 +137,7 @@
 															   managedObjectContext:managedObjectContext
 																	 fromDictionary:@{ PersonAttributes.personID : @"2" }];
 
-	STAssertFalse([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
+	XCTAssertFalse([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
 }
 
 - (void)testObjectDuplication2 {
@@ -149,7 +152,7 @@
 															   managedObjectContext:managedObjectContext
 																	 fromDictionary:@{ @"id" : @"1" }];
 
-	STAssertFalse([person1 isEqual:person2], @"%@ should not equal %@", person1.objectID, person2.objectID);
+	XCTAssertFalse([person1 isEqual:person2], @"%@ should not equal %@", person1.objectID, person2.objectID);
 }
 
 - (void)testObjectDuplication3 {
@@ -161,7 +164,7 @@
 
 	NSAttributeDescription *idAttribute = [[entity propertiesByName] objectForKey:PersonAttributes.personID];
 	idAttribute.dct_serializationName = @"id";
-	
+
 	Person *person1 = [DCTManagedObjectDeserializer deserializeObjectWithEntityName:[entity name]
 															   managedObjectContext:managedObjectContext
 																	 fromDictionary:@{ @"id" : @"1" }];
@@ -170,8 +173,6 @@
 															   managedObjectContext:managedObjectContext
 																	 fromDictionary:@{ @"id" : @"1" }];
 
-	STAssertTrue([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
+	XCTAssertTrue([person1 isEqual:person2], @"%@ should equal %@", person1.objectID, person2.objectID);
 }
-
 @end
- 

@@ -7,21 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24217C66164EC4E000B7DE98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
-		24217C6F164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217C6E164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m */; };
-		24217C75164EC50E00B7DE98 /* libDCTManagedObjectSerialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */; };
-		24217C77164EC51500B7DE98 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24217C76164EC51500B7DE98 /* CoreData.framework */; };
-		24217C79164EC55600B7DE98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24217C78164EC55600B7DE98 /* UIKit.framework */; };
-		24217C7B164EC56300B7DE98 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24217C7A164EC56300B7DE98 /* SenTestingKit.framework */; };
-		24217C7E164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24217C7C164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld */; };
-		24217CAD164EC9A800B7DE98 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CAA164EC9A800B7DE98 /* _Person.m */; };
-		24217CAE164EC9A800B7DE98 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CAC164EC9A800B7DE98 /* Person.m */; };
 		24217CBB164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */; };
 		24217CBE164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBD164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m */; };
 		24217CC1164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */; };
 		24217CC4164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */; };
 		24217CC9164EEF7D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */; };
-		24217CD01650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CCF1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m */; };
+		2426195519669EDD008B8862 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2426195419669EDD008B8862 /* XCTest.framework */; };
+		2426195619669EDD008B8862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
+		2426195719669EDD008B8862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24217C78164EC55600B7DE98 /* UIKit.framework */; };
+		2426195F19669EDD008B8862 /* DCTManagedObjectSerializationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2426195E19669EDD008B8862 /* DCTManagedObjectSerializationTests.m */; };
+		2426197019669F46008B8862 /* DCTManagedObjectSerializationTests.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2426196619669F46008B8862 /* DCTManagedObjectSerializationTests.xcdatamodeld */; };
+		2426197119669F46008B8862 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2426196919669F46008B8862 /* DCTTestNumberToStringValueTransformer.m */; };
+		2426197219669F46008B8862 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 2426196D19669F46008B8862 /* _Person.m */; };
+		2426197319669F46008B8862 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 2426196F19669F46008B8862 /* Person.m */; };
 		245CD699164EA29300600BFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
 		247E440B16A83A13005C4B7B /* DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */; };
 		2492B5A01650F470004BB997 /* _DCTManagedObjectSerializationProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492B59F1650F470004BB997 /* _DCTManagedObjectSerializationProperties.m */; };
@@ -29,6 +27,16 @@
 		24A23538164EA58E00BD92ED /* DCTManagedObjectSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */; };
 		24C1F67216BEB98800866032 /* DCTManagedObjectDeserializer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2426196119669EDD008B8862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 245CD68C164EA29300600BFF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 245CD694164EA29300600BFF;
+			remoteInfo = DCTManagedObjectSerialization;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		245CD693164EA29300600BFF /* CopyFiles */ = {
@@ -48,18 +56,9 @@
 
 /* Begin PBXFileReference section */
 		240BE44617ED809D007AB802 /* Universal.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Universal.xcconfig; sourceTree = "<group>"; };
-		24217C61164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTManagedObjectSerializationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		24217C69164EC4E000B7DE98 /* DCTManagedObjectSerializationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTManagedObjectSerializationTests-Info.plist"; sourceTree = "<group>"; };
-		24217C6D164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerializationTests.h; sourceTree = "<group>"; };
-		24217C6E164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectSerializationTests.m; sourceTree = "<group>"; };
 		24217C76164EC51500B7DE98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		24217C78164EC55600B7DE98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		24217C7A164EC56300B7DE98 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		24217C7D164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DCTManagedObjectSerializationTests.xcdatamodel; sourceTree = "<group>"; };
-		24217CA9164EC9A800B7DE98 /* _Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Person.h; sourceTree = "<group>"; };
-		24217CAA164EC9A800B7DE98 /* _Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Person.m; sourceTree = "<group>"; };
-		24217CAB164EC9A800B7DE98 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		24217CAC164EC9A800B7DE98 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DCTManagedObjectSerialization.h"; sourceTree = "<group>"; };
 		24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DCTManagedObjectSerialization.m"; sourceTree = "<group>"; };
 		24217CBC164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+_DCTManagedObjectSerialization.h"; sourceTree = "<group>"; };
@@ -68,8 +67,17 @@
 		24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRelationshipDescription+_DCTManagedObjectSerialization.m"; sourceTree = "<group>"; };
 		24217CC2164EE68F00B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPropertyDescription+_DCTManagedObjectSerialization.h"; sourceTree = "<group>"; };
 		24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPropertyDescription+_DCTManagedObjectSerialization.m"; sourceTree = "<group>"; };
-		24217CCE1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTestNumberToStringValueTransformer.h; sourceTree = "<group>"; };
-		24217CCF1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTestNumberToStringValueTransformer.m; sourceTree = "<group>"; };
+		2426195319669EDD008B8862 /* DCTManagedObjectSerializationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTManagedObjectSerializationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2426195419669EDD008B8862 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2426195A19669EDD008B8862 /* DCTManagedObjectSerializationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTManagedObjectSerializationTests-Info.plist"; sourceTree = "<group>"; };
+		2426195E19669EDD008B8862 /* DCTManagedObjectSerializationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectSerializationTests.m; sourceTree = "<group>"; };
+		2426196719669F46008B8862 /* DCTManagedObjectSerializationTests.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DCTManagedObjectSerializationTests.xcdatamodel; sourceTree = "<group>"; };
+		2426196819669F46008B8862 /* DCTTestNumberToStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTestNumberToStringValueTransformer.h; sourceTree = "<group>"; };
+		2426196919669F46008B8862 /* DCTTestNumberToStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTestNumberToStringValueTransformer.m; sourceTree = "<group>"; };
+		2426196C19669F46008B8862 /* _Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Person.h; sourceTree = "<group>"; };
+		2426196D19669F46008B8862 /* _Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Person.m; sourceTree = "<group>"; };
+		2426196E19669F46008B8862 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		2426196F19669F46008B8862 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTManagedObjectSerialization.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		245CD698164EA29300600BFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization.h; sourceTree = "<group>"; };
@@ -80,15 +88,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		24217C5D164EC4E000B7DE98 /* Frameworks */ = {
+		2426195019669EDD008B8862 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24217C77164EC51500B7DE98 /* CoreData.framework in Frameworks */,
-				24217C66164EC4E000B7DE98 /* Foundation.framework in Frameworks */,
-				24217C75164EC50E00B7DE98 /* libDCTManagedObjectSerialization.a in Frameworks */,
-				24217C7B164EC56300B7DE98 /* SenTestingKit.framework in Frameworks */,
-				24217C79164EC55600B7DE98 /* UIKit.framework in Frameworks */,
+				2426195519669EDD008B8862 /* XCTest.framework in Frameworks */,
+				2426195719669EDD008B8862 /* UIKit.framework in Frameworks */,
+				2426195619669EDD008B8862 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,35 +109,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		24217C67164EC4E000B7DE98 /* DCTManagedObjectSerializationTests */ = {
+		2426195819669EDD008B8862 /* DCTManagedObjectSerializationTests */ = {
 			isa = PBXGroup;
 			children = (
-				24217CA7164EC9A800B7DE98 /* Model */,
-				24217C69164EC4E000B7DE98 /* DCTManagedObjectSerializationTests-Info.plist */,
-				24217C6D164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.h */,
-				24217C6E164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m */,
-				24217C7C164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld */,
-				24217CCE1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.h */,
-				24217CCF1650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m */,
+				2426195E19669EDD008B8862 /* DCTManagedObjectSerializationTests.m */,
+				2426196619669F46008B8862 /* DCTManagedObjectSerializationTests.xcdatamodeld */,
+				2426196819669F46008B8862 /* DCTTestNumberToStringValueTransformer.h */,
+				2426196919669F46008B8862 /* DCTTestNumberToStringValueTransformer.m */,
+				2426196A19669F46008B8862 /* Model */,
+				2426195A19669EDD008B8862 /* DCTManagedObjectSerializationTests-Info.plist */,
 			);
 			path = DCTManagedObjectSerializationTests;
 			sourceTree = "<group>";
 		};
-		24217CA7164EC9A800B7DE98 /* Model */ = {
+		2426196A19669F46008B8862 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				24217CA8164EC9A800B7DE98 /* Generated */,
-				24217CAB164EC9A800B7DE98 /* Person.h */,
-				24217CAC164EC9A800B7DE98 /* Person.m */,
+				2426196B19669F46008B8862 /* Generated */,
+				2426196E19669F46008B8862 /* Person.h */,
+				2426196F19669F46008B8862 /* Person.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		24217CA8164EC9A800B7DE98 /* Generated */ = {
+		2426196B19669F46008B8862 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				24217CA9164EC9A800B7DE98 /* _Person.h */,
-				24217CAA164EC9A800B7DE98 /* _Person.m */,
+				2426196C19669F46008B8862 /* _Person.h */,
+				2426196D19669F46008B8862 /* _Person.m */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -141,7 +146,7 @@
 			children = (
 				240BE44617ED809D007AB802 /* Universal.xcconfig */,
 				245CD6AA164EA2BF00600BFF /* DCTManagedObjectSerialization */,
-				24217C67164EC4E000B7DE98 /* DCTManagedObjectSerializationTests */,
+				2426195819669EDD008B8862 /* DCTManagedObjectSerializationTests */,
 				245CD697164EA29300600BFF /* Frameworks */,
 				245CD696164EA29300600BFF /* Products */,
 			);
@@ -151,8 +156,8 @@
 		245CD696164EA29300600BFF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24217C61164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.octest */,
 				245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */,
+				2426195319669EDD008B8862 /* DCTManagedObjectSerializationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				245CD698164EA29300600BFF /* Foundation.framework */,
 				24217C7A164EC56300B7DE98 /* SenTestingKit.framework */,
 				24217C78164EC55600B7DE98 /* UIKit.framework */,
+				2426195419669EDD008B8862 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -199,23 +205,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24217C60164EC4E000B7DE98 /* DCTManagedObjectSerializationTests */ = {
+		2426195219669EDD008B8862 /* DCTManagedObjectSerializationTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24217C73164EC4E000B7DE98 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerializationTests" */;
+			buildConfigurationList = 2426196319669EDD008B8862 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerializationTests" */;
 			buildPhases = (
-				24217C5C164EC4E000B7DE98 /* Sources */,
-				24217C5D164EC4E000B7DE98 /* Frameworks */,
-				24217C5E164EC4E000B7DE98 /* Resources */,
-				24217C5F164EC4E000B7DE98 /* ShellScript */,
+				2426194F19669EDD008B8862 /* Sources */,
+				2426195019669EDD008B8862 /* Frameworks */,
+				2426195119669EDD008B8862 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2426196219669EDD008B8862 /* PBXTargetDependency */,
 			);
 			name = DCTManagedObjectSerializationTests;
 			productName = DCTManagedObjectSerializationTests;
-			productReference = 24217C61164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 2426195319669EDD008B8862 /* DCTManagedObjectSerializationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		245CD694164EA29300600BFF /* DCTManagedObjectSerialization */ = {
 			isa = PBXNativeTarget;
@@ -243,6 +249,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Daniel Tull";
+				TargetAttributes = {
+					2426195219669EDD008B8862 = {
+						TestTargetID = 245CD694164EA29300600BFF;
+					};
+				};
 			};
 			buildConfigurationList = 245CD68F164EA29300600BFF /* Build configuration list for PBXProject "DCTManagedObjectSerialization" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -257,13 +268,13 @@
 			projectRoot = "";
 			targets = (
 				245CD694164EA29300600BFF /* DCTManagedObjectSerialization */,
-				24217C60164EC4E000B7DE98 /* DCTManagedObjectSerializationTests */,
+				2426195219669EDD008B8862 /* DCTManagedObjectSerializationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		24217C5E164EC4E000B7DE98 /* Resources */ = {
+		2426195119669EDD008B8862 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,19 +284,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		24217C5F164EC4E000B7DE98 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
 		24493EE318CFB297003A1AA5 /* Documentation */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,15 +301,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		24217C5C164EC4E000B7DE98 /* Sources */ = {
+		2426194F19669EDD008B8862 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24217CAD164EC9A800B7DE98 /* _Person.m in Sources */,
-				24217C6F164EC4E000B7DE98 /* DCTManagedObjectSerializationTests.m in Sources */,
-				24217C7E164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld in Sources */,
-				24217CD01650ED6F00B7DE98 /* DCTTestNumberToStringValueTransformer.m in Sources */,
-				24217CAE164EC9A800B7DE98 /* Person.m in Sources */,
+				2426195F19669EDD008B8862 /* DCTManagedObjectSerializationTests.m in Sources */,
+				2426197119669F46008B8862 /* DCTTestNumberToStringValueTransformer.m in Sources */,
+				2426197319669F46008B8862 /* Person.m in Sources */,
+				2426197219669F46008B8862 /* _Person.m in Sources */,
+				2426197019669F46008B8862 /* DCTManagedObjectSerializationTests.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,34 +328,83 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2426196219669EDD008B8862 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 245CD694164EA29300600BFF /* DCTManagedObjectSerialization */;
+			targetProxy = 2426196119669EDD008B8862 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		24217C71164EC4E000B7DE98 /* Debug */ = {
+		2426196419669EDD008B8862 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "DCTManagedObjectSerializationTests/DCTManagedObjectSerializationTests-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		24217C72164EC4E000B7DE98 /* Release */ = {
+		2426196519669EDD008B8862 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "DCTManagedObjectSerializationTests/DCTManagedObjectSerializationTests-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -437,14 +484,13 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		24217C73164EC4E000B7DE98 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerializationTests" */ = {
+		2426196319669EDD008B8862 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerializationTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				24217C71164EC4E000B7DE98 /* Debug */,
-				24217C72164EC4E000B7DE98 /* Release */,
+				2426196419669EDD008B8862 /* Debug */,
+				2426196519669EDD008B8862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		245CD68F164EA29300600BFF /* Build configuration list for PBXProject "DCTManagedObjectSerialization" */ = {
 			isa = XCConfigurationList;
@@ -467,12 +513,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		24217C7C164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodeld */ = {
+		2426196619669F46008B8862 /* DCTManagedObjectSerializationTests.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				24217C7D164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodel */,
+				2426196719669F46008B8862 /* DCTManagedObjectSerializationTests.xcdatamodel */,
 			);
-			currentVersion = 24217C7D164EC63100B7DE98 /* DCTManagedObjectSerializationTests.xcdatamodel */;
+			currentVersion = 2426196719669F46008B8862 /* DCTManagedObjectSerializationTests.xcdatamodel */;
 			path = DCTManagedObjectSerializationTests.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

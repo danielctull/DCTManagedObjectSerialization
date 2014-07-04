@@ -32,8 +32,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "24217C60164EC4E000B7DE98"
-               BuildableName = "DCTManagedObjectSerializationTests.octest"
+               BlueprintIdentifier = "2426195219669EDD008B8862"
+               BuildableName = "DCTManagedObjectSerializationTests.xctest"
                BlueprintName = "DCTManagedObjectSerializationTests"
                ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
             </BuildableReference>
