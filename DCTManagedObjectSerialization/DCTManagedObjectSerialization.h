@@ -9,3 +9,7 @@
 @import Foundation;
 @import CoreData;
 #import "NSManagedObject+DCTManagedObjectSerialization.h"
+
+//! Project version number and string for DCTManagedObjectSerialization.
+FOUNDATION_EXPORT double DCTManagedObjectSerializationVersionNumber;
+FOUNDATION_EXPORT const unsigned char DCTManagedObjectSerializationVersionString[];
