@@ -9,11 +9,11 @@
 #import "_DCTManagedObjectSerializationProperties.h"
 #import "NSPropertyDescription+_DCTManagedObjectSerialization.h"
 
-NSString *const DCTSerializationUniqueKeys = @"serializationUniqueKeys";
-NSString *const DCTSerializationShouldDeserializeNilValues = @"shouldDeserializeNilValues";
-NSString *const DCTSerializationName = @"serializationName";
-NSString *const DCTSerializationTransformerNames = @"serializationTransformerNames";
-NSString *const DCTSerializationShouldBeUnion = @"serializationShouldBeUnion";
+static NSString *const DCTSerializationUniqueKeys = @"serializationUniqueKeys";
+static NSString *const DCTSerializationShouldDeserializeNilValues = @"shouldDeserializeNilValues";
+static NSString *const DCTSerializationName = @"serializationName";
+static NSString *const DCTSerializationTransformerNames = @"serializationTransformerNames";
+static NSString *const DCTSerializationShouldBeUnion = @"serializationShouldBeUnion";
 
 
 

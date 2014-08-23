@@ -46,8 +46,8 @@
 	}
 }
 
-- (void)dct_populateCollection:(id)collection fromSerializedObjects:(NSArray *)array deserializer:(id <DCTManagedObjectDeserializing>)deserializer;
-{
+- (void)dct_populateCollection:(id)collection fromSerializedObjects:(NSArray *)array deserializer:(id <DCTManagedObjectDeserializing>)deserializer {
+
 	[array enumerateObjectsUsingBlock:^(NSDictionary *dictionary, NSUInteger i, BOOL *stop) {
 		
         if (![dictionary isKindOfClass:[NSDictionary class]])
@@ -64,8 +64,7 @@
 	}];
 }
 
-- (id)dct_valueForSerializedDictionary:(NSDictionary *)dictionary deserializer:(id <DCTManagedObjectDeserializing>)deserializer;
-{
+- (id)dct_valueForSerializedDictionary:(NSDictionary *)dictionary deserializer:(id <DCTManagedObjectDeserializing>)deserializer {
 	NSEntityDescription *entity = nil;
     if ([dictionary objectForKey:@"entity"])
     {

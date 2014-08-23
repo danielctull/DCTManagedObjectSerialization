@@ -11,8 +11,7 @@
 
 @implementation NSManagedObject (DCTManagedObjectSerialization)
 
-- (void)dct_deserializeProperty:(NSPropertyDescription *)property withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer __attribute__((nonnull(1,2)));
-{
+- (void)dct_deserializeProperty:(NSPropertyDescription *)property withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer __attribute__((nonnull(1,2))) {
     id value = [deserializer deserializeProperty:property];
     
     // Nil can arise because:
@@ -58,8 +57,7 @@
     }
 }
 
-- (void)dct_deserialize:(id <DCTManagedObjectDeserializing>)deserializier;
-{
+- (void)dct_deserialize:(id <DCTManagedObjectDeserializing>)deserializier {
     NSEntityDescription *entity = self.entity;
     
 	[entity.properties enumerateObjectsUsingBlock:^(NSPropertyDescription *property, NSUInteger i, BOOL *stop) {

@@ -22,8 +22,7 @@
 
 + (id)deserializeObjectWithEntityName:(NSString *)entityName
                  managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-                       fromDictionary:(NSDictionary *)dictionary;
-{
+                       fromDictionary:(NSDictionary *)dictionary {
 	NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext];
 
 	DCTManagedObjectDeserializer *deserializer = [[self alloc] initWithManagedObjectContext:managedObjectContext];

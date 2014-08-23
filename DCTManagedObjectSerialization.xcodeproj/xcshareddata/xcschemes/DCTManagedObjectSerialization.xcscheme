@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2426195219669EDD008B8862"
-               BuildableName = "DCTManagedObjectSerializationTests.xctest"
-               BlueprintName = "DCTManagedObjectSerializationTests"
+               BuildableName = "DCTManagedObjectSerialization Tests.xctest"
+               BlueprintName = "DCTManagedObjectSerialization Tests"
                ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
             </BuildableReference>
          </TestableReference>
