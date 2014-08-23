@@ -92,7 +92,7 @@
 		24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRelationshipDescription+_DCTManagedObjectSerialization.m"; sourceTree = "<group>"; };
 		24217CC2164EE68F00B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPropertyDescription+_DCTManagedObjectSerialization.h"; sourceTree = "<group>"; };
 		24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPropertyDescription+_DCTManagedObjectSerialization.m"; sourceTree = "<group>"; };
-		2426195319669EDD008B8862 /* DCTManagedObjectSerializationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTManagedObjectSerializationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2426195319669EDD008B8862 /* DCTManagedObjectSerialization Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DCTManagedObjectSerialization Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2426195419669EDD008B8862 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2426195A19669EDD008B8862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2426195E19669EDD008B8862 /* DCTManagedObjectSerializationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectSerializationTests.m; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */,
-				2426195319669EDD008B8862 /* DCTManagedObjectSerializationTests.xctest */,
+				2426195319669EDD008B8862 /* DCTManagedObjectSerialization Tests.xctest */,
 				244DE85C19A91FEE00A91DC7 /* DCTManagedObjectSerialization.framework */,
 				244DE88419A920D700A91DC7 /* DCTManagedObjectSerialization.framework */,
 			);
@@ -319,7 +319,7 @@
 			);
 			name = "DCTManagedObjectSerialization Tests";
 			productName = DCTManagedObjectSerializationTests;
-			productReference = 2426195319669EDD008B8862 /* DCTManagedObjectSerializationTests.xctest */;
+			productReference = 2426195319669EDD008B8862 /* DCTManagedObjectSerialization Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		244DE85B19A91FEE00A91DC7 /* DCTManagedObjectSerialization iOS */ = {
@@ -686,6 +686,7 @@
 				244DE86E19A91FEF00A91DC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		244DE89419A920D700A91DC7 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X" */ = {
 			isa = XCConfigurationList;
@@ -694,6 +695,7 @@
 				244DE89619A920D700A91DC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		245CD68F164EA29300600BFF /* Build configuration list for PBXProject "DCTManagedObjectSerialization" */ = {
 			isa = XCConfigurationList;
