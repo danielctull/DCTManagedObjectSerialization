@@ -7,7 +7,7 @@
 //
 
 @import CoreData;
-#import "DCTManagedObjectDeserializer.h"
+@protocol DCTManagedObjectDeserializing;
 
 @interface NSManagedObject (DCTManagedObjectSerialization)
 

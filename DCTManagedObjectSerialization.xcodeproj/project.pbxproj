@@ -31,7 +31,7 @@
 		244DE87A19A9208800A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBD164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m */; };
 		244DE87B19A9208800A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */; };
 		244DE87C19A9208800A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */; };
-		244DE87D19A9208800A91DC7 /* DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */; };
+		244DE87D19A9208800A91DC7 /* DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */; settings = {COMPILER_FLAGS = "-Wno-semicolon-before-method-body -Wno-direct-ivar-access -Wno-implicit-retain-self"; }; };
 		244DE87E19A9208800A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */; };
 		244DE89A19A9211F00A91DC7 /* _DCTManagedObjectSerializationProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 2492B59E1650F470004BB997 /* _DCTManagedObjectSerializationProperties.h */; };
 		244DE89B19A9211F00A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CBC164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.h */; };
@@ -382,7 +382,7 @@
 		245CD68C164EA29300600BFF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Daniel Tull";
 				TargetAttributes = {
 					2426195219669EDD008B8862 = {
