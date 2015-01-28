@@ -50,11 +50,19 @@
         [self willChangeValueForKey:key];
         [self setPrimitiveValue:transformedValue forKey:key];
         [self didChangeValueForKey:key];
+		return;
     }
-    else
-    {
-        [self setValue:transformedValue forKey:key];
-    }
+
+	if ([property isKindOfClass:[NSRelationshipDescription class]]) {
+		NSRelationshipDescription *relationship = (NSRelationshipDescription *)property;
+		if (relationship.isToMany && [deserializer serializationShouldBeUnionForRelationship:relationship]) {
+			NSMutableSet *set = [self mutableSetValueForKey:key];
+			[set unionSet:transformedValue];
+			return;
+		}
+	}
+
+	[self setValue:transformedValue forKey:key];
 }
 
 - (void)dct_deserialize:(id <DCTManagedObjectDeserializing>)deserializier {
