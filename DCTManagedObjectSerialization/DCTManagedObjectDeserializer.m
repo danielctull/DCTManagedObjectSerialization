@@ -98,21 +98,25 @@
 	if (!array) return nil;
 
 	NSMutableArray *managedObjects = [[NSMutableArray alloc] initWithCapacity:array.count];
-
-	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
-	fetchRequest.predicate = existingObjectsPredicate;
-
+	NSArray *existingObjects;
 	NSString *objectIDKey = @"objectID";
-	NSExpressionDescription* objectIdDesc = [NSExpressionDescription new];
-	objectIdDesc.name = objectIDKey;
-	objectIdDesc.expression = [NSExpression expressionForEvaluatedObject];
-	objectIdDesc.expressionResultType = NSObjectIDAttributeType;
 
-	NSArray *properties = @[objectIdDesc];
-	fetchRequest.propertiesToFetch = [properties arrayByAddingObjectsFromArray:entity.dct_serializationUniqueKeys];
-	[fetchRequest setResultType:NSDictionaryResultType];
+	if (existingObjectsPredicate) {
 
-	NSArray *existingObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
+		fetchRequest.predicate = existingObjectsPredicate;
+
+		NSExpressionDescription* objectIdDesc = [NSExpressionDescription new];
+		objectIdDesc.name = objectIDKey;
+		objectIdDesc.expression = [NSExpression expressionForEvaluatedObject];
+		objectIdDesc.expressionResultType = NSObjectIDAttributeType;
+
+		NSArray *properties = @[objectIdDesc];
+		fetchRequest.propertiesToFetch = [properties arrayByAddingObjectsFromArray:entity.dct_serializationUniqueKeys];
+		[fetchRequest setResultType:NSDictionaryResultType];
+
+		existingObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+	}
 
 	[array enumerateObjectsUsingBlock:^(NSDictionary *dictionary, NSUInteger i, BOOL *stop) {
 
