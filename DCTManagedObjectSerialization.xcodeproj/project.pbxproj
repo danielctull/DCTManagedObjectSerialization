@@ -44,7 +44,7 @@
 		244DE8A219A9213400A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBD164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m */; };
 		244DE8A319A9213400A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */; };
 		244DE8A419A9213400A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */; };
-		244DE8A519A9213400A91DC7 /* DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */; };
+		244DE8A519A9213400A91DC7 /* DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */; settings = {COMPILER_FLAGS = "-Wno-semicolon-before-method-body -Wno-direct-ivar-access -Wno-implicit-retain-self"; }; };
 		244DE8A619A9213400A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */; };
 		245CD699164EA29300600BFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
 		247E440B16A83A13005C4B7B /* DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */; };
