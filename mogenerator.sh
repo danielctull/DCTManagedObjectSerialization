@@ -1,1 +1,2 @@
 mogenerator -m DCTManagedObjectSerialization\ Tests/Person.xcdatamodeld/Person.xcdatamodel -M DCTManagedObjectSerialization\ Tests/Model/Generated -H DCTManagedObjectSerialization\ Tests/Model --template-var arc=true
+mogenerator -m DCTManagedObjectSerialization\ Tests/Twitter.xcdatamodeld/Twitter.xcdatamodel -M DCTManagedObjectSerialization\ Tests/Model/Generated -H DCTManagedObjectSerialization\ Tests/Model --template-var arc=true

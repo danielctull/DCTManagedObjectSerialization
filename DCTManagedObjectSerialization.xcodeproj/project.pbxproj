@@ -45,6 +45,14 @@
 		24A93E3C1B34354C00428619 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E3A1B34354C00428619 /* Person.xcdatamodeld */; };
 		24A93E3F1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E3E1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m */; };
 		24A93E411B3436D600428619 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E401B3436D600428619 /* PerformanceTest.swift */; };
+		24A93E4A1B34469F00428619 /* _Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E431B34469F00428619 /* _Hashtag.m */; };
+		24A93E4B1B34469F00428619 /* _Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E451B34469F00428619 /* _Place.m */; };
+		24A93E4C1B34469F00428619 /* _Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E471B34469F00428619 /* _Tweet.m */; };
+		24A93E4D1B34469F00428619 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E491B34469F00428619 /* _User.m */; };
+		24A93E561B3446AA00428619 /* Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E4F1B3446AA00428619 /* Hashtag.m */; };
+		24A93E571B3446AA00428619 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E511B3446AA00428619 /* Place.m */; };
+		24A93E581B3446AA00428619 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E531B3446AA00428619 /* Tweet.m */; };
+		24A93E591B3446AA00428619 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E551B3446AA00428619 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +99,23 @@
 		24A93E3D1B34359B00428619 /* DCTTestNumberToStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTestNumberToStringValueTransformer.h; sourceTree = "<group>"; };
 		24A93E3E1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTestNumberToStringValueTransformer.m; sourceTree = "<group>"; };
 		24A93E401B3436D600428619 /* PerformanceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTest.swift; sourceTree = "<group>"; };
+		24A93E421B34469F00428619 /* _Hashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Hashtag.h; sourceTree = "<group>"; };
+		24A93E431B34469F00428619 /* _Hashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Hashtag.m; sourceTree = "<group>"; };
+		24A93E441B34469F00428619 /* _Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Place.h; sourceTree = "<group>"; };
+		24A93E451B34469F00428619 /* _Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Place.m; sourceTree = "<group>"; };
+		24A93E461B34469F00428619 /* _Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Tweet.h; sourceTree = "<group>"; };
+		24A93E471B34469F00428619 /* _Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Tweet.m; sourceTree = "<group>"; };
+		24A93E481B34469F00428619 /* _User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _User.h; sourceTree = "<group>"; };
+		24A93E491B34469F00428619 /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
+		24A93E4E1B3446AA00428619 /* Hashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hashtag.h; sourceTree = "<group>"; };
+		24A93E4F1B3446AA00428619 /* Hashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hashtag.m; sourceTree = "<group>"; };
+		24A93E501B3446AA00428619 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		24A93E511B3446AA00428619 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		24A93E521B3446AA00428619 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		24A93E531B3446AA00428619 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		24A93E541B3446AA00428619 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		24A93E551B3446AA00428619 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		24A93E5A1B34481B00428619 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +159,7 @@
 				24732CC91B3420B300A44C4D /* Tweets.json */,
 				2426195A19669EDD008B8862 /* Info.plist */,
 				24A93E401B3436D600428619 /* PerformanceTest.swift */,
+				24A93E5A1B34481B00428619 /* Bridging.h */,
 			);
 			path = "DCTManagedObjectSerialization Tests";
 			sourceTree = "<group>";
@@ -144,6 +170,14 @@
 				2426196B19669F46008B8862 /* Generated */,
 				2426196E19669F46008B8862 /* Person.h */,
 				2426196F19669F46008B8862 /* Person.m */,
+				24A93E4E1B3446AA00428619 /* Hashtag.h */,
+				24A93E4F1B3446AA00428619 /* Hashtag.m */,
+				24A93E501B3446AA00428619 /* Place.h */,
+				24A93E511B3446AA00428619 /* Place.m */,
+				24A93E521B3446AA00428619 /* Tweet.h */,
+				24A93E531B3446AA00428619 /* Tweet.m */,
+				24A93E541B3446AA00428619 /* User.h */,
+				24A93E551B3446AA00428619 /* User.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +185,14 @@
 		2426196B19669F46008B8862 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				24A93E421B34469F00428619 /* _Hashtag.h */,
+				24A93E431B34469F00428619 /* _Hashtag.m */,
+				24A93E441B34469F00428619 /* _Place.h */,
+				24A93E451B34469F00428619 /* _Place.m */,
+				24A93E461B34469F00428619 /* _Tweet.h */,
+				24A93E471B34469F00428619 /* _Tweet.m */,
+				24A93E481B34469F00428619 /* _User.h */,
+				24A93E491B34469F00428619 /* _User.m */,
 				2426196C19669F46008B8862 /* _Person.h */,
 				2426196D19669F46008B8862 /* _Person.m */,
 			);
@@ -392,14 +434,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24A93E591B3446AA00428619 /* User.m in Sources */,
+				24A93E4D1B34469F00428619 /* _User.m in Sources */,
 				2426197219669F46008B8862 /* _Person.m in Sources */,
 				24732CCD1B34314700A44C4D /* URLTransformer.swift in Sources */,
 				24A93E411B3436D600428619 /* PerformanceTest.swift in Sources */,
 				24A93E3F1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m in Sources */,
 				2426195F19669EDD008B8862 /* DCTManagedObjectSerializationTests.m in Sources */,
 				2426197019669F46008B8862 /* Twitter.xcdatamodeld in Sources */,
+				24A93E4C1B34469F00428619 /* _Tweet.m in Sources */,
 				24A93E3C1B34354C00428619 /* Person.xcdatamodeld in Sources */,
+				24A93E571B3446AA00428619 /* Place.m in Sources */,
+				24A93E4B1B34469F00428619 /* _Place.m in Sources */,
+				24A93E561B3446AA00428619 /* Hashtag.m in Sources */,
+				24A93E581B3446AA00428619 /* Tweet.m in Sources */,
 				2426197319669F46008B8862 /* Person.m in Sources */,
+				24A93E4A1B34469F00428619 /* _Hashtag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE85319A91F0C00A91DC7 /* iOS Tests.xcconfig */;
 			buildSettings = {
+				SWIFT_OBJC_BRIDGING_HEADER = "DCTManagedObjectSerialization Tests/Bridging.h";
 			};
 			name = Debug;
 		};
@@ -443,6 +494,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE85319A91F0C00A91DC7 /* iOS Tests.xcconfig */;
 			buildSettings = {
+				SWIFT_OBJC_BRIDGING_HEADER = "DCTManagedObjectSerialization Tests/Bridging.h";
 			};
 			name = Release;
 		};
