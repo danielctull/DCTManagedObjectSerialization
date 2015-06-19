@@ -53,6 +53,9 @@
 		24A93E571B3446AA00428619 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E511B3446AA00428619 /* Place.m */; };
 		24A93E581B3446AA00428619 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E531B3446AA00428619 /* Tweet.m */; };
 		24A93E591B3446AA00428619 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E551B3446AA00428619 /* User.m */; };
+		24A93E5C1B344F2000428619 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5B1B344F2000428619 /* Properties.swift */; };
+		24A93E5E1B344FF100428619 /* NSAttributeDescription+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5D1B344FF100428619 /* NSAttributeDescription+Serialization.swift */; };
+		24A93E601B34504800428619 /* NSPropertyDescription+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5F1B34504800428619 /* NSPropertyDescription+Serialization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +119,9 @@
 		24A93E541B3446AA00428619 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		24A93E551B3446AA00428619 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		24A93E5A1B34481B00428619 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
+		24A93E5B1B344F2000428619 /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
+		24A93E5D1B344FF100428619 /* NSAttributeDescription+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributeDescription+Serialization.swift"; sourceTree = "<group>"; };
+		24A93E5F1B34504800428619 /* NSPropertyDescription+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPropertyDescription+Serialization.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +258,9 @@
 		245CD6AA164EA2BF00600BFF /* DCTManagedObjectSerialization */ = {
 			isa = PBXGroup;
 			children = (
+				24A93E5B1B344F2000428619 /* Properties.swift */,
+				24A93E5F1B34504800428619 /* NSPropertyDescription+Serialization.swift */,
+				24A93E5D1B344FF100428619 /* NSAttributeDescription+Serialization.swift */,
 				24A23533164EA4F600BD92ED /* Private */,
 				247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */,
 				247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */,
@@ -440,11 +449,14 @@
 				24732CCD1B34314700A44C4D /* URLTransformer.swift in Sources */,
 				24A93E411B3436D600428619 /* PerformanceTest.swift in Sources */,
 				24A93E3F1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m in Sources */,
+				24A93E601B34504800428619 /* NSPropertyDescription+Serialization.swift in Sources */,
 				2426195F19669EDD008B8862 /* DCTManagedObjectSerializationTests.m in Sources */,
+				24A93E5E1B344FF100428619 /* NSAttributeDescription+Serialization.swift in Sources */,
 				2426197019669F46008B8862 /* Twitter.xcdatamodeld in Sources */,
 				24A93E4C1B34469F00428619 /* _Tweet.m in Sources */,
 				24A93E3C1B34354C00428619 /* Person.xcdatamodeld in Sources */,
 				24A93E571B3446AA00428619 /* Place.m in Sources */,
+				24A93E5C1B344F2000428619 /* Properties.swift in Sources */,
 				24A93E4B1B34469F00428619 /* _Place.m in Sources */,
 				24A93E561B3446AA00428619 /* Hashtag.m in Sources */,
 				24A93E581B3446AA00428619 /* Tweet.m in Sources */,
