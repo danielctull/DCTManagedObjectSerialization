@@ -8,12 +8,6 @@ const struct PersonAttributes PersonAttributes = {
 	.personID = @"personID",
 };
 
-const struct PersonRelationships PersonRelationships = {
-};
-
-const struct PersonFetchedProperties PersonFetchedProperties = {
-};
-
 @implementation PersonID
 @end
 
@@ -37,33 +31,15 @@ const struct PersonFetchedProperties PersonFetchedProperties = {
 	return (PersonID*)[super objectID];
 }
 
-+ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
++ (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic dateOfBirth;
-
-
-
-
-
 
 @dynamic personID;
 
-
-
-
-
-
-
-
-
-
-
 @end
+

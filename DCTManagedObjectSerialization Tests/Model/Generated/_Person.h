@@ -3,21 +3,10 @@
 
 #import <CoreData/CoreData.h>
 
-
 extern const struct PersonAttributes {
 	__unsafe_unretained NSString *dateOfBirth;
 	__unsafe_unretained NSString *personID;
 } PersonAttributes;
-
-extern const struct PersonRelationships {
-} PersonRelationships;
-
-extern const struct PersonFetchedProperties {
-} PersonFetchedProperties;
-
-
-
-
 
 @interface PersonID : NSManagedObjectID {}
 @end
@@ -26,48 +15,24 @@ extern const struct PersonFetchedProperties {
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (PersonID*)objectID;
-
-
-
+@property (nonatomic, readonly, strong) PersonID* objectID;
 
 @property (nonatomic, strong) NSDate* dateOfBirth;
 
-
 //- (BOOL)validateDateOfBirth:(id*)value_ error:(NSError**)error_;
-
-
-
 
 @property (nonatomic, strong) NSString* personID;
 
-
 //- (BOOL)validatePersonID:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-
-@end
-
-@interface _Person (CoreDataGeneratedAccessors)
 
 @end
 
 @interface _Person (CoreDataGeneratedPrimitiveAccessors)
 
-
 - (NSDate*)primitiveDateOfBirth;
 - (void)setPrimitiveDateOfBirth:(NSDate*)value;
 
-
-
-
 - (NSString*)primitivePersonID;
 - (void)setPrimitivePersonID:(NSString*)value;
-
-
-
 
 @end

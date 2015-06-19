@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8118.17" systemVersion="14D136" minimumToolsVersion="Xcode 4.3">
+    <entity name="Hashtag" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Place" syncable="YES">
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="countryCode" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="serializationName" value="country_code"/>
+            </userInfo>
+        </attribute>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="serializationName" value="full_name"/>
+            </userInfo>
+        </attribute>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="placeID" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="serializationName" value="id"/>
+            </userInfo>
+        </attribute>
+        <attribute name="placeURL" optional="YES" attributeType="Transformable" syncable="YES">
+            <userInfo>
+                <entry key="serializationName" value="url"/>
+                <entry key="transformerName" value="URLTransformer"/>
+            </userInfo>
+        </attribute>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="serializationName" value="place_type"/>
+            </userInfo>
+        </attribute>
+        <relationship name="tweets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tweet" inverseName="place" inverseEntity="Tweet" syncable="YES"/>
+    </entity>
+    <entity name="Tweet" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tweetID" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="serializationName" value="id_str"/>
+            </userInfo>
+        </attribute>
+        <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="tweets" inverseEntity="Place" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tweets" inverseEntity="User" syncable="YES"/>
+        <userInfo>
+            <entry key="serializationName" value="id"/>
+        </userInfo>
+    </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="serializationName" value="id_str"/>
+            </userInfo>
+        </attribute>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="serializationName" value="screen_name"/>
+            </userInfo>
+        </attribute>
+        <relationship name="tweets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tweet" inverseName="user" inverseEntity="Tweet" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Hashtag" positionX="189" positionY="270" width="128" height="60"/>
+        <element name="Place" positionX="198" positionY="279" width="128" height="165"/>
+        <element name="Tweet" positionX="162" positionY="207" width="128" height="105"/>
+        <element name="User" positionX="171" positionY="216" width="128" height="105"/>
+    </elements>
+</model>
