@@ -7,32 +7,44 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>2CA9A851-E4F0-4030-944B-CF50F85AF183</string>
 	<key>IDESourceControlProjectName</key>
-	<string>DCTManagedObjectSerialization</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>3C1E8423-E280-45D5-9316-772477BE13C8</key>
-		<string>git://github.com/danielctull/DCTManagedObjectSerialization.git</string>
+		<key>5E14E3690BDD9EA7603E78258F29CCA307496CA6</key>
+		<string>github.com:danielctull/DCTManagedObjectSerialization.git</string>
+		<key>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</key>
+		<string>git://github.com/danielctull/Xcode-Configurations.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>DCTManagedObjectSerialization.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>3C1E8423-E280-45D5-9316-772477BE13C8</key>
+		<key>5E14E3690BDD9EA7603E78258F29CCA307496CA6</key>
 		<string>../..</string>
+		<key>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</key>
+		<string>../..Configurations/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>git://github.com/danielctull/DCTManagedObjectSerialization.git</string>
+	<string>github.com:danielctull/DCTManagedObjectSerialization.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>3C1E8423-E280-45D5-9316-772477BE13C8</string>
+	<string>5E14E3690BDD9EA7603E78258F29CCA307496CA6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>3C1E8423-E280-45D5-9316-772477BE13C8</string>
+			<string>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Configurations</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5E14E3690BDD9EA7603E78258F29CCA307496CA6</string>
 			<key>IDESourceControlWCCName</key>
 			<string>DCTManagedObjectSerialization</string>
 		</dict>

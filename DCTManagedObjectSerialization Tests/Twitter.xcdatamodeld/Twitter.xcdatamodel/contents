@@ -29,7 +29,7 @@
         <attribute name="placeURL" optional="YES" attributeType="Transformable" syncable="YES">
             <userInfo>
                 <entry key="serializationName" value="url"/>
-                <entry key="transformerName" value="URLTransformer"/>
+                <entry key="transformerNames" value="URLTransformer"/>
             </userInfo>
         </attribute>
         <relationship name="tweets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tweet" inverseName="place" inverseEntity="Tweet" syncable="YES"/>
@@ -44,7 +44,7 @@
         <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="tweets" inverseEntity="Place" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tweets" inverseEntity="User" syncable="YES"/>
         <userInfo>
-            <entry key="serializationUniqueKeys" value="tweetID"/>
+            <entry key="uniqueKeys" value="tweetID"/>
         </userInfo>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
@@ -61,7 +61,7 @@
         </attribute>
         <relationship name="tweets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tweet" inverseName="user" inverseEntity="Tweet" syncable="YES"/>
         <userInfo>
-            <entry key="serializationUniqueKeys" value="userID"/>
+            <entry key="uniqueKeys" value="userID"/>
         </userInfo>
     </entity>
     <elements>

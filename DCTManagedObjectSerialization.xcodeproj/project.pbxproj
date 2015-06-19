@@ -53,9 +53,13 @@
 		24A93E571B3446AA00428619 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E511B3446AA00428619 /* Place.m */; };
 		24A93E581B3446AA00428619 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E531B3446AA00428619 /* Tweet.m */; };
 		24A93E591B3446AA00428619 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E551B3446AA00428619 /* User.m */; };
-		24A93E5C1B344F2000428619 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5B1B344F2000428619 /* Properties.swift */; };
+		24A93E5C1B344F2000428619 /* SerializationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5B1B344F2000428619 /* SerializationInfo.swift */; };
 		24A93E5E1B344FF100428619 /* NSAttributeDescription+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5D1B344FF100428619 /* NSAttributeDescription+Serialization.swift */; };
 		24A93E601B34504800428619 /* NSPropertyDescription+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5F1B34504800428619 /* NSPropertyDescription+Serialization.swift */; };
+		24A93E621B34671100428619 /* NSRelationshipDescription+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E611B34671100428619 /* NSRelationshipDescription+Serialization.swift */; };
+		24A93E641B34674200428619 /* NSEntityDescription+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E631B34674200428619 /* NSEntityDescription+Serialization.swift */; };
+		24A93E661B346BDE00428619 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E651B346BDE00428619 /* Deserializer.swift */; };
+		24A93E681B34981D00428619 /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E671B34981D00428619 /* SerializationInfoTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,9 +123,13 @@
 		24A93E541B3446AA00428619 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		24A93E551B3446AA00428619 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		24A93E5A1B34481B00428619 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
-		24A93E5B1B344F2000428619 /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
+		24A93E5B1B344F2000428619 /* SerializationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfo.swift; sourceTree = "<group>"; };
 		24A93E5D1B344FF100428619 /* NSAttributeDescription+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributeDescription+Serialization.swift"; sourceTree = "<group>"; };
 		24A93E5F1B34504800428619 /* NSPropertyDescription+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPropertyDescription+Serialization.swift"; sourceTree = "<group>"; };
+		24A93E611B34671100428619 /* NSRelationshipDescription+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRelationshipDescription+Serialization.swift"; sourceTree = "<group>"; };
+		24A93E631B34674200428619 /* NSEntityDescription+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSEntityDescription+Serialization.swift"; sourceTree = "<group>"; };
+		24A93E651B346BDE00428619 /* Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializer.swift; sourceTree = "<group>"; };
+		24A93E671B34981D00428619 /* SerializationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,7 @@
 		2426195819669EDD008B8862 /* DCTManagedObjectSerialization Tests */ = {
 			isa = PBXGroup;
 			children = (
+				24A93E5A1B34481B00428619 /* Bridging.h */,
 				2426196A19669F46008B8862 /* Model */,
 				24A93E3A1B34354C00428619 /* Person.xcdatamodeld */,
 				2426195E19669EDD008B8862 /* DCTManagedObjectSerializationTests.m */,
@@ -165,7 +174,7 @@
 				24732CC91B3420B300A44C4D /* Tweets.json */,
 				2426195A19669EDD008B8862 /* Info.plist */,
 				24A93E401B3436D600428619 /* PerformanceTest.swift */,
-				24A93E5A1B34481B00428619 /* Bridging.h */,
+				24A93E671B34981D00428619 /* SerializationInfoTests.swift */,
 			);
 			path = "DCTManagedObjectSerialization Tests";
 			sourceTree = "<group>";
@@ -258,9 +267,12 @@
 		245CD6AA164EA2BF00600BFF /* DCTManagedObjectSerialization */ = {
 			isa = PBXGroup;
 			children = (
-				24A93E5B1B344F2000428619 /* Properties.swift */,
+				24A93E5B1B344F2000428619 /* SerializationInfo.swift */,
+				24A93E651B346BDE00428619 /* Deserializer.swift */,
 				24A93E5F1B34504800428619 /* NSPropertyDescription+Serialization.swift */,
 				24A93E5D1B344FF100428619 /* NSAttributeDescription+Serialization.swift */,
+				24A93E611B34671100428619 /* NSRelationshipDescription+Serialization.swift */,
+				24A93E631B34674200428619 /* NSEntityDescription+Serialization.swift */,
 				24A23533164EA4F600BD92ED /* Private */,
 				247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */,
 				247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */,
@@ -443,6 +455,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24A93E661B346BDE00428619 /* Deserializer.swift in Sources */,
+				24A93E621B34671100428619 /* NSRelationshipDescription+Serialization.swift in Sources */,
 				24A93E591B3446AA00428619 /* User.m in Sources */,
 				24A93E4D1B34469F00428619 /* _User.m in Sources */,
 				2426197219669F46008B8862 /* _Person.m in Sources */,
@@ -456,8 +470,10 @@
 				24A93E4C1B34469F00428619 /* _Tweet.m in Sources */,
 				24A93E3C1B34354C00428619 /* Person.xcdatamodeld in Sources */,
 				24A93E571B3446AA00428619 /* Place.m in Sources */,
-				24A93E5C1B344F2000428619 /* Properties.swift in Sources */,
+				24A93E5C1B344F2000428619 /* SerializationInfo.swift in Sources */,
+				24A93E681B34981D00428619 /* SerializationInfoTests.swift in Sources */,
 				24A93E4B1B34469F00428619 /* _Place.m in Sources */,
+				24A93E641B34674200428619 /* NSEntityDescription+Serialization.swift in Sources */,
 				24A93E561B3446AA00428619 /* Hashtag.m in Sources */,
 				24A93E581B3446AA00428619 /* Tweet.m in Sources */,
 				2426197319669F46008B8862 /* Person.m in Sources */,
