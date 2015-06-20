@@ -8,11 +8,13 @@ public enum DeserializerError: ErrorType {
 
 typealias JSONDictionary = [ String : AnyObject ]
 
-public class Deserializer {
-	public var info = SerializationInfo()
+public struct Deserializer {
+
 	public let managedObjectContext: NSManagedObjectContext
-	public init(managedObjectContext: NSManagedObjectContext) {
+	public let serializationInfo: SerializationInfo
+	init(managedObjectContext: NSManagedObjectContext, serializationInfo: SerializationInfo = SerializationInfo()) {
 		self.managedObjectContext = managedObjectContext
+		self.serializationInfo = serializationInfo
 	}
 
 	func deserializeObjectWithEntity(entity: NSEntityDescription, dictionary: JSONDictionary) -> AnyObject? {
@@ -62,7 +64,7 @@ public class Deserializer {
 
 	private func predicateForUniqueObjectWithEntity(entity: NSEntityDescription, JSON: JSONDictionary) -> NSPredicate? {
 
-		let uniqueProperties = info.uniqueProperties[entity]
+		let uniqueProperties = serializationInfo.uniqueProperties[entity]
 		var predicates: [NSPredicate] = []
 		for property in uniqueProperties {
 
@@ -79,8 +81,8 @@ public class Deserializer {
 
 	private func valueFromDictionary(dictionary: JSONDictionary, forProperty property: NSPropertyDescription) -> AnyObject? {
 
-		let serializationName = info.serializationName[property]
-		let transformers = info.transformers[property]
+		let serializationName = serializationInfo.serializationName[property]
+		let transformers = serializationInfo.transformers[property]
 		let serializedValue = dictionary[serializationName]
 
 		var value: AnyObject? = serializedValue
