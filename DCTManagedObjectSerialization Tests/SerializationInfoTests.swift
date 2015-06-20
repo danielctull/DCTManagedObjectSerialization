@@ -5,8 +5,8 @@ import DCTManagedObjectSerialization
 
 class SerializationInfoTests: XCTestCase {
 
-	var managedObjectContext: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-	var serializationInfo = SerializationInfo()
+	var managedObjectContext: NSManagedObjectContext!
+	var serializationInfo: SerializationInfo!
 
 	override func setUp() {
 		super.setUp()
@@ -34,14 +34,14 @@ class SerializationInfoTests: XCTestCase {
 	// uniqueKeys not set, returns nil
 	func testNoUniqueKeys() {
 		let entity = Hashtag.entityInManagedObjectContext(managedObjectContext)
-		let uniqueKeys = serializationInfo.uniqueKeys.valueForKey(entity)
+		let uniqueKeys = serializationInfo.uniqueKeys[entity]
 		XCTAssertNil(uniqueKeys)
 	}
 
 	// shouldDeserializeNilValues not set, returns false
 	func testNoShouldDeserializeNilValues() {
 		let entity = Hashtag.entityInManagedObjectContext(managedObjectContext)
-		guard let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues.valueForKey(entity) else {
+		guard let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[entity] else {
 			XCTFail()
 			return
 		}
@@ -55,7 +55,7 @@ class SerializationInfoTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		guard let serializationName = serializationInfo.serializationName.valueForKey(property) else {
+		guard let serializationName = serializationInfo.serializationName[property] else {
 			XCTFail()
 			return
 		}
@@ -69,7 +69,7 @@ class SerializationInfoTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		let transformerNames = serializationInfo.transformerNames.valueForKey(property)
+		let transformerNames = serializationInfo.transformerNames[property]
 		XCTAssertNil(transformerNames)
 	}
 
@@ -80,7 +80,7 @@ class SerializationInfoTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		guard let shouldBeUnion = serializationInfo.shouldBeUnion.valueForKey(relationship) else {
+		guard let shouldBeUnion = serializationInfo.shouldBeUnion[relationship] else {
 			XCTFail()
 			return
 		}
@@ -92,8 +92,8 @@ class SerializationInfoTests: XCTestCase {
 	func testSettingUniqueKeys() {
 		let expectedUniqueKeys = ["One", "Two"]
 		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
-		serializationInfo.uniqueKeys.setValue(expectedUniqueKeys, forKey: entity)
-		guard let uniqueKeys = serializationInfo.uniqueKeys.valueForKey(entity) else {
+		serializationInfo.uniqueKeys[entity] = expectedUniqueKeys
+		guard let uniqueKeys = serializationInfo.uniqueKeys[entity] else {
 			XCTFail()
 			return
 		}
@@ -102,8 +102,8 @@ class SerializationInfoTests: XCTestCase {
 
 	func testSettingShouldDeserializeNilValues() {
 		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
-		serializationInfo.shouldDeserializeNilValues.setValue(true, forKey: entity)
-		guard let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues.valueForKey(entity) else {
+		serializationInfo.shouldDeserializeNilValues[entity] = true
+		guard let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[entity] else {
 			XCTFail()
 			return
 		}
@@ -117,8 +117,8 @@ class SerializationInfoTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		serializationInfo.serializationName.setValue(expectedSerializationName, forKey: property)
-		guard let serializationName = serializationInfo.serializationName.valueForKey(property) else {
+		serializationInfo.serializationName[property] = expectedSerializationName
+		guard let serializationName = serializationInfo.serializationName[property] else {
 			XCTFail()
 			return
 		}
@@ -132,8 +132,8 @@ class SerializationInfoTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		serializationInfo.transformerNames.setValue(expectedTransformerNames, forKey: property)
-		guard let transformerNames = serializationInfo.transformerNames.valueForKey(property) else {
+		serializationInfo.transformerNames[property] = expectedTransformerNames
+		guard let transformerNames = serializationInfo.transformerNames[property] else {
 			XCTFail()
 			return
 		}
@@ -146,8 +146,8 @@ class SerializationInfoTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		serializationInfo.shouldBeUnion.setValue(true, forKey: relationship)
-		guard let shouldBeUnion = serializationInfo.shouldBeUnion.valueForKey(relationship) else {
+		serializationInfo.shouldBeUnion[relationship] = true
+		guard let shouldBeUnion = serializationInfo.shouldBeUnion[relationship] else {
 			XCTFail()
 			return
 		}
@@ -159,7 +159,7 @@ class SerializationInfoTests: XCTestCase {
     func testModelDefinedUniqueKeys() {
 		
 		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
-		guard let uniqueKeys = serializationInfo.uniqueKeys.valueForKey(entity) else {
+		guard let uniqueKeys = serializationInfo.uniqueKeys[entity] else {
 			XCTFail()
 			return
 		}
@@ -175,7 +175,7 @@ class SerializationInfoTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		guard let serializationName = serializationInfo.serializationName.valueForKey(property) else {
+		guard let serializationName = serializationInfo.serializationName[property] else {
 			XCTFail()
 			return
 		}
@@ -191,7 +191,7 @@ class SerializationInfoTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		guard let transformerNames = serializationInfo.transformerNames.valueForKey(property) else {
+		guard let transformerNames = serializationInfo.transformerNames[property] else {
 			XCTFail()
 			return
 		}

@@ -27,20 +27,27 @@ public struct SerializationInfoStorage<Key: SerializationInfoStorageKey, Value> 
 		self.fallback = fallback
 	}
 
-	public mutating func setValue(value: Value, forKey key: Key) {
+	subscript (key: Key) -> Value? {
+		get {
+			return valueForKey(key)
+		}
+		set(newValue) {
+			setValue(newValue, forKey: key)
+		}
+	}
+
+	public mutating func setValue(value: Value?, forKey key: Key) {
 		values[key] = value
 	}
 
-	public mutating func valueForKey(key: Key) -> Value? {
+	public func valueForKey(key: Key) -> Value? {
 
 		if let value = values[key] {
 			return value
 		}
 
 		if let string = key.userInfo?[userInfoKey] as? String {
-			let value = transformer(string)
-			values[key] = value
-			return value
+			return transformer(string)
 		}
 
 		if let fallback = fallback {
@@ -70,9 +77,9 @@ public struct SerializationInfo {
 		return noWhiteSpaceString.componentsSeparatedByString(",")
 	}
 
-	var uniqueKeys = SerializationInfoStorage<NSEntityDescription,[String]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToArray)
-	var shouldDeserializeNilValues = SerializationInfoStorage<NSEntityDescription,Bool>(userInfoKey: UserInfoKeys.shouldDeserializeNilValues, transformer: stringToBool, fallback: { entity in return false })
-	var serializationName = SerializationInfoStorage<NSPropertyDescription,String>(userInfoKey: UserInfoKeys.serializationName, transformer: { $0 }, fallback: { $0.name })
-	var transformerNames = SerializationInfoStorage<NSPropertyDescription,[String]>(userInfoKey: UserInfoKeys.transformerNames, transformer: stringToArray)
-	var shouldBeUnion = SerializationInfoStorage<NSRelationshipDescription,Bool>(userInfoKey: UserInfoKeys.shouldBeUnion, transformer: stringToBool, fallback: { entity in return false })
+	public var uniqueKeys = SerializationInfoStorage<NSEntityDescription,[String]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToArray)
+	public var shouldDeserializeNilValues = SerializationInfoStorage<NSEntityDescription,Bool>(userInfoKey: UserInfoKeys.shouldDeserializeNilValues, transformer: stringToBool, fallback: { entity in return false })
+	public var serializationName = SerializationInfoStorage<NSPropertyDescription,String>(userInfoKey: UserInfoKeys.serializationName, transformer: { $0 }, fallback: { $0.name })
+	public var transformerNames = SerializationInfoStorage<NSPropertyDescription,[String]>(userInfoKey: UserInfoKeys.transformerNames, transformer: stringToArray)
+	public var shouldBeUnion = SerializationInfoStorage<NSRelationshipDescription,Bool>(userInfoKey: UserInfoKeys.shouldBeUnion, transformer: stringToBool, fallback: { entity in return false })
 }

@@ -42,6 +42,11 @@
 		244DE8A619A9213400A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */; };
 		24732CCA1B3420B300A44C4D /* Tweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 24732CC91B3420B300A44C4D /* Tweets.json */; };
 		24732CCD1B34314700A44C4D /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24732CCC1B34314700A44C4D /* URLTransformer.swift */; };
+		247F870D1B34BC810000A619 /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F870C1B34BC810000A619 /* Serialization.swift */; };
+		247F870E1B34BC810000A619 /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F870C1B34BC810000A619 /* Serialization.swift */; };
+		247F87101B34BDE10000A619 /* Transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F870F1B34BDE10000A619 /* Transformers.swift */; };
+		247F87111B34BDE10000A619 /* Transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F870F1B34BDE10000A619 /* Transformers.swift */; };
+		247F87161B358A4E0000A619 /* DeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F87151B358A4E0000A619 /* DeserializerTests.swift */; };
 		24A93E3C1B34354C00428619 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E3A1B34354C00428619 /* Person.xcdatamodeld */; };
 		24A93E3F1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E3E1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m */; };
 		24A93E411B3436D600428619 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E401B3436D600428619 /* PerformanceTest.swift */; };
@@ -100,6 +105,10 @@
 		24732CCC1B34314700A44C4D /* URLTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTransformer.swift; sourceTree = "<group>"; };
 		247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectDeserializer.h; sourceTree = "<group>"; };
 		247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectDeserializer.m; sourceTree = "<group>"; };
+		247F870C1B34BC810000A619 /* Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serialization.swift; sourceTree = "<group>"; };
+		247F870F1B34BDE10000A619 /* Transformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transformers.swift; sourceTree = "<group>"; };
+		247F87121B3588B70000A619 /* DCTManagedObjectSerialization-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DCTManagedObjectSerialization-Swift.h"; sourceTree = "<group>"; };
+		247F87151B358A4E0000A619 /* DeserializerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeserializerTests.swift; sourceTree = "<group>"; };
 		2492B59E1650F470004BB997 /* _DCTManagedObjectSerializationProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DCTManagedObjectSerializationProperties.h; sourceTree = "<group>"; };
 		2492B59F1650F470004BB997 /* _DCTManagedObjectSerializationProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DCTManagedObjectSerializationProperties.m; sourceTree = "<group>"; };
 		24A93E3B1B34354C00428619 /* DCTManagedObjectSerializationTests.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DCTManagedObjectSerializationTests.xcdatamodel; sourceTree = "<group>"; };
@@ -175,6 +184,7 @@
 				2426195A19669EDD008B8862 /* Info.plist */,
 				24A93E401B3436D600428619 /* PerformanceTest.swift */,
 				24A93E671B34981D00428619 /* SerializationInfoTests.swift */,
+				247F87151B358A4E0000A619 /* DeserializerTests.swift */,
 			);
 			path = "DCTManagedObjectSerialization Tests";
 			sourceTree = "<group>";
@@ -267,8 +277,11 @@
 		245CD6AA164EA2BF00600BFF /* DCTManagedObjectSerialization */ = {
 			isa = PBXGroup;
 			children = (
+				247F87121B3588B70000A619 /* DCTManagedObjectSerialization-Swift.h */,
 				24A93E5B1B344F2000428619 /* SerializationInfo.swift */,
 				24A93E651B346BDE00428619 /* Deserializer.swift */,
+				247F870C1B34BC810000A619 /* Serialization.swift */,
+				247F870F1B34BDE10000A619 /* Transformers.swift */,
 				24A93E5F1B34504800428619 /* NSPropertyDescription+Serialization.swift */,
 				24A93E5D1B344FF100428619 /* NSAttributeDescription+Serialization.swift */,
 				24A93E611B34671100428619 /* NSRelationshipDescription+Serialization.swift */,
@@ -455,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				247F87161B358A4E0000A619 /* DeserializerTests.swift in Sources */,
 				24A93E661B346BDE00428619 /* Deserializer.swift in Sources */,
 				24A93E621B34671100428619 /* NSRelationshipDescription+Serialization.swift in Sources */,
 				24A93E591B3446AA00428619 /* User.m in Sources */,
@@ -488,7 +502,9 @@
 				244DE87919A9208800A91DC7 /* _DCTManagedObjectSerializationProperties.m in Sources */,
 				244DE87D19A9208800A91DC7 /* DCTManagedObjectDeserializer.m in Sources */,
 				244DE87A19A9208800A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */,
+				247F87101B34BDE10000A619 /* Transformers.swift in Sources */,
 				244DE87E19A9208800A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
+				247F870D1B34BC810000A619 /* Serialization.swift in Sources */,
 				244DE87B19A9208800A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
 				244DE87C19A9208800A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
 			);
@@ -501,7 +517,9 @@
 				244DE8A119A9213400A91DC7 /* _DCTManagedObjectSerializationProperties.m in Sources */,
 				244DE8A519A9213400A91DC7 /* DCTManagedObjectDeserializer.m in Sources */,
 				244DE8A219A9213400A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */,
+				247F87111B34BDE10000A619 /* Transformers.swift in Sources */,
 				244DE8A619A9213400A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
+				247F870E1B34BC810000A619 /* Serialization.swift in Sources */,
 				244DE8A319A9213400A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
 				244DE8A419A9213400A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
 			);
@@ -530,9 +548,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE85119A91F0C00A91DC7 /* iOS Framework.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = DCTManagedObjectSerialization;
 			};
 			name = Debug;
@@ -541,9 +562,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE85119A91F0C00A91DC7 /* iOS Framework.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = DCTManagedObjectSerialization;
 			};
 			name = Release;
@@ -552,10 +576,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE85419A91F0C00A91DC7 /* OS X Framework.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = DCTManagedObjectSerialization;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -563,9 +591,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE85419A91F0C00A91DC7 /* OS X Framework.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = DCTManagedObjectSerialization;
 			};
 			name = Release;

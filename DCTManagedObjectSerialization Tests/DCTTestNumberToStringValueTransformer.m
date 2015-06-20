@@ -18,8 +18,14 @@
 	return NO;
 }
 
-- (id)transformedValue:(NSNumber *)value {
-	return [value description];
+- (nullable id)transformedValue:(nullable id)value {
+
+	if (![value isKindOfClass:[NSNumber class]]) {
+		return nil;
+	}
+
+	NSNumber *number = value;
+	return [number description];
 }
 
 @end
