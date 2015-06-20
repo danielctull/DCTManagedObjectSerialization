@@ -14,13 +14,11 @@ public struct SerializationInfoStorage<Key: SerializationInfoStorageKey, Value> 
 	private var values: [ Key : Value ] = [:]
 
 	private let userInfoKey: String
-	private let transformer: String -> Value
-	private var fallback: Key -> Value
+	private let transformer: (Key, String?) -> Value
 
-	private init(userInfoKey: String, transformer: String -> Value, fallback: Key -> Value) {
+	private init(userInfoKey: String, transformer: (Key, String?) -> Value) {
 		self.userInfoKey = userInfoKey
 		self.transformer = transformer
-		self.fallback = fallback
 	}
 
 	subscript (key: Key) -> Value {
@@ -42,11 +40,8 @@ public struct SerializationInfoStorage<Key: SerializationInfoStorageKey, Value> 
 			return value
 		}
 
-		if let string = key.userInfo?[userInfoKey] as? String {
-			return transformer(string)
-		}
-
-		return fallback(key)
+		let string = key.userInfo?[userInfoKey] as? String
+		return transformer(key, string)
 	}
 }
 
@@ -60,16 +55,35 @@ public struct SerializationInfo {
 		static let shouldBeUnion = "shouldBeUnion"
 	}
 
-	private static let stringToBool: String -> Bool = { string in
+	private static let stringToBool: (AnyObject, String?) -> Bool = { _, string in
+
+		guard let string = string else {
+			return false
+		}
+
 		return (string as NSString).boolValue
 	}
 
-	private static let stringToStringArray: String -> [String] = { string in
+	private static let stringToProperties: (NSEntityDescription, String?) -> [NSPropertyDescription] = { entity, string in
+
+		guard let string = string else {
+			return []
+		}
+
 		let noWhiteSpaceString = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-		return noWhiteSpaceString.componentsSeparatedByString(",")
+		let names = noWhiteSpaceString.componentsSeparatedByString(",")
+		let properties = names.map { entity.propertiesByName[$0] }
+							  .filter { return $0 != nil } // Remove nil values
+							  .map { $0! } // Force unwrap all values, as none are nil
+		return properties
 	}
 
-	private static let stringToTransformers: String -> [NSValueTransformer] = { string in
+	private static let stringToTransformers: (NSPropertyDescription, String?) -> [NSValueTransformer] = { _, string in
+
+		guard let string = string else {
+			return []
+		}
+
 		let noWhiteSpaceString = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
 		let names = noWhiteSpaceString.componentsSeparatedByString(",")
 
@@ -80,9 +94,18 @@ public struct SerializationInfo {
 		return transformers
 	}
 
-	public var uniqueKeys = SerializationInfoStorage<NSEntityDescription,[String]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToStringArray, fallback: { entity in return [] })
-	public var shouldDeserializeNilValues = SerializationInfoStorage<NSEntityDescription,Bool>(userInfoKey: UserInfoKeys.shouldDeserializeNilValues, transformer: stringToBool, fallback: { entity in return false })
-	public var serializationName = SerializationInfoStorage<NSPropertyDescription,String>(userInfoKey: UserInfoKeys.serializationName, transformer: { $0 }, fallback: { $0.name })
-	public var transformers = SerializationInfoStorage<NSPropertyDescription,[NSValueTransformer]>(userInfoKey: UserInfoKeys.transformerNames, transformer: stringToTransformers, fallback: { entity in return [] })
-	public var shouldBeUnion = SerializationInfoStorage<NSRelationshipDescription,Bool>(userInfoKey: UserInfoKeys.shouldBeUnion, transformer: stringToBool, fallback: { entity in return false })
+	private static let stringToSerializationName: (NSPropertyDescription, String?) -> String = { property, string in
+
+		guard let string = string else {
+			return property.name
+		}
+
+		return string
+	}
+
+	public var uniqueProperties = SerializationInfoStorage<NSEntityDescription,[NSPropertyDescription]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToProperties)
+	public var shouldDeserializeNilValues = SerializationInfoStorage<NSEntityDescription,Bool>(userInfoKey: UserInfoKeys.shouldDeserializeNilValues, transformer: stringToBool)
+	public var serializationName = SerializationInfoStorage<NSPropertyDescription,String>(userInfoKey: UserInfoKeys.serializationName, transformer: stringToSerializationName)
+	public var transformers = SerializationInfoStorage<NSPropertyDescription,[NSValueTransformer]>(userInfoKey: UserInfoKeys.transformerNames, transformer: stringToTransformers)
+	public var shouldBeUnion = SerializationInfoStorage<NSRelationshipDescription,Bool>(userInfoKey: UserInfoKeys.shouldBeUnion, transformer: stringToBool)
 }

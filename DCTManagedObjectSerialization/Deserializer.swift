@@ -15,11 +15,6 @@ public class Deserializer {
 		self.managedObjectContext = managedObjectContext
 	}
 
-//	- (NSArray *)deserializeObjectsWithEntity:(NSEntityDescription *)entity
-//	fromArray:(NSArray *)array
-//	existingObjectsPredicate:(NSPredicate *)existingObjectsPredicate
-
-
 	func deserializeObjectWithEntity(entity: NSEntityDescription, dictionary: JSONDictionary) -> AnyObject? {
 		let objects = deserializeObjectsWithEntity(entity, array: [dictionary])
 		print(objects)
@@ -67,19 +62,15 @@ public class Deserializer {
 
 	private func predicateForUniqueObjectWithEntity(entity: NSEntityDescription, JSON: JSONDictionary) -> NSPredicate? {
 
-		let uniqueKeys = info.uniqueKeys[entity]
+		let uniqueProperties = info.uniqueProperties[entity]
 		var predicates: [NSPredicate] = []
-		for uniqueKey in uniqueKeys {
-
-			guard let property = entity.propertiesByName[uniqueKey] else {
-				continue
-			}
+		for property in uniqueProperties {
 
 			guard let value = valueFromDictionary(JSON, forProperty: property) else {
 				continue
 			}
 
-			let predicate = NSPredicate(format: "%K == %@", argumentArray: [uniqueKey, value])
+			let predicate = NSPredicate(format: "%K == %@", argumentArray: [property.name, value])
 			predicates.append(predicate)
 		}
 
@@ -105,31 +96,3 @@ public class Deserializer {
 		return nil
 	}
 }
-
-//
-//
-//
-//
-//- (NSPredicate *)predicateForUniqueObjectWithEntity:(NSEntityDescription *)entity
-//dictionary:(NSDictionary *)dictionary
-//managedObjectContext:(NSManagedObjectContext *)managedObjectContext {
-//
-//	NSArray *uniqueKeys = [self uniqueKeysForEntity:entity];
-//	if (uniqueKeys.count == 0) return nil;
-//	NSMutableArray *predicates = [[NSMutableArray alloc] initWithCapacity:uniqueKeys.count];
-//	[uniqueKeys enumerateObjectsUsingBlock:^(NSString *uniqueKey, NSUInteger i, BOOL *stop) {
-//
-//		NSPropertyDescription *property = [entity.propertiesByName objectForKey:uniqueKey];
-//
-//		NSAssert(property != nil, @"A unique key has been set that doesn't exist.");
-//
-//		NSString *serializationName = [self serializationNameForProperty:property];
-//		id serializationValue = [dictionary valueForKeyPath:serializationName];
-//		id value = [property dct_valueForSerializedValue:serializationValue withDeserializer:self];
-//		if (!value) return;
-//		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", uniqueKey, value];
-//		[predicates addObject:predicate];
-//		}];
-//	if (predicates.count == 0) return nil;
-//	return [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
-//}

@@ -8,6 +8,16 @@ class SerializationInfoTests: XCTestCase {
 	var managedObjectContext: NSManagedObjectContext!
 	var serializationInfo: SerializationInfo!
 
+	var tweetEntity: NSEntityDescription {
+		return Tweet.entityInManagedObjectContext(managedObjectContext)
+	}
+	var tweetID: NSPropertyDescription {
+		return tweetEntity.attributesByName[TweetAttributes.tweetID as String]!
+	}
+	var tweetText: NSPropertyDescription {
+		return tweetEntity.attributesByName[TweetAttributes.text as String]!
+	}
+
 	override func setUp() {
 		super.setUp()
 
@@ -36,8 +46,8 @@ class SerializationInfoTests: XCTestCase {
 	// uniqueKeys not set, returns []
 	func testNoUniqueKeys() {
 		let entity = Hashtag.entityInManagedObjectContext(managedObjectContext)
-		let uniqueKeys = serializationInfo.uniqueKeys[entity]
-		XCTAssertEqual(uniqueKeys.count, 0)
+		let uniqueProperties = serializationInfo.uniqueProperties[entity]
+		XCTAssertEqual(uniqueProperties.count, 0)
 	}
 
 	// shouldDeserializeNilValues not set, returns false
@@ -49,45 +59,34 @@ class SerializationInfoTests: XCTestCase {
 
 	// serializationName not set, returns property.name
 	func testNoSerializationName() {
-		let entity = Hashtag.entityInManagedObjectContext(managedObjectContext)
-		guard let property = entity.attributesByName[HashtagAttributes.name as String] else {
-			XCTFail()
-			return
-		}
-		let serializationName = serializationInfo.serializationName[property]
-		XCTAssertEqual(serializationName, property.name)
+		let hashtagEntity = Hashtag.entityInManagedObjectContext(managedObjectContext)
+		let hashtagName = hashtagEntity.attributesByName[HashtagAttributes.name as String]!
+		let serializationName = serializationInfo.serializationName[hashtagName]
+		XCTAssertEqual(serializationName, hashtagName.name)
 	}
 
 	// transformers not set, returns []
 	func testNoTransformerNames() {
-		let entity = Hashtag.entityInManagedObjectContext(managedObjectContext)
-		guard let property = entity.attributesByName[HashtagAttributes.name as String] else {
-			XCTFail()
-			return
-		}
-		let transformers = serializationInfo.transformers[property]
+		let hashtagEntity = Hashtag.entityInManagedObjectContext(managedObjectContext)
+		let hashtagName = hashtagEntity.attributesByName[HashtagAttributes.name as String]!
+		let transformers = serializationInfo.transformers[hashtagName]
 		XCTAssertEqual(transformers.count, 0)
 	}
 
 	// shouldBeUnion not set, returns false
 	func testNoShouldBeUnion() {
-		let entity = Place.entityInManagedObjectContext(managedObjectContext)
-		guard let relationship = entity.relationshipsByName[PlaceRelationships.tweets as String] else {
-			XCTFail()
-			return
-		}
-		let shouldBeUnion = serializationInfo.shouldBeUnion[relationship]
+		let placeEntity = Place.entityInManagedObjectContext(managedObjectContext)
+		let placeTweets = placeEntity.relationshipsByName[PlaceRelationships.tweets as String]!
+		let shouldBeUnion = serializationInfo.shouldBeUnion[placeTweets]
 		XCTAssertFalse(shouldBeUnion)
 	}
 
 	// MARK: Setting Keys
 
 	func testSettingUniqueKeys() {
-		let expectedUniqueKeys = ["One", "Two"]
-		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
-		serializationInfo.uniqueKeys[entity] = expectedUniqueKeys
-		let uniqueKeys = serializationInfo.uniqueKeys[entity]
-		XCTAssertEqual(uniqueKeys, expectedUniqueKeys)
+		serializationInfo.uniqueProperties[tweetEntity] = [tweetText]
+		let uniqueProperties = serializationInfo.uniqueProperties[tweetEntity]
+		XCTAssertEqual(uniqueProperties, [tweetText])
 	}
 
 	func testSettingShouldDeserializeNilValues() {
@@ -99,67 +98,44 @@ class SerializationInfoTests: XCTestCase {
 
 	func testSettingSerializationName() {
 		let expectedSerializationName = "SerializationName"
-		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
-		guard let property = entity.attributesByName[TweetAttributes.tweetID as String] else {
-			XCTFail()
-			return
-		}
-		serializationInfo.serializationName[property] = expectedSerializationName
-		let serializationName = serializationInfo.serializationName[property]
+		serializationInfo.serializationName[tweetID] = expectedSerializationName
+		let serializationName = serializationInfo.serializationName[tweetID]
 		XCTAssertEqual(serializationName, expectedSerializationName)
 	}
 
 	func testSettingTransformers() {
 		let expectedTransformers = [DCTTestNumberToStringValueTransformer()]
-		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
-		guard let property = entity.attributesByName[TweetAttributes.text as String] else {
-			XCTFail()
-			return
-		}
-		serializationInfo.transformers[property] = expectedTransformers
-		let transformers = serializationInfo.transformers[property]
+		let tweetText = tweetEntity.attributesByName[TweetAttributes.text as String]!
+		serializationInfo.transformers[tweetText] = expectedTransformers
+		let transformers = serializationInfo.transformers[tweetText]
 		XCTAssertEqual(transformers, expectedTransformers)
 	}
 
 	func testSettingShouldBeUnion() {
-		let entity = User.entityInManagedObjectContext(managedObjectContext)
-		guard let relationship = entity.relationshipsByName[UserRelationships.tweets as String] else {
-			XCTFail()
-			return
-		}
-		serializationInfo.shouldBeUnion[relationship] = true
-		let shouldBeUnion = serializationInfo.shouldBeUnion[relationship]
+		let userEntity = User.entityInManagedObjectContext(managedObjectContext)
+		let userTweets = userEntity.relationshipsByName[UserRelationships.tweets as String]!
+		serializationInfo.shouldBeUnion[userTweets] = true
+		let shouldBeUnion = serializationInfo.shouldBeUnion[userTweets]
 		XCTAssertTrue(shouldBeUnion)
 	}
 
 	// MARK: Model Defined Keys
 
     func testModelDefinedUniqueKeys() {
-		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
-		let uniqueKeys = serializationInfo.uniqueKeys[entity]
-		XCTAssertEqual(uniqueKeys.count, 1)
-		XCTAssertEqual(uniqueKeys[0], TweetAttributes.tweetID)
+		let uniqueProperties = serializationInfo.uniqueProperties[tweetEntity]
+		XCTAssertEqual(uniqueProperties.count, 1)
+		XCTAssertEqual(uniqueProperties[0], tweetID)
     }
 
 	func testModelDefinedSerializationName() {
-
-		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
-		guard let property = entity.attributesByName[TweetAttributes.tweetID as String] else {
-			XCTFail()
-			return
-		}
-		let serializationName = serializationInfo.serializationName[property]
+		let serializationName = serializationInfo.serializationName[tweetID]
 		XCTAssertEqual(serializationName, "id_str")
 	}
 
 	func testModelDefinedTransformers() {
-
-		let entity = Place.entityInManagedObjectContext(managedObjectContext)
-		guard let property = entity.attributesByName[PlaceAttributes.placeURL as String] else {
-			XCTFail()
-			return
-		}
-		let transformers = serializationInfo.transformers[property]
+		let placeEntity = Place.entityInManagedObjectContext(managedObjectContext)
+		let placeURL = placeEntity.attributesByName[PlaceAttributes.placeURL as String]!
+		let transformers = serializationInfo.transformers[placeURL]
 		XCTAssertEqual(transformers.count, 1)
 		XCTAssert(transformers[0] as? URLTransformer != nil)
 	}
