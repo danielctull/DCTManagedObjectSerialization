@@ -99,6 +99,7 @@ class DeserializerTests: XCTestCase {
 
 	func testObjectCreationSettingStringAttributeWithNumber() {
 		var serializationInfo = SerializationInfo()
+		serializationInfo.serializationName[personID] = "id"
 		serializationInfo.transformers[personID] = [DCTTestNumberToStringValueTransformer()]
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
 		guard let person = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ "id" : 1 ]) as? Person else {

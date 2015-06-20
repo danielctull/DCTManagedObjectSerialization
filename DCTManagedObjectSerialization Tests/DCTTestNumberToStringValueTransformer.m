@@ -19,6 +19,7 @@
 }
 
 - (nullable id)transformedValue:(nullable id)value {
+	NSLog(@"%@:%@ %@", self, NSStringFromSelector(_cmd), value);
 
 	if (![value isKindOfClass:[NSNumber class]]) {
 		return nil;

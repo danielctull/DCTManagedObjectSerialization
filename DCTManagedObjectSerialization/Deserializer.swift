@@ -19,7 +19,6 @@ public struct Deserializer {
 
 	func deserializeObjectWithEntity(entity: NSEntityDescription, dictionary: JSONDictionary) -> AnyObject? {
 		let objects = deserializeObjectsWithEntity(entity, array: [dictionary])
-		print(objects)
 		return objects.first
 	}
 
@@ -28,14 +27,17 @@ public struct Deserializer {
 		var objects: [AnyObject] = []
 		for JSON in array {
 
-			let predicate = predicateForUniqueObjectWithEntity(entity, JSON: JSON)
-			let object = objectForEntity(entity, predicate: predicate)
+			var object: NSManagedObject
+			if let predicate = predicateForUniqueObjectWithEntity(entity, JSON: JSON) {
+				object = existingObjectForEntity(entity, predicate: predicate)
+			} else {
+				object = objectForEntity(entity)
+			}
 
 			for property in entity.properties {
 				let value = valueFromDictionary(JSON, forProperty: property)
 				object.setValue(value, forKey: property.name)
 			}
-
 
 			objects.append(object)
 		}
@@ -43,14 +45,13 @@ public struct Deserializer {
 		return objects
 	}
 
-	private func objectForEntity(entity: NSEntityDescription, predicate: NSPredicate?) -> NSManagedObject {
+	private func existingObjectForEntity(entity: NSEntityDescription, predicate: NSPredicate) -> NSManagedObject {
 
 		let fetchRequest = NSFetchRequest()
 		fetchRequest.entity = entity
 		fetchRequest.predicate = predicate
 
 		do {
-
 			let results = try managedObjectContext.executeFetchRequest(fetchRequest)
 			guard let object = results.first as? NSManagedObject else {
 				throw DeserializerError.Unknown
@@ -58,8 +59,12 @@ public struct Deserializer {
 			return object
 
 		} catch {
-			return NSManagedObject(entity: entity, insertIntoManagedObjectContext: managedObjectContext)
+			return objectForEntity(entity)
 		}
+	}
+
+	private func objectForEntity(entity: NSEntityDescription) -> NSManagedObject {
+		return NSManagedObject(entity: entity, insertIntoManagedObjectContext: managedObjectContext)
 	}
 
 	private func predicateForUniqueObjectWithEntity(entity: NSEntityDescription, JSON: JSONDictionary) -> NSPredicate? {
@@ -74,6 +79,10 @@ public struct Deserializer {
 
 			let predicate = NSPredicate(format: "%K == %@", argumentArray: [property.name, value])
 			predicates.append(predicate)
+		}
+
+		guard predicates.count > 0 else {
+			return nil
 		}
 
 		return NSCompoundPredicate.andPredicateWithSubpredicates(predicates)
