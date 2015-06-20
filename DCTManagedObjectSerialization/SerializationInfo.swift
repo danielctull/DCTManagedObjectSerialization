@@ -64,7 +64,7 @@ public struct SerializationInfo {
 		return (string as NSString).boolValue
 	}
 
-	private static let stringToArray: String -> [String] = { string in
+	private static let stringToStringArray: String -> [String] = { string in
 		let noWhiteSpaceString = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
 		return noWhiteSpaceString.componentsSeparatedByString(",")
 	}
@@ -72,13 +72,15 @@ public struct SerializationInfo {
 	private static let stringToTransformers: String -> [NSValueTransformer] = { string in
 		let noWhiteSpaceString = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
 		let names = noWhiteSpaceString.componentsSeparatedByString(",")
-		guard let transformers = (names.map { NSValueTransformer(forName: $0) }.filter { return $0 != nil }) as? [NSValueTransformer] else {
-			return []
-		}
+
+
+		let transformers = names.map { NSValueTransformer(forName: $0) } // Name to transformer
+								.filter { return $0 != nil } // Remove nil values
+								.map { $0! } // Force unwrap all values, as none are nil
 		return transformers
 	}
 
-	public var uniqueKeys = SerializationInfoStorage<NSEntityDescription,[String]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToArray, fallback: { entity in return [] })
+	public var uniqueKeys = SerializationInfoStorage<NSEntityDescription,[String]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToStringArray, fallback: { entity in return [] })
 	public var shouldDeserializeNilValues = SerializationInfoStorage<NSEntityDescription,Bool>(userInfoKey: UserInfoKeys.shouldDeserializeNilValues, transformer: stringToBool, fallback: { entity in return false })
 	public var serializationName = SerializationInfoStorage<NSPropertyDescription,String>(userInfoKey: UserInfoKeys.serializationName, transformer: { $0 }, fallback: { $0.name })
 	public var transformers = SerializationInfoStorage<NSPropertyDescription,[NSValueTransformer]>(userInfoKey: UserInfoKeys.transformerNames, transformer: stringToTransformers, fallback: { entity in return [] })

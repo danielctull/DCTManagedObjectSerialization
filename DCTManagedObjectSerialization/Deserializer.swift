@@ -33,7 +33,11 @@ public class Deserializer {
 
 			let predicate = predicateForUniqueObjectWithEntity(entity, JSON: JSON)
 			let object = objectForEntity(entity, predicate: predicate)
-			
+
+			for property in entity.properties {
+				let value = valueFromDictionary(JSON, forProperty: property)
+				object.setValue(value, forKey: property.name)
+			}
 
 
 			objects.append(object)

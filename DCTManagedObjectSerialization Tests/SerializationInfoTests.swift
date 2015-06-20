@@ -11,6 +11,8 @@ class SerializationInfoTests: XCTestCase {
 	override func setUp() {
 		super.setUp()
 
+		NSValueTransformer.setValueTransformer(URLTransformer(), forName: "URLTransformer")
+
 		let bundle = NSBundle(forClass: self.dynamicType)
 		guard let model = NSManagedObjectModel.mergedModelFromBundles([bundle]) else {
 			XCTFail()
@@ -150,7 +152,7 @@ class SerializationInfoTests: XCTestCase {
 		XCTAssertEqual(serializationName, "id_str")
 	}
 
-	func testModelDefinedTransformerNames() {
+	func testModelDefinedTransformers() {
 
 		let entity = Place.entityInManagedObjectContext(managedObjectContext)
 		guard let property = entity.attributesByName[PlaceAttributes.placeURL as String] else {
@@ -159,6 +161,6 @@ class SerializationInfoTests: XCTestCase {
 		}
 		let transformers = serializationInfo.transformers[property]
 		XCTAssertEqual(transformers.count, 1)
-//		XCTAssert(transformers[0].isKindOfClass(URLTransformer.dynamicType))
+		XCTAssert(transformers[0] as? URLTransformer != nil)
 	}
 }
