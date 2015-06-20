@@ -3,6 +3,14 @@ import XCTest
 import CoreData
 import DCTManagedObjectSerialization
 
+func assertOptionalEqual<T: Comparable>(value: T?, expected: T) {
+	guard let left = value else {
+		XCTFail()
+		return
+	}
+	XCTAssertEqual(left, expected)
+}
+
 class DeserializerTests: XCTestCase {
 
 	var managedObjectContext: NSManagedObjectContext!
@@ -31,8 +39,8 @@ class DeserializerTests: XCTestCase {
 		}
     }
 
-	func testBascObjectCreation() {
-		guard let person = self.deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: JSONDictionary()) else {
+	func testBasicObjectCreation() {
+		guard let person = self.deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: JSONDictionary()) as? Person else {
 			XCTFail()
 			return
 		}
@@ -40,11 +48,15 @@ class DeserializerTests: XCTestCase {
 	}
 
 	func testObjectCreationSettingAttributeWithPropertyNameWhileNotHavingSerializationNameSet() {
-		guard let person = self.deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) else {
+		guard let person = self.deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) as? Person else {
 			XCTFail()
 			return
 		}
-		XCTAssertEqual(person.personID, "1")
+		guard let personID = person.personID else {
+			XCTFail()
+			return
+		}
+		XCTAssertEqual(personID, "1")
 	}
 
 	func testObjectCreationSettingAttributeWithPropertyNameWhileHavingSerializationNameSetYetProvidingThePropertyNameInTheDictionary() {
@@ -53,7 +65,7 @@ class DeserializerTests: XCTestCase {
 			return
 		}
 		self.deserializer.info.serializationName[property] = "id"
-		guard let person = self.deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) else {
+		guard let person = self.deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) as? Person else {
 			XCTFail()
 			return
 		}
@@ -66,15 +78,19 @@ class DeserializerTests: XCTestCase {
 			return
 		}
 		self.deserializer.info.serializationName[property] = "id"
-		guard let person = self.deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ "id" : "1" ]) else {
+		guard let person = self.deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ "id" : "1" ]) as? Person else {
 			XCTFail()
 			return
 		}
-		XCTAssertEqual(person.personID, "1")
+		guard let personID = person.personID else {
+			XCTFail()
+			return
+		}
+		XCTAssertEqual(personID, "1")
 	}
 
 	func testObjectCreationSettingAttributeWithSerializationNameWhileNotHavingSerializationNameSet() {
-		guard let person = self.deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ "id" : "1" ]) else {
+		guard let person = self.deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ "id" : "1" ]) as? Person else {
 			XCTFail()
 			return
 		}
@@ -86,12 +102,16 @@ class DeserializerTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		self.deserializer.info.transformerNames[property] = ["DCTTestNumberToStringValueTransformer"]
-		guard let person = self.deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ "id" : 1 ]) else {
+		self.deserializer.info.transformers[property] = [DCTTestNumberToStringValueTransformer()]
+		guard let person = self.deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ "id" : 1 ]) as? Person else {
 			XCTFail()
 			return
 		}
-		XCTAssertEqual(person.personID, "1")
+		guard let personID = person.personID else {
+			XCTFail()
+			return
+		}
+		XCTAssertEqual(personID, "1")
 	}
 
 	func testObjectDuplication() {

@@ -31,20 +31,17 @@ class SerializationInfoTests: XCTestCase {
 
 	// MARK: No Keys
 
-	// uniqueKeys not set, returns nil
+	// uniqueKeys not set, returns []
 	func testNoUniqueKeys() {
 		let entity = Hashtag.entityInManagedObjectContext(managedObjectContext)
 		let uniqueKeys = serializationInfo.uniqueKeys[entity]
-		XCTAssertNil(uniqueKeys)
+		XCTAssertEqual(uniqueKeys.count, 0)
 	}
 
 	// shouldDeserializeNilValues not set, returns false
 	func testNoShouldDeserializeNilValues() {
 		let entity = Hashtag.entityInManagedObjectContext(managedObjectContext)
-		guard let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[entity] else {
-			XCTFail()
-			return
-		}
+		let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[entity]
 		XCTAssertFalse(shouldDeserializeNilValues)
 	}
 
@@ -55,22 +52,19 @@ class SerializationInfoTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		guard let serializationName = serializationInfo.serializationName[property] else {
-			XCTFail()
-			return
-		}
+		let serializationName = serializationInfo.serializationName[property]
 		XCTAssertEqual(serializationName, property.name)
 	}
 
-	// transformerNames not set, returns nil
+	// transformers not set, returns []
 	func testNoTransformerNames() {
 		let entity = Hashtag.entityInManagedObjectContext(managedObjectContext)
 		guard let property = entity.attributesByName[HashtagAttributes.name as String] else {
 			XCTFail()
 			return
 		}
-		let transformerNames = serializationInfo.transformerNames[property]
-		XCTAssertNil(transformerNames)
+		let transformers = serializationInfo.transformers[property]
+		XCTAssertEqual(transformers.count, 0)
 	}
 
 	// shouldBeUnion not set, returns false
@@ -80,10 +74,7 @@ class SerializationInfoTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		guard let shouldBeUnion = serializationInfo.shouldBeUnion[relationship] else {
-			XCTFail()
-			return
-		}
+		let shouldBeUnion = serializationInfo.shouldBeUnion[relationship]
 		XCTAssertFalse(shouldBeUnion)
 	}
 
@@ -93,20 +84,14 @@ class SerializationInfoTests: XCTestCase {
 		let expectedUniqueKeys = ["One", "Two"]
 		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
 		serializationInfo.uniqueKeys[entity] = expectedUniqueKeys
-		guard let uniqueKeys = serializationInfo.uniqueKeys[entity] else {
-			XCTFail()
-			return
-		}
+		let uniqueKeys = serializationInfo.uniqueKeys[entity]
 		XCTAssertEqual(uniqueKeys, expectedUniqueKeys)
 	}
 
 	func testSettingShouldDeserializeNilValues() {
 		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
 		serializationInfo.shouldDeserializeNilValues[entity] = true
-		guard let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[entity] else {
-			XCTFail()
-			return
-		}
+		let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[entity]
 		XCTAssertTrue(shouldDeserializeNilValues)
 	}
 
@@ -118,26 +103,20 @@ class SerializationInfoTests: XCTestCase {
 			return
 		}
 		serializationInfo.serializationName[property] = expectedSerializationName
-		guard let serializationName = serializationInfo.serializationName[property] else {
-			XCTFail()
-			return
-		}
+		let serializationName = serializationInfo.serializationName[property]
 		XCTAssertEqual(serializationName, expectedSerializationName)
 	}
 
-	func testSettingTransformerNames() {
-		let expectedTransformerNames = ["One", "Two"]
+	func testSettingTransformers() {
+		let expectedTransformers = [DCTTestNumberToStringValueTransformer()]
 		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
 		guard let property = entity.attributesByName[TweetAttributes.text as String] else {
 			XCTFail()
 			return
 		}
-		serializationInfo.transformerNames[property] = expectedTransformerNames
-		guard let transformerNames = serializationInfo.transformerNames[property] else {
-			XCTFail()
-			return
-		}
-		XCTAssertEqual(transformerNames, expectedTransformerNames)
+		serializationInfo.transformers[property] = expectedTransformers
+		let transformers = serializationInfo.transformers[property]
+		XCTAssertEqual(transformers, expectedTransformers)
 	}
 
 	func testSettingShouldBeUnion() {
@@ -147,23 +126,15 @@ class SerializationInfoTests: XCTestCase {
 			return
 		}
 		serializationInfo.shouldBeUnion[relationship] = true
-		guard let shouldBeUnion = serializationInfo.shouldBeUnion[relationship] else {
-			XCTFail()
-			return
-		}
+		let shouldBeUnion = serializationInfo.shouldBeUnion[relationship]
 		XCTAssertTrue(shouldBeUnion)
 	}
 
 	// MARK: Model Defined Keys
 
     func testModelDefinedUniqueKeys() {
-		
 		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
-		guard let uniqueKeys = serializationInfo.uniqueKeys[entity] else {
-			XCTFail()
-			return
-		}
-
+		let uniqueKeys = serializationInfo.uniqueKeys[entity]
 		XCTAssertEqual(uniqueKeys.count, 1)
 		XCTAssertEqual(uniqueKeys[0], TweetAttributes.tweetID)
     }
@@ -175,14 +146,9 @@ class SerializationInfoTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		guard let serializationName = serializationInfo.serializationName[property] else {
-			XCTFail()
-			return
-		}
-
+		let serializationName = serializationInfo.serializationName[property]
 		XCTAssertEqual(serializationName, "id_str")
 	}
-
 
 	func testModelDefinedTransformerNames() {
 
@@ -191,12 +157,8 @@ class SerializationInfoTests: XCTestCase {
 			XCTFail()
 			return
 		}
-		guard let transformerNames = serializationInfo.transformerNames[property] else {
-			XCTFail()
-			return
-		}
-
-		XCTAssertEqual(transformerNames.count, 1)
-		XCTAssertEqual(transformerNames[0], "URLTransformer")
+		let transformers = serializationInfo.transformers[property]
+		XCTAssertEqual(transformers.count, 1)
+//		XCTAssert(transformers[0].isKindOfClass(URLTransformer.dynamicType))
 	}
 }

@@ -15,19 +15,15 @@ public struct SerializationInfoStorage<Key: SerializationInfoStorageKey, Value> 
 
 	private let userInfoKey: String
 	private let transformer: String -> Value
-	private var fallback: (Key -> Value)?
+	private var fallback: Key -> Value
 
-	private init(userInfoKey: String, transformer: String -> Value) {
-		self.init(userInfoKey: userInfoKey, transformer: transformer, fallback: nil)
-	}
-
-	private init(userInfoKey: String, transformer: String -> Value, fallback: (Key -> Value)?) {
+	private init(userInfoKey: String, transformer: String -> Value, fallback: Key -> Value) {
 		self.userInfoKey = userInfoKey
 		self.transformer = transformer
 		self.fallback = fallback
 	}
 
-	subscript (key: Key) -> Value? {
+	subscript (key: Key) -> Value {
 		get {
 			return valueForKey(key)
 		}
@@ -40,7 +36,7 @@ public struct SerializationInfoStorage<Key: SerializationInfoStorageKey, Value> 
 		values[key] = value
 	}
 
-	public func valueForKey(key: Key) -> Value? {
+	public func valueForKey(key: Key) -> Value {
 
 		if let value = values[key] {
 			return value
@@ -50,11 +46,7 @@ public struct SerializationInfoStorage<Key: SerializationInfoStorageKey, Value> 
 			return transformer(string)
 		}
 
-		if let fallback = fallback {
-			return fallback(key)
-		}
-
-		return nil
+		return fallback(key)
 	}
 }
 
@@ -77,9 +69,18 @@ public struct SerializationInfo {
 		return noWhiteSpaceString.componentsSeparatedByString(",")
 	}
 
-	public var uniqueKeys = SerializationInfoStorage<NSEntityDescription,[String]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToArray)
+	private static let stringToTransformers: String -> [NSValueTransformer] = { string in
+		let noWhiteSpaceString = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+		let names = noWhiteSpaceString.componentsSeparatedByString(",")
+		guard let transformers = (names.map { NSValueTransformer(forName: $0) }.filter { return $0 != nil }) as? [NSValueTransformer] else {
+			return []
+		}
+		return transformers
+	}
+
+	public var uniqueKeys = SerializationInfoStorage<NSEntityDescription,[String]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToArray, fallback: { entity in return [] })
 	public var shouldDeserializeNilValues = SerializationInfoStorage<NSEntityDescription,Bool>(userInfoKey: UserInfoKeys.shouldDeserializeNilValues, transformer: stringToBool, fallback: { entity in return false })
 	public var serializationName = SerializationInfoStorage<NSPropertyDescription,String>(userInfoKey: UserInfoKeys.serializationName, transformer: { $0 }, fallback: { $0.name })
-	public var transformerNames = SerializationInfoStorage<NSPropertyDescription,[String]>(userInfoKey: UserInfoKeys.transformerNames, transformer: stringToArray)
+	public var transformers = SerializationInfoStorage<NSPropertyDescription,[NSValueTransformer]>(userInfoKey: UserInfoKeys.transformerNames, transformer: stringToTransformers, fallback: { entity in return [] })
 	public var shouldBeUnion = SerializationInfoStorage<NSRelationshipDescription,Bool>(userInfoKey: UserInfoKeys.shouldBeUnion, transformer: stringToBool, fallback: { entity in return false })
 }

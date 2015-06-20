@@ -2,6 +2,10 @@
 import Foundation
 import CoreData
 
+public enum DeserializerError: ErrorType {
+	case Unknown
+}
+
 typealias JSONDictionary = [ String : AnyObject ]
 
 public class Deserializer {
@@ -18,46 +22,57 @@ public class Deserializer {
 
 	func deserializeObjectWithEntity(entity: NSEntityDescription, dictionary: JSONDictionary) -> AnyObject? {
 		let objects = deserializeObjectsWithEntity(entity, array: [dictionary])
+		print(objects)
 		return objects.first
 	}
 
 	func deserializeObjectsWithEntity(entity: NSEntityDescription, array: [JSONDictionary]) -> [AnyObject] {
 
+		var objects: [AnyObject] = []
 		for JSON in array {
 
-			let predicate = predicateForUniqueObjectWithEntity(entity, JSON: JSON, managedObjectContext: managedObjectContext)
+			let predicate = predicateForUniqueObjectWithEntity(entity, JSON: JSON)
+			let object = objectForEntity(entity, predicate: predicate)
 			
 
+
+			objects.append(object)
 		}
 		
-		return []
+		return objects
 	}
 
+	private func objectForEntity(entity: NSEntityDescription, predicate: NSPredicate?) -> NSManagedObject {
 
+		let fetchRequest = NSFetchRequest()
+		fetchRequest.entity = entity
+		fetchRequest.predicate = predicate
 
+		do {
 
-	private func predicateForUniqueObjectWithEntity(entity: NSEntityDescription, JSON: JSONDictionary, managedObjectContext: NSManagedObjectContext) -> NSPredicate? {
+			let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+			guard let object = results.first as? NSManagedObject else {
+				throw DeserializerError.Unknown
+			}
+			return object
 
-		guard let uniqueKeys = info.uniqueKeys[entity] else {
-			return nil
+		} catch {
+			return NSManagedObject(entity: entity, insertIntoManagedObjectContext: managedObjectContext)
 		}
+	}
 
+	private func predicateForUniqueObjectWithEntity(entity: NSEntityDescription, JSON: JSONDictionary) -> NSPredicate? {
+
+		let uniqueKeys = info.uniqueKeys[entity]
 		var predicates: [NSPredicate] = []
 		for uniqueKey in uniqueKeys {
 
-			guard let property = entity.propertiesByName[uniqueKey],
-			  serializationKey = info.serializationName[property],
-			  transformerNames = info.transformerNames[property] else {
-
-				break
+			guard let property = entity.propertiesByName[uniqueKey] else {
+				continue
 			}
 
-			guard let transformers = (transformerNames.map { NSValueTransformer(forName: $0) }) as? [NSValueTransformer] else {
-				break
-			}
-
-			guard let value = valueFromDictionary(JSON, forProperty: property, serializationKey: serializationKey, transformers: transformers) else {
-				break
+			guard let value = valueFromDictionary(JSON, forProperty: property) else {
+				continue
 			}
 
 			let predicate = NSPredicate(format: "%K == %@", argumentArray: [uniqueKey, value])
@@ -67,19 +82,23 @@ public class Deserializer {
 		return NSCompoundPredicate.andPredicateWithSubpredicates(predicates)
 	}
 
+	private func valueFromDictionary(dictionary: JSONDictionary, forProperty property: NSPropertyDescription) -> AnyObject? {
 
-	private func valueFromDictionary(dictionary: JSONDictionary, forProperty property: NSPropertyDescription, serializationKey: String, transformers: [NSValueTransformer]) -> AnyObject? {
-
-		guard let serializedValue = dictionary[serializationKey] else {
-			return nil
-		}
+		let serializationName = info.serializationName[property]
+		let transformers = info.transformers[property]
+		let serializedValue = dictionary[serializationName]
 
 		var value: AnyObject? = serializedValue
 		for transformer in transformers {
 			value = transformer.transformedValue(value)
 		}
 
-		return value
+		let predicate = NSCompoundPredicate.andPredicateWithSubpredicates(property.validationPredicates)
+		if predicate.evaluateWithObject(value) {
+			return value
+		}
+
+		return nil
 	}
 }
 
