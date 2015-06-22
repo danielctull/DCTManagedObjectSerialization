@@ -21,7 +21,7 @@ public struct SerializationInfoStorage<Key: SerializationInfoStorageKey, Value> 
 		self.transformer = transformer
 	}
 
-	subscript (key: Key) -> Value {
+	public subscript (key: Key) -> Value {
 		get {
 			return valueForKey(key)
 		}
