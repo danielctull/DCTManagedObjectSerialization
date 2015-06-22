@@ -134,99 +134,124 @@ class SerializationInfoTests: XCTestCase {
 
 	// MARK: Cross-Context Ability
 
-	func testUniqueKeysTwoContexts() {
-		let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-		var serializationInfo = SerializationInfo()
+	func setupTwoContexts(completion: (NSManagedObjectContext, NSManagedObjectContext) -> Void ) {
 
+		let bundle = NSBundle(forClass: self.dynamicType)
+		let managedObjectModel1 = NSManagedObjectModel.mergedModelFromBundles([bundle])!
+		let persistentStoreCoordinator1 = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel1)
 		let managedObjectContext1 = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-		managedObjectContext1.persistentStoreCoordinator = persistentStoreCoordinator
-		let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
-		let tweetIDs1 = [tweetEntity1.attributesByName[TweetAttributes.tweetID as String]!]
-		serializationInfo.uniqueProperties[tweetEntity1] = tweetIDs1
+		managedObjectContext1.persistentStoreCoordinator = persistentStoreCoordinator1
 
+		let managedObjectModel2 = NSManagedObjectModel.mergedModelFromBundles([bundle])!
+		let persistentStoreCoordinator2 = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel2)
 		let managedObjectContext2 = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-		managedObjectContext2.persistentStoreCoordinator = persistentStoreCoordinator
-		let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
-		let tweetIDs2 = serializationInfo.uniqueProperties[tweetEntity2]
+		managedObjectContext2.persistentStoreCoordinator = persistentStoreCoordinator2
 
-		XCTAssertEqual(tweetIDs1.map{ $0.name }, tweetIDs2.map{ $0.name })
+		completion(managedObjectContext1, managedObjectContext2)
+	}
+
+	func testUniqueKeysTwoContexts() {
+
+		setupTwoContexts() { (managedObjectContext1, managedObjectContext2) in
+
+			var serializationInfo = SerializationInfo()
+
+			let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
+			let tweetIDs1 = [tweetEntity1.attributesByName[TweetAttributes.tweetID as String]!]
+			serializationInfo.uniqueProperties[tweetEntity1] = tweetIDs1
+
+			let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
+			let tweetIDs2 = serializationInfo.uniqueProperties[tweetEntity2]
+
+			XCTAssert(tweetEntity1 !== tweetEntity2)
+			XCTAssertEqual(tweetEntity1.hash, tweetEntity2.hash)
+			XCTAssertEqual(tweetIDs1.map{ $0.name }, tweetIDs2.map{ $0.name })
+		}
 	}
 
 	func testShouldDeserializeNilValuesTwoContexts() {
-		let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-		var serializationInfo = SerializationInfo()
 
-		let managedObjectContext1 = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-		managedObjectContext1.persistentStoreCoordinator = persistentStoreCoordinator
-		let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
-		serializationInfo.shouldDeserializeNilValues[tweetEntity1] = true
+		setupTwoContexts() { (managedObjectContext1, managedObjectContext2) in
 
-		let managedObjectContext2 = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-		managedObjectContext2.persistentStoreCoordinator = persistentStoreCoordinator
-		let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
-		let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[tweetEntity2]
+			var serializationInfo = SerializationInfo()
 
-		XCTAssertTrue(shouldDeserializeNilValues)
+			let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
+			serializationInfo.shouldDeserializeNilValues[tweetEntity1] = true
+
+			let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
+			let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[tweetEntity2]
+
+			XCTAssert(tweetEntity1 !== tweetEntity2)
+			XCTAssertEqual(tweetEntity1.hash, tweetEntity2.hash)
+			XCTAssertTrue(shouldDeserializeNilValues)
+		}
 	}
 
 	func testSerializationNameTwoContexts() {
-		let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-		var serializationInfo = SerializationInfo()
 
-		let managedObjectContext1 = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-		managedObjectContext1.persistentStoreCoordinator = persistentStoreCoordinator
-		let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
-		let tweetID1 = tweetEntity1.attributesByName[TweetAttributes.tweetID as String]!
-		serializationInfo.serializationName[tweetID1] = "NAME"
+		setupTwoContexts() { (managedObjectContext1, managedObjectContext2) in
 
-		let managedObjectContext2 = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-		managedObjectContext2.persistentStoreCoordinator = persistentStoreCoordinator
-		let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
-		let tweetID2 = tweetEntity2.attributesByName[TweetAttributes.tweetID as String]!
-		let name = serializationInfo.serializationName[tweetID2]
+			var serializationInfo = SerializationInfo()
 
-		XCTAssertEqual(name, "NAME")
+			let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
+			let tweetID1 = tweetEntity1.attributesByName[TweetAttributes.tweetID as String]!
+			serializationInfo.serializationName[tweetID1] = "NAME"
+
+			let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
+			let tweetID2 = tweetEntity2.attributesByName[TweetAttributes.tweetID as String]!
+			let name = serializationInfo.serializationName[tweetID2]
+
+			XCTAssert(tweetEntity1 !== tweetEntity2)
+			XCTAssertEqual(tweetEntity1.hash, tweetEntity2.hash)
+			XCTAssert(tweetID1 !== tweetID2)
+			XCTAssertEqual(tweetID1.hash, tweetID2.hash)
+			XCTAssertEqual(name, "NAME")
+		}
 	}
 
 	func testTransformersTwoContexts() {
-		let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-		var serializationInfo = SerializationInfo()
-		let expectedTransformers = [DCTTestNumberToStringValueTransformer()]
 
-		let managedObjectContext1 = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-		managedObjectContext1.persistentStoreCoordinator = persistentStoreCoordinator
-		let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
-		let tweetID1 = tweetEntity1.attributesByName[TweetAttributes.tweetID as String]!
-		serializationInfo.transformers[tweetID1] = expectedTransformers
+		setupTwoContexts() { (managedObjectContext1, managedObjectContext2) in
 
-		let managedObjectContext2 = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-		managedObjectContext2.persistentStoreCoordinator = persistentStoreCoordinator
-		let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
-		let tweetID2 = tweetEntity2.attributesByName[TweetAttributes.tweetID as String]!
-		let transformers = serializationInfo.transformers[tweetID2]
+			var serializationInfo = SerializationInfo()
+			let expectedTransformers = [DCTTestNumberToStringValueTransformer()]
 
-		XCTAssertEqual(transformers, expectedTransformers)
+			let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
+			let tweetID1 = tweetEntity1.attributesByName[TweetAttributes.tweetID as String]!
+			serializationInfo.transformers[tweetID1] = expectedTransformers
+
+			let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
+			let tweetID2 = tweetEntity2.attributesByName[TweetAttributes.tweetID as String]!
+			let transformers = serializationInfo.transformers[tweetID2]
+
+			XCTAssert(tweetEntity1 !== tweetEntity2)
+			XCTAssertEqual(tweetEntity1.hash, tweetEntity2.hash)
+			XCTAssert(tweetID1 !== tweetID2)
+			XCTAssertEqual(tweetID1.hash, tweetID2.hash)
+			XCTAssertEqual(transformers, expectedTransformers)
+		}
 	}
 
 	func testShouldBeUnionTwoContexts() {
 
-		let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
-		var serializationInfo = SerializationInfo()
+		setupTwoContexts() { (managedObjectContext1, managedObjectContext2) in
 
-		let managedObjectContext1 = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-		managedObjectContext1.persistentStoreCoordinator = persistentStoreCoordinator
-		let userEntity1 = User.entityInManagedObjectContext(managedObjectContext1)
-		let userTweets1 = userEntity1.relationshipsByName[UserRelationships.tweets as String]!
-		serializationInfo.shouldBeUnion[userTweets1] = true
+			var serializationInfo = SerializationInfo()
 
-		let managedObjectContext2 = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
-		managedObjectContext2.persistentStoreCoordinator = persistentStoreCoordinator
+			let userEntity1 = User.entityInManagedObjectContext(managedObjectContext1)
+			let userTweets1 = userEntity1.relationshipsByName[UserRelationships.tweets as String]!
+			serializationInfo.shouldBeUnion[userTweets1] = true
 
-		let userEntity2 = User.entityInManagedObjectContext(managedObjectContext2)
-		let userTweets2 = userEntity2.relationshipsByName[UserRelationships.tweets as String]!
-		serializationInfo.shouldBeUnion[userTweets2] = true
-		let shouldBeUnion = serializationInfo.shouldBeUnion[userTweets2]
+			let userEntity2 = User.entityInManagedObjectContext(managedObjectContext2)
+			let userTweets2 = userEntity2.relationshipsByName[UserRelationships.tweets as String]!
+			serializationInfo.shouldBeUnion[userTweets2] = true
+			let shouldBeUnion = serializationInfo.shouldBeUnion[userTweets2]
 
-		XCTAssertTrue(shouldBeUnion)
+			XCTAssert(userEntity1 !== userEntity2)
+			XCTAssertEqual(userEntity1.hash, userEntity2.hash)
+			XCTAssert(userTweets1 !== userTweets2)
+			XCTAssertEqual(userTweets1.hash, userTweets2.hash)
+			XCTAssertTrue(shouldBeUnion)
+		}
 	}
 }
