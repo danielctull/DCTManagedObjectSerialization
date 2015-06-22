@@ -187,4 +187,114 @@ class DeserializerTests: XCTestCase {
 		}
 		XCTAssertEqual(person1, person2)
 	}
+
+
+	// MARK: Relationships
+
+	func testRealtionship() {
+
+		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
+
+		let dictionary = [ PersonAttributes.personID as String : "1", PersonRelationships.events as String : [[ EventAttributes.name as String : "Event" ]] ]
+		guard let person = deserializer.deserializeObjectWithEntity(personEntity, dictionary: dictionary) as? Person else {
+			XCTFail()
+			return
+		}
+
+		XCTAssertEqual(person.personID, "1")
+		XCTAssertEqual(person.events.count, 1)
+
+		guard let event = person.events.first as? Event else {
+			XCTFail()
+			return
+		}
+
+		XCTAssertEqual(event.name, "Event")
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }
