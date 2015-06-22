@@ -17,6 +17,7 @@
 		2440C73D1B380FA100370299 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2440C73B1B380FA100370299 /* Person.xcdatamodeld */; };
 		2440C7401B38101E00370299 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440C73F1B38101E00370299 /* Event.m */; };
 		2440C7431B38102400370299 /* _Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440C7421B38102400370299 /* _Event.m */; };
+		24477F281B38643600909AC4 /* DCTManagedObjectSerialization-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 247F87121B3588B70000A619 /* DCTManagedObjectSerialization-Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		244DE87219A9207100A91DC7 /* DCTManagedObjectDeserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		244DE87319A9207100A91DC7 /* DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		244DE87419A9207100A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -330,6 +331,7 @@
 			files = (
 				244DE87519A9207E00A91DC7 /* _DCTManagedObjectSerializationProperties.h in Headers */,
 				244DE87219A9207100A91DC7 /* DCTManagedObjectDeserializer.h in Headers */,
+				24477F281B38643600909AC4 /* DCTManagedObjectSerialization-Swift.h in Headers */,
 				244DE87319A9207100A91DC7 /* DCTManagedObjectSerialization.h in Headers */,
 				244DE87619A9207E00A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.h in Headers */,
 				244DE87419A9207100A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.h in Headers */,
