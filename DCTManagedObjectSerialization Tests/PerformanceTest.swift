@@ -32,17 +32,20 @@ class PerformanceTest: XCTestCase {
 				let managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
 				managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
 
-				let deserializer = DCTManagedObjectDeserializer(managedObjectContext: managedObjectContext)
+				let deserializer = Deserializer(managedObjectContext: managedObjectContext)
 
-				guard let tweetsArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? [AnyObject] else {
+				guard let tweetsArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? SerializedArray else {
 					XCTFail()
 					return
 				}
 
 				let tweetEntity = Tweet.entityInManagedObjectContext(managedObjectContext)
 
-				let objects = deserializer.deserializeObjectsWithEntity(tweetEntity, fromArray: tweetsArray, existingObjectsPredicate: nil)
+//				let objects = deserializer.deserializeObjectsWithEntity(tweetEntity, fromArray: tweetsArray, existingObjectsPredicate: nil)
+
+				let objects = deserializer.deserializeObjectsWithEntity(tweetEntity, array: tweetsArray)
 				XCTAssert(objects.count == 575)
+//				print((objects as NSArray).componentsJoinedByString("\n\n\n"))
 
 			} catch {
 				XCTFail()

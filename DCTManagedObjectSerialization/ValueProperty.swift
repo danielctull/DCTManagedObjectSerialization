@@ -2,73 +2,98 @@
 import Foundation
 import CoreData
 
+enum Value {
+	case Some(AnyObject)
+	case Nil
+	case None
+}
+
 protocol ValueProperty {
-	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer) -> AnyObject?
+	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer) -> Value
 }
 
 extension NSAttributeDescription: ValueProperty {
 
-	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer) -> AnyObject? {
+	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer) -> Value {
 
 		let serializationInfo = deserializer.serializationInfo
 		let serializationName = serializationInfo.serializationName[self]
-		let transformers = serializationInfo.transformers[self]
-		let serializedValue = serializedDictionary[serializationName]
+		guard let serializedValue = serializedDictionary[serializationName] else {
+			return .None
+		}
 
-		var value: AnyObject? = serializedValue
+		if serializedValue as? NSNull != nil {
+			return .Nil
+		}
+
+		var transformedValue: AnyObject? = serializedValue
+		let transformers = serializationInfo.transformers[self]
 		for transformer in transformers {
-			value = transformer.transformedValue(value)
+			transformedValue = transformer.transformedValue(transformedValue)
+		}
+
+		guard let value = transformedValue else {
+			return .None
 		}
 
 		let predicate = NSCompoundPredicate.andPredicateWithSubpredicates(validationPredicates)
 		guard predicate.evaluateWithObject(value) else {
-			return nil
+			return .None
 		}
 
-		return value
+		return Value.Some(value)
 	}
 }
 
 
 extension NSRelationshipDescription: ValueProperty {
 
-	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer) -> AnyObject? {
+	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer) -> Value {
 
 		guard let destinationEntity = destinationEntity else {
-			return nil
+			return .None
 		}
 
 		let serializationInfo = deserializer.serializationInfo
 		let serializationName = serializationInfo.serializationName[self]
-		let transformers = serializationInfo.transformers[self]
-		let serializedValue = serializedDictionary[serializationName]
 
-		var value: AnyObject? = serializedValue
+		guard let serializedValue = serializedDictionary[serializationName] else {
+			return .None
+		}
+
+		if serializedValue as? NSNull != nil {
+			return .Nil
+		}
+
+		var transformedValue: AnyObject? = serializedValue
+		let transformers = serializationInfo.transformers[self]
 		for transformer in transformers {
-			value = transformer.transformedValue(value)
+			transformedValue = transformer.transformedValue(transformedValue)
 		}
 
 		if toMany {
 
-			guard let array = value as? SerializedArray else {
-				return nil
+			guard let array = transformedValue as? SerializedArray else {
+				return .None
 			}
 
 			let objects = deserializer.deserializeObjectsWithEntity(destinationEntity, array: array)
 
 			if ordered {
-				return NSOrderedSet(array: objects)
+				return Value.Some(NSOrderedSet(array: objects))
 			} else {
-				return NSSet(array: objects)
+				return Value.Some(NSSet(array: objects))
 			}
 		}
 
-		guard let dictionary = value as? SerializedDictionary else {
-			return nil
+		guard let dictionary = transformedValue as? SerializedDictionary else {
+			return .None
 		}
 
-		return deserializer.deserializeObjectWithEntity(destinationEntity, dictionary: dictionary)
+		guard let value = deserializer.deserializeObjectWithEntity(destinationEntity, dictionary: dictionary) else {
+			return .None
+		}
+
+		return Value.Some(value)
 	}
 }
-
-

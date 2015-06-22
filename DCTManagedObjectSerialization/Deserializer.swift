@@ -25,6 +25,7 @@ public struct Deserializer {
 
 	func deserializeObjectsWithEntity(entity: NSEntityDescription, array: SerializedArray) -> [AnyObject] {
 
+		let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[entity]
 		var objects: [AnyObject] = []
 		for serializedDictionary in array {
 
@@ -42,7 +43,19 @@ public struct Deserializer {
 				}
 
 				let value = valueProperty.valueForSerializedDictionary(serializedDictionary, deserializer: self)
-				object.setValue(value, forKey: property.name)
+				switch value {
+
+				case let .Some(v):
+					object.setValue(v, forKey: property.name)
+
+				case .Nil:
+					if shouldDeserializeNilValues {
+						object.setValue(nil, forKey: property.name)
+					}
+
+				case .None:
+					break
+				}
 			}
 
 			objects.append(object)

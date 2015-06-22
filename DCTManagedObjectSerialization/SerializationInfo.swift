@@ -2,50 +2,13 @@
 import Foundation
 import CoreData
 
-// Allow for a key to be any of the types we require - NSEntityDescription, NSPropertyDescription et al
-public protocol SerializationInfoStorageKey: Hashable {
-	var userInfo: [NSObject : AnyObject]? { get }
-}
-extension NSEntityDescription: SerializationInfoStorageKey {}
-extension NSPropertyDescription: SerializationInfoStorageKey {}
-
-public struct SerializationInfoStorage<Key: SerializationInfoStorageKey, Value> {
-
-	private var values: [ Key : Value ] = [:]
-
-	private let userInfoKey: String
-	private let transformer: (Key, String?) -> Value
-
-	private init(userInfoKey: String, transformer: (Key, String?) -> Value) {
-		self.userInfoKey = userInfoKey
-		self.transformer = transformer
-	}
-
-	public subscript (key: Key) -> Value {
-		get {
-			return valueForKey(key)
-		}
-		set(newValue) {
-			setValue(newValue, forKey: key)
-		}
-	}
-
-	public mutating func setValue(value: Value?, forKey key: Key) {
-		values[key] = value
-	}
-
-	public func valueForKey(key: Key) -> Value {
-
-		if let value = values[key] {
-			return value
-		}
-
-		let string = key.userInfo?[userInfoKey] as? String
-		return transformer(key, string)
-	}
-}
-
 public struct SerializationInfo {
+
+	public var uniqueProperties = SerializationInfoStorage<NSEntityDescription,[NSPropertyDescription]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToProperties)
+	public var shouldDeserializeNilValues = SerializationInfoStorage<NSEntityDescription,Bool>(userInfoKey: UserInfoKeys.shouldDeserializeNilValues, transformer: stringToBool)
+	public var serializationName = SerializationInfoStorage<NSPropertyDescription,String>(userInfoKey: UserInfoKeys.serializationName, transformer: stringToSerializationName)
+	public var transformers = SerializationInfoStorage<NSPropertyDescription,[NSValueTransformer]>(userInfoKey: UserInfoKeys.transformerNames, transformer: stringToTransformers)
+	public var shouldBeUnion = SerializationInfoStorage<NSRelationshipDescription,Bool>(userInfoKey: UserInfoKeys.shouldBeUnion, transformer: stringToBool)
 
 	private struct UserInfoKeys {
 		static let uniqueKeys = "uniqueKeys"
@@ -102,10 +65,47 @@ public struct SerializationInfo {
 
 		return string
 	}
+}
 
-	public var uniqueProperties = SerializationInfoStorage<NSEntityDescription,[NSPropertyDescription]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToProperties)
-	public var shouldDeserializeNilValues = SerializationInfoStorage<NSEntityDescription,Bool>(userInfoKey: UserInfoKeys.shouldDeserializeNilValues, transformer: stringToBool)
-	public var serializationName = SerializationInfoStorage<NSPropertyDescription,String>(userInfoKey: UserInfoKeys.serializationName, transformer: stringToSerializationName)
-	public var transformers = SerializationInfoStorage<NSPropertyDescription,[NSValueTransformer]>(userInfoKey: UserInfoKeys.transformerNames, transformer: stringToTransformers)
-	public var shouldBeUnion = SerializationInfoStorage<NSRelationshipDescription,Bool>(userInfoKey: UserInfoKeys.shouldBeUnion, transformer: stringToBool)
+// Allow for a key to be any of the types we require - NSEntityDescription, NSPropertyDescription et al
+public protocol SerializationInfoStorageKey: Hashable {
+	var userInfo: [NSObject : AnyObject]? { get }
+}
+extension NSEntityDescription: SerializationInfoStorageKey {}
+extension NSPropertyDescription: SerializationInfoStorageKey {}
+
+public struct SerializationInfoStorage<Key: SerializationInfoStorageKey, Value> {
+
+	private var values: [ Key : Value ] = [:]
+
+	private let userInfoKey: String
+	private let transformer: (Key, String?) -> Value
+
+	private init(userInfoKey: String, transformer: (Key, String?) -> Value) {
+		self.userInfoKey = userInfoKey
+		self.transformer = transformer
+	}
+
+	public subscript (key: Key) -> Value {
+		get {
+			return valueForKey(key)
+		}
+		set(newValue) {
+			setValue(newValue, forKey: key)
+		}
+	}
+
+	public mutating func setValue(value: Value?, forKey key: Key) {
+		values[key] = value
+	}
+
+	public func valueForKey(key: Key) -> Value {
+
+		if let value = values[key] {
+			return value
+		}
+
+		let string = key.userInfo?[userInfoKey] as? String
+		return transformer(key, string)
+	}
 }
