@@ -18,50 +18,56 @@ public struct Deserializer {
 		self.serializationInfo = serializationInfo
 	}
 
-	func deserializeObjectWithEntity(entity: NSEntityDescription, dictionary: SerializedDictionary) -> AnyObject? {
-		let objects = deserializeObjectsWithEntity(entity, array: [dictionary])
-		return objects.first
+	func deserializeObjectWithEntity(entity: NSEntityDescription, dictionary: SerializedDictionary, completion: AnyObject? -> Void) {
+		deserializeObjectsWithEntity(entity, array: [dictionary]) { objects in
+			completion(objects.first)
+		}
 	}
 
-	func deserializeObjectsWithEntity(entity: NSEntityDescription, array: SerializedArray) -> [AnyObject] {
+	func deserializeObjectsWithEntity(entity: NSEntityDescription, array: SerializedArray, completion: [AnyObject] -> Void) {
 
 		let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[entity]
 		var objects: [AnyObject] = []
 		for serializedDictionary in array {
 
-			var object: NSManagedObject
-			if let predicate = predicateForUniqueObjectWithEntity(entity, serializedDictionary: serializedDictionary) {
-				object = existingObjectForEntity(entity, predicate: predicate)
-			} else {
-				object = objectForEntity(entity)
-			}
+			predicateForUniqueObjectWithEntity(entity, serializedDictionary: serializedDictionary) { predicate in
 
-			for property in entity.properties {
-
-				guard let valueProperty = property as? ValueProperty else {
-					continue
+				var object: NSManagedObject
+				if let p = predicate {
+					object = self.existingObjectForEntity(entity, predicate: p)
+				} else {
+					object = self.objectForEntity(entity)
 				}
 
-				let value = valueProperty.valueForSerializedDictionary(serializedDictionary, deserializer: self)
-				switch value {
+				for property in entity.properties {
 
-				case let .Some(v):
-					object.setValue(v, forKey: property.name)
-
-				case .Nil:
-					if shouldDeserializeNilValues {
-						object.setValue(nil, forKey: property.name)
+					guard let valueProperty = property as? ValueProperty else {
+						continue
 					}
 
-				case .None:
-					break
-				}
-			}
+					valueProperty.valueForSerializedDictionary(serializedDictionary, deserializer: self) { value in
 
-			objects.append(object)
+						switch value {
+
+						case let .Some(v):
+							object.setValue(v, forKey: property.name)
+
+						case .Nil:
+							if shouldDeserializeNilValues {
+								object.setValue(nil, forKey: property.name)
+							}
+
+						case .None:
+							break
+						}
+					}
+				}
+				
+				objects.append(object)
+			}
 		}
-		
-		return objects
+
+		completion(objects)
 	}
 
 	private func existingObjectForEntity(entity: NSEntityDescription, predicate: NSPredicate) -> NSManagedObject {
@@ -86,7 +92,7 @@ public struct Deserializer {
 		return NSManagedObject(entity: entity, insertIntoManagedObjectContext: managedObjectContext)
 	}
 
-	private func predicateForUniqueObjectWithEntity(entity: NSEntityDescription, serializedDictionary: SerializedDictionary) -> NSPredicate? {
+	private func predicateForUniqueObjectWithEntity(entity: NSEntityDescription, serializedDictionary: SerializedDictionary, completion: NSPredicate? -> Void) {
 
 		let uniqueProperties = serializationInfo.uniqueProperties[entity]
 		var predicates: [NSPredicate] = []
@@ -96,18 +102,31 @@ public struct Deserializer {
 				continue
 			}
 
-			guard let value = valueProperty.valueForSerializedDictionary(serializedDictionary, deserializer: self) else {
-				continue
-			}
+			valueProperty.valueForSerializedDictionary(serializedDictionary, deserializer: self) { value in
 
-			let predicate = NSPredicate(format: "%K == %@", argumentArray: [property.name, value])
-			predicates.append(predicate)
+				switch value {
+
+				case let .Some(v):
+					let predicate = NSPredicate(format: "%K == %@", argumentArray: [property.name, v])
+					predicates.append(predicate)
+
+				case .Nil:
+					break
+
+				case .None:
+					break
+				}
+
+
+			}
 		}
 
 		guard predicates.count > 0 else {
-			return nil
+			completion(nil)
+			return
 		}
 
-		return NSCompoundPredicate.andPredicateWithSubpredicates(predicates)
+		completion(NSCompoundPredicate.andPredicateWithSubpredicates(predicates))
+		return
 	}
 }

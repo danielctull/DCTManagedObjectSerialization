@@ -9,21 +9,23 @@ enum Value {
 }
 
 protocol ValueProperty {
-	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer) -> Value
+	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer, completion: Value -> Void)
 }
 
 extension NSAttributeDescription: ValueProperty {
 
-	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer) -> Value {
+	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer, completion: Value -> Void) {
 
 		let serializationInfo = deserializer.serializationInfo
 		let serializationName = serializationInfo.serializationName[self]
 		guard let serializedValue = serializedDictionary[serializationName] else {
-			return .None
+			completion(.None)
+			return
 		}
 
 		if serializedValue as? NSNull != nil {
-			return .Nil
+			completion(.Nil)
+			return
 		}
 
 		var transformedValue: AnyObject? = serializedValue
@@ -33,36 +35,41 @@ extension NSAttributeDescription: ValueProperty {
 		}
 
 		guard let value = transformedValue else {
-			return .None
+			completion(.None)
+			return
 		}
 
 		let predicate = NSCompoundPredicate.andPredicateWithSubpredicates(validationPredicates)
 		guard predicate.evaluateWithObject(value) else {
-			return .None
+			completion(.None)
+			return
 		}
 
-		return Value.Some(value)
+		completion(.Some(value))
 	}
 }
 
 
 extension NSRelationshipDescription: ValueProperty {
 
-	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer) -> Value {
+	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer, completion: Value -> Void) {
 
 		guard let destinationEntity = destinationEntity else {
-			return .None
+			completion(.None)
+			return
 		}
 
 		let serializationInfo = deserializer.serializationInfo
 		let serializationName = serializationInfo.serializationName[self]
 
 		guard let serializedValue = serializedDictionary[serializationName] else {
-			return .None
+			completion(.None)
+			return
 		}
 
 		if serializedValue as? NSNull != nil {
-			return .Nil
+			completion(.Nil)
+			return
 		}
 
 		var transformedValue: AnyObject? = serializedValue
@@ -74,26 +81,32 @@ extension NSRelationshipDescription: ValueProperty {
 		if toMany {
 
 			guard let array = transformedValue as? SerializedArray else {
-				return .None
+				completion(.None)
+				return
 			}
 
-			let objects = deserializer.deserializeObjectsWithEntity(destinationEntity, array: array)
-
-			if ordered {
-				return Value.Some(NSOrderedSet(array: objects))
-			} else {
-				return Value.Some(NSSet(array: objects))
+			deserializer.deserializeObjectsWithEntity(destinationEntity, array: array) { objects in
+				if self.ordered {
+					completion(Value.Some(NSOrderedSet(array: objects)))
+				} else {
+					completion(Value.Some(NSSet(array: objects)))
+				}
 			}
 		}
 
 		guard let dictionary = transformedValue as? SerializedDictionary else {
-			return .None
+			completion(.None)
+			return
 		}
 
-		guard let value = deserializer.deserializeObjectWithEntity(destinationEntity, dictionary: dictionary) else {
-			return .None
-		}
+		deserializer.deserializeObjectWithEntity(destinationEntity, dictionary: dictionary) { object in
 
-		return Value.Some(value)
+			guard let value = object else {
+				completion(.None)
+				return
+			}
+
+			completion(.Some(value))
+		}
 	}
 }

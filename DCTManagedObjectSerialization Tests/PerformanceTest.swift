@@ -43,8 +43,9 @@ class PerformanceTest: XCTestCase {
 
 //				let objects = deserializer.deserializeObjectsWithEntity(tweetEntity, fromArray: tweetsArray, existingObjectsPredicate: nil)
 
-				let objects = deserializer.deserializeObjectsWithEntity(tweetEntity, array: tweetsArray)
-				XCTAssert(objects.count == 575)
+				deserializer.deserializeObjectsWithEntity(tweetEntity, array: tweetsArray) { objects in
+					XCTAssert(objects.count == 575)
+				}
 //				print((objects as NSArray).componentsJoinedByString("\n\n\n"))
 
 			} catch {

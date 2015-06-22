@@ -42,59 +42,69 @@ class DeserializerTests: XCTestCase {
 
 	func testBasicObjectCreation() {
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
-		guard let person = deserializer.deserializeObjectWithEntity(personEntity, dictionary: SerializedDictionary()) as? Person else {
-			XCTFail()
-			return
+		deserializer.deserializeObjectWithEntity(personEntity, dictionary: SerializedDictionary()) { object in
+			guard let person = object as? Person else {
+				XCTFail()
+				return
+			}
+			XCTAssertNil(person.personID)
 		}
-		XCTAssertNil(person.personID)
 	}
 
 	func testObjectCreationSettingAttributeWithPropertyNameWhileNotHavingSerializationNameSet() {
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
-		guard let person = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ personID.name : "1" ]) as? Person else {
-			XCTFail()
-			return
+		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ personID.name : "1" ]) { object in
+			guard let person = object as? Person else {
+				XCTFail()
+				return
+			}
+			guard let personID = person.personID else {
+				XCTFail()
+				return
+			}
+			XCTAssertEqual(personID, "1")
 		}
-		guard let personID = person.personID else {
-			XCTFail()
-			return
-		}
-		XCTAssertEqual(personID, "1")
 	}
 
 	func testObjectCreationSettingAttributeWithPropertyNameWhileHavingSerializationNameSetYetProvidingThePropertyNameInTheDictionary() {
 		var serializationInfo = SerializationInfo()
 		serializationInfo.serializationName[personID] = "id"
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
-		guard let person = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ personID.name : "1" ]) as? Person else {
-			XCTFail()
-			return
+		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ personID.name : "1" ]) { object in
+			guard let person = object as? Person else {
+				XCTFail()
+				return
+			}
+			XCTAssertNil(person.personID)
 		}
-		XCTAssertNil(person.personID)
 	}
 
 	func testObjectCreationSettingAttributeWithSerializationNameWhileHavingSerializationNameSet() {
 		var serializationInfo = SerializationInfo()
 		serializationInfo.serializationName[personID] = "id"
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
-		guard let person = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ "id" : "1" ]) as? Person else {
-			XCTFail()
-			return
+		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ "id" : "1" ]) { object in
+			guard let person = object as? Person else {
+				XCTFail()
+				return
+			}
+			guard let personID = person.personID else {
+				XCTFail()
+				return
+			}
+			XCTAssertEqual(personID, "1")
 		}
-		guard let personID = person.personID else {
-			XCTFail()
-			return
-		}
-		XCTAssertEqual(personID, "1")
 	}
 
 	func testObjectCreationSettingAttributeWithSerializationNameWhileNotHavingSerializationNameSet() {
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
-		guard let person = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ "id" : "1" ]) as? Person else {
-			XCTFail()
-			return
+		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ "id" : "1" ]) { object in
+			guard let person = object as? Person else {
+				XCTFail()
+				return
+			}
+			XCTAssertNil(person.personID)
 		}
-		XCTAssertNil(person.personID)
 	}
 
 	func testObjectCreationSettingStringAttributeWithNumber() {
@@ -102,15 +112,17 @@ class DeserializerTests: XCTestCase {
 		serializationInfo.serializationName[personID] = "id"
 		serializationInfo.transformers[personID] = [DCTTestNumberToStringValueTransformer()]
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
-		guard let person = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ "id" : 1 ]) as? Person else {
-			XCTFail()
-			return
+		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ "id" : 1 ]) { object in
+			guard let person = object as? Person else {
+				XCTFail()
+				return
+			}
+			guard let personID = person.personID else {
+				XCTFail()
+				return
+			}
+			XCTAssertEqual(personID, "1")
 		}
-		guard let personID = person.personID else {
-			XCTFail()
-			return
-		}
-		XCTAssertEqual(personID, "1")
 	}
 
 	func testObjectDuplication() {
@@ -118,58 +130,74 @@ class DeserializerTests: XCTestCase {
 		serializationInfo.uniqueProperties[personEntity] = [personID]
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
 		let dictionary = [ personID.name : "1" ]
-		guard let person1 = deserializer.deserializeObjectWithEntity(personEntity, dictionary: dictionary) as? Person else {
-			XCTFail()
-			return
+		deserializer.deserializeObjectWithEntity(personEntity, dictionary: dictionary) { object in
+			guard let person1 = object as? Person else {
+				XCTFail()
+				return
+			}
+			deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: dictionary) { object in
+				guard let person2 = object as? Person else {
+					XCTFail()
+					return
+				}
+				XCTAssertEqual(person1, person2)
+			}
 		}
-		guard let person2 = deserializer.deserializeObjectWithEntity(personEntity, dictionary: dictionary) as? Person else {
-			XCTFail()
-			return
-		}
-		XCTAssertEqual(person1, person2)
 	}
 
 	func testObjectDuplicationNotSame() {
 		var serializationInfo = SerializationInfo()
 		serializationInfo.uniqueProperties[personEntity] = [personID]
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
-		guard let person1 = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) as? Person else {
-			XCTFail()
-			return
+		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) { object in
+			guard let person1 = object as? Person else {
+				XCTFail()
+				return
+			}
+			deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ "id" : "1" ]) { object in
+				guard let person2 = object as? Person else {
+					XCTFail()
+					return
+				}
+				XCTAssertNotEqual(person1, person2)
+			}
 		}
-		guard let person2 = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ "id" : "1" ]) as? Person else {
-			XCTFail()
-			return
-		}
-		XCTAssertNotEqual(person1, person2)
 	}
 
 	func testObjectDuplicationNotSame2() {
 		var serializationInfo = SerializationInfo()
 		serializationInfo.uniqueProperties[personEntity] = [personID]
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
-		guard let person1 = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) as? Person else {
-			XCTFail()
-			return
+		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) { object in
+			guard let person1 = object as? Person else {
+				XCTFail()
+				return
+			}
+			deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ PersonAttributes.personID as String: "2" ]) { object in
+				guard let person2 = object as? Person else {
+					XCTFail()
+					return
+				}
+				XCTAssertNotEqual(person1, person2)
+			}
 		}
-		guard let person2 = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ PersonAttributes.personID as String: "2" ]) as? Person else {
-			XCTFail()
-			return
-		}
-		XCTAssertNotEqual(person1, person2)
 	}
 
 	func testObjectDuplication2() {
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
-		guard let person1 = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) as? Person else {
-			XCTFail()
-			return
+		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) { object in
+			guard let person1 = object as? Person else {
+				XCTFail()
+				return
+			}
+			deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ PersonAttributes.personID as String: "2" ]) { object in
+				guard let person2 = object as? Person else {
+					XCTFail()
+					return
+				}
+				XCTAssertNotEqual(person1, person2)
+			}
 		}
-		guard let person2 = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ PersonAttributes.personID as String: "2" ]) as? Person else {
-			XCTFail()
-			return
-		}
-		XCTAssertNotEqual(person1, person2)
 	}
 
 	func testObjectDuplication3() {
@@ -177,15 +205,19 @@ class DeserializerTests: XCTestCase {
 		serializationInfo.serializationName[personID] = "id"
 		serializationInfo.uniqueProperties[personEntity] = [personID]
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
-		guard let person1 = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ "id" : "1" ]) as? Person else {
-			XCTFail()
-			return
+		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ "id" : "1" ]) { object in
+			guard let person1 = object as? Person else {
+				XCTFail()
+				return
+			}
+			deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ "id" : "1" ]) { object in
+				guard let person2 = object as? Person else {
+					XCTFail()
+					return
+				}
+				XCTAssertEqual(person1, person2)
+			}
 		}
-		guard let person2 = deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ "id" : "1" ]) as? Person else {
-			XCTFail()
-			return
-		}
-		XCTAssertEqual(person1, person2)
 	}
 
 
@@ -194,107 +226,22 @@ class DeserializerTests: XCTestCase {
 	func testRelationship() {
 
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
-
 		let dictionary = [ PersonAttributes.personID as String : "1", PersonRelationships.events as String : [[ EventAttributes.name as String : "Event" ]] ]
-		guard let person = deserializer.deserializeObjectWithEntity(personEntity, dictionary: dictionary) as? Person else {
-			XCTFail()
-			return
+
+		deserializer.deserializeObjectWithEntity(personEntity, dictionary: dictionary) { object in
+			guard let person = object as? Person else {
+				XCTFail()
+				return
+			}
+			XCTAssertEqual(person.personID, "1")
+			XCTAssertEqual(person.events.count, 1)
+
+			guard let event = person.events.first as? Event else {
+				XCTFail()
+				return
+			}
+
+			XCTAssertEqual(event.name, "Event")
 		}
-
-		XCTAssertEqual(person.personID, "1")
-		XCTAssertEqual(person.events.count, 1)
-
-		guard let event = person.events.first as? Event else {
-			XCTFail()
-			return
-		}
-
-		XCTAssertEqual(event.name, "Event")
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
