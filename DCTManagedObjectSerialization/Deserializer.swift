@@ -6,7 +6,8 @@ public enum DeserializerError: ErrorType {
 	case Unknown
 }
 
-typealias JSONDictionary = [ String : AnyObject ]
+typealias SerializedDictionary = [ String : AnyObject ]
+typealias SerializedArray = [ SerializedDictionary ]
 
 public struct Deserializer {
 
@@ -17,25 +18,30 @@ public struct Deserializer {
 		self.serializationInfo = serializationInfo
 	}
 
-	func deserializeObjectWithEntity(entity: NSEntityDescription, dictionary: JSONDictionary) -> AnyObject? {
+	func deserializeObjectWithEntity(entity: NSEntityDescription, dictionary: SerializedDictionary) -> AnyObject? {
 		let objects = deserializeObjectsWithEntity(entity, array: [dictionary])
 		return objects.first
 	}
 
-	func deserializeObjectsWithEntity(entity: NSEntityDescription, array: [JSONDictionary]) -> [AnyObject] {
+	func deserializeObjectsWithEntity(entity: NSEntityDescription, array: SerializedArray) -> [AnyObject] {
 
 		var objects: [AnyObject] = []
-		for JSON in array {
+		for serializedDictionary in array {
 
 			var object: NSManagedObject
-			if let predicate = predicateForUniqueObjectWithEntity(entity, JSON: JSON) {
+			if let predicate = predicateForUniqueObjectWithEntity(entity, serializedDictionary: serializedDictionary) {
 				object = existingObjectForEntity(entity, predicate: predicate)
 			} else {
 				object = objectForEntity(entity)
 			}
 
 			for property in entity.properties {
-				let value = valueFromDictionary(JSON, forProperty: property)
+
+				guard let valueProperty = property as? ValueProperty else {
+					continue
+				}
+
+				let value = valueProperty.valueForSerializedDictionary(serializedDictionary, deserializer: self)
 				object.setValue(value, forKey: property.name)
 			}
 
@@ -67,13 +73,17 @@ public struct Deserializer {
 		return NSManagedObject(entity: entity, insertIntoManagedObjectContext: managedObjectContext)
 	}
 
-	private func predicateForUniqueObjectWithEntity(entity: NSEntityDescription, JSON: JSONDictionary) -> NSPredicate? {
+	private func predicateForUniqueObjectWithEntity(entity: NSEntityDescription, serializedDictionary: SerializedDictionary) -> NSPredicate? {
 
 		let uniqueProperties = serializationInfo.uniqueProperties[entity]
 		var predicates: [NSPredicate] = []
 		for property in uniqueProperties {
 
-			guard let value = valueFromDictionary(JSON, forProperty: property) else {
+			guard let valueProperty = property as? ValueProperty else {
+				continue
+			}
+
+			guard let value = valueProperty.valueForSerializedDictionary(serializedDictionary, deserializer: self) else {
 				continue
 			}
 
@@ -86,24 +96,5 @@ public struct Deserializer {
 		}
 
 		return NSCompoundPredicate.andPredicateWithSubpredicates(predicates)
-	}
-
-	private func valueFromDictionary(dictionary: JSONDictionary, forProperty property: NSPropertyDescription) -> AnyObject? {
-
-		let serializationName = serializationInfo.serializationName[property]
-		let transformers = serializationInfo.transformers[property]
-		let serializedValue = dictionary[serializationName]
-
-		var value: AnyObject? = serializedValue
-		for transformer in transformers {
-			value = transformer.transformedValue(value)
-		}
-
-		let predicate = NSCompoundPredicate.andPredicateWithSubpredicates(property.validationPredicates)
-		if predicate.evaluateWithObject(value) {
-			return value
-		}
-
-		return nil
 	}
 }

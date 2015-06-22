@@ -42,7 +42,7 @@ class DeserializerTests: XCTestCase {
 
 	func testBasicObjectCreation() {
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
-		guard let person = deserializer.deserializeObjectWithEntity(personEntity, dictionary: JSONDictionary()) as? Person else {
+		guard let person = deserializer.deserializeObjectWithEntity(personEntity, dictionary: SerializedDictionary()) as? Person else {
 			XCTFail()
 			return
 		}
@@ -191,7 +191,7 @@ class DeserializerTests: XCTestCase {
 
 	// MARK: Relationships
 
-	func testRealtionship() {
+	func testRelationship() {
 
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
 

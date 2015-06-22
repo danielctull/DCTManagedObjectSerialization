@@ -46,10 +46,6 @@
 		244DE8A619A9213400A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */; };
 		24732CCA1B3420B300A44C4D /* Tweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 24732CC91B3420B300A44C4D /* Tweets.json */; };
 		24732CCD1B34314700A44C4D /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24732CCC1B34314700A44C4D /* URLTransformer.swift */; };
-		247F870D1B34BC810000A619 /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F870C1B34BC810000A619 /* Serialization.swift */; };
-		247F870E1B34BC810000A619 /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F870C1B34BC810000A619 /* Serialization.swift */; };
-		247F87101B34BDE10000A619 /* Transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F870F1B34BDE10000A619 /* Transformers.swift */; };
-		247F87111B34BDE10000A619 /* Transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F870F1B34BDE10000A619 /* Transformers.swift */; };
 		247F87161B358A4E0000A619 /* DeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F87151B358A4E0000A619 /* DeserializerTests.swift */; };
 		24A93E3F1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E3E1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m */; };
 		24A93E411B3436D600428619 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E401B3436D600428619 /* PerformanceTest.swift */; };
@@ -62,10 +58,7 @@
 		24A93E581B3446AA00428619 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E531B3446AA00428619 /* Tweet.m */; };
 		24A93E591B3446AA00428619 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E551B3446AA00428619 /* User.m */; };
 		24A93E5C1B344F2000428619 /* SerializationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5B1B344F2000428619 /* SerializationInfo.swift */; };
-		24A93E5E1B344FF100428619 /* NSAttributeDescription+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5D1B344FF100428619 /* NSAttributeDescription+Serialization.swift */; };
-		24A93E601B34504800428619 /* NSPropertyDescription+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5F1B34504800428619 /* NSPropertyDescription+Serialization.swift */; };
-		24A93E621B34671100428619 /* NSRelationshipDescription+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E611B34671100428619 /* NSRelationshipDescription+Serialization.swift */; };
-		24A93E641B34674200428619 /* NSEntityDescription+Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E631B34674200428619 /* NSEntityDescription+Serialization.swift */; };
+		24A93E601B34504800428619 /* ValueProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5F1B34504800428619 /* ValueProperty.swift */; };
 		24A93E661B346BDE00428619 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E651B346BDE00428619 /* Deserializer.swift */; };
 		24A93E681B34981D00428619 /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E671B34981D00428619 /* SerializationInfoTests.swift */; };
 /* End PBXBuildFile section */
@@ -113,8 +106,6 @@
 		24732CCC1B34314700A44C4D /* URLTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTransformer.swift; sourceTree = "<group>"; };
 		247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectDeserializer.h; sourceTree = "<group>"; };
 		247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectDeserializer.m; sourceTree = "<group>"; };
-		247F870C1B34BC810000A619 /* Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serialization.swift; sourceTree = "<group>"; };
-		247F870F1B34BDE10000A619 /* Transformers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transformers.swift; sourceTree = "<group>"; };
 		247F87121B3588B70000A619 /* DCTManagedObjectSerialization-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DCTManagedObjectSerialization-Swift.h"; sourceTree = "<group>"; };
 		247F87151B358A4E0000A619 /* DeserializerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeserializerTests.swift; sourceTree = "<group>"; };
 		2492B59E1650F470004BB997 /* _DCTManagedObjectSerializationProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DCTManagedObjectSerializationProperties.h; sourceTree = "<group>"; };
@@ -140,10 +131,7 @@
 		24A93E551B3446AA00428619 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		24A93E5A1B34481B00428619 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		24A93E5B1B344F2000428619 /* SerializationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfo.swift; sourceTree = "<group>"; };
-		24A93E5D1B344FF100428619 /* NSAttributeDescription+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributeDescription+Serialization.swift"; sourceTree = "<group>"; };
-		24A93E5F1B34504800428619 /* NSPropertyDescription+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPropertyDescription+Serialization.swift"; sourceTree = "<group>"; };
-		24A93E611B34671100428619 /* NSRelationshipDescription+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRelationshipDescription+Serialization.swift"; sourceTree = "<group>"; };
-		24A93E631B34674200428619 /* NSEntityDescription+Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSEntityDescription+Serialization.swift"; sourceTree = "<group>"; };
+		24A93E5F1B34504800428619 /* ValueProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueProperty.swift; sourceTree = "<group>"; };
 		24A93E651B346BDE00428619 /* Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializer.swift; sourceTree = "<group>"; };
 		24A93E671B34981D00428619 /* SerializationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -294,15 +282,10 @@
 				247F87121B3588B70000A619 /* DCTManagedObjectSerialization-Swift.h */,
 				245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */,
 				24A93E651B346BDE00428619 /* Deserializer.swift */,
-				24A93E5D1B344FF100428619 /* NSAttributeDescription+Serialization.swift */,
-				24A93E631B34674200428619 /* NSEntityDescription+Serialization.swift */,
 				24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */,
 				24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */,
-				24A93E5F1B34504800428619 /* NSPropertyDescription+Serialization.swift */,
-				24A93E611B34671100428619 /* NSRelationshipDescription+Serialization.swift */,
-				247F870C1B34BC810000A619 /* Serialization.swift */,
+				24A93E5F1B34504800428619 /* ValueProperty.swift */,
 				24A93E5B1B344F2000428619 /* SerializationInfo.swift */,
-				247F870F1B34BDE10000A619 /* Transformers.swift */,
 			);
 			path = DCTManagedObjectSerialization;
 			sourceTree = "<group>";
@@ -492,10 +475,7 @@
 				247F87161B358A4E0000A619 /* DeserializerTests.swift in Sources */,
 				2440C7401B38101E00370299 /* Event.m in Sources */,
 				24A93E561B3446AA00428619 /* Hashtag.m in Sources */,
-				24A93E5E1B344FF100428619 /* NSAttributeDescription+Serialization.swift in Sources */,
-				24A93E641B34674200428619 /* NSEntityDescription+Serialization.swift in Sources */,
-				24A93E601B34504800428619 /* NSPropertyDescription+Serialization.swift in Sources */,
-				24A93E621B34671100428619 /* NSRelationshipDescription+Serialization.swift in Sources */,
+				24A93E601B34504800428619 /* ValueProperty.swift in Sources */,
 				24A93E411B3436D600428619 /* PerformanceTest.swift in Sources */,
 				2426197319669F46008B8862 /* Person.m in Sources */,
 				2440C73D1B380FA100370299 /* Person.xcdatamodeld in Sources */,
@@ -519,8 +499,6 @@
 				244DE87E19A9208800A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
 				244DE87B19A9208800A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
 				244DE87C19A9208800A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
-				247F870D1B34BC810000A619 /* Serialization.swift in Sources */,
-				247F87101B34BDE10000A619 /* Transformers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,8 +512,6 @@
 				244DE8A619A9213400A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
 				244DE8A319A9213400A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
 				244DE8A419A9213400A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
-				247F870E1B34BC810000A619 /* Serialization.swift in Sources */,
-				247F87111B34BDE10000A619 /* Transformers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
