@@ -14,7 +14,7 @@ extern const struct TweetRelationships {
 } TweetRelationships;
 
 extern const struct TweetUserInfo {
-	__unsafe_unretained NSString *serializationName;
+	__unsafe_unretained NSString *uniqueKeys;
 } TweetUserInfo;
 
 @class Place;

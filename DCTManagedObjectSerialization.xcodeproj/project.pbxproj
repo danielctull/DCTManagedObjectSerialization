@@ -14,6 +14,9 @@
 		2426197019669F46008B8862 /* Twitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2426196619669F46008B8862 /* Twitter.xcdatamodeld */; };
 		2426197219669F46008B8862 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 2426196D19669F46008B8862 /* _Person.m */; };
 		2426197319669F46008B8862 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 2426196F19669F46008B8862 /* Person.m */; };
+		2440C73D1B380FA100370299 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2440C73B1B380FA100370299 /* Person.xcdatamodeld */; };
+		2440C7401B38101E00370299 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440C73F1B38101E00370299 /* Event.m */; };
+		2440C7431B38102400370299 /* _Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440C7421B38102400370299 /* _Event.m */; };
 		244DE87219A9207100A91DC7 /* DCTManagedObjectDeserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		244DE87319A9207100A91DC7 /* DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		244DE87419A9207100A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,7 +50,6 @@
 		247F87101B34BDE10000A619 /* Transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F870F1B34BDE10000A619 /* Transformers.swift */; };
 		247F87111B34BDE10000A619 /* Transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F870F1B34BDE10000A619 /* Transformers.swift */; };
 		247F87161B358A4E0000A619 /* DeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F87151B358A4E0000A619 /* DeserializerTests.swift */; };
-		24A93E3C1B34354C00428619 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E3A1B34354C00428619 /* Person.xcdatamodeld */; };
 		24A93E3F1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E3E1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m */; };
 		24A93E411B3436D600428619 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E401B3436D600428619 /* PerformanceTest.swift */; };
 		24A93E4A1B34469F00428619 /* _Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E431B34469F00428619 /* _Hashtag.m */; };
@@ -88,6 +90,11 @@
 		2426196D19669F46008B8862 /* _Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Person.m; sourceTree = "<group>"; };
 		2426196E19669F46008B8862 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		2426196F19669F46008B8862 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		2440C73C1B380FA100370299 /* Person.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person.xcdatamodel; sourceTree = "<group>"; };
+		2440C73E1B38101E00370299 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		2440C73F1B38101E00370299 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		2440C7411B38102400370299 /* _Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Event.h; sourceTree = "<group>"; };
+		2440C7421B38102400370299 /* _Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Event.m; sourceTree = "<group>"; };
 		244DE84E19A91F0C00A91DC7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		244DE84F19A91F0C00A91DC7 /* iOS Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Application.xcconfig"; sourceTree = "<group>"; };
 		244DE85019A91F0C00A91DC7 /* iOS Bundle.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Bundle.xcconfig"; sourceTree = "<group>"; };
@@ -111,7 +118,6 @@
 		247F87151B358A4E0000A619 /* DeserializerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeserializerTests.swift; sourceTree = "<group>"; };
 		2492B59E1650F470004BB997 /* _DCTManagedObjectSerializationProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DCTManagedObjectSerializationProperties.h; sourceTree = "<group>"; };
 		2492B59F1650F470004BB997 /* _DCTManagedObjectSerializationProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DCTManagedObjectSerializationProperties.m; sourceTree = "<group>"; };
-		24A93E3B1B34354C00428619 /* DCTManagedObjectSerializationTests.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DCTManagedObjectSerializationTests.xcdatamodel; sourceTree = "<group>"; };
 		24A93E3D1B34359B00428619 /* DCTTestNumberToStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTestNumberToStringValueTransformer.h; sourceTree = "<group>"; };
 		24A93E3E1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTestNumberToStringValueTransformer.m; sourceTree = "<group>"; };
 		24A93E401B3436D600428619 /* PerformanceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTest.swift; sourceTree = "<group>"; };
@@ -172,19 +178,19 @@
 		2426195819669EDD008B8862 /* DCTManagedObjectSerialization Tests */ = {
 			isa = PBXGroup;
 			children = (
-				24A93E5A1B34481B00428619 /* Bridging.h */,
 				2426196A19669F46008B8862 /* Model */,
-				24A93E3A1B34354C00428619 /* Person.xcdatamodeld */,
+				24A93E5A1B34481B00428619 /* Bridging.h */,
 				2426195E19669EDD008B8862 /* DCTManagedObjectSerializationTests.m */,
-				2426196619669F46008B8862 /* Twitter.xcdatamodeld */,
-				24732CCC1B34314700A44C4D /* URLTransformer.swift */,
 				24A93E3D1B34359B00428619 /* DCTTestNumberToStringValueTransformer.h */,
 				24A93E3E1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m */,
-				24732CC91B3420B300A44C4D /* Tweets.json */,
+				247F87151B358A4E0000A619 /* DeserializerTests.swift */,
 				2426195A19669EDD008B8862 /* Info.plist */,
 				24A93E401B3436D600428619 /* PerformanceTest.swift */,
+				2440C73B1B380FA100370299 /* Person.xcdatamodeld */,
 				24A93E671B34981D00428619 /* SerializationInfoTests.swift */,
-				247F87151B358A4E0000A619 /* DeserializerTests.swift */,
+				24732CC91B3420B300A44C4D /* Tweets.json */,
+				2426196619669F46008B8862 /* Twitter.xcdatamodeld */,
+				24732CCC1B34314700A44C4D /* URLTransformer.swift */,
 			);
 			path = "DCTManagedObjectSerialization Tests";
 			sourceTree = "<group>";
@@ -193,10 +199,12 @@
 			isa = PBXGroup;
 			children = (
 				2426196B19669F46008B8862 /* Generated */,
-				2426196E19669F46008B8862 /* Person.h */,
-				2426196F19669F46008B8862 /* Person.m */,
+				2440C73E1B38101E00370299 /* Event.h */,
+				2440C73F1B38101E00370299 /* Event.m */,
 				24A93E4E1B3446AA00428619 /* Hashtag.h */,
 				24A93E4F1B3446AA00428619 /* Hashtag.m */,
+				2426196E19669F46008B8862 /* Person.h */,
+				2426196F19669F46008B8862 /* Person.m */,
 				24A93E501B3446AA00428619 /* Place.h */,
 				24A93E511B3446AA00428619 /* Place.m */,
 				24A93E521B3446AA00428619 /* Tweet.h */,
@@ -210,16 +218,18 @@
 		2426196B19669F46008B8862 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				2440C7411B38102400370299 /* _Event.h */,
+				2440C7421B38102400370299 /* _Event.m */,
 				24A93E421B34469F00428619 /* _Hashtag.h */,
 				24A93E431B34469F00428619 /* _Hashtag.m */,
+				2426196C19669F46008B8862 /* _Person.h */,
+				2426196D19669F46008B8862 /* _Person.m */,
 				24A93E441B34469F00428619 /* _Place.h */,
 				24A93E451B34469F00428619 /* _Place.m */,
 				24A93E461B34469F00428619 /* _Tweet.h */,
 				24A93E471B34469F00428619 /* _Tweet.m */,
 				24A93E481B34469F00428619 /* _User.h */,
 				24A93E491B34469F00428619 /* _User.m */,
-				2426196C19669F46008B8862 /* _Person.h */,
-				2426196D19669F46008B8862 /* _Person.m */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -277,21 +287,21 @@
 		245CD6AA164EA2BF00600BFF /* DCTManagedObjectSerialization */ = {
 			isa = PBXGroup;
 			children = (
-				247F87121B3588B70000A619 /* DCTManagedObjectSerialization-Swift.h */,
-				24A93E5B1B344F2000428619 /* SerializationInfo.swift */,
-				24A93E651B346BDE00428619 /* Deserializer.swift */,
-				247F870C1B34BC810000A619 /* Serialization.swift */,
-				247F870F1B34BDE10000A619 /* Transformers.swift */,
-				24A93E5F1B34504800428619 /* NSPropertyDescription+Serialization.swift */,
-				24A93E5D1B344FF100428619 /* NSAttributeDescription+Serialization.swift */,
-				24A93E611B34671100428619 /* NSRelationshipDescription+Serialization.swift */,
-				24A93E631B34674200428619 /* NSEntityDescription+Serialization.swift */,
 				24A23533164EA4F600BD92ED /* Private */,
 				247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */,
 				247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */,
+				247F87121B3588B70000A619 /* DCTManagedObjectSerialization-Swift.h */,
 				245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */,
+				24A93E651B346BDE00428619 /* Deserializer.swift */,
+				24A93E5D1B344FF100428619 /* NSAttributeDescription+Serialization.swift */,
+				24A93E631B34674200428619 /* NSEntityDescription+Serialization.swift */,
 				24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */,
 				24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */,
+				24A93E5F1B34504800428619 /* NSPropertyDescription+Serialization.swift */,
+				24A93E611B34671100428619 /* NSRelationshipDescription+Serialization.swift */,
+				247F870C1B34BC810000A619 /* Serialization.swift */,
+				24A93E5B1B344F2000428619 /* SerializationInfo.swift */,
+				247F870F1B34BDE10000A619 /* Transformers.swift */,
 			);
 			path = DCTManagedObjectSerialization;
 			sourceTree = "<group>";
@@ -468,30 +478,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				247F87161B358A4E0000A619 /* DeserializerTests.swift in Sources */,
-				24A93E661B346BDE00428619 /* Deserializer.swift in Sources */,
-				24A93E621B34671100428619 /* NSRelationshipDescription+Serialization.swift in Sources */,
-				24A93E591B3446AA00428619 /* User.m in Sources */,
-				24A93E4D1B34469F00428619 /* _User.m in Sources */,
+				2440C7431B38102400370299 /* _Event.m in Sources */,
+				24A93E4A1B34469F00428619 /* _Hashtag.m in Sources */,
 				2426197219669F46008B8862 /* _Person.m in Sources */,
-				24732CCD1B34314700A44C4D /* URLTransformer.swift in Sources */,
-				24A93E411B3436D600428619 /* PerformanceTest.swift in Sources */,
-				24A93E3F1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m in Sources */,
-				24A93E601B34504800428619 /* NSPropertyDescription+Serialization.swift in Sources */,
-				2426195F19669EDD008B8862 /* DCTManagedObjectSerializationTests.m in Sources */,
-				24A93E5E1B344FF100428619 /* NSAttributeDescription+Serialization.swift in Sources */,
-				2426197019669F46008B8862 /* Twitter.xcdatamodeld in Sources */,
+				24A93E4B1B34469F00428619 /* _Place.m in Sources */,
 				24A93E4C1B34469F00428619 /* _Tweet.m in Sources */,
-				24A93E3C1B34354C00428619 /* Person.xcdatamodeld in Sources */,
+				24A93E4D1B34469F00428619 /* _User.m in Sources */,
+				2426195F19669EDD008B8862 /* DCTManagedObjectSerializationTests.m in Sources */,
+				24A93E3F1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m in Sources */,
+				24A93E661B346BDE00428619 /* Deserializer.swift in Sources */,
+				247F87161B358A4E0000A619 /* DeserializerTests.swift in Sources */,
+				2440C7401B38101E00370299 /* Event.m in Sources */,
+				24A93E561B3446AA00428619 /* Hashtag.m in Sources */,
+				24A93E5E1B344FF100428619 /* NSAttributeDescription+Serialization.swift in Sources */,
+				24A93E641B34674200428619 /* NSEntityDescription+Serialization.swift in Sources */,
+				24A93E601B34504800428619 /* NSPropertyDescription+Serialization.swift in Sources */,
+				24A93E621B34671100428619 /* NSRelationshipDescription+Serialization.swift in Sources */,
+				24A93E411B3436D600428619 /* PerformanceTest.swift in Sources */,
+				2426197319669F46008B8862 /* Person.m in Sources */,
+				2440C73D1B380FA100370299 /* Person.xcdatamodeld in Sources */,
 				24A93E571B3446AA00428619 /* Place.m in Sources */,
 				24A93E5C1B344F2000428619 /* SerializationInfo.swift in Sources */,
 				24A93E681B34981D00428619 /* SerializationInfoTests.swift in Sources */,
-				24A93E4B1B34469F00428619 /* _Place.m in Sources */,
-				24A93E641B34674200428619 /* NSEntityDescription+Serialization.swift in Sources */,
-				24A93E561B3446AA00428619 /* Hashtag.m in Sources */,
 				24A93E581B3446AA00428619 /* Tweet.m in Sources */,
-				2426197319669F46008B8862 /* Person.m in Sources */,
-				24A93E4A1B34469F00428619 /* _Hashtag.m in Sources */,
+				2426197019669F46008B8862 /* Twitter.xcdatamodeld in Sources */,
+				24732CCD1B34314700A44C4D /* URLTransformer.swift in Sources */,
+				24A93E591B3446AA00428619 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,11 +514,11 @@
 				244DE87919A9208800A91DC7 /* _DCTManagedObjectSerializationProperties.m in Sources */,
 				244DE87D19A9208800A91DC7 /* DCTManagedObjectDeserializer.m in Sources */,
 				244DE87A19A9208800A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */,
-				247F87101B34BDE10000A619 /* Transformers.swift in Sources */,
 				244DE87E19A9208800A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
-				247F870D1B34BC810000A619 /* Serialization.swift in Sources */,
 				244DE87B19A9208800A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
 				244DE87C19A9208800A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
+				247F870D1B34BC810000A619 /* Serialization.swift in Sources */,
+				247F87101B34BDE10000A619 /* Transformers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,11 +529,11 @@
 				244DE8A119A9213400A91DC7 /* _DCTManagedObjectSerializationProperties.m in Sources */,
 				244DE8A519A9213400A91DC7 /* DCTManagedObjectDeserializer.m in Sources */,
 				244DE8A219A9213400A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */,
-				247F87111B34BDE10000A619 /* Transformers.swift in Sources */,
 				244DE8A619A9213400A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
-				247F870E1B34BC810000A619 /* Serialization.swift in Sources */,
 				244DE8A319A9213400A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
 				244DE8A419A9213400A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
+				247F870E1B34BC810000A619 /* Serialization.swift in Sources */,
+				247F87111B34BDE10000A619 /* Transformers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,12 +679,12 @@
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
-		24A93E3A1B34354C00428619 /* Person.xcdatamodeld */ = {
+		2440C73B1B380FA100370299 /* Person.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				24A93E3B1B34354C00428619 /* DCTManagedObjectSerializationTests.xcdatamodel */,
+				2440C73C1B380FA100370299 /* Person.xcdatamodel */,
 			);
-			currentVersion = 24A93E3B1B34354C00428619 /* DCTManagedObjectSerializationTests.xcdatamodel */;
+			currentVersion = 2440C73C1B380FA100370299 /* Person.xcdatamodel */;
 			path = Person.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

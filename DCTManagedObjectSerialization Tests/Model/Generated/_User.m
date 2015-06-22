@@ -13,6 +13,10 @@ const struct UserRelationships UserRelationships = {
 	.tweets = @"tweets",
 };
 
+const struct UserUserInfo UserUserInfo = {
+	.uniqueKeys = @"userID",
+};
+
 @implementation UserID
 @end
 

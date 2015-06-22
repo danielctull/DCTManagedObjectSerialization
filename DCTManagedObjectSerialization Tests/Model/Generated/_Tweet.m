@@ -14,7 +14,7 @@ const struct TweetRelationships TweetRelationships = {
 };
 
 const struct TweetUserInfo TweetUserInfo = {
-	.serializationName = @"id",
+	.uniqueKeys = @"tweetID",
 };
 
 @implementation TweetID

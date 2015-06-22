@@ -8,6 +8,12 @@ extern const struct PersonAttributes {
 	__unsafe_unretained NSString *personID;
 } PersonAttributes;
 
+extern const struct PersonRelationships {
+	__unsafe_unretained NSString *events;
+} PersonRelationships;
+
+@class Event;
+
 @interface PersonID : NSManagedObjectID {}
 @end
 
@@ -25,6 +31,18 @@ extern const struct PersonAttributes {
 
 //- (BOOL)validatePersonID:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSSet *events;
+
+- (NSMutableSet*)eventsSet;
+
+@end
+
+@interface _Person (EventsCoreDataGeneratedAccessors)
+- (void)addEvents:(NSSet*)value_;
+- (void)removeEvents:(NSSet*)value_;
+- (void)addEventsObject:(Event*)value_;
+- (void)removeEventsObject:(Event*)value_;
+
 @end
 
 @interface _Person (CoreDataGeneratedPrimitiveAccessors)
@@ -34,5 +52,8 @@ extern const struct PersonAttributes {
 
 - (NSString*)primitivePersonID;
 - (void)setPrimitivePersonID:(NSString*)value;
+
+- (NSMutableSet*)primitiveEvents;
+- (void)setPrimitiveEvents:(NSMutableSet*)value;
 
 @end

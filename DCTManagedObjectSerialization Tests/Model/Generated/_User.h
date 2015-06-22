@@ -13,6 +13,10 @@ extern const struct UserRelationships {
 	__unsafe_unretained NSString *tweets;
 } UserRelationships;
 
+extern const struct UserUserInfo {
+	__unsafe_unretained NSString *uniqueKeys;
+} UserUserInfo;
+
 @class Tweet;
 
 @interface UserID : NSManagedObjectID {}
