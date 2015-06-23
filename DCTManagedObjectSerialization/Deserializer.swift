@@ -26,48 +26,51 @@ public class Deserializer {
 
 	public func deserializeObjectsWithEntity(entity: NSEntityDescription, array: SerializedArray, completion: [AnyObject] -> Void) {
 
-		let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[entity]
-		var objects: [AnyObject] = []
-		for serializedDictionary in array {
+		managedObjectContext.performBlock {
 
-			predicateForUniqueObjectWithEntity(entity, serializedDictionary: serializedDictionary) { predicate in
+			let shouldDeserializeNilValues = self.serializationInfo.shouldDeserializeNilValues[entity]
+			var objects: [AnyObject] = []
+			for serializedDictionary in array {
 
-				var object: NSManagedObject
-				if let p = predicate {
-					object = self.existingObjectForEntity(entity, predicate: p)
-				} else {
-					object = self.objectForEntity(entity)
-				}
+				self.predicateForUniqueObjectWithEntity(entity, serializedDictionary: serializedDictionary) { predicate in
 
-				for property in entity.properties {
-
-					guard let valueProperty = property as? ValueProperty else {
-						continue
+					var object: NSManagedObject
+					if let p = predicate {
+						object = self.existingObjectForEntity(entity, predicate: p)
+					} else {
+						object = self.objectForEntity(entity)
 					}
 
-					valueProperty.valueForSerializedDictionary(serializedDictionary, deserializer: self) { value in
+					for property in entity.properties {
 
-						switch value {
+						guard let valueProperty = property as? ValueProperty else {
+							continue
+						}
 
-						case let .Some(v):
-							object.setValue(v, forKey: property.name)
+						valueProperty.valueForSerializedDictionary(serializedDictionary, deserializer: self) { value in
 
-						case .Nil:
-							if shouldDeserializeNilValues {
-								object.setValue(nil, forKey: property.name)
+							switch value {
+
+							case let .Some(v):
+								object.setValue(v, forKey: property.name)
+
+							case .Nil:
+								if shouldDeserializeNilValues {
+									object.setValue(nil, forKey: property.name)
+								}
+
+							case .None:
+								break
 							}
-
-						case .None:
-							break
 						}
 					}
+					
+					objects.append(object)
 				}
-				
-				objects.append(object)
 			}
-		}
 
-		completion(objects)
+			completion(objects)
+		}
 	}
 
 	private func existingObjectForEntity(entity: NSEntityDescription, predicate: NSPredicate) -> NSManagedObject {

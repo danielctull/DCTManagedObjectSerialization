@@ -16,6 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="h2h-Mh-W2v">
+                                <rect key="frame" x="359" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7d-wn-Iph">
                                 <rect key="frame" x="251" y="285" width="98" height="30"/>
                                 <state key="normal" title="Import Tweets"/>
@@ -26,10 +29,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="g7d-wn-Iph" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6ax-GJ-7qW"/>
-                            <constraint firstItem="g7d-wn-Iph" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fb2-qs-XG7"/>
+                            <constraint firstItem="g7d-wn-Iph" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ba7-B3-40L"/>
+                            <constraint firstItem="g7d-wn-Iph" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ftb-Vl-xZf"/>
+                            <constraint firstItem="h2h-Mh-W2v" firstAttribute="centerY" secondItem="g7d-wn-Iph" secondAttribute="centerY" id="llE-1q-nWC"/>
+                            <constraint firstItem="h2h-Mh-W2v" firstAttribute="leading" secondItem="g7d-wn-Iph" secondAttribute="trailing" constant="10" id="u4H-Du-jzA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="indicator" destination="h2h-Mh-W2v" id="LHD-Ke-2jp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
