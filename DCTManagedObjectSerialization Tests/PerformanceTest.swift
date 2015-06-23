@@ -13,6 +13,7 @@ class PerformanceTest: XCTestCase {
 			let expectation = self.expectationWithDescription("Tweets")
 
 			Tweets.importTweets { tweets in
+				XCTAssert(tweets.count == 575)
 				expectation.fulfill()
 			}
 

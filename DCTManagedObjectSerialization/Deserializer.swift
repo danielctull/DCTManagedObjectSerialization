@@ -41,22 +41,39 @@ public class Deserializer {
 						object = self.objectForEntity(entity)
 					}
 
-					for property in entity.properties {
+					func setValue(value: Value, name: String) {
+						switch value {
 
-						guard let valueProperty = property as? ValueProperty else {
-							continue
+						case let .Some(v):
+							object.setValue(v, forKey: name)
+
+						case .Nil:
+							if shouldDeserializeNilValues {
+								object.setValue(nil, forKey: name)
+							}
+
+						case .None:
+							break
 						}
+					}
 
-						valueProperty.valueForSerializedDictionary(serializedDictionary, deserializer: self) { value in
+					for (name, attribute) in entity.attributesByName {
+						let value = attribute.valueForSerializedDictionary(serializedDictionary, serializationInfo: self.serializationInfo)
+						setValue(value, name: name)
+					}
+
+					for (name, relationship) in entity.relationshipsByName {
+
+						relationship.valueForSerializedDictionary(serializedDictionary, deserializer: self) { value in
 
 							switch value {
 
 							case let .Some(v):
-								object.setValue(v, forKey: property.name)
+								object.setValue(v, forKey: name)
 
 							case .Nil:
 								if shouldDeserializeNilValues {
-									object.setValue(nil, forKey: property.name)
+									object.setValue(nil, forKey: name)
 								}
 
 							case .None:
@@ -101,22 +118,19 @@ public class Deserializer {
 		var predicates: [NSPredicate] = []
 		for attribute in uniqueAttributes {
 
-			attribute.valueForSerializedDictionary(serializedDictionary, deserializer: self) { value in
+			let value = attribute.valueForSerializedDictionary(serializedDictionary, serializationInfo: self.serializationInfo)
 
-				switch value {
+			switch value {
 
-				case let .Some(v):
-					let predicate = NSPredicate(format: "%K == %@", argumentArray: [attribute.name, v])
-					predicates.append(predicate)
+			case let .Some(v):
+				let predicate = NSPredicate(format: "%K == %@", argumentArray: [attribute.name, v])
+				predicates.append(predicate)
 
-				case .Nil:
-					break
+			case .Nil:
+				break
 
-				case .None:
-					break
-				}
-
-
+			case .None:
+				break
 			}
 		}
 
