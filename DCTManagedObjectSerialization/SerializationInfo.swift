@@ -5,7 +5,7 @@ import CoreData
 public struct SerializationInfo {
 
 	public init() {}
-	public var uniqueProperties = SerializationInfoStorage<NSEntityDescription,[NSPropertyDescription]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToProperties)
+	public var uniqueAttributes = SerializationInfoStorage<NSEntityDescription,[NSAttributeDescription]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToProperties)
 	public var shouldDeserializeNilValues = SerializationInfoStorage<NSEntityDescription,Bool>(userInfoKey: UserInfoKeys.shouldDeserializeNilValues, transformer: stringToBool)
 	public var serializationName = SerializationInfoStorage<NSPropertyDescription,String>(userInfoKey: UserInfoKeys.serializationName, transformer: stringToSerializationName)
 	public var transformers = SerializationInfoStorage<NSPropertyDescription,[NSValueTransformer]>(userInfoKey: UserInfoKeys.transformerNames, transformer: stringToTransformers)
@@ -28,7 +28,7 @@ public struct SerializationInfo {
 		return (string as NSString).boolValue
 	}
 
-	private static let stringToProperties: (NSEntityDescription, String?) -> [NSPropertyDescription] = { entity, string in
+	private static let stringToProperties: (NSEntityDescription, String?) -> [NSAttributeDescription] = { entity, string in
 
 		guard let string = string else {
 			return []
@@ -36,10 +36,10 @@ public struct SerializationInfo {
 
 		let noWhiteSpaceString = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
 		let names = noWhiteSpaceString.componentsSeparatedByString(",")
-		let properties = names.map { entity.propertiesByName[$0] }
+		let attributes = names.map { entity.attributesByName[$0] }
 							  .filter { return $0 != nil } // Remove nil values
 							  .map { $0! } // Force unwrap all values, as none are nil
-		return properties
+		return attributes
 	}
 
 	private static let stringToTransformers: (NSPropertyDescription, String?) -> [NSValueTransformer] = { _, string in

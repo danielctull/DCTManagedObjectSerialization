@@ -13,10 +13,10 @@ class SerializationInfoTests: XCTestCase {
 	var tweetEntity: NSEntityDescription {
 		return Tweet.entityInManagedObjectContext(managedObjectContext)
 	}
-	var tweetID: NSPropertyDescription {
+	var tweetID: NSAttributeDescription {
 		return tweetEntity.attributesByName[TweetAttributes.tweetID as String]!
 	}
-	var tweetText: NSPropertyDescription {
+	var tweetText: NSAttributeDescription {
 		return tweetEntity.attributesByName[TweetAttributes.text as String]!
 	}
 
@@ -39,8 +39,8 @@ class SerializationInfoTests: XCTestCase {
 	// uniqueKeys not set, returns []
 	func testNoUniqueKeys() {
 		let entity = Hashtag.entityInManagedObjectContext(managedObjectContext)
-		let uniqueProperties = serializationInfo.uniqueProperties[entity]
-		XCTAssertEqual(uniqueProperties.count, 0)
+		let uniqueAttributes = serializationInfo.uniqueAttributes[entity]
+		XCTAssertEqual(uniqueAttributes.count, 0)
 	}
 
 	// shouldDeserializeNilValues not set, returns false
@@ -77,9 +77,9 @@ class SerializationInfoTests: XCTestCase {
 	// MARK: Setting Keys
 
 	func testSettingUniqueKeys() {
-		serializationInfo.uniqueProperties[tweetEntity] = [tweetText]
-		let uniqueProperties = serializationInfo.uniqueProperties[tweetEntity]
-		XCTAssertEqual(uniqueProperties, [tweetText])
+		serializationInfo.uniqueAttributes[tweetEntity] = [tweetText]
+		let uniqueAttributes = serializationInfo.uniqueAttributes[tweetEntity]
+		XCTAssertEqual(uniqueAttributes, [tweetText])
 	}
 
 	func testSettingShouldDeserializeNilValues() {
@@ -115,9 +115,9 @@ class SerializationInfoTests: XCTestCase {
 	// MARK: Model Defined Keys
 
     func testModelDefinedUniqueKeys() {
-		let uniqueProperties = serializationInfo.uniqueProperties[tweetEntity]
-		XCTAssertEqual(uniqueProperties.count, 1)
-		XCTAssertEqual(uniqueProperties[0], tweetID)
+		let uniqueAttributes = serializationInfo.uniqueAttributes[tweetEntity]
+		XCTAssertEqual(uniqueAttributes.count, 1)
+		XCTAssertEqual(uniqueAttributes[0], tweetID)
     }
 
 	func testModelDefinedSerializationName() {
@@ -159,10 +159,10 @@ class SerializationInfoTests: XCTestCase {
 
 			let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
 			let tweetIDs1 = [tweetEntity1.attributesByName[TweetAttributes.tweetID as String]!]
-			serializationInfo.uniqueProperties[tweetEntity1] = tweetIDs1
+			serializationInfo.uniqueAttributes[tweetEntity1] = tweetIDs1
 
 			let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
-			let tweetIDs2 = serializationInfo.uniqueProperties[tweetEntity2]
+			let tweetIDs2 = serializationInfo.uniqueAttributes[tweetEntity2]
 
 			XCTAssert(tweetEntity1 !== tweetEntity2)
 			XCTAssertEqual(tweetEntity1.hash, tweetEntity2.hash)

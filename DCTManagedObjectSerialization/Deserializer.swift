@@ -97,20 +97,16 @@ public class Deserializer {
 
 	private func predicateForUniqueObjectWithEntity(entity: NSEntityDescription, serializedDictionary: SerializedDictionary, completion: NSPredicate? -> Void) {
 
-		let uniqueProperties = serializationInfo.uniqueProperties[entity]
+		let uniqueAttributes = serializationInfo.uniqueAttributes[entity]
 		var predicates: [NSPredicate] = []
-		for property in uniqueProperties {
+		for attribute in uniqueAttributes {
 
-			guard let valueProperty = property as? ValueProperty else {
-				continue
-			}
-
-			valueProperty.valueForSerializedDictionary(serializedDictionary, deserializer: self) { value in
+			attribute.valueForSerializedDictionary(serializedDictionary, deserializer: self) { value in
 
 				switch value {
 
 				case let .Some(v):
-					let predicate = NSPredicate(format: "%K == %@", argumentArray: [property.name, v])
+					let predicate = NSPredicate(format: "%K == %@", argumentArray: [attribute.name, v])
 					predicates.append(predicate)
 
 				case .Nil:

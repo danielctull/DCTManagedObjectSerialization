@@ -15,7 +15,7 @@ class DeserializerTests: XCTestCase {
 
 	var managedObjectContext: NSManagedObjectContext!
 	var personEntity: NSEntityDescription!
-	var personID: NSPropertyDescription {
+	var personID: NSAttributeDescription {
 		return personEntity.attributesByName[PersonAttributes.personID as String]!
 	}
 
@@ -127,7 +127,7 @@ class DeserializerTests: XCTestCase {
 
 	func testObjectDuplication() {
 		var serializationInfo = SerializationInfo()
-		serializationInfo.uniqueProperties[personEntity] = [personID]
+		serializationInfo.uniqueAttributes[personEntity] = [personID]
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
 		let dictionary = [ personID.name : "1" ]
 		deserializer.deserializeObjectWithEntity(personEntity, dictionary: dictionary) { object in
@@ -147,7 +147,7 @@ class DeserializerTests: XCTestCase {
 
 	func testObjectDuplicationNotSame() {
 		var serializationInfo = SerializationInfo()
-		serializationInfo.uniqueProperties[personEntity] = [personID]
+		serializationInfo.uniqueAttributes[personEntity] = [personID]
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
 		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) { object in
 			guard let person1 = object as? Person else {
@@ -166,7 +166,7 @@ class DeserializerTests: XCTestCase {
 
 	func testObjectDuplicationNotSame2() {
 		var serializationInfo = SerializationInfo()
-		serializationInfo.uniqueProperties[personEntity] = [personID]
+		serializationInfo.uniqueAttributes[personEntity] = [personID]
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
 		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) { object in
 			guard let person1 = object as? Person else {
@@ -203,7 +203,7 @@ class DeserializerTests: XCTestCase {
 	func testObjectDuplication3() {
 		var serializationInfo = SerializationInfo()
 		serializationInfo.serializationName[personID] = "id"
-		serializationInfo.uniqueProperties[personEntity] = [personID]
+		serializationInfo.uniqueAttributes[personEntity] = [personID]
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
 		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ "id" : "1" ]) { object in
 			guard let person1 = object as? Person else {
