@@ -2,6 +2,7 @@
 import XCTest
 import CoreData
 import DCTManagedObjectSerialization
+import Tweets
 
 class SerializationInfoTests: XCTestCase {
 
@@ -24,7 +25,7 @@ class SerializationInfoTests: XCTestCase {
 
 		NSValueTransformer.setValueTransformer(URLTransformer(), forName: "URLTransformer")
 
-		let bundle = NSBundle(forClass: self.dynamicType)
+		let bundle = Tweets.bundle()
 		managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([bundle])!
 		let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
 

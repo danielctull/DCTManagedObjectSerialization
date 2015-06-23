@@ -14,38 +14,27 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "24F798061B393D1300F7E4A5"
-               BuildableName = "DCTManagedObjectSerialization.framework"
-               BlueprintName = "DCTManagedObjectSerialization iOS"
+               BlueprintIdentifier = "24F798781B3941E900F7E4A5"
+               BuildableName = "DCTManagedObjectSerialization iOS App.app"
+               BlueprintName = "DCTManagedObjectSerialization iOS App"
                ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      selectedDebuggerIdentifier = ""
-      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES"
-      buildConfiguration = "Release">
+      buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "24F7985A1B39415600F7E4A5"
-               BuildableName = "DCTManagedObjectSerialization Tests.xctest"
-               BlueprintName = "DCTManagedObjectSerialization iOS Tests"
-               ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24F798061B393D1300F7E4A5"
-            BuildableName = "DCTManagedObjectSerialization.framework"
-            BlueprintName = "DCTManagedObjectSerialization iOS"
+            BlueprintIdentifier = "24F798781B3941E900F7E4A5"
+            BuildableName = "DCTManagedObjectSerialization iOS App.app"
+            BlueprintName = "DCTManagedObjectSerialization iOS App"
             ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24F798061B393D1300F7E4A5"
-            BuildableName = "DCTManagedObjectSerialization.framework"
-            BlueprintName = "DCTManagedObjectSerialization iOS"
+            BlueprintIdentifier = "24F798781B3941E900F7E4A5"
+            BuildableName = "DCTManagedObjectSerialization iOS App.app"
+            BlueprintName = "DCTManagedObjectSerialization iOS App"
             ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,15 +70,16 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24F798061B393D1300F7E4A5"
-            BuildableName = "DCTManagedObjectSerialization.framework"
-            BlueprintName = "DCTManagedObjectSerialization iOS"
+            BlueprintIdentifier = "24F798781B3941E900F7E4A5"
+            BuildableName = "DCTManagedObjectSerialization iOS App.app"
+            BlueprintName = "DCTManagedObjectSerialization iOS App"
             ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

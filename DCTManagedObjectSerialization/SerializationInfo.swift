@@ -4,6 +4,7 @@ import CoreData
 
 public struct SerializationInfo {
 
+	public init() {}
 	public var uniqueProperties = SerializationInfoStorage<NSEntityDescription,[NSPropertyDescription]>(userInfoKey: UserInfoKeys.uniqueKeys, transformer: stringToProperties)
 	public var shouldDeserializeNilValues = SerializationInfoStorage<NSEntityDescription,Bool>(userInfoKey: UserInfoKeys.shouldDeserializeNilValues, transformer: stringToBool)
 	public var serializationName = SerializationInfoStorage<NSPropertyDescription,String>(userInfoKey: UserInfoKeys.serializationName, transformer: stringToSerializationName)

@@ -6,25 +6,25 @@ public enum DeserializerError: ErrorType {
 	case Unknown
 }
 
-typealias SerializedDictionary = [ String : AnyObject ]
-typealias SerializedArray = [ SerializedDictionary ]
+public typealias SerializedDictionary = [ String : AnyObject ]
+public typealias SerializedArray = [ SerializedDictionary ]
 
-public struct Deserializer {
+public class Deserializer {
 
 	public let managedObjectContext: NSManagedObjectContext
 	public let serializationInfo: SerializationInfo
-	init(managedObjectContext: NSManagedObjectContext, serializationInfo: SerializationInfo = SerializationInfo()) {
+	public init(managedObjectContext: NSManagedObjectContext, serializationInfo: SerializationInfo = SerializationInfo()) {
 		self.managedObjectContext = managedObjectContext
 		self.serializationInfo = serializationInfo
 	}
 
-	func deserializeObjectWithEntity(entity: NSEntityDescription, dictionary: SerializedDictionary, completion: AnyObject? -> Void) {
+	public func deserializeObjectWithEntity(entity: NSEntityDescription, dictionary: SerializedDictionary, completion: AnyObject? -> Void) {
 		deserializeObjectsWithEntity(entity, array: [dictionary]) { objects in
 			completion(objects.first)
 		}
 	}
 
-	func deserializeObjectsWithEntity(entity: NSEntityDescription, array: SerializedArray, completion: [AnyObject] -> Void) {
+	public func deserializeObjectsWithEntity(entity: NSEntityDescription, array: SerializedArray, completion: [AnyObject] -> Void) {
 
 		let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[entity]
 		var objects: [AnyObject] = []

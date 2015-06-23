@@ -1,7 +1,7 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
 // Make changes to Tweet.h instead.
 
-#import <CoreData/CoreData.h>
+@import CoreData;
 
 extern const struct TweetAttributes {
 	__unsafe_unretained NSString *text;

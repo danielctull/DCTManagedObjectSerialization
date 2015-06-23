@@ -7,382 +7,552 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2426195519669EDD008B8862 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2426195419669EDD008B8862 /* XCTest.framework */; };
-		2426195619669EDD008B8862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
-		2426195719669EDD008B8862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24217C78164EC55600B7DE98 /* UIKit.framework */; };
-		2426195F19669EDD008B8862 /* DCTManagedObjectSerializationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2426195E19669EDD008B8862 /* DCTManagedObjectSerializationTests.m */; };
-		2426197019669F46008B8862 /* Twitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2426196619669F46008B8862 /* Twitter.xcdatamodeld */; };
-		2426197219669F46008B8862 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 2426196D19669F46008B8862 /* _Person.m */; };
-		2426197319669F46008B8862 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 2426196F19669F46008B8862 /* Person.m */; };
-		2440C73D1B380FA100370299 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2440C73B1B380FA100370299 /* Person.xcdatamodeld */; };
-		2440C7401B38101E00370299 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440C73F1B38101E00370299 /* Event.m */; };
-		2440C7431B38102400370299 /* _Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440C7421B38102400370299 /* _Event.m */; };
-		24477F281B38643600909AC4 /* DCTManagedObjectSerialization-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 247F87121B3588B70000A619 /* DCTManagedObjectSerialization-Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		244DE87219A9207100A91DC7 /* DCTManagedObjectDeserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		244DE87319A9207100A91DC7 /* DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		244DE87419A9207100A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		244DE87519A9207E00A91DC7 /* _DCTManagedObjectSerializationProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 2492B59E1650F470004BB997 /* _DCTManagedObjectSerializationProperties.h */; };
-		244DE87619A9207E00A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CBC164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.h */; };
-		244DE87719A9207E00A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CC2164EE68F00B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.h */; };
-		244DE87819A9207E00A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CBF164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h */; };
-		244DE87919A9208800A91DC7 /* _DCTManagedObjectSerializationProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492B59F1650F470004BB997 /* _DCTManagedObjectSerializationProperties.m */; };
-		244DE87A19A9208800A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBD164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m */; };
-		244DE87B19A9208800A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */; };
-		244DE87C19A9208800A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */; };
-		244DE87D19A9208800A91DC7 /* DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */; settings = {COMPILER_FLAGS = "-Wno-semicolon-before-method-body -Wno-direct-ivar-access -Wno-implicit-retain-self"; }; };
-		244DE87E19A9208800A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */; };
-		244DE89A19A9211F00A91DC7 /* _DCTManagedObjectSerializationProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 2492B59E1650F470004BB997 /* _DCTManagedObjectSerializationProperties.h */; };
-		244DE89B19A9211F00A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CBC164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.h */; };
-		244DE89C19A9211F00A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CC2164EE68F00B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.h */; };
-		244DE89D19A9211F00A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CBF164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h */; };
-		244DE89E19A9211F00A91DC7 /* DCTManagedObjectDeserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		244DE89F19A9211F00A91DC7 /* DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		244DE8A019A9211F00A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		244DE8A119A9213400A91DC7 /* _DCTManagedObjectSerializationProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492B59F1650F470004BB997 /* _DCTManagedObjectSerializationProperties.m */; };
-		244DE8A219A9213400A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBD164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m */; };
-		244DE8A319A9213400A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */; };
-		244DE8A419A9213400A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */; };
-		244DE8A519A9213400A91DC7 /* DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */; settings = {COMPILER_FLAGS = "-Wno-semicolon-before-method-body -Wno-direct-ivar-access -Wno-implicit-retain-self"; }; };
-		244DE8A619A9213400A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */; };
-		24732CCA1B3420B300A44C4D /* Tweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 24732CC91B3420B300A44C4D /* Tweets.json */; };
-		24732CCD1B34314700A44C4D /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24732CCC1B34314700A44C4D /* URLTransformer.swift */; };
-		247F87161B358A4E0000A619 /* DeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F87151B358A4E0000A619 /* DeserializerTests.swift */; };
-		24A93E3F1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E3E1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m */; };
-		24A93E411B3436D600428619 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E401B3436D600428619 /* PerformanceTest.swift */; };
-		24A93E4A1B34469F00428619 /* _Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E431B34469F00428619 /* _Hashtag.m */; };
-		24A93E4B1B34469F00428619 /* _Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E451B34469F00428619 /* _Place.m */; };
-		24A93E4C1B34469F00428619 /* _Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E471B34469F00428619 /* _Tweet.m */; };
-		24A93E4D1B34469F00428619 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E491B34469F00428619 /* _User.m */; };
-		24A93E561B3446AA00428619 /* Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E4F1B3446AA00428619 /* Hashtag.m */; };
-		24A93E571B3446AA00428619 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E511B3446AA00428619 /* Place.m */; };
-		24A93E581B3446AA00428619 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E531B3446AA00428619 /* Tweet.m */; };
-		24A93E591B3446AA00428619 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E551B3446AA00428619 /* User.m */; };
-		24A93E5C1B344F2000428619 /* SerializationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5B1B344F2000428619 /* SerializationInfo.swift */; };
-		24A93E601B34504800428619 /* ValueProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E5F1B34504800428619 /* ValueProperty.swift */; };
-		24A93E661B346BDE00428619 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E651B346BDE00428619 /* Deserializer.swift */; };
-		24A93E681B34981D00428619 /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A93E671B34981D00428619 /* SerializationInfoTests.swift */; };
+		24F7980B1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F798561B39402500F7E4A5 /* DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F798601B39415600F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; };
+		24F7986F1B3941AF00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F7983F1B393FFE00F7E4A5 /* DCTManagedObjectSerialization.framework */; };
+		24F7987C1B3941E900F7E4A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7987B1B3941E900F7E4A5 /* AppDelegate.swift */; };
+		24F7987E1B3941E900F7E4A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7987D1B3941E900F7E4A5 /* ViewController.swift */; };
+		24F798811B3941E900F7E4A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F7987F1B3941E900F7E4A5 /* Main.storyboard */; };
+		24F798831B3941E900F7E4A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F798821B3941E900F7E4A5 /* Assets.xcassets */; };
+		24F798861B3941E900F7E4A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F798841B3941E900F7E4A5 /* LaunchScreen.storyboard */; };
+		24F798921B3941FE00F7E4A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F798911B3941FE00F7E4A5 /* AppDelegate.swift */; };
+		24F798941B3941FE00F7E4A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F798931B3941FE00F7E4A5 /* ViewController.swift */; };
+		24F798961B3941FE00F7E4A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F798951B3941FE00F7E4A5 /* Assets.xcassets */; };
+		24F798991B3941FE00F7E4A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F798971B3941FE00F7E4A5 /* Main.storyboard */; };
+		24F798F31B39425000F7E4A5 /* _Hashtag.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DB1B39425000F7E4A5 /* _Hashtag.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F798F41B39425000F7E4A5 /* _Hashtag.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DB1B39425000F7E4A5 /* _Hashtag.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F798F51B39425000F7E4A5 /* _Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798DC1B39425000F7E4A5 /* _Hashtag.m */; };
+		24F798F61B39425000F7E4A5 /* _Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798DC1B39425000F7E4A5 /* _Hashtag.m */; };
+		24F798F71B39425000F7E4A5 /* _Place.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DD1B39425000F7E4A5 /* _Place.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F798F81B39425000F7E4A5 /* _Place.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DD1B39425000F7E4A5 /* _Place.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F798F91B39425000F7E4A5 /* _Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798DE1B39425000F7E4A5 /* _Place.m */; };
+		24F798FA1B39425000F7E4A5 /* _Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798DE1B39425000F7E4A5 /* _Place.m */; };
+		24F798FB1B39425000F7E4A5 /* _Tweet.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DF1B39425000F7E4A5 /* _Tweet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F798FC1B39425000F7E4A5 /* _Tweet.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DF1B39425000F7E4A5 /* _Tweet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F798FD1B39425000F7E4A5 /* _Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E01B39425000F7E4A5 /* _Tweet.m */; };
+		24F798FE1B39425000F7E4A5 /* _Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E01B39425000F7E4A5 /* _Tweet.m */; };
+		24F798FF1B39425000F7E4A5 /* _User.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E11B39425000F7E4A5 /* _User.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F799001B39425000F7E4A5 /* _User.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E11B39425000F7E4A5 /* _User.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F799011B39425000F7E4A5 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E21B39425000F7E4A5 /* _User.m */; };
+		24F799021B39425000F7E4A5 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E21B39425000F7E4A5 /* _User.m */; };
+		24F799031B39425000F7E4A5 /* Hashtag.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E31B39425000F7E4A5 /* Hashtag.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F799041B39425000F7E4A5 /* Hashtag.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E31B39425000F7E4A5 /* Hashtag.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F799051B39425000F7E4A5 /* Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E41B39425000F7E4A5 /* Hashtag.m */; };
+		24F799061B39425000F7E4A5 /* Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E41B39425000F7E4A5 /* Hashtag.m */; };
+		24F799071B39425000F7E4A5 /* Place.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E51B39425000F7E4A5 /* Place.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F799081B39425000F7E4A5 /* Place.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E51B39425000F7E4A5 /* Place.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F799091B39425000F7E4A5 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E61B39425000F7E4A5 /* Place.m */; };
+		24F7990A1B39425000F7E4A5 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E61B39425000F7E4A5 /* Place.m */; };
+		24F7990B1B39425000F7E4A5 /* Tweet.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E71B39425000F7E4A5 /* Tweet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F7990C1B39425000F7E4A5 /* Tweet.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E71B39425000F7E4A5 /* Tweet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F7990D1B39425000F7E4A5 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E81B39425000F7E4A5 /* Tweet.m */; };
+		24F7990E1B39425000F7E4A5 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E81B39425000F7E4A5 /* Tweet.m */; };
+		24F7990F1B39425000F7E4A5 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E91B39425000F7E4A5 /* User.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F799101B39425000F7E4A5 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E91B39425000F7E4A5 /* User.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F799111B39425000F7E4A5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798EA1B39425000F7E4A5 /* User.m */; };
+		24F799121B39425000F7E4A5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798EA1B39425000F7E4A5 /* User.m */; };
+		24F799131B39425000F7E4A5 /* Tweets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798EB1B39425000F7E4A5 /* Tweets.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F799141B39425000F7E4A5 /* Tweets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798EB1B39425000F7E4A5 /* Tweets.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F799151B39425000F7E4A5 /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F798EC1B39425000F7E4A5 /* Tweets.swift */; };
+		24F799161B39425000F7E4A5 /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F798EC1B39425000F7E4A5 /* Tweets.swift */; };
+		24F799171B39425000F7E4A5 /* Twitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F798ED1B39425000F7E4A5 /* Twitter.xcdatamodeld */; };
+		24F799181B39425000F7E4A5 /* Twitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F798ED1B39425000F7E4A5 /* Twitter.xcdatamodeld */; };
+		24F799361B39457000F7E4A5 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991E1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.m */; };
+		24F799371B39457000F7E4A5 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991E1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.m */; };
+		24F799381B39457000F7E4A5 /* DeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */; };
+		24F799391B39457000F7E4A5 /* DeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */; };
+		24F7993E1B39457000F7E4A5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F799251B39456F00F7E4A5 /* Event.m */; };
+		24F7993F1B39457000F7E4A5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F799251B39456F00F7E4A5 /* Event.m */; };
+		24F799401B39457000F7E4A5 /* _Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F799281B39456F00F7E4A5 /* _Event.m */; };
+		24F799411B39457000F7E4A5 /* _Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F799281B39456F00F7E4A5 /* _Event.m */; };
+		24F799421B39457000F7E4A5 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992A1B39456F00F7E4A5 /* _Person.m */; };
+		24F799431B39457000F7E4A5 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992A1B39456F00F7E4A5 /* _Person.m */; };
+		24F799441B39457000F7E4A5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992C1B39456F00F7E4A5 /* Person.m */; };
+		24F799451B39457000F7E4A5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992C1B39456F00F7E4A5 /* Person.m */; };
+		24F799461B39457000F7E4A5 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */; };
+		24F799471B39457000F7E4A5 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */; };
+		24F799481B39457000F7E4A5 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992E1B39456F00F7E4A5 /* Person.xcdatamodeld */; };
+		24F799491B39457000F7E4A5 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992E1B39456F00F7E4A5 /* Person.xcdatamodeld */; };
+		24F7994A1B39457000F7E4A5 /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */; };
+		24F7994B1B39457000F7E4A5 /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */; };
+		24F799501B39457000F7E4A5 /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799331B39457000F7E4A5 /* URLTransformer.swift */; };
+		24F799511B39457000F7E4A5 /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799331B39457000F7E4A5 /* URLTransformer.swift */; };
+		24F799551B39459B00F7E4A5 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799521B39459B00F7E4A5 /* Deserializer.swift */; };
+		24F799561B39459B00F7E4A5 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799521B39459B00F7E4A5 /* Deserializer.swift */; };
+		24F799571B39459B00F7E4A5 /* SerializationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799531B39459B00F7E4A5 /* SerializationInfo.swift */; };
+		24F799581B39459B00F7E4A5 /* SerializationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799531B39459B00F7E4A5 /* SerializationInfo.swift */; };
+		24F799591B39459B00F7E4A5 /* ValueProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799541B39459B00F7E4A5 /* ValueProperty.swift */; };
+		24F7995A1B39459B00F7E4A5 /* ValueProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799541B39459B00F7E4A5 /* ValueProperty.swift */; };
+		24F7995C1B3945D200F7E4A5 /* Tweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 24F7995B1B3945D200F7E4A5 /* Tweets.json */; };
+		24F7995D1B3945D200F7E4A5 /* Tweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 24F7995B1B3945D200F7E4A5 /* Tweets.json */; };
+		24F7995E1B3945E700F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; };
+		24F7995F1B3945EF00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F7983F1B393FFE00F7E4A5 /* DCTManagedObjectSerialization.framework */; };
+		24F799601B39460700F7E4A5 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; };
+		24F799611B39460B00F7E4A5 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798BF1B39423300F7E4A5 /* Tweets.framework */; };
+		24F799661B394C7F00F7E4A5 /* DCTManagedObjectSerialization_Tests.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F799641B394C2C00F7E4A5 /* DCTManagedObjectSerialization_Tests.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F799681B394E7B00F7E4A5 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; };
+		24F799691B394E7B00F7E4A5 /* Tweets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24F799711B39532D00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; };
+		24F799721B39532D00F7E4A5 /* DCTManagedObjectSerialization.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		24F798701B3941AF00F7E4A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F797FE1B393D1300F7E4A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24F7983E1B393FFE00F7E4A5;
+			remoteInfo = "DCTManagedObjectSerialization OS X";
+		};
+		24F7996A1B394E7B00F7E4A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F797FE1B393D1300F7E4A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24F798A21B39421A00F7E4A5;
+			remoteInfo = "Tweets iOS";
+		};
+		24F7996D1B39503E00F7E4A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F797FE1B393D1300F7E4A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24F798061B393D1300F7E4A5;
+			remoteInfo = "DCTManagedObjectSerialization iOS";
+		};
+		24F7996F1B39503E00F7E4A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F797FE1B393D1300F7E4A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24F798A21B39421A00F7E4A5;
+			remoteInfo = "Tweets iOS";
+		};
+		24F799731B39532D00F7E4A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F797FE1B393D1300F7E4A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24F798061B393D1300F7E4A5;
+			remoteInfo = "DCTManagedObjectSerialization iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		24F7996C1B394E7B00F7E4A5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				24F799721B39532D00F7E4A5 /* DCTManagedObjectSerialization.framework in Embed Frameworks */,
+				24F799691B394E7B00F7E4A5 /* Tweets.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		24217C76164EC51500B7DE98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		24217C78164EC55600B7DE98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		24217C7A164EC56300B7DE98 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+DCTManagedObjectSerialization.h"; sourceTree = "<group>"; };
-		24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+DCTManagedObjectSerialization.m"; sourceTree = "<group>"; };
-		24217CBC164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+_DCTManagedObjectSerialization.h"; sourceTree = "<group>"; };
-		24217CBD164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributeDescription+_DCTManagedObjectSerialization.m"; sourceTree = "<group>"; };
-		24217CBF164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRelationshipDescription+_DCTManagedObjectSerialization.h"; sourceTree = "<group>"; };
-		24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRelationshipDescription+_DCTManagedObjectSerialization.m"; sourceTree = "<group>"; };
-		24217CC2164EE68F00B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPropertyDescription+_DCTManagedObjectSerialization.h"; sourceTree = "<group>"; };
-		24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPropertyDescription+_DCTManagedObjectSerialization.m"; sourceTree = "<group>"; };
-		2426195319669EDD008B8862 /* DCTManagedObjectSerialization Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DCTManagedObjectSerialization Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2426195419669EDD008B8862 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		2426195A19669EDD008B8862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2426195E19669EDD008B8862 /* DCTManagedObjectSerializationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectSerializationTests.m; sourceTree = "<group>"; };
-		2426196719669F46008B8862 /* Twitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Twitter.xcdatamodel; sourceTree = "<group>"; };
-		2426196C19669F46008B8862 /* _Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Person.h; sourceTree = "<group>"; };
-		2426196D19669F46008B8862 /* _Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Person.m; sourceTree = "<group>"; };
-		2426196E19669F46008B8862 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		2426196F19669F46008B8862 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		2440C73C1B380FA100370299 /* Person.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person.xcdatamodel; sourceTree = "<group>"; };
-		2440C73E1B38101E00370299 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		2440C73F1B38101E00370299 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		2440C7411B38102400370299 /* _Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Event.h; sourceTree = "<group>"; };
-		2440C7421B38102400370299 /* _Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Event.m; sourceTree = "<group>"; };
-		244DE84E19A91F0C00A91DC7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		244DE84F19A91F0C00A91DC7 /* iOS Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Application.xcconfig"; sourceTree = "<group>"; };
-		244DE85019A91F0C00A91DC7 /* iOS Bundle.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Bundle.xcconfig"; sourceTree = "<group>"; };
-		244DE85119A91F0C00A91DC7 /* iOS Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Framework.xcconfig"; sourceTree = "<group>"; };
-		244DE85219A91F0C00A91DC7 /* iOS Static Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Static Library.xcconfig"; sourceTree = "<group>"; };
-		244DE85319A91F0C00A91DC7 /* iOS Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Tests.xcconfig"; sourceTree = "<group>"; };
-		244DE85419A91F0C00A91DC7 /* OS X Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "OS X Framework.xcconfig"; sourceTree = "<group>"; };
-		244DE85519A91F0C00A91DC7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		244DE85619A91F0C00A91DC7 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
-		244DE85C19A91FEE00A91DC7 /* DCTManagedObjectSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCTManagedObjectSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		244DE88419A920D700A91DC7 /* DCTManagedObjectSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCTManagedObjectSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		245CD698164EA29300600BFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization.h; sourceTree = "<group>"; };
-		24732CC91B3420B300A44C4D /* Tweets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tweets.json; sourceTree = "<group>"; };
-		24732CCC1B34314700A44C4D /* URLTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTransformer.swift; sourceTree = "<group>"; };
-		247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectDeserializer.h; sourceTree = "<group>"; };
-		247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectDeserializer.m; sourceTree = "<group>"; };
-		247F87121B3588B70000A619 /* DCTManagedObjectSerialization-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DCTManagedObjectSerialization-Swift.h"; sourceTree = "<group>"; };
-		247F87151B358A4E0000A619 /* DeserializerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeserializerTests.swift; sourceTree = "<group>"; };
-		2492B59E1650F470004BB997 /* _DCTManagedObjectSerializationProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DCTManagedObjectSerializationProperties.h; sourceTree = "<group>"; };
-		2492B59F1650F470004BB997 /* _DCTManagedObjectSerializationProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DCTManagedObjectSerializationProperties.m; sourceTree = "<group>"; };
-		24A93E3D1B34359B00428619 /* DCTTestNumberToStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTestNumberToStringValueTransformer.h; sourceTree = "<group>"; };
-		24A93E3E1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTestNumberToStringValueTransformer.m; sourceTree = "<group>"; };
-		24A93E401B3436D600428619 /* PerformanceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTest.swift; sourceTree = "<group>"; };
-		24A93E421B34469F00428619 /* _Hashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Hashtag.h; sourceTree = "<group>"; };
-		24A93E431B34469F00428619 /* _Hashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Hashtag.m; sourceTree = "<group>"; };
-		24A93E441B34469F00428619 /* _Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Place.h; sourceTree = "<group>"; };
-		24A93E451B34469F00428619 /* _Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Place.m; sourceTree = "<group>"; };
-		24A93E461B34469F00428619 /* _Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Tweet.h; sourceTree = "<group>"; };
-		24A93E471B34469F00428619 /* _Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Tweet.m; sourceTree = "<group>"; };
-		24A93E481B34469F00428619 /* _User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _User.h; sourceTree = "<group>"; };
-		24A93E491B34469F00428619 /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
-		24A93E4E1B3446AA00428619 /* Hashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hashtag.h; sourceTree = "<group>"; };
-		24A93E4F1B3446AA00428619 /* Hashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hashtag.m; sourceTree = "<group>"; };
-		24A93E501B3446AA00428619 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
-		24A93E511B3446AA00428619 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
-		24A93E521B3446AA00428619 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
-		24A93E531B3446AA00428619 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
-		24A93E541B3446AA00428619 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		24A93E551B3446AA00428619 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		24A93E5A1B34481B00428619 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
-		24A93E5B1B344F2000428619 /* SerializationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfo.swift; sourceTree = "<group>"; };
-		24A93E5F1B34504800428619 /* ValueProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueProperty.swift; sourceTree = "<group>"; };
-		24A93E651B346BDE00428619 /* Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializer.swift; sourceTree = "<group>"; };
-		24A93E671B34981D00428619 /* SerializationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfoTests.swift; sourceTree = "<group>"; };
+		24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCTManagedObjectSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization.h; sourceTree = "<group>"; };
+		24F7980C1B393D1300F7E4A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24F798221B393E2C00F7E4A5 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		24F798231B393E2C00F7E4A5 /* iOS Application.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "iOS Application.xcconfig"; sourceTree = "<group>"; };
+		24F798241B393E2C00F7E4A5 /* iOS Bundle.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "iOS Bundle.xcconfig"; sourceTree = "<group>"; };
+		24F798251B393E2C00F7E4A5 /* iOS Framework.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "iOS Framework.xcconfig"; sourceTree = "<group>"; };
+		24F798261B393E2C00F7E4A5 /* iOS Static Library.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "iOS Static Library.xcconfig"; sourceTree = "<group>"; };
+		24F798271B393E2C00F7E4A5 /* iOS Tests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "iOS Tests.xcconfig"; sourceTree = "<group>"; };
+		24F798281B393E2C00F7E4A5 /* OS X Application.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "OS X Application.xcconfig"; sourceTree = "<group>"; };
+		24F798291B393E2C00F7E4A5 /* OS X Framework.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "OS X Framework.xcconfig"; sourceTree = "<group>"; };
+		24F7982A1B393E2C00F7E4A5 /* OS X Tests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "OS X Tests.xcconfig"; sourceTree = "<group>"; };
+		24F7982B1B393E2C00F7E4A5 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		24F7982C1B393E2C00F7E4A5 /* Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
+		24F7982D1B393E2C00F7E4A5 /* update.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = update.sh; sourceTree = "<group>"; };
+		24F7983F1B393FFE00F7E4A5 /* DCTManagedObjectSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCTManagedObjectSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F7985B1B39415600F7E4A5 /* DCTManagedObjectSerialization Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DCTManagedObjectSerialization Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F7986A1B3941AF00F7E4A5 /* DCTManagedObjectSerialization Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DCTManagedObjectSerialization Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F798791B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DCTManagedObjectSerialization iOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F7987B1B3941E900F7E4A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		24F7987D1B3941E900F7E4A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		24F798801B3941E900F7E4A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		24F798821B3941E900F7E4A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		24F798851B3941E900F7E4A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		24F798871B3941E900F7E4A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24F7988F1B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DCTManagedObjectSerialization OS X App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F798911B3941FE00F7E4A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		24F798931B3941FE00F7E4A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		24F798951B3941FE00F7E4A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		24F798981B3941FE00F7E4A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		24F7989A1B3941FE00F7E4A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24F798A31B39421A00F7E4A5 /* Tweets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tweets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F798BF1B39423300F7E4A5 /* Tweets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tweets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F798D81B39425000F7E4A5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24F798DB1B39425000F7E4A5 /* _Hashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Hashtag.h; sourceTree = "<group>"; };
+		24F798DC1B39425000F7E4A5 /* _Hashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Hashtag.m; sourceTree = "<group>"; };
+		24F798DD1B39425000F7E4A5 /* _Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Place.h; sourceTree = "<group>"; };
+		24F798DE1B39425000F7E4A5 /* _Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Place.m; sourceTree = "<group>"; };
+		24F798DF1B39425000F7E4A5 /* _Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Tweet.h; sourceTree = "<group>"; };
+		24F798E01B39425000F7E4A5 /* _Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Tweet.m; sourceTree = "<group>"; };
+		24F798E11B39425000F7E4A5 /* _User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _User.h; sourceTree = "<group>"; };
+		24F798E21B39425000F7E4A5 /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
+		24F798E31B39425000F7E4A5 /* Hashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hashtag.h; sourceTree = "<group>"; };
+		24F798E41B39425000F7E4A5 /* Hashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hashtag.m; sourceTree = "<group>"; };
+		24F798E51B39425000F7E4A5 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		24F798E61B39425000F7E4A5 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		24F798E71B39425000F7E4A5 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		24F798E81B39425000F7E4A5 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		24F798E91B39425000F7E4A5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		24F798EA1B39425000F7E4A5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		24F798EB1B39425000F7E4A5 /* Tweets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweets.h; sourceTree = "<group>"; };
+		24F798EC1B39425000F7E4A5 /* Tweets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweets.swift; sourceTree = "<group>"; };
+		24F798EE1B39425000F7E4A5 /* Twitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Twitter.xcdatamodel; sourceTree = "<group>"; };
+		24F7991A1B39456F00F7E4A5 /* Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
+		24F7991D1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTestNumberToStringValueTransformer.h; sourceTree = "<group>"; };
+		24F7991E1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTestNumberToStringValueTransformer.m; sourceTree = "<group>"; };
+		24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeserializerTests.swift; sourceTree = "<group>"; };
+		24F799221B39456F00F7E4A5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24F799241B39456F00F7E4A5 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		24F799251B39456F00F7E4A5 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		24F799271B39456F00F7E4A5 /* _Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Event.h; sourceTree = "<group>"; };
+		24F799281B39456F00F7E4A5 /* _Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Event.m; sourceTree = "<group>"; };
+		24F799291B39456F00F7E4A5 /* _Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Person.h; sourceTree = "<group>"; };
+		24F7992A1B39456F00F7E4A5 /* _Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Person.m; sourceTree = "<group>"; };
+		24F7992B1B39456F00F7E4A5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		24F7992C1B39456F00F7E4A5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTest.swift; sourceTree = "<group>"; };
+		24F7992F1B39456F00F7E4A5 /* Person.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person.xcdatamodel; sourceTree = "<group>"; };
+		24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfoTests.swift; sourceTree = "<group>"; };
+		24F799331B39457000F7E4A5 /* URLTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTransformer.swift; sourceTree = "<group>"; };
+		24F799521B39459B00F7E4A5 /* Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializer.swift; sourceTree = "<group>"; };
+		24F799531B39459B00F7E4A5 /* SerializationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfo.swift; sourceTree = "<group>"; };
+		24F799541B39459B00F7E4A5 /* ValueProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueProperty.swift; sourceTree = "<group>"; };
+		24F7995B1B3945D200F7E4A5 /* Tweets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tweets.json; sourceTree = "<group>"; };
+		24F799641B394C2C00F7E4A5 /* DCTManagedObjectSerialization_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization_Tests.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2426195019669EDD008B8862 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2426195619669EDD008B8862 /* Foundation.framework in Frameworks */,
-				2426195719669EDD008B8862 /* UIKit.framework in Frameworks */,
-				2426195519669EDD008B8862 /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		244DE85819A91FEE00A91DC7 /* Frameworks */ = {
+		24F798031B393D1300F7E4A5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		244DE88019A920D700A91DC7 /* Frameworks */ = {
+		24F7983B1B393FFE00F7E4A5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798581B39415600F7E4A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F799601B39460700F7E4A5 /* Tweets.framework in Frameworks */,
+				24F798601B39415600F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798671B3941AF00F7E4A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F799611B39460B00F7E4A5 /* Tweets.framework in Frameworks */,
+				24F7986F1B3941AF00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798761B3941E900F7E4A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F799711B39532D00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */,
+				24F799681B394E7B00F7E4A5 /* Tweets.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F7988C1B3941FE00F7E4A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F7989F1B39421A00F7E4A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F7995E1B3945E700F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798BB1B39423300F7E4A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F7995F1B3945EF00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2426195819669EDD008B8862 /* DCTManagedObjectSerialization Tests */ = {
+		24F797FD1B393D1300F7E4A5 = {
 			isa = PBXGroup;
 			children = (
-				2426196A19669F46008B8862 /* Model */,
-				24A93E5A1B34481B00428619 /* Bridging.h */,
-				2426195E19669EDD008B8862 /* DCTManagedObjectSerializationTests.m */,
-				24A93E3D1B34359B00428619 /* DCTTestNumberToStringValueTransformer.h */,
-				24A93E3E1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m */,
-				247F87151B358A4E0000A619 /* DeserializerTests.swift */,
-				2426195A19669EDD008B8862 /* Info.plist */,
-				24A93E401B3436D600428619 /* PerformanceTest.swift */,
-				2440C73B1B380FA100370299 /* Person.xcdatamodeld */,
-				24A93E671B34981D00428619 /* SerializationInfoTests.swift */,
-				24732CC91B3420B300A44C4D /* Tweets.json */,
-				2426196619669F46008B8862 /* Twitter.xcdatamodeld */,
-				24732CCC1B34314700A44C4D /* URLTransformer.swift */,
-			);
-			path = "DCTManagedObjectSerialization Tests";
-			sourceTree = "<group>";
-		};
-		2426196A19669F46008B8862 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				2426196B19669F46008B8862 /* Generated */,
-				2440C73E1B38101E00370299 /* Event.h */,
-				2440C73F1B38101E00370299 /* Event.m */,
-				24A93E4E1B3446AA00428619 /* Hashtag.h */,
-				24A93E4F1B3446AA00428619 /* Hashtag.m */,
-				2426196E19669F46008B8862 /* Person.h */,
-				2426196F19669F46008B8862 /* Person.m */,
-				24A93E501B3446AA00428619 /* Place.h */,
-				24A93E511B3446AA00428619 /* Place.m */,
-				24A93E521B3446AA00428619 /* Tweet.h */,
-				24A93E531B3446AA00428619 /* Tweet.m */,
-				24A93E541B3446AA00428619 /* User.h */,
-				24A93E551B3446AA00428619 /* User.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2426196B19669F46008B8862 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				2440C7411B38102400370299 /* _Event.h */,
-				2440C7421B38102400370299 /* _Event.m */,
-				24A93E421B34469F00428619 /* _Hashtag.h */,
-				24A93E431B34469F00428619 /* _Hashtag.m */,
-				2426196C19669F46008B8862 /* _Person.h */,
-				2426196D19669F46008B8862 /* _Person.m */,
-				24A93E441B34469F00428619 /* _Place.h */,
-				24A93E451B34469F00428619 /* _Place.m */,
-				24A93E461B34469F00428619 /* _Tweet.h */,
-				24A93E471B34469F00428619 /* _Tweet.m */,
-				24A93E481B34469F00428619 /* _User.h */,
-				24A93E491B34469F00428619 /* _User.m */,
-			);
-			path = Generated;
-			sourceTree = "<group>";
-		};
-		244DE84D19A91F0C00A91DC7 /* Configurations */ = {
-			isa = PBXGroup;
-			children = (
-				244DE84E19A91F0C00A91DC7 /* Debug.xcconfig */,
-				244DE84F19A91F0C00A91DC7 /* iOS Application.xcconfig */,
-				244DE85019A91F0C00A91DC7 /* iOS Bundle.xcconfig */,
-				244DE85119A91F0C00A91DC7 /* iOS Framework.xcconfig */,
-				244DE85219A91F0C00A91DC7 /* iOS Static Library.xcconfig */,
-				244DE85319A91F0C00A91DC7 /* iOS Tests.xcconfig */,
-				244DE85419A91F0C00A91DC7 /* OS X Framework.xcconfig */,
-				244DE85519A91F0C00A91DC7 /* Release.xcconfig */,
-				244DE85619A91F0C00A91DC7 /* Shared.xcconfig */,
-			);
-			path = Configurations;
-			sourceTree = "<group>";
-		};
-		245CD68A164EA29300600BFF = {
-			isa = PBXGroup;
-			children = (
-				244DE84D19A91F0C00A91DC7 /* Configurations */,
-				245CD6AA164EA2BF00600BFF /* DCTManagedObjectSerialization */,
-				2426195819669EDD008B8862 /* DCTManagedObjectSerialization Tests */,
-				245CD697164EA29300600BFF /* Frameworks */,
-				245CD696164EA29300600BFF /* Products */,
+				24F798211B393E2C00F7E4A5 /* Configurations */,
+				24F798091B393D1300F7E4A5 /* DCTManagedObjectSerialization */,
+				24F799191B39456F00F7E4A5 /* DCTManagedObjectSerialization Tests */,
+				24F7987A1B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App */,
+				24F798901B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App */,
+				24F798D61B39425000F7E4A5 /* Tweets */,
+				24F798081B393D1300F7E4A5 /* Products */,
 			);
 			sourceTree = "<group>";
-			usesTabs = 1;
 		};
-		245CD696164EA29300600BFF /* Products */ = {
+		24F798081B393D1300F7E4A5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2426195319669EDD008B8862 /* DCTManagedObjectSerialization Tests.xctest */,
-				244DE85C19A91FEE00A91DC7 /* DCTManagedObjectSerialization.framework */,
-				244DE88419A920D700A91DC7 /* DCTManagedObjectSerialization.framework */,
+				24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */,
+				24F7983F1B393FFE00F7E4A5 /* DCTManagedObjectSerialization.framework */,
+				24F7985B1B39415600F7E4A5 /* DCTManagedObjectSerialization Tests.xctest */,
+				24F7986A1B3941AF00F7E4A5 /* DCTManagedObjectSerialization Tests.xctest */,
+				24F798791B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App.app */,
+				24F7988F1B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App.app */,
+				24F798A31B39421A00F7E4A5 /* Tweets.framework */,
+				24F798BF1B39423300F7E4A5 /* Tweets.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		245CD697164EA29300600BFF /* Frameworks */ = {
+		24F798091B393D1300F7E4A5 /* DCTManagedObjectSerialization */ = {
 			isa = PBXGroup;
 			children = (
-				24217C76164EC51500B7DE98 /* CoreData.framework */,
-				245CD698164EA29300600BFF /* Foundation.framework */,
-				24217C7A164EC56300B7DE98 /* SenTestingKit.framework */,
-				24217C78164EC55600B7DE98 /* UIKit.framework */,
-				2426195419669EDD008B8862 /* XCTest.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		245CD6AA164EA2BF00600BFF /* DCTManagedObjectSerialization */ = {
-			isa = PBXGroup;
-			children = (
-				24A23533164EA4F600BD92ED /* Private */,
-				247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */,
-				247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */,
-				247F87121B3588B70000A619 /* DCTManagedObjectSerialization-Swift.h */,
-				245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */,
-				24A93E651B346BDE00428619 /* Deserializer.swift */,
-				24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */,
-				24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */,
-				24A93E5F1B34504800428619 /* ValueProperty.swift */,
-				24A93E5B1B344F2000428619 /* SerializationInfo.swift */,
+				24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */,
+				24F799521B39459B00F7E4A5 /* Deserializer.swift */,
+				24F799531B39459B00F7E4A5 /* SerializationInfo.swift */,
+				24F799541B39459B00F7E4A5 /* ValueProperty.swift */,
+				24F7980C1B393D1300F7E4A5 /* Info.plist */,
 			);
 			path = DCTManagedObjectSerialization;
 			sourceTree = "<group>";
 		};
-		24A23533164EA4F600BD92ED /* Private */ = {
+		24F798211B393E2C00F7E4A5 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				2492B59E1650F470004BB997 /* _DCTManagedObjectSerializationProperties.h */,
-				2492B59F1650F470004BB997 /* _DCTManagedObjectSerializationProperties.m */,
-				24217CBC164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.h */,
-				24217CBD164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m */,
-				24217CC2164EE68F00B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.h */,
-				24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */,
-				24217CBF164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h */,
-				24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */,
+				24F798221B393E2C00F7E4A5 /* Debug.xcconfig */,
+				24F798231B393E2C00F7E4A5 /* iOS Application.xcconfig */,
+				24F798241B393E2C00F7E4A5 /* iOS Bundle.xcconfig */,
+				24F798251B393E2C00F7E4A5 /* iOS Framework.xcconfig */,
+				24F798261B393E2C00F7E4A5 /* iOS Static Library.xcconfig */,
+				24F798271B393E2C00F7E4A5 /* iOS Tests.xcconfig */,
+				24F798281B393E2C00F7E4A5 /* OS X Application.xcconfig */,
+				24F798291B393E2C00F7E4A5 /* OS X Framework.xcconfig */,
+				24F7982A1B393E2C00F7E4A5 /* OS X Tests.xcconfig */,
+				24F7982B1B393E2C00F7E4A5 /* Release.xcconfig */,
+				24F7982C1B393E2C00F7E4A5 /* Shared.xcconfig */,
+				24F7982D1B393E2C00F7E4A5 /* update.sh */,
 			);
-			name = Private;
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		24F7987A1B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App */ = {
+			isa = PBXGroup;
+			children = (
+				24F7987B1B3941E900F7E4A5 /* AppDelegate.swift */,
+				24F7987D1B3941E900F7E4A5 /* ViewController.swift */,
+				24F7987F1B3941E900F7E4A5 /* Main.storyboard */,
+				24F798821B3941E900F7E4A5 /* Assets.xcassets */,
+				24F798841B3941E900F7E4A5 /* LaunchScreen.storyboard */,
+				24F798871B3941E900F7E4A5 /* Info.plist */,
+			);
+			path = "DCTManagedObjectSerialization iOS App";
+			sourceTree = "<group>";
+		};
+		24F798901B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App */ = {
+			isa = PBXGroup;
+			children = (
+				24F798911B3941FE00F7E4A5 /* AppDelegate.swift */,
+				24F798931B3941FE00F7E4A5 /* ViewController.swift */,
+				24F798951B3941FE00F7E4A5 /* Assets.xcassets */,
+				24F798971B3941FE00F7E4A5 /* Main.storyboard */,
+				24F7989A1B3941FE00F7E4A5 /* Info.plist */,
+			);
+			path = "DCTManagedObjectSerialization OS X App";
+			sourceTree = "<group>";
+		};
+		24F798D61B39425000F7E4A5 /* Tweets */ = {
+			isa = PBXGroup;
+			children = (
+				24F798D81B39425000F7E4A5 /* Info.plist */,
+				24F798D91B39425000F7E4A5 /* Model */,
+				24F798EB1B39425000F7E4A5 /* Tweets.h */,
+				24F798EC1B39425000F7E4A5 /* Tweets.swift */,
+				24F7995B1B3945D200F7E4A5 /* Tweets.json */,
+				24F798ED1B39425000F7E4A5 /* Twitter.xcdatamodeld */,
+			);
+			path = Tweets;
+			sourceTree = "<group>";
+		};
+		24F798D91B39425000F7E4A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24F798DA1B39425000F7E4A5 /* Generated */,
+				24F798E31B39425000F7E4A5 /* Hashtag.h */,
+				24F798E41B39425000F7E4A5 /* Hashtag.m */,
+				24F798E51B39425000F7E4A5 /* Place.h */,
+				24F798E61B39425000F7E4A5 /* Place.m */,
+				24F798E71B39425000F7E4A5 /* Tweet.h */,
+				24F798E81B39425000F7E4A5 /* Tweet.m */,
+				24F798E91B39425000F7E4A5 /* User.h */,
+				24F798EA1B39425000F7E4A5 /* User.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24F798DA1B39425000F7E4A5 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				24F798DB1B39425000F7E4A5 /* _Hashtag.h */,
+				24F798DC1B39425000F7E4A5 /* _Hashtag.m */,
+				24F798DD1B39425000F7E4A5 /* _Place.h */,
+				24F798DE1B39425000F7E4A5 /* _Place.m */,
+				24F798DF1B39425000F7E4A5 /* _Tweet.h */,
+				24F798E01B39425000F7E4A5 /* _Tweet.m */,
+				24F798E11B39425000F7E4A5 /* _User.h */,
+				24F798E21B39425000F7E4A5 /* _User.m */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		24F799191B39456F00F7E4A5 /* DCTManagedObjectSerialization Tests */ = {
+			isa = PBXGroup;
+			children = (
+				24F7991A1B39456F00F7E4A5 /* Bridging.h */,
+				24F799641B394C2C00F7E4A5 /* DCTManagedObjectSerialization_Tests.h */,
+				24F7991D1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.h */,
+				24F7991E1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.m */,
+				24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */,
+				24F799221B39456F00F7E4A5 /* Info.plist */,
+				24F799231B39456F00F7E4A5 /* Model */,
+				24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */,
+				24F7992E1B39456F00F7E4A5 /* Person.xcdatamodeld */,
+				24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */,
+				24F799331B39457000F7E4A5 /* URLTransformer.swift */,
+			);
+			path = "DCTManagedObjectSerialization Tests";
+			sourceTree = "<group>";
+		};
+		24F799231B39456F00F7E4A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24F799241B39456F00F7E4A5 /* Event.h */,
+				24F799251B39456F00F7E4A5 /* Event.m */,
+				24F799261B39456F00F7E4A5 /* Generated */,
+				24F7992B1B39456F00F7E4A5 /* Person.h */,
+				24F7992C1B39456F00F7E4A5 /* Person.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24F799261B39456F00F7E4A5 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				24F799271B39456F00F7E4A5 /* _Event.h */,
+				24F799281B39456F00F7E4A5 /* _Event.m */,
+				24F799291B39456F00F7E4A5 /* _Person.h */,
+				24F7992A1B39456F00F7E4A5 /* _Person.m */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		244DE85919A91FEE00A91DC7 /* Headers */ = {
+		24F798041B393D1300F7E4A5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				244DE87519A9207E00A91DC7 /* _DCTManagedObjectSerializationProperties.h in Headers */,
-				244DE87219A9207100A91DC7 /* DCTManagedObjectDeserializer.h in Headers */,
-				24477F281B38643600909AC4 /* DCTManagedObjectSerialization-Swift.h in Headers */,
-				244DE87319A9207100A91DC7 /* DCTManagedObjectSerialization.h in Headers */,
-				244DE87619A9207E00A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.h in Headers */,
-				244DE87419A9207100A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.h in Headers */,
-				244DE87719A9207E00A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.h in Headers */,
-				244DE87819A9207E00A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h in Headers */,
+				24F7980B1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		244DE88119A920D700A91DC7 /* Headers */ = {
+		24F7983C1B393FFE00F7E4A5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				244DE89A19A9211F00A91DC7 /* _DCTManagedObjectSerializationProperties.h in Headers */,
-				244DE89E19A9211F00A91DC7 /* DCTManagedObjectDeserializer.h in Headers */,
-				244DE89F19A9211F00A91DC7 /* DCTManagedObjectSerialization.h in Headers */,
-				244DE89B19A9211F00A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.h in Headers */,
-				244DE8A019A9211F00A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.h in Headers */,
-				244DE89C19A9211F00A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.h in Headers */,
-				244DE89D19A9211F00A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h in Headers */,
+				24F798561B39402500F7E4A5 /* DCTManagedObjectSerialization.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798A01B39421A00F7E4A5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F799131B39425000F7E4A5 /* Tweets.h in Headers */,
+				24F798FF1B39425000F7E4A5 /* _User.h in Headers */,
+				24F7990F1B39425000F7E4A5 /* User.h in Headers */,
+				24F799071B39425000F7E4A5 /* Place.h in Headers */,
+				24F798F71B39425000F7E4A5 /* _Place.h in Headers */,
+				24F799031B39425000F7E4A5 /* Hashtag.h in Headers */,
+				24F798FB1B39425000F7E4A5 /* _Tweet.h in Headers */,
+				24F7990B1B39425000F7E4A5 /* Tweet.h in Headers */,
+				24F798F31B39425000F7E4A5 /* _Hashtag.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798BC1B39423300F7E4A5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F799141B39425000F7E4A5 /* Tweets.h in Headers */,
+				24F799001B39425000F7E4A5 /* _User.h in Headers */,
+				24F799101B39425000F7E4A5 /* User.h in Headers */,
+				24F799081B39425000F7E4A5 /* Place.h in Headers */,
+				24F798F81B39425000F7E4A5 /* _Place.h in Headers */,
+				24F799041B39425000F7E4A5 /* Hashtag.h in Headers */,
+				24F798FC1B39425000F7E4A5 /* _Tweet.h in Headers */,
+				24F7990C1B39425000F7E4A5 /* Tweet.h in Headers */,
+				24F798F41B39425000F7E4A5 /* _Hashtag.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F799651B394C7C00F7E4A5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F799661B394C7F00F7E4A5 /* DCTManagedObjectSerialization_Tests.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2426195219669EDD008B8862 /* DCTManagedObjectSerialization Tests */ = {
+		24F798061B393D1300F7E4A5 /* DCTManagedObjectSerialization iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2426196319669EDD008B8862 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization Tests" */;
+			buildConfigurationList = 24F7981B1B393D1300F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS" */;
 			buildPhases = (
-				2426194F19669EDD008B8862 /* Sources */,
-				2426195019669EDD008B8862 /* Frameworks */,
-				2426195119669EDD008B8862 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "DCTManagedObjectSerialization Tests";
-			productName = DCTManagedObjectSerializationTests;
-			productReference = 2426195319669EDD008B8862 /* DCTManagedObjectSerialization Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		244DE85B19A91FEE00A91DC7 /* DCTManagedObjectSerialization iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 244DE86C19A91FEF00A91DC7 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS" */;
-			buildPhases = (
-				244DE85719A91FEE00A91DC7 /* Sources */,
-				244DE85819A91FEE00A91DC7 /* Frameworks */,
-				244DE85919A91FEE00A91DC7 /* Headers */,
-				244DE85A19A91FEE00A91DC7 /* Resources */,
+				24F798021B393D1300F7E4A5 /* Sources */,
+				24F798031B393D1300F7E4A5 /* Frameworks */,
+				24F798041B393D1300F7E4A5 /* Headers */,
+				24F798051B393D1300F7E4A5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "DCTManagedObjectSerialization iOS";
-			productName = "DCTManagedObjectSerialization iOS";
-			productReference = 244DE85C19A91FEE00A91DC7 /* DCTManagedObjectSerialization.framework */;
+			productName = DCTManagedObjectSerialization;
+			productReference = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		244DE88319A920D700A91DC7 /* DCTManagedObjectSerialization OS X */ = {
+		24F7983E1B393FFE00F7E4A5 /* DCTManagedObjectSerialization OS X */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 244DE89419A920D700A91DC7 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X" */;
+			buildConfigurationList = 24F798501B393FFE00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X" */;
 			buildPhases = (
-				244DE87F19A920D700A91DC7 /* Sources */,
-				244DE88019A920D700A91DC7 /* Frameworks */,
-				244DE88119A920D700A91DC7 /* Headers */,
-				244DE88219A920D700A91DC7 /* Resources */,
+				24F7983A1B393FFE00F7E4A5 /* Sources */,
+				24F7983B1B393FFE00F7E4A5 /* Frameworks */,
+				24F7983C1B393FFE00F7E4A5 /* Headers */,
+				24F7983D1B393FFE00F7E4A5 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -390,184 +560,464 @@
 			);
 			name = "DCTManagedObjectSerialization OS X";
 			productName = "DCTManagedObjectSerialization OS X";
-			productReference = 244DE88419A920D700A91DC7 /* DCTManagedObjectSerialization.framework */;
+			productReference = 24F7983F1B393FFE00F7E4A5 /* DCTManagedObjectSerialization.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		24F7985A1B39415600F7E4A5 /* DCTManagedObjectSerialization iOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24F798631B39415600F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS Tests" */;
+			buildPhases = (
+				24F798571B39415600F7E4A5 /* Sources */,
+				24F798581B39415600F7E4A5 /* Frameworks */,
+				24F798591B39415600F7E4A5 /* Resources */,
+				24F799651B394C7C00F7E4A5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24F7996E1B39503E00F7E4A5 /* PBXTargetDependency */,
+				24F799701B39503E00F7E4A5 /* PBXTargetDependency */,
+			);
+			name = "DCTManagedObjectSerialization iOS Tests";
+			productName = "DCTManagedObjectSerialization iOS Tests";
+			productReference = 24F7985B1B39415600F7E4A5 /* DCTManagedObjectSerialization Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		24F798691B3941AF00F7E4A5 /* DCTManagedObjectSerialization OS X Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24F798721B3941AF00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X Tests" */;
+			buildPhases = (
+				24F798661B3941AF00F7E4A5 /* Sources */,
+				24F798671B3941AF00F7E4A5 /* Frameworks */,
+				24F798681B3941AF00F7E4A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24F798711B3941AF00F7E4A5 /* PBXTargetDependency */,
+			);
+			name = "DCTManagedObjectSerialization OS X Tests";
+			productName = "DCTManagedObjectSerialization OS X Tests";
+			productReference = 24F7986A1B3941AF00F7E4A5 /* DCTManagedObjectSerialization Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		24F798781B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24F798881B3941E900F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS App" */;
+			buildPhases = (
+				24F798751B3941E900F7E4A5 /* Sources */,
+				24F798761B3941E900F7E4A5 /* Frameworks */,
+				24F798771B3941E900F7E4A5 /* Resources */,
+				24F7996C1B394E7B00F7E4A5 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24F7996B1B394E7B00F7E4A5 /* PBXTargetDependency */,
+				24F799741B39532D00F7E4A5 /* PBXTargetDependency */,
+			);
+			name = "DCTManagedObjectSerialization iOS App";
+			productName = "DCTManagedObjectSerialization iOS App";
+			productReference = 24F798791B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		24F7988E1B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24F7989B1B3941FE00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X App" */;
+			buildPhases = (
+				24F7988B1B3941FE00F7E4A5 /* Sources */,
+				24F7988C1B3941FE00F7E4A5 /* Frameworks */,
+				24F7988D1B3941FE00F7E4A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DCTManagedObjectSerialization OS X App";
+			productName = "DCTManagedObjectSerialization OS X App";
+			productReference = 24F7988F1B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		24F798A21B39421A00F7E4A5 /* Tweets iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24F798B41B39421A00F7E4A5 /* Build configuration list for PBXNativeTarget "Tweets iOS" */;
+			buildPhases = (
+				24F7989E1B39421A00F7E4A5 /* Sources */,
+				24F7989F1B39421A00F7E4A5 /* Frameworks */,
+				24F798A01B39421A00F7E4A5 /* Headers */,
+				24F798A11B39421A00F7E4A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tweets iOS";
+			productName = "Tweets iOS";
+			productReference = 24F798A31B39421A00F7E4A5 /* Tweets.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		24F798BE1B39423300F7E4A5 /* Tweets OS X */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24F798D01B39423400F7E4A5 /* Build configuration list for PBXNativeTarget "Tweets OS X" */;
+			buildPhases = (
+				24F798BA1B39423300F7E4A5 /* Sources */,
+				24F798BB1B39423300F7E4A5 /* Frameworks */,
+				24F798BC1B39423300F7E4A5 /* Headers */,
+				24F798BD1B39423300F7E4A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tweets OS X";
+			productName = "Tweets OS X";
+			productReference = 24F798BF1B39423300F7E4A5 /* Tweets.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		245CD68C164EA29300600BFF /* Project object */ = {
+		24F797FE1B393D1300F7E4A5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Daniel Tull";
 				TargetAttributes = {
-					2426195219669EDD008B8862 = {
-						TestTargetID = 245CD694164EA29300600BFF;
+					24F798061B393D1300F7E4A5 = {
+						CreatedOnToolsVersion = 7.0;
 					};
-					244DE85B19A91FEE00A91DC7 = {
-						CreatedOnToolsVersion = 6.0;
+					24F7983E1B393FFE00F7E4A5 = {
+						CreatedOnToolsVersion = 7.0;
 					};
-					244DE88319A920D700A91DC7 = {
-						CreatedOnToolsVersion = 6.0;
+					24F7985A1B39415600F7E4A5 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					24F798691B3941AF00F7E4A5 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					24F798781B3941E900F7E4A5 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					24F7988E1B3941FE00F7E4A5 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					24F798A21B39421A00F7E4A5 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					24F798BE1B39423300F7E4A5 = {
+						CreatedOnToolsVersion = 7.0;
 					};
 				};
 			};
-			buildConfigurationList = 245CD68F164EA29300600BFF /* Build configuration list for PBXProject "DCTManagedObjectSerialization" */;
+			buildConfigurationList = 24F798011B393D1300F7E4A5 /* Build configuration list for PBXProject "DCTManagedObjectSerialization" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
-			mainGroup = 245CD68A164EA29300600BFF;
-			productRefGroup = 245CD696164EA29300600BFF /* Products */;
+			mainGroup = 24F797FD1B393D1300F7E4A5;
+			productRefGroup = 24F798081B393D1300F7E4A5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				244DE85B19A91FEE00A91DC7 /* DCTManagedObjectSerialization iOS */,
-				244DE88319A920D700A91DC7 /* DCTManagedObjectSerialization OS X */,
-				2426195219669EDD008B8862 /* DCTManagedObjectSerialization Tests */,
+				24F798061B393D1300F7E4A5 /* DCTManagedObjectSerialization iOS */,
+				24F7983E1B393FFE00F7E4A5 /* DCTManagedObjectSerialization OS X */,
+				24F7985A1B39415600F7E4A5 /* DCTManagedObjectSerialization iOS Tests */,
+				24F798691B3941AF00F7E4A5 /* DCTManagedObjectSerialization OS X Tests */,
+				24F798781B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App */,
+				24F7988E1B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App */,
+				24F798A21B39421A00F7E4A5 /* Tweets iOS */,
+				24F798BE1B39423300F7E4A5 /* Tweets OS X */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2426195119669EDD008B8862 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24732CCA1B3420B300A44C4D /* Tweets.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		244DE85A19A91FEE00A91DC7 /* Resources */ = {
+		24F798051B393D1300F7E4A5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		244DE88219A920D700A91DC7 /* Resources */ = {
+		24F7983D1B393FFE00F7E4A5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798591B39415600F7E4A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798681B3941AF00F7E4A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798771B3941E900F7E4A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F798861B3941E900F7E4A5 /* LaunchScreen.storyboard in Resources */,
+				24F798831B3941E900F7E4A5 /* Assets.xcassets in Resources */,
+				24F798811B3941E900F7E4A5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F7988D1B3941FE00F7E4A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F798961B3941FE00F7E4A5 /* Assets.xcassets in Resources */,
+				24F798991B3941FE00F7E4A5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798A11B39421A00F7E4A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F7995C1B3945D200F7E4A5 /* Tweets.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798BD1B39423300F7E4A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F7995D1B3945D200F7E4A5 /* Tweets.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2426194F19669EDD008B8862 /* Sources */ = {
+		24F798021B393D1300F7E4A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2440C7431B38102400370299 /* _Event.m in Sources */,
-				24A93E4A1B34469F00428619 /* _Hashtag.m in Sources */,
-				2426197219669F46008B8862 /* _Person.m in Sources */,
-				24A93E4B1B34469F00428619 /* _Place.m in Sources */,
-				24A93E4C1B34469F00428619 /* _Tweet.m in Sources */,
-				24A93E4D1B34469F00428619 /* _User.m in Sources */,
-				2426195F19669EDD008B8862 /* DCTManagedObjectSerializationTests.m in Sources */,
-				24A93E3F1B34359B00428619 /* DCTTestNumberToStringValueTransformer.m in Sources */,
-				24A93E661B346BDE00428619 /* Deserializer.swift in Sources */,
-				247F87161B358A4E0000A619 /* DeserializerTests.swift in Sources */,
-				2440C7401B38101E00370299 /* Event.m in Sources */,
-				24A93E561B3446AA00428619 /* Hashtag.m in Sources */,
-				24A93E601B34504800428619 /* ValueProperty.swift in Sources */,
-				24A93E411B3436D600428619 /* PerformanceTest.swift in Sources */,
-				2426197319669F46008B8862 /* Person.m in Sources */,
-				2440C73D1B380FA100370299 /* Person.xcdatamodeld in Sources */,
-				24A93E571B3446AA00428619 /* Place.m in Sources */,
-				24A93E5C1B344F2000428619 /* SerializationInfo.swift in Sources */,
-				24A93E681B34981D00428619 /* SerializationInfoTests.swift in Sources */,
-				24A93E581B3446AA00428619 /* Tweet.m in Sources */,
-				2426197019669F46008B8862 /* Twitter.xcdatamodeld in Sources */,
-				24732CCD1B34314700A44C4D /* URLTransformer.swift in Sources */,
-				24A93E591B3446AA00428619 /* User.m in Sources */,
+				24F799571B39459B00F7E4A5 /* SerializationInfo.swift in Sources */,
+				24F799591B39459B00F7E4A5 /* ValueProperty.swift in Sources */,
+				24F799551B39459B00F7E4A5 /* Deserializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		244DE85719A91FEE00A91DC7 /* Sources */ = {
+		24F7983A1B393FFE00F7E4A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				244DE87919A9208800A91DC7 /* _DCTManagedObjectSerializationProperties.m in Sources */,
-				244DE87D19A9208800A91DC7 /* DCTManagedObjectDeserializer.m in Sources */,
-				244DE87A19A9208800A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */,
-				244DE87E19A9208800A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
-				244DE87B19A9208800A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
-				244DE87C19A9208800A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
+				24F799581B39459B00F7E4A5 /* SerializationInfo.swift in Sources */,
+				24F7995A1B39459B00F7E4A5 /* ValueProperty.swift in Sources */,
+				24F799561B39459B00F7E4A5 /* Deserializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		244DE87F19A920D700A91DC7 /* Sources */ = {
+		24F798571B39415600F7E4A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				244DE8A119A9213400A91DC7 /* _DCTManagedObjectSerializationProperties.m in Sources */,
-				244DE8A519A9213400A91DC7 /* DCTManagedObjectDeserializer.m in Sources */,
-				244DE8A219A9213400A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */,
-				244DE8A619A9213400A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
-				244DE8A319A9213400A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
-				244DE8A419A9213400A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
+				24F7993E1B39457000F7E4A5 /* Event.m in Sources */,
+				24F799381B39457000F7E4A5 /* DeserializerTests.swift in Sources */,
+				24F7994A1B39457000F7E4A5 /* SerializationInfoTests.swift in Sources */,
+				24F799461B39457000F7E4A5 /* PerformanceTest.swift in Sources */,
+				24F799501B39457000F7E4A5 /* URLTransformer.swift in Sources */,
+				24F799441B39457000F7E4A5 /* Person.m in Sources */,
+				24F799481B39457000F7E4A5 /* Person.xcdatamodeld in Sources */,
+				24F799361B39457000F7E4A5 /* DCTTestNumberToStringValueTransformer.m in Sources */,
+				24F799401B39457000F7E4A5 /* _Event.m in Sources */,
+				24F799421B39457000F7E4A5 /* _Person.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798661B3941AF00F7E4A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F7993F1B39457000F7E4A5 /* Event.m in Sources */,
+				24F799391B39457000F7E4A5 /* DeserializerTests.swift in Sources */,
+				24F7994B1B39457000F7E4A5 /* SerializationInfoTests.swift in Sources */,
+				24F799471B39457000F7E4A5 /* PerformanceTest.swift in Sources */,
+				24F799511B39457000F7E4A5 /* URLTransformer.swift in Sources */,
+				24F799451B39457000F7E4A5 /* Person.m in Sources */,
+				24F799491B39457000F7E4A5 /* Person.xcdatamodeld in Sources */,
+				24F799371B39457000F7E4A5 /* DCTTestNumberToStringValueTransformer.m in Sources */,
+				24F799411B39457000F7E4A5 /* _Event.m in Sources */,
+				24F799431B39457000F7E4A5 /* _Person.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798751B3941E900F7E4A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F7987E1B3941E900F7E4A5 /* ViewController.swift in Sources */,
+				24F7987C1B3941E900F7E4A5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F7988B1B3941FE00F7E4A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F798941B3941FE00F7E4A5 /* ViewController.swift in Sources */,
+				24F798921B3941FE00F7E4A5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F7989E1B39421A00F7E4A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F799111B39425000F7E4A5 /* User.m in Sources */,
+				24F799051B39425000F7E4A5 /* Hashtag.m in Sources */,
+				24F799011B39425000F7E4A5 /* _User.m in Sources */,
+				24F798F51B39425000F7E4A5 /* _Hashtag.m in Sources */,
+				24F7990D1B39425000F7E4A5 /* Tweet.m in Sources */,
+				24F799171B39425000F7E4A5 /* Twitter.xcdatamodeld in Sources */,
+				24F799151B39425000F7E4A5 /* Tweets.swift in Sources */,
+				24F799091B39425000F7E4A5 /* Place.m in Sources */,
+				24F798FD1B39425000F7E4A5 /* _Tweet.m in Sources */,
+				24F798F91B39425000F7E4A5 /* _Place.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24F798BA1B39423300F7E4A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24F799121B39425000F7E4A5 /* User.m in Sources */,
+				24F799061B39425000F7E4A5 /* Hashtag.m in Sources */,
+				24F799021B39425000F7E4A5 /* _User.m in Sources */,
+				24F798F61B39425000F7E4A5 /* _Hashtag.m in Sources */,
+				24F7990E1B39425000F7E4A5 /* Tweet.m in Sources */,
+				24F799181B39425000F7E4A5 /* Twitter.xcdatamodeld in Sources */,
+				24F799161B39425000F7E4A5 /* Tweets.swift in Sources */,
+				24F7990A1B39425000F7E4A5 /* Place.m in Sources */,
+				24F798FE1B39425000F7E4A5 /* _Tweet.m in Sources */,
+				24F798FA1B39425000F7E4A5 /* _Place.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		24F798711B3941AF00F7E4A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24F7983E1B393FFE00F7E4A5 /* DCTManagedObjectSerialization OS X */;
+			targetProxy = 24F798701B3941AF00F7E4A5 /* PBXContainerItemProxy */;
+		};
+		24F7996B1B394E7B00F7E4A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24F798A21B39421A00F7E4A5 /* Tweets iOS */;
+			targetProxy = 24F7996A1B394E7B00F7E4A5 /* PBXContainerItemProxy */;
+		};
+		24F7996E1B39503E00F7E4A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24F798061B393D1300F7E4A5 /* DCTManagedObjectSerialization iOS */;
+			targetProxy = 24F7996D1B39503E00F7E4A5 /* PBXContainerItemProxy */;
+		};
+		24F799701B39503E00F7E4A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24F798A21B39421A00F7E4A5 /* Tweets iOS */;
+			targetProxy = 24F7996F1B39503E00F7E4A5 /* PBXContainerItemProxy */;
+		};
+		24F799741B39532D00F7E4A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24F798061B393D1300F7E4A5 /* DCTManagedObjectSerialization iOS */;
+			targetProxy = 24F799731B39532D00F7E4A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		24F7987F1B3941E900F7E4A5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24F798801B3941E900F7E4A5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		24F798841B3941E900F7E4A5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24F798851B3941E900F7E4A5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		24F798971B3941FE00F7E4A5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24F798981B3941FE00F7E4A5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		2426196419669EDD008B8862 /* Debug */ = {
+		24F798191B393D1300F7E4A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 244DE85319A91F0C00A91DC7 /* iOS Tests.xcconfig */;
+			baseConfigurationReference = 24F798221B393E2C00F7E4A5 /* Debug.xcconfig */;
 			buildSettings = {
-				SWIFT_OBJC_BRIDGING_HEADER = "DCTManagedObjectSerialization Tests/Bridging.h";
+				CURRENT_PROJECT_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.danieltull.${PRODUCT_NAME:rfc1034identifier}";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
-		2426196519669EDD008B8862 /* Release */ = {
+		24F7981A1B393D1300F7E4A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 244DE85319A91F0C00A91DC7 /* iOS Tests.xcconfig */;
+			baseConfigurationReference = 24F7982B1B393E2C00F7E4A5 /* Release.xcconfig */;
 			buildSettings = {
-				SWIFT_OBJC_BRIDGING_HEADER = "DCTManagedObjectSerialization Tests/Bridging.h";
+				CURRENT_PROJECT_VERSION = 1;
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.danieltull.${PRODUCT_NAME:rfc1034identifier}";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
-		244DE86D19A91FEF00A91DC7 /* Debug */ = {
+		24F7981C1B393D1300F7E4A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 244DE85119A91F0C00A91DC7 /* iOS Framework.xcconfig */;
+			baseConfigurationReference = 24F798251B393E2C00F7E4A5 /* iOS Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = DCTManagedObjectSerialization;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		24F7981D1B393D1300F7E4A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F798251B393E2C00F7E4A5 /* iOS Framework.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = DCTManagedObjectSerialization;
 			};
-			name = Debug;
-		};
-		244DE86E19A91FEF00A91DC7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 244DE85119A91F0C00A91DC7 /* iOS Framework.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = DCTManagedObjectSerialization;
-			};
 			name = Release;
 		};
-		244DE89519A920D700A91DC7 /* Debug */ = {
+		24F798511B393FFE00F7E4A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 244DE85419A91F0C00A91DC7 /* OS X Framework.xcconfig */;
+			baseConfigurationReference = 24F798291B393E2C00F7E4A5 /* OS X Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -577,12 +1027,11 @@
 			};
 			name = Debug;
 		};
-		244DE89619A920D700A91DC7 /* Release */ = {
+		24F798521B393FFE00F7E4A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 244DE85419A91F0C00A91DC7 /* OS X Framework.xcconfig */;
+			baseConfigurationReference = 24F798291B393E2C00F7E4A5 /* OS X Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -591,83 +1040,216 @@
 			};
 			name = Release;
 		};
-		245CD6A1164EA29300600BFF /* Debug */ = {
+		24F798641B39415600F7E4A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 244DE84E19A91F0C00A91DC7 /* Debug.xcconfig */;
+			baseConfigurationReference = 24F798271B393E2C00F7E4A5 /* iOS Tests.xcconfig */;
 			buildSettings = {
+				PRODUCT_NAME = "DCTManagedObjectSerialization Tests";
+				SWIFT_OBJC_BRIDGING_HEADER = "DCTManagedObjectSerialization Tests/Bridging.h";
 			};
 			name = Debug;
 		};
-		245CD6A2164EA29300600BFF /* Release */ = {
+		24F798651B39415600F7E4A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 244DE85519A91F0C00A91DC7 /* Release.xcconfig */;
+			baseConfigurationReference = 24F798271B393E2C00F7E4A5 /* iOS Tests.xcconfig */;
 			buildSettings = {
+				PRODUCT_NAME = "DCTManagedObjectSerialization Tests";
+				SWIFT_OBJC_BRIDGING_HEADER = "DCTManagedObjectSerialization Tests/Bridging.h";
+			};
+			name = Release;
+		};
+		24F798731B3941AF00F7E4A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F7982A1B393E2C00F7E4A5 /* OS X Tests.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "DCTManagedObjectSerialization Tests";
+			};
+			name = Debug;
+		};
+		24F798741B3941AF00F7E4A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F7982A1B393E2C00F7E4A5 /* OS X Tests.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "DCTManagedObjectSerialization Tests";
+			};
+			name = Release;
+		};
+		24F798891B3941E900F7E4A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F798231B393E2C00F7E4A5 /* iOS Application.xcconfig */;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		24F7988A1B3941E900F7E4A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F798231B393E2C00F7E4A5 /* iOS Application.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		24F7989C1B3941FE00F7E4A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F798281B393E2C00F7E4A5 /* OS X Application.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		24F7989D1B3941FE00F7E4A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F798281B393E2C00F7E4A5 /* OS X Application.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		24F798B51B39421A00F7E4A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F798251B393E2C00F7E4A5 /* iOS Framework.xcconfig */;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				PRODUCT_NAME = Tweets;
+			};
+			name = Debug;
+		};
+		24F798B61B39421A00F7E4A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F798251B393E2C00F7E4A5 /* iOS Framework.xcconfig */;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				PRODUCT_NAME = Tweets;
+			};
+			name = Release;
+		};
+		24F798D11B39423400F7E4A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F798291B393E2C00F7E4A5 /* OS X Framework.xcconfig */;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				PRODUCT_NAME = Tweets;
+			};
+			name = Debug;
+		};
+		24F798D21B39423400F7E4A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F798291B393E2C00F7E4A5 /* OS X Framework.xcconfig */;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				PRODUCT_NAME = Tweets;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2426196319669EDD008B8862 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization Tests" */ = {
+		24F798011B393D1300F7E4A5 /* Build configuration list for PBXProject "DCTManagedObjectSerialization" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2426196419669EDD008B8862 /* Debug */,
-				2426196519669EDD008B8862 /* Release */,
+				24F798191B393D1300F7E4A5 /* Debug */,
+				24F7981A1B393D1300F7E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		244DE86C19A91FEF00A91DC7 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS" */ = {
+		24F7981B1B393D1300F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				244DE86D19A91FEF00A91DC7 /* Debug */,
-				244DE86E19A91FEF00A91DC7 /* Release */,
+				24F7981C1B393D1300F7E4A5 /* Debug */,
+				24F7981D1B393D1300F7E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		244DE89419A920D700A91DC7 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X" */ = {
+		24F798501B393FFE00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				244DE89519A920D700A91DC7 /* Debug */,
-				244DE89619A920D700A91DC7 /* Release */,
+				24F798511B393FFE00F7E4A5 /* Debug */,
+				24F798521B393FFE00F7E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		245CD68F164EA29300600BFF /* Build configuration list for PBXProject "DCTManagedObjectSerialization" */ = {
+		24F798631B39415600F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				245CD6A1164EA29300600BFF /* Debug */,
-				245CD6A2164EA29300600BFF /* Release */,
+				24F798641B39415600F7E4A5 /* Debug */,
+				24F798651B39415600F7E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+		};
+		24F798721B3941AF00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F798731B3941AF00F7E4A5 /* Debug */,
+				24F798741B3941AF00F7E4A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		24F798881B3941E900F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F798891B3941E900F7E4A5 /* Debug */,
+				24F7988A1B3941E900F7E4A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		24F7989B1B3941FE00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F7989C1B3941FE00F7E4A5 /* Debug */,
+				24F7989D1B3941FE00F7E4A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		24F798B41B39421A00F7E4A5 /* Build configuration list for PBXNativeTarget "Tweets iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F798B51B39421A00F7E4A5 /* Debug */,
+				24F798B61B39421A00F7E4A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		24F798D01B39423400F7E4A5 /* Build configuration list for PBXNativeTarget "Tweets OS X" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24F798D11B39423400F7E4A5 /* Debug */,
+				24F798D21B39423400F7E4A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2426196619669F46008B8862 /* Twitter.xcdatamodeld */ = {
+		24F798ED1B39425000F7E4A5 /* Twitter.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2426196719669F46008B8862 /* Twitter.xcdatamodel */,
+				24F798EE1B39425000F7E4A5 /* Twitter.xcdatamodel */,
 			);
-			currentVersion = 2426196719669F46008B8862 /* Twitter.xcdatamodel */;
+			currentVersion = 24F798EE1B39425000F7E4A5 /* Twitter.xcdatamodel */;
 			path = Twitter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
-		2440C73B1B380FA100370299 /* Person.xcdatamodeld */ = {
+		24F7992E1B39456F00F7E4A5 /* Person.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2440C73C1B380FA100370299 /* Person.xcdatamodel */,
+				24F7992F1B39456F00F7E4A5 /* Person.xcdatamodel */,
 			);
-			currentVersion = 2440C73C1B380FA100370299 /* Person.xcdatamodel */;
+			currentVersion = 24F7992F1B39456F00F7E4A5 /* Person.xcdatamodel */;
 			path = Person.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 245CD68C164EA29300600BFF /* Project object */;
+	rootObject = 24F797FE1B393D1300F7E4A5 /* Project object */;
 }

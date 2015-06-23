@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "24F798061B393D1300F7E4A5"
+               BlueprintIdentifier = "24F7983E1B393FFE00F7E4A5"
                BuildableName = "DCTManagedObjectSerialization.framework"
-               BlueprintName = "DCTManagedObjectSerialization iOS"
+               BlueprintName = "DCTManagedObjectSerialization OS X"
                ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "24F7985A1B39415600F7E4A5"
+               BlueprintIdentifier = "24F798691B3941AF00F7E4A5"
                BuildableName = "DCTManagedObjectSerialization Tests.xctest"
-               BlueprintName = "DCTManagedObjectSerialization iOS Tests"
+               BlueprintName = "DCTManagedObjectSerialization OS X Tests"
                ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,9 +43,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24F798061B393D1300F7E4A5"
+            BlueprintIdentifier = "24F7983E1B393FFE00F7E4A5"
             BuildableName = "DCTManagedObjectSerialization.framework"
-            BlueprintName = "DCTManagedObjectSerialization iOS"
+            BlueprintName = "DCTManagedObjectSerialization OS X"
             ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,9 +65,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24F798061B393D1300F7E4A5"
+            BlueprintIdentifier = "24F7983E1B393FFE00F7E4A5"
             BuildableName = "DCTManagedObjectSerialization.framework"
-            BlueprintName = "DCTManagedObjectSerialization iOS"
+            BlueprintName = "DCTManagedObjectSerialization OS X"
             ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -83,9 +83,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24F798061B393D1300F7E4A5"
+            BlueprintIdentifier = "24F7983E1B393FFE00F7E4A5"
             BuildableName = "DCTManagedObjectSerialization.framework"
-            BlueprintName = "DCTManagedObjectSerialization iOS"
+            BlueprintName = "DCTManagedObjectSerialization OS X"
             ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
