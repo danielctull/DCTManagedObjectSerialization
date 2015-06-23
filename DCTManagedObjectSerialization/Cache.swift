@@ -1,13 +1,5 @@
-//
-//  Cache.swift
-//  DCTManagedObjectSerialization
-//
-//  Created by Daniel Tull on 23.06.2015.
-//  Copyright © 2015 Daniel Tull. All rights reserved.
-//
 
 import Foundation
-
 
 struct Cache<Key: AnyObject, Value: AnyObject> {
 
