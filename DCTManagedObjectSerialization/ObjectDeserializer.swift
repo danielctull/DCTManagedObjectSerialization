@@ -74,8 +74,9 @@ class ObjectDeserializer {
 							}
 						}
 
-					case let .One(value):
-						self.object.setValue(value, forKey: name)
+					case let .One(objectID):
+						let managedObject = self.managedObjectContext.objectWithID(objectID)
+						self.object.setValue(managedObject, forKey: name)
 
 					case .Nil:
 						if shouldDeserializeNilValues {
