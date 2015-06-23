@@ -45,9 +45,7 @@ class DeserializerTests: XCTestCase {
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
 		deserializer.deserializeObjectWithEntity(personEntity, dictionary: SerializedDictionary()) { object in
 
-			defer {
-				expectation.fulfill()
-			}
+			defer { expectation.fulfill() }
 
 			guard let person = object as? Person else {
 				XCTFail()
@@ -64,9 +62,7 @@ class DeserializerTests: XCTestCase {
 		let expectation = self.expectationWithDescription("testObjectCreationSettingAttributeWithPropertyNameWhileNotHavingSerializationNameSet")
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
 		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ personID.name : "1" ]) { object in
-			defer {
-				expectation.fulfill()
-			}
+			defer { expectation.fulfill() }
 			guard let person = object as? Person else {
 				XCTFail()
 				return
@@ -88,9 +84,7 @@ class DeserializerTests: XCTestCase {
 		serializationInfo.serializationName[personID] = "id"
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
 		deserializer.deserializeObjectWithEntity(personEntity, dictionary: [ personID.name : "1" ]) { object in
-			defer {
-				expectation.fulfill()
-			}
+			defer { expectation.fulfill() }
 			guard let person = object as? Person else {
 				XCTFail()
 				return
