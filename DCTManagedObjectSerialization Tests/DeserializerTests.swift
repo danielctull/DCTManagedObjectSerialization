@@ -307,7 +307,7 @@ class DeserializerTests: XCTestCase {
 				XCTFail()
 				return
 			}
-			XCTAssertEqual(event.name, "Event")
+			XCTAssertEqual(event.name, "Party!")
 		}
 		waitForExpectationsWithTimeout(30) { error in
 			XCTAssertNil(error)
