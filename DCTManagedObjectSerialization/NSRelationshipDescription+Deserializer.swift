@@ -65,6 +65,7 @@ extension NSRelationshipDescription {
 			deserializer.deserializeObjectIDsWithEntity(destinationEntity, array: array) { objectIDs in
 				completion(.Many(objectIDs))
 			}
+			return 
 		}
 
 		guard let dictionary = transformedValue as? SerializedDictionary else {
