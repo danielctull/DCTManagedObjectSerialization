@@ -28,7 +28,6 @@ class EntityDeserializer {
 				let objectDeserializer = self.deserializerForSerializedDictionary(serializedDictionary)
 				objectDeserializer.deserializeObject(serializedDictionary, deserializer: deserializer) { objectID in
 
-					print("OBJECT SERIALIZER COMPLETE")
 					self.managedObjectContext.performBlock {
 
 						if let objectID = objectID {
@@ -42,6 +41,13 @@ class EntityDeserializer {
 
 			dispatch_group_notify(group, dispatch_queue_create("Deserializer-Callback", nil)) {
 				self.managedObjectContext.performBlock {
+
+					if self.managedObjectContext.hasChanges {
+						do {
+							try self.managedObjectContext.save()
+						} catch {}
+					}
+
 					completion(objectIDs)
 				}
 			}

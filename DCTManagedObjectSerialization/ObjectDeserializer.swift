@@ -29,8 +29,6 @@ class ObjectDeserializer {
 
 		for (name, attribute) in entity.attributesByName {
 
-			print("Starting import of \(entity.name!).\(name)")
-
 			let attributeValue = attribute.valueForSerializedDictionary(serializedDictionary, serializationInfo: serializationInfo)
 
 			switch attributeValue {
@@ -46,14 +44,11 @@ class ObjectDeserializer {
 			case .None:
 				break
 			}
-
-			print("Imported \(entity.name!).\(name) = \(self.object.valueForKey(name))")
 		}
 
 		let group = dispatch_group_create()
 		for (name, relationship) in entity.relationshipsByName {
 
-			print("Starting import of \(entity.name!).\(name)")
 			dispatch_group_enter(group)
 			relationship.valueForSerializedDictionary(serializedDictionary, deserializer: deserializer) { relationshipValue in
 
@@ -62,10 +57,6 @@ class ObjectDeserializer {
 					switch relationshipValue {
 
 					case let .Many(objectIDs):
-
-						print("MANY: \(objectIDs)")
-
-
 						let managedObjects = objectIDs.map { self.managedObjectContext.objectWithID($0) }
 						if self.serializationInfo.shouldBeUnion[relationship] {
 							if relationship.ordered {
@@ -95,24 +86,17 @@ class ObjectDeserializer {
 						break
 					}
 
-					print("Imported \(entity.name!).\(name) = \(self.object.valueForKey(name))")
 					dispatch_group_leave(group)
 				}
 			}
 		}
 
 		dispatch_group_notify(group, dispatch_queue_create("ObjectDeserializer Callback", nil)) {
-			print("NOTIFYING")
 			self.managedObjectContext.performBlock {
-				print("NOTIFYING2")
-
-				if self.object.hasChanges {
-					print("HAS CHANGES")
+				if self.managedObjectContext.hasChanges {
 					do {
-						print("SAVING")
 						try self.managedObjectContext.save()
 						try self.managedObjectContext.obtainPermanentIDsForObjects([self.object])
-						print("SAVING DONE")
 					} catch {}
 				}
 

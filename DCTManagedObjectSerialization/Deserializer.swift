@@ -43,7 +43,18 @@ public class Deserializer {
 	func deserializeObjectIDsWithEntity(entity: NSEntityDescription, array: SerializedArray, completion: [NSManagedObjectID] -> Void) {
 		managedObjectContext.performBlock {
 			let deserializer = self.deserializerForEntity(entity)
-			deserializer.deserializeObjectsFromArray(array, deserializer: self, completion:completion)
+			deserializer.deserializeObjectsFromArray(array, deserializer: self) { objectIDs in
+				self.managedObjectContext.performBlock {
+
+					if self.managedObjectContext.hasChanges {
+						do {
+							try self.managedObjectContext.save()
+						} catch {}
+					}
+
+					completion(objectIDs)
+				}
+			}
 		}
 	}
 
