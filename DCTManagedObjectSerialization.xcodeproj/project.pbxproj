@@ -78,8 +78,8 @@
 		24F7994B1B39457000F7E4A5 /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */; };
 		24F799501B39457000F7E4A5 /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799331B39457000F7E4A5 /* URLTransformer.swift */; };
 		24F799511B39457000F7E4A5 /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799331B39457000F7E4A5 /* URLTransformer.swift */; };
-		24F799551B39459B00F7E4A5 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799521B39459B00F7E4A5 /* Deserializer.swift */; };
-		24F799561B39459B00F7E4A5 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799521B39459B00F7E4A5 /* Deserializer.swift */; };
+		24F799551B39459B00F7E4A5 /* ObjectDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799521B39459B00F7E4A5 /* ObjectDeserializer.swift */; };
+		24F799561B39459B00F7E4A5 /* ObjectDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799521B39459B00F7E4A5 /* ObjectDeserializer.swift */; };
 		24F799571B39459B00F7E4A5 /* SerializationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799531B39459B00F7E4A5 /* SerializationInfo.swift */; };
 		24F799581B39459B00F7E4A5 /* SerializationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799531B39459B00F7E4A5 /* SerializationInfo.swift */; };
 		24F799591B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799541B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift */; };
@@ -97,6 +97,12 @@
 		24F799721B39532D00F7E4A5 /* DCTManagedObjectSerialization.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24F799761B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799751B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift */; };
 		24F799771B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799751B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift */; };
+		24F799791B3972C100F7E4A5 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799781B3972C100F7E4A5 /* Deserializer.swift */; };
+		24F7997A1B3972C100F7E4A5 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799781B3972C100F7E4A5 /* Deserializer.swift */; };
+		24F7997C1B397F8400F7E4A5 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7997B1B397F8400F7E4A5 /* Cache.swift */; };
+		24F7997D1B397F8400F7E4A5 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7997B1B397F8400F7E4A5 /* Cache.swift */; };
+		24F7997F1B399AAF00F7E4A5 /* EntityDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7997E1B399AAF00F7E4A5 /* EntityDeserializer.swift */; };
+		24F799801B399AAF00F7E4A5 /* EntityDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7997E1B399AAF00F7E4A5 /* EntityDeserializer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,12 +229,15 @@
 		24F7992F1B39456F00F7E4A5 /* Person.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person.xcdatamodel; sourceTree = "<group>"; };
 		24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfoTests.swift; sourceTree = "<group>"; };
 		24F799331B39457000F7E4A5 /* URLTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTransformer.swift; sourceTree = "<group>"; };
-		24F799521B39459B00F7E4A5 /* Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializer.swift; sourceTree = "<group>"; };
+		24F799521B39459B00F7E4A5 /* ObjectDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectDeserializer.swift; sourceTree = "<group>"; };
 		24F799531B39459B00F7E4A5 /* SerializationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfo.swift; sourceTree = "<group>"; };
 		24F799541B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRelationshipDescription+Deserializer.swift"; sourceTree = "<group>"; };
 		24F7995B1B3945D200F7E4A5 /* Tweets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tweets.json; sourceTree = "<group>"; };
 		24F799641B394C2C00F7E4A5 /* DCTManagedObjectSerialization_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization_Tests.h; sourceTree = "<group>"; };
 		24F799751B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributeDescription+Deserializer.swift"; sourceTree = "<group>"; };
+		24F799781B3972C100F7E4A5 /* Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializer.swift; sourceTree = "<group>"; };
+		24F7997B1B397F8400F7E4A5 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		24F7997E1B399AAF00F7E4A5 /* EntityDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityDeserializer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,11 +340,14 @@
 			isa = PBXGroup;
 			children = (
 				24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */,
-				24F799521B39459B00F7E4A5 /* Deserializer.swift */,
+				24F799781B3972C100F7E4A5 /* Deserializer.swift */,
+				24F7997E1B399AAF00F7E4A5 /* EntityDeserializer.swift */,
+				24F799521B39459B00F7E4A5 /* ObjectDeserializer.swift */,
 				24F799531B39459B00F7E4A5 /* SerializationInfo.swift */,
 				24F7980C1B393D1300F7E4A5 /* Info.plist */,
 				24F799751B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift */,
 				24F799541B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift */,
+				24F7997B1B397F8400F7E4A5 /* Cache.swift */,
 			);
 			path = DCTManagedObjectSerialization;
 			sourceTree = "<group>";
@@ -810,10 +822,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24F799791B3972C100F7E4A5 /* Deserializer.swift in Sources */,
 				24F799761B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift in Sources */,
 				24F799571B39459B00F7E4A5 /* SerializationInfo.swift in Sources */,
 				24F799591B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift in Sources */,
-				24F799551B39459B00F7E4A5 /* Deserializer.swift in Sources */,
+				24F7997F1B399AAF00F7E4A5 /* EntityDeserializer.swift in Sources */,
+				24F7997C1B397F8400F7E4A5 /* Cache.swift in Sources */,
+				24F799551B39459B00F7E4A5 /* ObjectDeserializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,10 +836,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24F7997A1B3972C100F7E4A5 /* Deserializer.swift in Sources */,
 				24F799771B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift in Sources */,
 				24F799581B39459B00F7E4A5 /* SerializationInfo.swift in Sources */,
 				24F7995A1B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift in Sources */,
-				24F799561B39459B00F7E4A5 /* Deserializer.swift in Sources */,
+				24F799801B399AAF00F7E4A5 /* EntityDeserializer.swift in Sources */,
+				24F7997D1B397F8400F7E4A5 /* Cache.swift in Sources */,
+				24F799561B39459B00F7E4A5 /* ObjectDeserializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

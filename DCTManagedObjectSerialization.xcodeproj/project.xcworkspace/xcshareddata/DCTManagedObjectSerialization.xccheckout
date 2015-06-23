@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>01F81290-416A-4280-92A3-7FD2A9BA1808</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5E14E3690BDD9EA7603E78258F29CCA307496CA6</key>
+		<string>github.com:danielctull/DCTManagedObjectSerialization.git</string>
+		<key>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</key>
+		<string>git://github.com/danielctull/Xcode-Configurations.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DCTManagedObjectSerialization.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5E14E3690BDD9EA7603E78258F29CCA307496CA6</key>
+		<string>../..</string>
+		<key>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</key>
+		<string>../..Configurations/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:danielctull/DCTManagedObjectSerialization.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5E14E3690BDD9EA7603E78258F29CCA307496CA6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Configurations</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5E14E3690BDD9EA7603E78258F29CCA307496CA6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DCTManagedObjectSerialization</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -2,15 +2,34 @@
 import Foundation
 import CoreData
 
-enum Value {
-	case Some(AnyObject)
+enum RelationshipValue: CustomStringConvertible {
+	case Many([NSManagedObjectID])
+	case One(NSManagedObjectID)
 	case Nil
 	case None
+
+	var description: String {
+
+		switch self {
+
+		case let .One(objectID):
+			return "RelationshipValue.One(\(objectID))"
+
+		case let .Many(objectIDs):
+			return "RelationshipValue.Many(\(objectIDs))"
+
+		case .Nil:
+			return "RelationshipValue.Nil"
+
+		case .None:
+			return "RelationshipValue.None"
+		}
+	}
 }
 
 extension NSRelationshipDescription {
 
-	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer, completion: Value -> Void) {
+	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, deserializer: Deserializer, completion: RelationshipValue -> Void) {
 
 		guard let destinationEntity = destinationEntity else {
 			completion(.None)
@@ -43,12 +62,8 @@ extension NSRelationshipDescription {
 				return
 			}
 
-			deserializer.deserializeObjectsWithEntity(destinationEntity, array: array) { objects in
-				if self.ordered {
-					completion(Value.Some(NSOrderedSet(array: objects)))
-				} else {
-					completion(Value.Some(NSSet(array: objects)))
-				}
+			deserializer.deserializeObjectIDsWithEntity(destinationEntity, array: array) { objectIDs in
+				completion(.Many(objectIDs))
 			}
 		}
 
@@ -57,14 +72,14 @@ extension NSRelationshipDescription {
 			return
 		}
 
-		deserializer.deserializeObjectWithEntity(destinationEntity, dictionary: dictionary) { object in
+		deserializer.deserializeObjectIDWithEntity(destinationEntity, dictionary: dictionary) { objectID in
 
-			guard let value = object else {
+			guard let objectID = objectID else {
 				completion(.None)
 				return
 			}
 
-			completion(.Some(value))
+			completion(.One(objectID))
 		}
 	}
 }

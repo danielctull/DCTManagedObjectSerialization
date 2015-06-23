@@ -225,23 +225,46 @@ class DeserializerTests: XCTestCase {
 
 	func testRelationship() {
 
+		let expectation = self.expectationWithDescription("testRelationship")
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
-		let dictionary = [ PersonAttributes.personID as String : "1", PersonRelationships.events as String : [[ EventAttributes.name as String : "Event" ]] ]
+		let dictionary = [ PersonAttributes.personID as String : "1", PersonRelationships.events as String : [[ EventAttributes.name as String : "Party!" ]] ]
 
 		deserializer.deserializeObjectWithEntity(personEntity, dictionary: dictionary) { object in
+
+			print("FINISHED")
+
+			defer {
+				print("FULFILLED")
+				expectation.fulfill()
+			}
+
 			guard let person = object as? Person else {
 				XCTFail()
 				return
 			}
-			XCTAssertEqual(person.personID, "1")
+
+			guard let personID = person.personID else {
+				XCTFail()
+				return
+			}
+
+
+			XCTAssertEqual(personID, "1")
 			XCTAssertEqual(person.events.count, 1)
+
+			print(person)
 
 			guard let event = person.events.first as? Event else {
 				XCTFail()
 				return
 			}
 
+			print("EVENT: \(event)")
 			XCTAssertEqual(event.name, "Event")
+		}
+
+		self.waitForExpectationsWithTimeout(30) { error in
+			XCTFail("Didn't complete with error: \(error)")
 		}
 	}
 }

@@ -1,6 +1,7 @@
 
 import DCTManagedObjectSerialization
 import Foundation
+import CoreData
 
 
 public class Tweets {
@@ -9,7 +10,7 @@ public class Tweets {
 		return NSBundle(forClass: self)
 	}
 
-	public static func importTweets(completion: [AnyObject] -> Void) {
+	public static func importTweets(completion: [NSManagedObject] -> Void) {
 
 		let queue = dispatch_queue_create("Tweets", nil)
 		dispatch_async(queue) {

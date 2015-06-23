@@ -13,133 +13,51 @@ public class Deserializer {
 
 	public let managedObjectContext: NSManagedObjectContext
 	public let serializationInfo: SerializationInfo
+
 	public init(managedObjectContext: NSManagedObjectContext, serializationInfo: SerializationInfo = SerializationInfo()) {
 		self.managedObjectContext = managedObjectContext
 		self.serializationInfo = serializationInfo
 	}
 
-	public func deserializeObjectWithEntity(entity: NSEntityDescription, dictionary: SerializedDictionary, completion: AnyObject? -> Void) {
+	public func deserializeObjectWithEntity(entity: NSEntityDescription, dictionary: SerializedDictionary, completion: NSManagedObject? -> Void) {
 		deserializeObjectsWithEntity(entity, array: [dictionary]) { objects in
 			completion(objects.first)
 		}
 	}
 
-	public func deserializeObjectsWithEntity(entity: NSEntityDescription, array: SerializedArray, completion: [AnyObject] -> Void) {
+	public func deserializeObjectsWithEntity(entity: NSEntityDescription, array: SerializedArray, completion: [NSManagedObject] -> Void) {
+		deserializeObjectIDsWithEntity(entity, array: array) { objectIDs in
+			self.managedObjectContext.performBlock {
+				let managedObjects = objectIDs.map { self.managedObjectContext.objectWithID($0) }
+				completion(managedObjects)
+			}
+		}
+	}
 
+	func deserializeObjectIDWithEntity(entity: NSEntityDescription, dictionary: SerializedDictionary, completion: NSManagedObjectID? -> Void) {
+		deserializeObjectIDsWithEntity(entity, array: [dictionary]) { objectIDs in
+			completion(objectIDs.first)
+		}
+	}
+
+	func deserializeObjectIDsWithEntity(entity: NSEntityDescription, array: SerializedArray, completion: [NSManagedObjectID] -> Void) {
 		managedObjectContext.performBlock {
-
-			let shouldDeserializeNilValues = self.serializationInfo.shouldDeserializeNilValues[entity]
-			var objects: [AnyObject] = []
-			for serializedDictionary in array {
-
-				self.predicateForUniqueObjectWithEntity(entity, serializedDictionary: serializedDictionary) { predicate in
-
-					var object: NSManagedObject
-					if let p = predicate {
-						object = self.existingObjectForEntity(entity, predicate: p)
-					} else {
-						object = self.objectForEntity(entity)
-					}
-
-					func setValue(value: Value, name: String) {
-						switch value {
-
-						case let .Some(v):
-							object.setValue(v, forKey: name)
-
-						case .Nil:
-							if shouldDeserializeNilValues {
-								object.setValue(nil, forKey: name)
-							}
-
-						case .None:
-							break
-						}
-					}
-
-					for (name, attribute) in entity.attributesByName {
-						let value = attribute.valueForSerializedDictionary(serializedDictionary, serializationInfo: self.serializationInfo)
-						setValue(value, name: name)
-					}
-
-					for (name, relationship) in entity.relationshipsByName {
-
-						relationship.valueForSerializedDictionary(serializedDictionary, deserializer: self) { value in
-
-							switch value {
-
-							case let .Some(v):
-								object.setValue(v, forKey: name)
-
-							case .Nil:
-								if shouldDeserializeNilValues {
-									object.setValue(nil, forKey: name)
-								}
-
-							case .None:
-								break
-							}
-						}
-					}
-					
-					objects.append(object)
-				}
-			}
-
-			completion(objects)
+			let deserializer = self.deserializerForEntity(entity)
+			deserializer.deserializeObjectsFromArray(array, deserializer: self, completion:completion)
 		}
 	}
 
-	private func existingObjectForEntity(entity: NSEntityDescription, predicate: NSPredicate) -> NSManagedObject {
+	private var deserializers = Cache<NSEntityDescription, EntityDeserializer>()
+	private func deserializerForEntity(entity: NSEntityDescription) -> EntityDeserializer {
 
-		let fetchRequest = NSFetchRequest()
-		fetchRequest.entity = entity
-		fetchRequest.predicate = predicate
-
-		do {
-			let results = try managedObjectContext.executeFetchRequest(fetchRequest)
-			guard let object = results.first as? NSManagedObject else {
-				throw DeserializerError.Unknown
-			}
-			return object
-
-		} catch {
-			return objectForEntity(entity)
-		}
-	}
-
-	private func objectForEntity(entity: NSEntityDescription) -> NSManagedObject {
-		return NSManagedObject(entity: entity, insertIntoManagedObjectContext: managedObjectContext)
-	}
-
-	private func predicateForUniqueObjectWithEntity(entity: NSEntityDescription, serializedDictionary: SerializedDictionary, completion: NSPredicate? -> Void) {
-
-		let uniqueAttributes = serializationInfo.uniqueAttributes[entity]
-		var predicates: [NSPredicate] = []
-		for attribute in uniqueAttributes {
-
-			let value = attribute.valueForSerializedDictionary(serializedDictionary, serializationInfo: self.serializationInfo)
-
-			switch value {
-
-			case let .Some(v):
-				let predicate = NSPredicate(format: "%K == %@", argumentArray: [attribute.name, v])
-				predicates.append(predicate)
-
-			case .Nil:
-				break
-
-			case .None:
-				break
-			}
+		if let deserializer = deserializers[entity] {
+			return deserializer
 		}
 
-		guard predicates.count > 0 else {
-			completion(nil)
-			return
-		}
-
-		completion(NSCompoundPredicate.andPredicateWithSubpredicates(predicates))
-		return
+		let moc = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+		moc.parentContext = managedObjectContext
+		let deserializer = EntityDeserializer(managedObjectContext: moc, entity: entity, serializationInfo: serializationInfo)
+		deserializers[entity] = deserializer
+		return deserializer
 	}
 }
