@@ -18,23 +18,48 @@
 	// Assume that the transformer will reject anything unsuitable, so allow basically anything
 
 	BOOL classUnknown = (self.attributeType == NSTransformableAttributeType || [deserializer transformerNamesForProperty:self].count);
-	return classUnknown ? [NSObject class] : NSClassFromString([self attributeValueClassName]);
+	if (classUnknown) {
+		return [NSObject class];
+	}
+
+	NSString *attributeValueClassName = self.attributeValueClassName;
+	if (!attributeValueClassName) {
+		return [NSObject class];
+	}
+
+	Class attributeClass = NSClassFromString(attributeValueClassName);
+	if (!attributeClass) {
+		return [NSObject class];
+	}
+
+	return attributeClass;
 }
 
 - (id)dct_valueForSerializedValue:(id)value withDeserializer:(id <DCTManagedObjectDeserializing>)deserializer {
 
 	id transformedValue = [super dct_valueForSerializedValue:value withDeserializer:deserializer];
 
-	if (self.attributeType == NSTransformableAttributeType)
+	if (self.attributeType == NSTransformableAttributeType) {
 		return transformedValue;
+	}
 
-	Class attributeClass = NSClassFromString(self.attributeValueClassName);
+	NSString *attributeValueClassName = self.attributeValueClassName;
+	if (!attributeValueClassName) {
+		return nil;
+	}
 
-	if ([transformedValue isKindOfClass:attributeClass])
+	Class attributeClass = NSClassFromString(attributeValueClassName);
+	if (!attributeClass) {
+		return nil;
+	}
+
+	if ([transformedValue isKindOfClass:attributeClass]) {
 		return transformedValue;
+	}
 
-	if ([value isKindOfClass:attributeClass])
-			return value;
+	if ([value isKindOfClass:attributeClass]) {
+		return value;
+	}
 
 	return nil;
 }
