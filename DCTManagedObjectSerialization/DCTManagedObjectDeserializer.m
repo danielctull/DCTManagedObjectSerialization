@@ -100,10 +100,11 @@
 	NSMutableArray *managedObjects = [[NSMutableArray alloc] initWithCapacity:array.count];
 	NSArray *existingObjects;
 	NSString *objectIDKey = @"objectID";
+	NSString *entityName = entity.name;
 
-	if (existingObjectsPredicate) {
+	if (entityName && existingObjectsPredicate) {
 
-		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entity.name];
+		NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entityName];
 		fetchRequest.predicate = existingObjectsPredicate;
 
 		NSExpressionDescription* objectIdDesc = [NSExpressionDescription new];
