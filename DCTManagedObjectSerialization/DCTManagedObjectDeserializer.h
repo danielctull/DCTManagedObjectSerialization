@@ -81,6 +81,8 @@
 
 @protocol DCTManagedObjectDeserializing <NSObject>
 
+@property(nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
+
 #pragma mark Supplying Your Own Serialized Form
 
 - (id)deserializeObjectWithEntity:(NSEntityDescription *)entity fromDictionary:(NSDictionary *)dictionary __attribute__((nonnull(1,2)));

@@ -72,7 +72,7 @@
         if ([name isKindOfClass:[NSString class]])
         {
             entity = [NSEntityDescription entityForName:name
-                                 inManagedObjectContext:[(id)deserializer managedObjectContext]];   // HACK
+                                 inManagedObjectContext:[deserializer managedObjectContext]];
         }
     }
     
