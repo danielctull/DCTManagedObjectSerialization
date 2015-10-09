@@ -47,6 +47,19 @@
 		244DE8A519A9213400A91DC7 /* DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */; settings = {COMPILER_FLAGS = "-Wno-semicolon-before-method-body -Wno-direct-ivar-access -Wno-implicit-retain-self"; }; };
 		244DE8A619A9213400A91DC7 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */; };
 		245CD699164EA29300600BFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245CD698164EA29300600BFF /* Foundation.framework */; };
+		2473F2201BC859E70075EA00 /* _DCTManagedObjectSerializationProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492B59F1650F470004BB997 /* _DCTManagedObjectSerializationProperties.m */; };
+		2473F2211BC859E70075EA00 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBD164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.m */; };
+		2473F2221BC859E70075EA00 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC3164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m */; };
+		2473F2231BC859E70075EA00 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CC0164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m */; };
+		2473F2241BC859E70075EA00 /* DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */; settings = {COMPILER_FLAGS = "-Wno-semicolon-before-method-body -Wno-direct-ivar-access -Wno-implicit-retain-self"; }; };
+		2473F2251BC859E70075EA00 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 24217CBA164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m */; };
+		2473F2281BC859E70075EA00 /* DCTManagedObjectDeserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2291BC859E70075EA00 /* DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F22A1BC859E70075EA00 /* NSManagedObject+DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CB9164EDF8D00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F22B1BC859E70075EA00 /* _DCTManagedObjectSerializationProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 2492B59E1650F470004BB997 /* _DCTManagedObjectSerializationProperties.h */; };
+		2473F22C1BC859E70075EA00 /* NSAttributeDescription+_DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CBC164EE2E700B7DE98 /* NSAttributeDescription+_DCTManagedObjectSerialization.h */; };
+		2473F22D1BC859E70075EA00 /* NSPropertyDescription+_DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CC2164EE68F00B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.h */; };
+		2473F22E1BC859E70075EA00 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24217CBF164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h */; };
 		247E440B16A83A13005C4B7B /* DCTManagedObjectDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */; };
 		2492B5A01650F470004BB997 /* _DCTManagedObjectSerializationProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492B59F1650F470004BB997 /* _DCTManagedObjectSerializationProperties.m */; };
 		2492B60B165107A7004BB997 /* _DCTManagedObjectSerializationProperties.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2492B59E1650F470004BB997 /* _DCTManagedObjectSerializationProperties.h */; };
@@ -117,6 +130,10 @@
 		245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTManagedObjectSerialization.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		245CD698164EA29300600BFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		245CD6AB164EA2BF00600BFF /* DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization.h; sourceTree = "<group>"; };
+		2473F2331BC859E70075EA00 /* DCTManagedObjectSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCTManagedObjectSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2473F2341BC85A120075EA00 /* tvOS Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS Application.xcconfig"; sourceTree = "<group>"; };
+		2473F2351BC85A120075EA00 /* tvOS Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS Framework.xcconfig"; sourceTree = "<group>"; };
+		2473F2361BC85A120075EA00 /* tvOS Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS Tests.xcconfig"; sourceTree = "<group>"; };
 		247E440916A83A13005C4B7B /* DCTManagedObjectDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectDeserializer.h; sourceTree = "<group>"; };
 		247E440A16A83A13005C4B7B /* DCTManagedObjectDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTManagedObjectDeserializer.m; sourceTree = "<group>"; };
 		2492B59E1650F470004BB997 /* _DCTManagedObjectSerializationProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DCTManagedObjectSerializationProperties.h; sourceTree = "<group>"; };
@@ -153,6 +170,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				245CD699164EA29300600BFF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2473F2261BC859E70075EA00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +227,9 @@
 				244DE85419A91F0C00A91DC7 /* OS X Framework.xcconfig */,
 				244DE85519A91F0C00A91DC7 /* Release.xcconfig */,
 				244DE85619A91F0C00A91DC7 /* Shared.xcconfig */,
+				2473F2341BC85A120075EA00 /* tvOS Application.xcconfig */,
+				2473F2351BC85A120075EA00 /* tvOS Framework.xcconfig */,
+				2473F2361BC85A120075EA00 /* tvOS Tests.xcconfig */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -226,6 +253,7 @@
 				2426195319669EDD008B8862 /* DCTManagedObjectSerialization Tests.xctest */,
 				244DE85C19A91FEE00A91DC7 /* DCTManagedObjectSerialization.framework */,
 				244DE88419A920D700A91DC7 /* DCTManagedObjectSerialization.framework */,
+				2473F2331BC859E70075EA00 /* DCTManagedObjectSerialization.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -298,6 +326,20 @@
 				244DE89B19A9211F00A91DC7 /* NSAttributeDescription+_DCTManagedObjectSerialization.h in Headers */,
 				244DE89C19A9211F00A91DC7 /* NSPropertyDescription+_DCTManagedObjectSerialization.h in Headers */,
 				244DE89D19A9211F00A91DC7 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2473F2271BC859E70075EA00 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2473F2281BC859E70075EA00 /* DCTManagedObjectDeserializer.h in Headers */,
+				2473F2291BC859E70075EA00 /* DCTManagedObjectSerialization.h in Headers */,
+				2473F22A1BC859E70075EA00 /* NSManagedObject+DCTManagedObjectSerialization.h in Headers */,
+				2473F22B1BC859E70075EA00 /* _DCTManagedObjectSerializationProperties.h in Headers */,
+				2473F22C1BC859E70075EA00 /* NSAttributeDescription+_DCTManagedObjectSerialization.h in Headers */,
+				2473F22D1BC859E70075EA00 /* NSPropertyDescription+_DCTManagedObjectSerialization.h in Headers */,
+				2473F22E1BC859E70075EA00 /* NSRelationshipDescription+_DCTManagedObjectSerialization.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +418,24 @@
 			productReference = 245CD695164EA29300600BFF /* libDCTManagedObjectSerialization.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		2473F21E1BC859E70075EA00 /* DCTManagedObjectSerialization tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2473F2301BC859E70075EA00 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization tvOS" */;
+			buildPhases = (
+				2473F21F1BC859E70075EA00 /* Sources */,
+				2473F2261BC859E70075EA00 /* Frameworks */,
+				2473F2271BC859E70075EA00 /* Headers */,
+				2473F22F1BC859E70075EA00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DCTManagedObjectSerialization tvOS";
+			productName = "DCTManagedObjectSerialization iOS";
+			productReference = 2473F2331BC859E70075EA00 /* DCTManagedObjectSerialization.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -411,6 +471,7 @@
 				245CD694164EA29300600BFF /* DCTManagedObjectSerialization */,
 				244DE85B19A91FEE00A91DC7 /* DCTManagedObjectSerialization iOS */,
 				244DE88319A920D700A91DC7 /* DCTManagedObjectSerialization OS X */,
+				2473F21E1BC859E70075EA00 /* DCTManagedObjectSerialization tvOS */,
 				2426195219669EDD008B8862 /* DCTManagedObjectSerialization Tests */,
 			);
 		};
@@ -432,6 +493,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		244DE88219A920D700A91DC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2473F22F1BC859E70075EA00 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -506,6 +574,19 @@
 				24217CBB164EDF8E00B7DE98 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
 				24217CC4164EE69000B7DE98 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
 				24217CC1164EE38000B7DE98 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2473F21F1BC859E70075EA00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2473F2201BC859E70075EA00 /* _DCTManagedObjectSerializationProperties.m in Sources */,
+				2473F2211BC859E70075EA00 /* NSAttributeDescription+_DCTManagedObjectSerialization.m in Sources */,
+				2473F2221BC859E70075EA00 /* NSPropertyDescription+_DCTManagedObjectSerialization.m in Sources */,
+				2473F2231BC859E70075EA00 /* NSRelationshipDescription+_DCTManagedObjectSerialization.m in Sources */,
+				2473F2241BC859E70075EA00 /* DCTManagedObjectDeserializer.m in Sources */,
+				2473F2251BC859E70075EA00 /* NSManagedObject+DCTManagedObjectSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,8 +728,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE84E19A91F0C00A91DC7 /* Debug.xcconfig */;
 			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
@@ -670,6 +749,28 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE85219A91F0C00A91DC7 /* iOS Static Library.xcconfig */;
 			buildSettings = {
+			};
+			name = Release;
+		};
+		2473F2311BC859E70075EA00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2473F2351BC85A120075EA00 /* tvOS Framework.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				PRODUCT_NAME = DCTManagedObjectSerialization;
+			};
+			name = Debug;
+		};
+		2473F2321BC859E70075EA00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2473F2351BC85A120075EA00 /* tvOS Framework.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				PRODUCT_NAME = DCTManagedObjectSerialization;
 			};
 			name = Release;
 		};
@@ -717,6 +818,15 @@
 			buildConfigurations = (
 				245CD6A4164EA29300600BFF /* Debug */,
 				245CD6A5164EA29300600BFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2473F2301BC859E70075EA00 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2473F2311BC859E70075EA00 /* Debug */,
+				2473F2321BC859E70075EA00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
