@@ -45,7 +45,7 @@ extension NSAttributeDescription {
 			return .None
 		}
 
-		let predicate = NSCompoundPredicate.andPredicateWithSubpredicates(validationPredicates)
+		let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: validationPredicates)
 		guard predicate.evaluateWithObject(value) else {
 			return .None
 		}

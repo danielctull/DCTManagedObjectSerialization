@@ -129,6 +129,6 @@ class EntityDeserializer {
 			return nil
 		}
 
-		return NSCompoundPredicate.andPredicateWithSubpredicates(predicates)
+		return NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
 	}
 }
