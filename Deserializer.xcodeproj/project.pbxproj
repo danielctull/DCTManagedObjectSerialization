@@ -17,10 +17,10 @@
 		24513EB71C89F6A10080D250 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB51C89F6A10080D250 /* NSManagedObject.swift */; };
 		24513EB91C89FB7F0080D250 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB81C89FB7F0080D250 /* Value.swift */; };
 		24513EBA1C89FB7F0080D250 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB81C89FB7F0080D250 /* Value.swift */; };
-		24F7980B1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F798561B39402500F7E4A5 /* DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F798601B39415600F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; };
-		24F7986F1B3941AF00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F7983F1B393FFE00F7E4A5 /* DCTManagedObjectSerialization.framework */; };
+		24F7980B1B393D1300F7E4A5 /* Deserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* Deserializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F798561B39402500F7E4A5 /* Deserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* Deserializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F798601B39415600F7E4A5 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* Deserializer.framework */; };
+		24F7986F1B3941AF00F7E4A5 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F7983F1B393FFE00F7E4A5 /* Deserializer.framework */; };
 		24F7987C1B3941E900F7E4A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7987B1B3941E900F7E4A5 /* AppDelegate.swift */; };
 		24F7987E1B3941E900F7E4A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7987D1B3941E900F7E4A5 /* ViewController.swift */; };
 		24F798811B3941E900F7E4A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F7987F1B3941E900F7E4A5 /* Main.storyboard */; };
@@ -92,15 +92,15 @@
 		24F7995A1B39459B00F7E4A5 /* NSRelationshipDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799541B39459B00F7E4A5 /* NSRelationshipDescription.swift */; };
 		24F7995C1B3945D200F7E4A5 /* Tweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 24F7995B1B3945D200F7E4A5 /* Tweets.json */; };
 		24F7995D1B3945D200F7E4A5 /* Tweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 24F7995B1B3945D200F7E4A5 /* Tweets.json */; };
-		24F7995E1B3945E700F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; };
-		24F7995F1B3945EF00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F7983F1B393FFE00F7E4A5 /* DCTManagedObjectSerialization.framework */; };
+		24F7995E1B3945E700F7E4A5 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* Deserializer.framework */; };
+		24F7995F1B3945EF00F7E4A5 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F7983F1B393FFE00F7E4A5 /* Deserializer.framework */; };
 		24F799601B39460700F7E4A5 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; };
 		24F799611B39460B00F7E4A5 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798BF1B39423300F7E4A5 /* Tweets.framework */; };
 		24F799661B394C7F00F7E4A5 /* DCTManagedObjectSerialization_Tests.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F799641B394C2C00F7E4A5 /* DCTManagedObjectSerialization_Tests.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F799681B394E7B00F7E4A5 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; };
 		24F799691B394E7B00F7E4A5 /* Tweets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		24F799711B39532D00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; };
-		24F799721B39532D00F7E4A5 /* DCTManagedObjectSerialization.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24F799711B39532D00F7E4A5 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* Deserializer.framework */; };
+		24F799721B39532D00F7E4A5 /* Deserializer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* Deserializer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24F799761B396B8100F7E4A5 /* NSAttributeDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799751B396B8100F7E4A5 /* NSAttributeDescription.swift */; };
 		24F799771B396B8100F7E4A5 /* NSAttributeDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799751B396B8100F7E4A5 /* NSAttributeDescription.swift */; };
 		24F799791B3972C100F7E4A5 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799781B3972C100F7E4A5 /* Deserializer.swift */; };
@@ -152,7 +152,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				24F799721B39532D00F7E4A5 /* DCTManagedObjectSerialization.framework in Embed Frameworks */,
+				24F799721B39532D00F7E4A5 /* Deserializer.framework in Embed Frameworks */,
 				24F799691B394E7B00F7E4A5 /* Tweets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -201,20 +201,20 @@
 		24513EE01C8A104D0080D250 /* watchOS Extension.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS Extension.xcconfig"; sourceTree = "<group>"; };
 		24513EE11C8A104D0080D250 /* watchOS Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS Framework.xcconfig"; sourceTree = "<group>"; };
 		24513EE21C8A104D0080D250 /* watchOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = watchOS.xcconfig; sourceTree = "<group>"; };
-		24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCTManagedObjectSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization.h; sourceTree = "<group>"; };
+		24F798071B393D1300F7E4A5 /* Deserializer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deserializer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F7980A1B393D1300F7E4A5 /* Deserializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deserializer.h; sourceTree = "<group>"; };
 		24F7980C1B393D1300F7E4A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24F7983F1B393FFE00F7E4A5 /* DCTManagedObjectSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCTManagedObjectSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		24F7985B1B39415600F7E4A5 /* DCTManagedObjectSerialization Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DCTManagedObjectSerialization Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		24F7986A1B3941AF00F7E4A5 /* DCTManagedObjectSerialization Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DCTManagedObjectSerialization Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		24F798791B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DCTManagedObjectSerialization iOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F7983F1B393FFE00F7E4A5 /* Deserializer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deserializer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F7985B1B39415600F7E4A5 /* Deserializer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Deserializer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F7986A1B3941AF00F7E4A5 /* Deserializer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Deserializer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F798791B3941E900F7E4A5 /* Deserializer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deserializer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F7987B1B3941E900F7E4A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F7987D1B3941E900F7E4A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24F798801B3941E900F7E4A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24F798821B3941E900F7E4A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24F798851B3941E900F7E4A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24F798871B3941E900F7E4A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24F7988F1B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DCTManagedObjectSerialization OS X App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F7988F1B3941FE00F7E4A5 /* Deserializer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deserializer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F798911B3941FE00F7E4A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F798931B3941FE00F7E4A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24F798951B3941FE00F7E4A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -287,7 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F799601B39460700F7E4A5 /* Tweets.framework in Frameworks */,
-				24F798601B39415600F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */,
+				24F798601B39415600F7E4A5 /* Deserializer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F799611B39460B00F7E4A5 /* Tweets.framework in Frameworks */,
-				24F7986F1B3941AF00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */,
+				24F7986F1B3941AF00F7E4A5 /* Deserializer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +304,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F799711B39532D00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */,
+				24F799711B39532D00F7E4A5 /* Deserializer.framework in Frameworks */,
 				24F799681B394E7B00F7E4A5 /* Tweets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +320,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F7995E1B3945E700F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */,
+				24F7995E1B3945E700F7E4A5 /* Deserializer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +328,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F7995F1B3945EF00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */,
+				24F7995F1B3945EF00F7E4A5 /* Deserializer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,8 +412,8 @@
 		24F797FD1B393D1300F7E4A5 = {
 			isa = PBXGroup;
 			children = (
-				24F798091B393D1300F7E4A5 /* DCTManagedObjectSerialization */,
-				24F799191B39456F00F7E4A5 /* DCTManagedObjectSerialization Tests */,
+				24F798091B393D1300F7E4A5 /* Deserializer */,
+				24F799191B39456F00F7E4A5 /* Deserializer Tests */,
 				24F7987A1B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App */,
 				24F798901B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App */,
 				24F798D61B39425000F7E4A5 /* Tweets */,
@@ -425,22 +425,22 @@
 		24F798081B393D1300F7E4A5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */,
-				24F7983F1B393FFE00F7E4A5 /* DCTManagedObjectSerialization.framework */,
-				24F7985B1B39415600F7E4A5 /* DCTManagedObjectSerialization Tests.xctest */,
-				24F7986A1B3941AF00F7E4A5 /* DCTManagedObjectSerialization Tests.xctest */,
-				24F798791B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App.app */,
-				24F7988F1B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App.app */,
+				24F798071B393D1300F7E4A5 /* Deserializer.framework */,
+				24F7983F1B393FFE00F7E4A5 /* Deserializer.framework */,
+				24F7985B1B39415600F7E4A5 /* Deserializer.xctest */,
+				24F7986A1B3941AF00F7E4A5 /* Deserializer.xctest */,
+				24F798791B3941E900F7E4A5 /* Deserializer.app */,
+				24F7988F1B3941FE00F7E4A5 /* Deserializer.app */,
 				24F798A31B39421A00F7E4A5 /* Tweets.framework */,
 				24F798BF1B39423300F7E4A5 /* Tweets.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		24F798091B393D1300F7E4A5 /* DCTManagedObjectSerialization */ = {
+		24F798091B393D1300F7E4A5 /* Deserializer */ = {
 			isa = PBXGroup;
 			children = (
-				24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */,
+				24F7980A1B393D1300F7E4A5 /* Deserializer.h */,
 				24F799781B3972C100F7E4A5 /* Deserializer.swift */,
 				24F799531B39459B00F7E4A5 /* SerializationInfo.swift */,
 				24F799751B396B8100F7E4A5 /* NSAttributeDescription.swift */,
@@ -452,7 +452,7 @@
 				24513EB81C89FB7F0080D250 /* Value.swift */,
 				24F7980C1B393D1300F7E4A5 /* Info.plist */,
 			);
-			path = DCTManagedObjectSerialization;
+			path = Deserializer;
 			sourceTree = "<group>";
 		};
 		24F7987A1B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App */ = {
@@ -524,7 +524,7 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
-		24F799191B39456F00F7E4A5 /* DCTManagedObjectSerialization Tests */ = {
+		24F799191B39456F00F7E4A5 /* Deserializer Tests */ = {
 			isa = PBXGroup;
 			children = (
 				24F7991A1B39456F00F7E4A5 /* Bridging.h */,
@@ -539,6 +539,7 @@
 				24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */,
 				24F799331B39457000F7E4A5 /* URLTransformer.swift */,
 			);
+			name = "Deserializer Tests";
 			path = "DCTManagedObjectSerialization Tests";
 			sourceTree = "<group>";
 		};
@@ -572,7 +573,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F7980B1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h in Headers */,
+				24F7980B1B393D1300F7E4A5 /* Deserializer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,7 +581,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F798561B39402500F7E4A5 /* DCTManagedObjectSerialization.h in Headers */,
+				24F798561B39402500F7E4A5 /* Deserializer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,9 +628,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		24F798061B393D1300F7E4A5 /* DCTManagedObjectSerialization iOS */ = {
+		24F798061B393D1300F7E4A5 /* Deserializer iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24F7981B1B393D1300F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS" */;
+			buildConfigurationList = 24F7981B1B393D1300F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer iOS" */;
 			buildPhases = (
 				24F798021B393D1300F7E4A5 /* Sources */,
 				24F798031B393D1300F7E4A5 /* Frameworks */,
@@ -640,14 +641,14 @@
 			);
 			dependencies = (
 			);
-			name = "DCTManagedObjectSerialization iOS";
+			name = "Deserializer iOS";
 			productName = DCTManagedObjectSerialization;
-			productReference = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */;
+			productReference = 24F798071B393D1300F7E4A5 /* Deserializer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		24F7983E1B393FFE00F7E4A5 /* DCTManagedObjectSerialization OS X */ = {
+		24F7983E1B393FFE00F7E4A5 /* Deserializer OS X */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24F798501B393FFE00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X" */;
+			buildConfigurationList = 24F798501B393FFE00F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer OS X" */;
 			buildPhases = (
 				24F7983A1B393FFE00F7E4A5 /* Sources */,
 				24F7983B1B393FFE00F7E4A5 /* Frameworks */,
@@ -658,14 +659,14 @@
 			);
 			dependencies = (
 			);
-			name = "DCTManagedObjectSerialization OS X";
+			name = "Deserializer OS X";
 			productName = "DCTManagedObjectSerialization OS X";
-			productReference = 24F7983F1B393FFE00F7E4A5 /* DCTManagedObjectSerialization.framework */;
+			productReference = 24F7983F1B393FFE00F7E4A5 /* Deserializer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		24F7985A1B39415600F7E4A5 /* DCTManagedObjectSerialization iOS Tests */ = {
+		24F7985A1B39415600F7E4A5 /* Deserializer iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24F798631B39415600F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS Tests" */;
+			buildConfigurationList = 24F798631B39415600F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer iOS Tests" */;
 			buildPhases = (
 				24F798571B39415600F7E4A5 /* Sources */,
 				24F798581B39415600F7E4A5 /* Frameworks */,
@@ -678,14 +679,14 @@
 				24F7996E1B39503E00F7E4A5 /* PBXTargetDependency */,
 				24F799701B39503E00F7E4A5 /* PBXTargetDependency */,
 			);
-			name = "DCTManagedObjectSerialization iOS Tests";
+			name = "Deserializer iOS Tests";
 			productName = "DCTManagedObjectSerialization iOS Tests";
-			productReference = 24F7985B1B39415600F7E4A5 /* DCTManagedObjectSerialization Tests.xctest */;
+			productReference = 24F7985B1B39415600F7E4A5 /* Deserializer.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		24F798691B3941AF00F7E4A5 /* DCTManagedObjectSerialization OS X Tests */ = {
+		24F798691B3941AF00F7E4A5 /* Deserializer OS X Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24F798721B3941AF00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X Tests" */;
+			buildConfigurationList = 24F798721B3941AF00F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer OS X Tests" */;
 			buildPhases = (
 				24F798661B3941AF00F7E4A5 /* Sources */,
 				24F798671B3941AF00F7E4A5 /* Frameworks */,
@@ -696,14 +697,14 @@
 			dependencies = (
 				24F798711B3941AF00F7E4A5 /* PBXTargetDependency */,
 			);
-			name = "DCTManagedObjectSerialization OS X Tests";
+			name = "Deserializer OS X Tests";
 			productName = "DCTManagedObjectSerialization OS X Tests";
-			productReference = 24F7986A1B3941AF00F7E4A5 /* DCTManagedObjectSerialization Tests.xctest */;
+			productReference = 24F7986A1B3941AF00F7E4A5 /* Deserializer.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		24F798781B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App */ = {
+		24F798781B3941E900F7E4A5 /* Deserializer iOS App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24F798881B3941E900F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS App" */;
+			buildConfigurationList = 24F798881B3941E900F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer iOS App" */;
 			buildPhases = (
 				24F798751B3941E900F7E4A5 /* Sources */,
 				24F798761B3941E900F7E4A5 /* Frameworks */,
@@ -716,14 +717,14 @@
 				24F7996B1B394E7B00F7E4A5 /* PBXTargetDependency */,
 				24F799741B39532D00F7E4A5 /* PBXTargetDependency */,
 			);
-			name = "DCTManagedObjectSerialization iOS App";
+			name = "Deserializer iOS App";
 			productName = "DCTManagedObjectSerialization iOS App";
-			productReference = 24F798791B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App.app */;
+			productReference = 24F798791B3941E900F7E4A5 /* Deserializer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		24F7988E1B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App */ = {
+		24F7988E1B3941FE00F7E4A5 /* Deserializer OS X App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24F7989B1B3941FE00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X App" */;
+			buildConfigurationList = 24F7989B1B3941FE00F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer OS X App" */;
 			buildPhases = (
 				24F7988B1B3941FE00F7E4A5 /* Sources */,
 				24F7988C1B3941FE00F7E4A5 /* Frameworks */,
@@ -733,9 +734,9 @@
 			);
 			dependencies = (
 			);
-			name = "DCTManagedObjectSerialization OS X App";
+			name = "Deserializer OS X App";
 			productName = "DCTManagedObjectSerialization OS X App";
-			productReference = 24F7988F1B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App.app */;
+			productReference = 24F7988F1B3941FE00F7E4A5 /* Deserializer.app */;
 			productType = "com.apple.product-type.application";
 		};
 		24F798A21B39421A00F7E4A5 /* Tweets iOS */ = {
@@ -810,7 +811,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 24F798011B393D1300F7E4A5 /* Build configuration list for PBXProject "DCTManagedObjectSerialization" */;
+			buildConfigurationList = 24F798011B393D1300F7E4A5 /* Build configuration list for PBXProject "Deserializer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -823,12 +824,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24F798061B393D1300F7E4A5 /* DCTManagedObjectSerialization iOS */,
-				24F7983E1B393FFE00F7E4A5 /* DCTManagedObjectSerialization OS X */,
-				24F7985A1B39415600F7E4A5 /* DCTManagedObjectSerialization iOS Tests */,
-				24F798691B3941AF00F7E4A5 /* DCTManagedObjectSerialization OS X Tests */,
-				24F798781B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App */,
-				24F7988E1B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App */,
+				24F798061B393D1300F7E4A5 /* Deserializer iOS */,
+				24F7983E1B393FFE00F7E4A5 /* Deserializer OS X */,
+				24F7985A1B39415600F7E4A5 /* Deserializer iOS Tests */,
+				24F798691B3941AF00F7E4A5 /* Deserializer OS X Tests */,
+				24F798781B3941E900F7E4A5 /* Deserializer iOS App */,
+				24F7988E1B3941FE00F7E4A5 /* Deserializer OS X App */,
 				24F798A21B39421A00F7E4A5 /* Tweets iOS */,
 				24F798BE1B39423300F7E4A5 /* Tweets OS X */,
 			);
@@ -1023,7 +1024,7 @@
 /* Begin PBXTargetDependency section */
 		24F798711B3941AF00F7E4A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 24F7983E1B393FFE00F7E4A5 /* DCTManagedObjectSerialization OS X */;
+			target = 24F7983E1B393FFE00F7E4A5 /* Deserializer OS X */;
 			targetProxy = 24F798701B3941AF00F7E4A5 /* PBXContainerItemProxy */;
 		};
 		24F7996B1B394E7B00F7E4A5 /* PBXTargetDependency */ = {
@@ -1033,7 +1034,7 @@
 		};
 		24F7996E1B39503E00F7E4A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 24F798061B393D1300F7E4A5 /* DCTManagedObjectSerialization iOS */;
+			target = 24F798061B393D1300F7E4A5 /* Deserializer iOS */;
 			targetProxy = 24F7996D1B39503E00F7E4A5 /* PBXContainerItemProxy */;
 		};
 		24F799701B39503E00F7E4A5 /* PBXTargetDependency */ = {
@@ -1043,7 +1044,7 @@
 		};
 		24F799741B39532D00F7E4A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 24F798061B393D1300F7E4A5 /* DCTManagedObjectSerialization iOS */;
+			target = 24F798061B393D1300F7E4A5 /* Deserializer iOS */;
 			targetProxy = 24F799731B39532D00F7E4A5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1098,7 +1099,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24513EC61C8A104D0080D250 /* iOS Framework.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = DCTManagedObjectSerialization;
+				PRODUCT_NAME = Deserializer;
 			};
 			name = Debug;
 		};
@@ -1106,7 +1107,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24513EC61C8A104D0080D250 /* iOS Framework.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = DCTManagedObjectSerialization;
+				PRODUCT_NAME = Deserializer;
 			};
 			name = Release;
 		};
@@ -1114,7 +1115,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24513ECE1C8A104D0080D250 /* OS X Framework.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = DCTManagedObjectSerialization;
+				PRODUCT_NAME = Deserializer;
 			};
 			name = Debug;
 		};
@@ -1122,7 +1123,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24513ECE1C8A104D0080D250 /* OS X Framework.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = DCTManagedObjectSerialization;
+				PRODUCT_NAME = Deserializer;
 			};
 			name = Release;
 		};
@@ -1130,7 +1131,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24513EC81C8A104D0080D250 /* iOS Tests.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = "DCTManagedObjectSerialization Tests";
+				PRODUCT_NAME = Deserializer;
 				SWIFT_OBJC_BRIDGING_HEADER = "DCTManagedObjectSerialization Tests/Bridging.h";
 			};
 			name = Debug;
@@ -1139,7 +1140,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24513EC81C8A104D0080D250 /* iOS Tests.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = "DCTManagedObjectSerialization Tests";
+				PRODUCT_NAME = Deserializer;
 				SWIFT_OBJC_BRIDGING_HEADER = "DCTManagedObjectSerialization Tests/Bridging.h";
 			};
 			name = Release;
@@ -1148,7 +1149,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24513ECF1C8A104D0080D250 /* OS X Tests.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = "DCTManagedObjectSerialization Tests";
+				PRODUCT_NAME = Deserializer;
 			};
 			name = Debug;
 		};
@@ -1156,7 +1157,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24513ECF1C8A104D0080D250 /* OS X Tests.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = "DCTManagedObjectSerialization Tests";
+				PRODUCT_NAME = Deserializer;
 			};
 			name = Release;
 		};
@@ -1165,7 +1166,7 @@
 			baseConfigurationReference = 24513EC31C8A104D0080D250 /* iOS Application.xcconfig */;
 			buildSettings = {
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Deserializer;
 			};
 			name = Debug;
 		};
@@ -1174,7 +1175,7 @@
 			baseConfigurationReference = 24513EC31C8A104D0080D250 /* iOS Application.xcconfig */;
 			buildSettings = {
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Deserializer;
 			};
 			name = Release;
 		};
@@ -1182,7 +1183,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24513ECC1C8A104D0080D250 /* OS X Application.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Deserializer;
 			};
 			name = Debug;
 		};
@@ -1190,7 +1191,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24513ECC1C8A104D0080D250 /* OS X Application.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Deserializer;
 			};
 			name = Release;
 		};
@@ -1229,7 +1230,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		24F798011B393D1300F7E4A5 /* Build configuration list for PBXProject "DCTManagedObjectSerialization" */ = {
+		24F798011B393D1300F7E4A5 /* Build configuration list for PBXProject "Deserializer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24F798191B393D1300F7E4A5 /* Debug */,
@@ -1238,7 +1239,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24F7981B1B393D1300F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS" */ = {
+		24F7981B1B393D1300F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24F7981C1B393D1300F7E4A5 /* Debug */,
@@ -1247,7 +1248,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24F798501B393FFE00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X" */ = {
+		24F798501B393FFE00F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer OS X" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24F798511B393FFE00F7E4A5 /* Debug */,
@@ -1256,7 +1257,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24F798631B39415600F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS Tests" */ = {
+		24F798631B39415600F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24F798641B39415600F7E4A5 /* Debug */,
@@ -1265,7 +1266,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24F798721B3941AF00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X Tests" */ = {
+		24F798721B3941AF00F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer OS X Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24F798731B3941AF00F7E4A5 /* Debug */,
@@ -1274,7 +1275,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24F798881B3941E900F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS App" */ = {
+		24F798881B3941E900F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer iOS App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24F798891B3941E900F7E4A5 /* Debug */,
@@ -1283,7 +1284,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24F7989B1B3941FE00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X App" */ = {
+		24F7989B1B3941FE00F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer OS X App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24F7989C1B3941FE00F7E4A5 /* Debug */,

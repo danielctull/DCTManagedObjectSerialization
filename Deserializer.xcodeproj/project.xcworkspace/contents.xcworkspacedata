@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:DCTManagedObjectSerialization.xcodeproj">
+      location = "self:/Users/danielctull/Developer/DCTManagedObjectSerialization/Deserializer.xcodeproj">
    </FileRef>
 </Workspace>

@@ -14,72 +14,81 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "24F7988E1B3941FE00F7E4A5"
-               BuildableName = "DCTManagedObjectSerialization OS X App.app"
-               BlueprintName = "DCTManagedObjectSerialization OS X App"
-               ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
+               BlueprintIdentifier = "24F7983E1B393FFE00F7E4A5"
+               BuildableName = "Deserializer.framework"
+               BlueprintName = "Deserializer OS X"
+               ReferencedContainer = "container:Deserializer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      buildConfiguration = "Release"
+      selectedDebuggerIdentifier = ""
+      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "24F798691B3941AF00F7E4A5"
+               BuildableName = "Deserializer.xctest"
+               BlueprintName = "Deserializer OS X Tests"
+               ReferencedContainer = "container:Deserializer.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24F7988E1B3941FE00F7E4A5"
-            BuildableName = "DCTManagedObjectSerialization OS X App.app"
-            BlueprintName = "DCTManagedObjectSerialization OS X App"
-            ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
+            BlueprintIdentifier = "24F7983E1B393FFE00F7E4A5"
+            BuildableName = "Deserializer.framework"
+            BlueprintName = "Deserializer OS X"
+            ReferencedContainer = "container:Deserializer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24F7988E1B3941FE00F7E4A5"
-            BuildableName = "DCTManagedObjectSerialization OS X App.app"
-            BlueprintName = "DCTManagedObjectSerialization OS X App"
-            ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
+            BlueprintIdentifier = "24F7983E1B393FFE00F7E4A5"
+            BuildableName = "Deserializer.framework"
+            BlueprintName = "Deserializer OS X"
+            ReferencedContainer = "container:Deserializer.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "24F7988E1B3941FE00F7E4A5"
-            BuildableName = "DCTManagedObjectSerialization OS X App.app"
-            BlueprintName = "DCTManagedObjectSerialization OS X App"
-            ReferencedContainer = "container:DCTManagedObjectSerialization.xcodeproj">
+            BlueprintIdentifier = "24F7983E1B393FFE00F7E4A5"
+            BuildableName = "Deserializer.framework"
+            BlueprintName = "Deserializer OS X"
+            ReferencedContainer = "container:Deserializer.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

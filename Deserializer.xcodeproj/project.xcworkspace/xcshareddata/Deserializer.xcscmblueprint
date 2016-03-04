@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5E14E3690BDD9EA7603E78258F29CCA307496CA6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5E14E3690BDD9EA7603E78258F29CCA307496CA6" : 0,
+    "8FDCB8C6CFBA78E0E3667763514775D0D62067AD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "729BC0FC-94DC-4DB5-BC36-6E1DC2CCF5C8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5E14E3690BDD9EA7603E78258F29CCA307496CA6" : "DCTManagedObjectSerialization\/",
+    "8FDCB8C6CFBA78E0E3667763514775D0D62067AD" : "DCTManagedObjectSerialization\/Configurations\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Deserializer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Deserializer.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:danielctull\/DCTManagedObjectSerialization.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5E14E3690BDD9EA7603E78258F29CCA307496CA6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/danielctull\/Xcode-Configurations.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8FDCB8C6CFBA78E0E3667763514775D0D62067AD"
+    }
+  ]
+}
