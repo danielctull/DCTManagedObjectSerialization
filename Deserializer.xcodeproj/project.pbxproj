@@ -48,12 +48,20 @@
 		24513F231C8A129A0080D250 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB21C89F5400080D250 /* NSManagedObjectContext.swift */; };
 		24513F241C8A129A0080D250 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB51C89F6A10080D250 /* NSManagedObject.swift */; };
 		24513F251C8A129A0080D250 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB81C89FB7F0080D250 /* Value.swift */; };
-		24513F281C8A12AA0080D250 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991E1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.m */; };
 		24513F291C8A12AA0080D250 /* DeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */; };
 		24513F2A1C8A12AA0080D250 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */; };
 		24513F2C1C8A12AA0080D250 /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799331B39457000F7E4A5 /* URLTransformer.swift */; };
 		24513F2F1C8A134D0080D250 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24513F1C1C8A12640080D250 /* Tweets.framework */; };
 		24513F321C8A142E0080D250 /* Deserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* Deserializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24513F3B1C8A19090080D250 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513F391C8A19090080D250 /* Event.swift */; };
+		24513F3C1C8A19090080D250 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513F391C8A19090080D250 /* Event.swift */; };
+		24513F3D1C8A19090080D250 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513F391C8A19090080D250 /* Event.swift */; };
+		24513F3E1C8A19090080D250 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513F3A1C8A19090080D250 /* Person.swift */; };
+		24513F3F1C8A19090080D250 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513F3A1C8A19090080D250 /* Person.swift */; };
+		24513F401C8A19090080D250 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513F3A1C8A19090080D250 /* Person.swift */; };
+		24513F431C8A1B670080D250 /* NumberToStringValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513F421C8A1B670080D250 /* NumberToStringValueTransformer.swift */; };
+		24513F441C8A1B670080D250 /* NumberToStringValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513F421C8A1B670080D250 /* NumberToStringValueTransformer.swift */; };
+		24513F451C8A1B670080D250 /* NumberToStringValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513F421C8A1B670080D250 /* NumberToStringValueTransformer.swift */; };
 		24F7980B1B393D1300F7E4A5 /* Deserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* Deserializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F798561B39402500F7E4A5 /* Deserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* Deserializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F798601B39415600F7E4A5 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* Deserializer.framework */; };
@@ -105,18 +113,8 @@
 		24F799161B39425000F7E4A5 /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F798EC1B39425000F7E4A5 /* Tweets.swift */; };
 		24F799171B39425000F7E4A5 /* Twitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F798ED1B39425000F7E4A5 /* Twitter.xcdatamodeld */; };
 		24F799181B39425000F7E4A5 /* Twitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F798ED1B39425000F7E4A5 /* Twitter.xcdatamodeld */; };
-		24F799361B39457000F7E4A5 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991E1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.m */; };
-		24F799371B39457000F7E4A5 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991E1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.m */; };
 		24F799381B39457000F7E4A5 /* DeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */; };
 		24F799391B39457000F7E4A5 /* DeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */; };
-		24F7993E1B39457000F7E4A5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F799251B39456F00F7E4A5 /* Event.m */; };
-		24F7993F1B39457000F7E4A5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F799251B39456F00F7E4A5 /* Event.m */; };
-		24F799401B39457000F7E4A5 /* _Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F799281B39456F00F7E4A5 /* _Event.m */; };
-		24F799411B39457000F7E4A5 /* _Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F799281B39456F00F7E4A5 /* _Event.m */; };
-		24F799421B39457000F7E4A5 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992A1B39456F00F7E4A5 /* _Person.m */; };
-		24F799431B39457000F7E4A5 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992A1B39456F00F7E4A5 /* _Person.m */; };
-		24F799441B39457000F7E4A5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992C1B39456F00F7E4A5 /* Person.m */; };
-		24F799451B39457000F7E4A5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992C1B39456F00F7E4A5 /* Person.m */; };
 		24F799461B39457000F7E4A5 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */; };
 		24F799471B39457000F7E4A5 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */; };
 		24F799481B39457000F7E4A5 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992E1B39456F00F7E4A5 /* Person.xcdatamodeld */; };
@@ -133,7 +131,6 @@
 		24F7995F1B3945EF00F7E4A5 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F7983F1B393FFE00F7E4A5 /* Deserializer.framework */; };
 		24F799601B39460700F7E4A5 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; };
 		24F799611B39460B00F7E4A5 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798BF1B39423300F7E4A5 /* Tweets.framework */; };
-		24F799661B394C7F00F7E4A5 /* DCTManagedObjectSerialization_Tests.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F799641B394C2C00F7E4A5 /* DCTManagedObjectSerialization_Tests.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F799681B394E7B00F7E4A5 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; };
 		24F799691B394E7B00F7E4A5 /* Tweets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24F799711B39532D00F7E4A5 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* Deserializer.framework */; };
@@ -283,6 +280,9 @@
 		24513EE81C8A119D0080D250 /* Deserializer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deserializer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24513EF41C8A123B0080D250 /* Deserializer Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Deserializer Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24513F1C1C8A12640080D250 /* Tweets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tweets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24513F391C8A19090080D250 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = "Deserializer Tests/Event.swift"; sourceTree = SOURCE_ROOT; };
+		24513F3A1C8A19090080D250 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = "Deserializer Tests/Person.swift"; sourceTree = SOURCE_ROOT; };
+		24513F421C8A1B670080D250 /* NumberToStringValueTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberToStringValueTransformer.swift; sourceTree = "<group>"; };
 		24F798071B393D1300F7E4A5 /* Deserializer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deserializer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F7980A1B393D1300F7E4A5 /* Deserializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deserializer.h; sourceTree = "<group>"; };
 		24F7980C1B393D1300F7E4A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -324,19 +324,8 @@
 		24F798EB1B39425000F7E4A5 /* Tweets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweets.h; sourceTree = "<group>"; };
 		24F798EC1B39425000F7E4A5 /* Tweets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweets.swift; sourceTree = "<group>"; };
 		24F798EE1B39425000F7E4A5 /* Twitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Twitter.xcdatamodel; sourceTree = "<group>"; };
-		24F7991A1B39456F00F7E4A5 /* Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
-		24F7991D1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTestNumberToStringValueTransformer.h; sourceTree = "<group>"; };
-		24F7991E1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTestNumberToStringValueTransformer.m; sourceTree = "<group>"; };
 		24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeserializerTests.swift; sourceTree = "<group>"; };
 		24F799221B39456F00F7E4A5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24F799241B39456F00F7E4A5 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		24F799251B39456F00F7E4A5 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		24F799271B39456F00F7E4A5 /* _Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Event.h; sourceTree = "<group>"; };
-		24F799281B39456F00F7E4A5 /* _Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Event.m; sourceTree = "<group>"; };
-		24F799291B39456F00F7E4A5 /* _Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Person.h; sourceTree = "<group>"; };
-		24F7992A1B39456F00F7E4A5 /* _Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Person.m; sourceTree = "<group>"; };
-		24F7992B1B39456F00F7E4A5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		24F7992C1B39456F00F7E4A5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTest.swift; sourceTree = "<group>"; };
 		24F7992F1B39456F00F7E4A5 /* Person.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person.xcdatamodel; sourceTree = "<group>"; };
 		24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfoTests.swift; sourceTree = "<group>"; };
@@ -344,7 +333,6 @@
 		24F799531B39459B00F7E4A5 /* SerializationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfo.swift; sourceTree = "<group>"; };
 		24F799541B39459B00F7E4A5 /* NSRelationshipDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRelationshipDescription.swift; sourceTree = "<group>"; };
 		24F7995B1B3945D200F7E4A5 /* Tweets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tweets.json; sourceTree = "<group>"; };
-		24F799641B394C2C00F7E4A5 /* DCTManagedObjectSerialization_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization_Tests.h; sourceTree = "<group>"; };
 		24F799751B396B8100F7E4A5 /* NSAttributeDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributeDescription.swift; sourceTree = "<group>"; };
 		24F799781B3972C100F7E4A5 /* Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -515,6 +503,16 @@
 			path = watchOS;
 			sourceTree = "<group>";
 		};
+		24513F411C8A1B310080D250 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24F7992E1B39456F00F7E4A5 /* Person.xcdatamodeld */,
+				24513F391C8A19090080D250 /* Event.swift */,
+				24513F3A1C8A19090080D250 /* Person.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		24F797FD1B393D1300F7E4A5 = {
 			isa = PBXGroup;
 			children = (
@@ -636,42 +634,15 @@
 		24F799191B39456F00F7E4A5 /* Deserializer Tests */ = {
 			isa = PBXGroup;
 			children = (
-				24F7991A1B39456F00F7E4A5 /* Bridging.h */,
-				24F799641B394C2C00F7E4A5 /* DCTManagedObjectSerialization_Tests.h */,
-				24F7991D1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.h */,
-				24F7991E1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.m */,
 				24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */,
-				24F799221B39456F00F7E4A5 /* Info.plist */,
-				24F799231B39456F00F7E4A5 /* Model */,
-				24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */,
-				24F7992E1B39456F00F7E4A5 /* Person.xcdatamodeld */,
 				24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */,
+				24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */,
+				24513F421C8A1B670080D250 /* NumberToStringValueTransformer.swift */,
 				24F799331B39457000F7E4A5 /* URLTransformer.swift */,
+				24513F411C8A1B310080D250 /* Model */,
+				24F799221B39456F00F7E4A5 /* Info.plist */,
 			);
 			path = "Deserializer Tests";
-			sourceTree = "<group>";
-		};
-		24F799231B39456F00F7E4A5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				24F799241B39456F00F7E4A5 /* Event.h */,
-				24F799251B39456F00F7E4A5 /* Event.m */,
-				24F799261B39456F00F7E4A5 /* Generated */,
-				24F7992B1B39456F00F7E4A5 /* Person.h */,
-				24F7992C1B39456F00F7E4A5 /* Person.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		24F799261B39456F00F7E4A5 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				24F799271B39456F00F7E4A5 /* _Event.h */,
-				24F799281B39456F00F7E4A5 /* _Event.m */,
-				24F799291B39456F00F7E4A5 /* _Person.h */,
-				24F7992A1B39456F00F7E4A5 /* _Person.m */,
-			);
-			path = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -753,7 +724,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F799661B394C7F00F7E4A5 /* DCTManagedObjectSerialization_Tests.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1145,10 +1115,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24513F401C8A19090080D250 /* Person.swift in Sources */,
 				24513F2A1C8A12AA0080D250 /* PerformanceTest.swift in Sources */,
 				24513F291C8A12AA0080D250 /* DeserializerTests.swift in Sources */,
 				24513F2C1C8A12AA0080D250 /* URLTransformer.swift in Sources */,
-				24513F281C8A12AA0080D250 /* DCTTestNumberToStringValueTransformer.m in Sources */,
+				24513F451C8A1B670080D250 /* NumberToStringValueTransformer.swift in Sources */,
+				24513F3D1C8A19090080D250 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1205,15 +1177,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F7993E1B39457000F7E4A5 /* Event.m in Sources */,
 				24F799381B39457000F7E4A5 /* DeserializerTests.swift in Sources */,
 				24F799461B39457000F7E4A5 /* PerformanceTest.swift in Sources */,
+				24513F431C8A1B670080D250 /* NumberToStringValueTransformer.swift in Sources */,
 				24F799501B39457000F7E4A5 /* URLTransformer.swift in Sources */,
-				24F799441B39457000F7E4A5 /* Person.m in Sources */,
+				24513F3B1C8A19090080D250 /* Event.swift in Sources */,
+				24513F3E1C8A19090080D250 /* Person.swift in Sources */,
 				24F799481B39457000F7E4A5 /* Person.xcdatamodeld in Sources */,
-				24F799361B39457000F7E4A5 /* DCTTestNumberToStringValueTransformer.m in Sources */,
-				24F799401B39457000F7E4A5 /* _Event.m in Sources */,
-				24F799421B39457000F7E4A5 /* _Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1221,15 +1191,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F7993F1B39457000F7E4A5 /* Event.m in Sources */,
 				24F799391B39457000F7E4A5 /* DeserializerTests.swift in Sources */,
 				24F799471B39457000F7E4A5 /* PerformanceTest.swift in Sources */,
+				24513F441C8A1B670080D250 /* NumberToStringValueTransformer.swift in Sources */,
 				24F799511B39457000F7E4A5 /* URLTransformer.swift in Sources */,
-				24F799451B39457000F7E4A5 /* Person.m in Sources */,
+				24513F3C1C8A19090080D250 /* Event.swift in Sources */,
+				24513F3F1C8A19090080D250 /* Person.swift in Sources */,
 				24F799491B39457000F7E4A5 /* Person.xcdatamodeld in Sources */,
-				24F799371B39457000F7E4A5 /* DCTTestNumberToStringValueTransformer.m in Sources */,
-				24F799411B39457000F7E4A5 /* _Event.m in Sources */,
-				24F799431B39457000F7E4A5 /* _Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1394,7 +1362,6 @@
 			baseConfigurationReference = 24513ED91C8A104D0080D250 /* tvOS Tests.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "Deserializer Tests";
-				SWIFT_OBJC_BRIDGING_HEADER = "Deserializer Tests/Bridging.h";
 			};
 			name = Debug;
 		};
@@ -1403,7 +1370,6 @@
 			baseConfigurationReference = 24513ED91C8A104D0080D250 /* tvOS Tests.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "Deserializer Tests";
-				SWIFT_OBJC_BRIDGING_HEADER = "Deserializer Tests/Bridging.h";
 			};
 			name = Release;
 		};
@@ -1478,7 +1444,6 @@
 			baseConfigurationReference = 24513EC81C8A104D0080D250 /* iOS Tests.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "Deserializer Tests";
-				SWIFT_OBJC_BRIDGING_HEADER = "Deserializer Tests/Bridging.h";
 			};
 			name = Debug;
 		};
@@ -1487,7 +1452,6 @@
 			baseConfigurationReference = 24513EC81C8A104D0080D250 /* iOS Tests.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "Deserializer Tests";
-				SWIFT_OBJC_BRIDGING_HEADER = "Deserializer Tests/Bridging.h";
 			};
 			name = Release;
 		};
@@ -1496,7 +1460,6 @@
 			baseConfigurationReference = 24513ECF1C8A104D0080D250 /* OS X Tests.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "Deserializer Tests";
-				SWIFT_OBJC_BRIDGING_HEADER = "Deserializer Tests/Bridging.h";
 			};
 			name = Debug;
 		};
@@ -1505,7 +1468,6 @@
 			baseConfigurationReference = 24513ECF1C8A104D0080D250 /* OS X Tests.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "Deserializer Tests";
-				SWIFT_OBJC_BRIDGING_HEADER = "Deserializer Tests/Bridging.h";
 			};
 			name = Release;
 		};

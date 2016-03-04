@@ -35,8 +35,8 @@ class DeserializerTests: XCTestCase {
 			try persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil)
 			managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
 			managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
-			personEntity = Person.entityInManagedObjectContext(managedObjectContext)
-			eventEntity = Event.entityInManagedObjectContext(managedObjectContext)
+			personEntity = Person.entity(managedObjectContext)
+			eventEntity = Event.entity(managedObjectContext)
 		} catch {
 			XCTFail()
 		}
@@ -117,7 +117,7 @@ class DeserializerTests: XCTestCase {
 		let expectation = self.expectationWithDescription("testObjectCreationSettingStringAttributeWithNumber")
 		var serializationInfo = SerializationInfo()
 		serializationInfo.serializationName[personID] = "id"
-		serializationInfo.transformers[personID] = [DCTTestNumberToStringValueTransformer()]
+		serializationInfo.transformers[personID] = [NumberToStringValueTransformer()]
 		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
 		deserializer.deserialize(entity: personEntity, dictionary: [ "id" : 1 ]) { (person: Person?) in
 			XCTAssertNotNil(person)
