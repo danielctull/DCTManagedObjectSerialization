@@ -12,7 +12,6 @@ extension NSManagedObjectContext {
 
 		do {
 			let results = try executeFetchRequest(fetchRequest)
-			print(predicate, results)
 			guard let object = results.first as? NSManagedObject else {
 				throw DeserializerError.Unknown
 			}
@@ -24,6 +23,6 @@ extension NSManagedObjectContext {
 	}
 
 	func object(entity entity: NSEntityDescription) -> NSManagedObject {
-		return NSManagedObject(entity: entity, insertIntoManagedObjectContext: nil)
+		return NSManagedObject(entity: entity, insertIntoManagedObjectContext: self)
 	}
 }

@@ -17,7 +17,6 @@ class ViewController: UIViewController {
 			dispatch_async(dispatch_get_main_queue()) {
 				self.indicator.stopAnimating()
 				sender.enabled = true
-				print(NSDate().timeIntervalSinceDate(start), "imported", tweets.count, "tweets")
 			}
 		}
 	}
