@@ -183,57 +183,44 @@ class DeserializerTests: XCTestCase {
 			XCTAssertNil(error)
 		}
 	}
-//
-//	func testObjectDuplication2() {
-//		let expectation = self.expectationWithDescription("testObjectDuplication2")
-//		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
-//		deserializer.deserialize(entity: personEntity, dictionary: [ PersonAttributes.personID as String: "1" ]) { object in
-//			guard let person1 = object as? Person else {
-//				XCTFail()
-//				return
-//			}
-//			deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ PersonAttributes.personID as String: "2" ]) { object in
-//				defer { expectation.fulfill() }
-//				guard let person2 = object as? Person else {
-//					XCTFail()
-//					return
-//				}
-//				XCTAssertNotEqual(person1, person2)
-//			}
-//		}
-//		waitForExpectationsWithTimeout(30) { error in
-//			XCTAssertNil(error)
-//		}
-//	}
-//
-//	func testObjectDuplication3() {
-//		let expectation = self.expectationWithDescription("testObjectDuplication3")
-//		var serializationInfo = SerializationInfo()
-//		serializationInfo.serializationName[personID] = "id"
-//		serializationInfo.uniqueAttributes[personEntity] = [personID]
-//		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
-//		deserializer.deserialize(entity: personEntity, dictionary: [ "id" : "1" ]) { object in
-//			guard let person1 = object as? Person else {
-//				XCTFail()
-//				return
-//			}
-//			deserializer.deserializeObjectWithEntity(self.personEntity, dictionary: [ "id" : "1" ]) { object in
-//				defer { expectation.fulfill() }
-//				guard let person2 = object as? Person else {
-//					XCTFail()
-//					return
-//				}
-//				XCTAssertEqual(person1, person2)
-//			}
-//		}
-//		waitForExpectationsWithTimeout(30) { error in
-//			XCTAssertNil(error)
-//		}
-//	}
-//
-//
-//	// MARK: Relationships
-//
+
+	func testObjectDuplication2() {
+		let expectation = self.expectationWithDescription("testObjectDuplication2")
+		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
+		deserializer.deserialize(entity: personEntity, dictionary: [ personID.name : "1" ]) { (person1: Person?) in
+			deserializer.deserialize(entity: self.personEntity, dictionary: [ self.personID.name : "2" ]) { (person2: Person?) in
+				XCTAssertNotNil(person1)
+				XCTAssertNotNil(person2)
+				XCTAssertNotEqual(person1, person2)
+				expectation.fulfill()
+			}
+		}
+		waitForExpectationsWithTimeout(30) { error in
+			XCTAssertNil(error)
+		}
+	}
+
+	func testObjectDuplication3() {
+		let expectation = self.expectationWithDescription("testObjectDuplication3")
+		var serializationInfo = SerializationInfo()
+		serializationInfo.serializationName[personID] = "id"
+		serializationInfo.uniqueAttributes[personEntity] = [personID]
+		let deserializer = Deserializer(managedObjectContext: managedObjectContext, serializationInfo: serializationInfo)
+		deserializer.deserialize(entity: personEntity, dictionary: [ "id" : "1" ]) { (person1: Person?) in
+			deserializer.deserialize(entity: self.personEntity, dictionary: [ "id" : "1" ]) { (person2: Person?) in
+				XCTAssertNotNil(person1)
+				XCTAssertNotNil(person2)
+				XCTAssertEqual(person1, person2)
+				expectation.fulfill()
+			}
+		}
+		waitForExpectationsWithTimeout(30) { error in
+			XCTAssertNil(error)
+		}
+	}
+
+	// MARK: Relationships
+
 //	func testRelationship() {
 //		let expectation = self.expectationWithDescription("testRelationship")
 //		let deserializer = Deserializer(managedObjectContext: managedObjectContext)
