@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24513EAC1C89E5850080D250 /* NSPropertyDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EAB1C89E5850080D250 /* NSPropertyDescription.swift */; };
+		24513EAD1C89E5850080D250 /* NSPropertyDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EAB1C89E5850080D250 /* NSPropertyDescription.swift */; };
+		24513EB01C89F2B50080D250 /* NSEntityDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EAF1C89F2B50080D250 /* NSEntityDescription.swift */; };
+		24513EB11C89F2B50080D250 /* NSEntityDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EAF1C89F2B50080D250 /* NSEntityDescription.swift */; };
+		24513EB31C89F5400080D250 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB21C89F5400080D250 /* NSManagedObjectContext.swift */; };
+		24513EB41C89F5400080D250 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB21C89F5400080D250 /* NSManagedObjectContext.swift */; };
+		24513EB61C89F6A10080D250 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB51C89F6A10080D250 /* NSManagedObject.swift */; };
+		24513EB71C89F6A10080D250 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB51C89F6A10080D250 /* NSManagedObject.swift */; };
+		24513EB91C89FB7F0080D250 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB81C89FB7F0080D250 /* Value.swift */; };
+		24513EBA1C89FB7F0080D250 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB81C89FB7F0080D250 /* Value.swift */; };
 		24F7980B1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F798561B39402500F7E4A5 /* DCTManagedObjectSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F798601B39415600F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; };
@@ -74,16 +84,12 @@
 		24F799471B39457000F7E4A5 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */; };
 		24F799481B39457000F7E4A5 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992E1B39456F00F7E4A5 /* Person.xcdatamodeld */; };
 		24F799491B39457000F7E4A5 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992E1B39456F00F7E4A5 /* Person.xcdatamodeld */; };
-		24F7994A1B39457000F7E4A5 /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */; };
-		24F7994B1B39457000F7E4A5 /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */; };
 		24F799501B39457000F7E4A5 /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799331B39457000F7E4A5 /* URLTransformer.swift */; };
 		24F799511B39457000F7E4A5 /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799331B39457000F7E4A5 /* URLTransformer.swift */; };
-		24F799551B39459B00F7E4A5 /* ObjectDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799521B39459B00F7E4A5 /* ObjectDeserializer.swift */; };
-		24F799561B39459B00F7E4A5 /* ObjectDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799521B39459B00F7E4A5 /* ObjectDeserializer.swift */; };
 		24F799571B39459B00F7E4A5 /* SerializationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799531B39459B00F7E4A5 /* SerializationInfo.swift */; };
 		24F799581B39459B00F7E4A5 /* SerializationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799531B39459B00F7E4A5 /* SerializationInfo.swift */; };
-		24F799591B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799541B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift */; };
-		24F7995A1B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799541B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift */; };
+		24F799591B39459B00F7E4A5 /* NSRelationshipDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799541B39459B00F7E4A5 /* NSRelationshipDescription.swift */; };
+		24F7995A1B39459B00F7E4A5 /* NSRelationshipDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799541B39459B00F7E4A5 /* NSRelationshipDescription.swift */; };
 		24F7995C1B3945D200F7E4A5 /* Tweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 24F7995B1B3945D200F7E4A5 /* Tweets.json */; };
 		24F7995D1B3945D200F7E4A5 /* Tweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 24F7995B1B3945D200F7E4A5 /* Tweets.json */; };
 		24F7995E1B3945E700F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; };
@@ -95,14 +101,10 @@
 		24F799691B394E7B00F7E4A5 /* Tweets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24F799711B39532D00F7E4A5 /* DCTManagedObjectSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; };
 		24F799721B39532D00F7E4A5 /* DCTManagedObjectSerialization.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		24F799761B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799751B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift */; };
-		24F799771B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799751B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift */; };
+		24F799761B396B8100F7E4A5 /* NSAttributeDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799751B396B8100F7E4A5 /* NSAttributeDescription.swift */; };
+		24F799771B396B8100F7E4A5 /* NSAttributeDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799751B396B8100F7E4A5 /* NSAttributeDescription.swift */; };
 		24F799791B3972C100F7E4A5 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799781B3972C100F7E4A5 /* Deserializer.swift */; };
 		24F7997A1B3972C100F7E4A5 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799781B3972C100F7E4A5 /* Deserializer.swift */; };
-		24F7997C1B397F8400F7E4A5 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7997B1B397F8400F7E4A5 /* Cache.swift */; };
-		24F7997D1B397F8400F7E4A5 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7997B1B397F8400F7E4A5 /* Cache.swift */; };
-		24F7997F1B399AAF00F7E4A5 /* EntityDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7997E1B399AAF00F7E4A5 /* EntityDeserializer.swift */; };
-		24F799801B399AAF00F7E4A5 /* EntityDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7997E1B399AAF00F7E4A5 /* EntityDeserializer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +161,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24513EAB1C89E5850080D250 /* NSPropertyDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPropertyDescription.swift; sourceTree = "<group>"; };
+		24513EAF1C89F2B50080D250 /* NSEntityDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSEntityDescription.swift; sourceTree = "<group>"; };
+		24513EB21C89F5400080D250 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
+		24513EB51C89F6A10080D250 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
+		24513EB81C89FB7F0080D250 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
 		24F798071B393D1300F7E4A5 /* DCTManagedObjectSerialization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCTManagedObjectSerialization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization.h; sourceTree = "<group>"; };
 		24F7980C1B393D1300F7E4A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -229,15 +236,12 @@
 		24F7992F1B39456F00F7E4A5 /* Person.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person.xcdatamodel; sourceTree = "<group>"; };
 		24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfoTests.swift; sourceTree = "<group>"; };
 		24F799331B39457000F7E4A5 /* URLTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTransformer.swift; sourceTree = "<group>"; };
-		24F799521B39459B00F7E4A5 /* ObjectDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectDeserializer.swift; sourceTree = "<group>"; };
 		24F799531B39459B00F7E4A5 /* SerializationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationInfo.swift; sourceTree = "<group>"; };
-		24F799541B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRelationshipDescription+Deserializer.swift"; sourceTree = "<group>"; };
+		24F799541B39459B00F7E4A5 /* NSRelationshipDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRelationshipDescription.swift; sourceTree = "<group>"; };
 		24F7995B1B3945D200F7E4A5 /* Tweets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tweets.json; sourceTree = "<group>"; };
 		24F799641B394C2C00F7E4A5 /* DCTManagedObjectSerialization_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTManagedObjectSerialization_Tests.h; sourceTree = "<group>"; };
-		24F799751B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributeDescription+Deserializer.swift"; sourceTree = "<group>"; };
+		24F799751B396B8100F7E4A5 /* NSAttributeDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributeDescription.swift; sourceTree = "<group>"; };
 		24F799781B3972C100F7E4A5 /* Deserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializer.swift; sourceTree = "<group>"; };
-		24F7997B1B397F8400F7E4A5 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
-		24F7997E1B399AAF00F7E4A5 /* EntityDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityDeserializer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,13 +345,15 @@
 			children = (
 				24F7980A1B393D1300F7E4A5 /* DCTManagedObjectSerialization.h */,
 				24F799781B3972C100F7E4A5 /* Deserializer.swift */,
-				24F7997E1B399AAF00F7E4A5 /* EntityDeserializer.swift */,
-				24F799521B39459B00F7E4A5 /* ObjectDeserializer.swift */,
 				24F799531B39459B00F7E4A5 /* SerializationInfo.swift */,
+				24F799751B396B8100F7E4A5 /* NSAttributeDescription.swift */,
+				24F799541B39459B00F7E4A5 /* NSRelationshipDescription.swift */,
+				24513EAB1C89E5850080D250 /* NSPropertyDescription.swift */,
+				24513EAF1C89F2B50080D250 /* NSEntityDescription.swift */,
+				24513EB21C89F5400080D250 /* NSManagedObjectContext.swift */,
+				24513EB51C89F6A10080D250 /* NSManagedObject.swift */,
+				24513EB81C89FB7F0080D250 /* Value.swift */,
 				24F7980C1B393D1300F7E4A5 /* Info.plist */,
-				24F799751B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift */,
-				24F799541B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift */,
-				24F7997B1B397F8400F7E4A5 /* Cache.swift */,
 			);
 			path = DCTManagedObjectSerialization;
 			sourceTree = "<group>";
@@ -823,12 +829,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F799791B3972C100F7E4A5 /* Deserializer.swift in Sources */,
-				24F799761B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift in Sources */,
+				24513EB31C89F5400080D250 /* NSManagedObjectContext.swift in Sources */,
+				24F799761B396B8100F7E4A5 /* NSAttributeDescription.swift in Sources */,
 				24F799571B39459B00F7E4A5 /* SerializationInfo.swift in Sources */,
-				24F799591B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift in Sources */,
-				24F7997F1B399AAF00F7E4A5 /* EntityDeserializer.swift in Sources */,
-				24F7997C1B397F8400F7E4A5 /* Cache.swift in Sources */,
-				24F799551B39459B00F7E4A5 /* ObjectDeserializer.swift in Sources */,
+				24513EB61C89F6A10080D250 /* NSManagedObject.swift in Sources */,
+				24513EAC1C89E5850080D250 /* NSPropertyDescription.swift in Sources */,
+				24F799591B39459B00F7E4A5 /* NSRelationshipDescription.swift in Sources */,
+				24513EB91C89FB7F0080D250 /* Value.swift in Sources */,
+				24513EB01C89F2B50080D250 /* NSEntityDescription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,12 +845,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F7997A1B3972C100F7E4A5 /* Deserializer.swift in Sources */,
-				24F799771B396B8100F7E4A5 /* NSAttributeDescription+Deserializer.swift in Sources */,
+				24513EB41C89F5400080D250 /* NSManagedObjectContext.swift in Sources */,
+				24F799771B396B8100F7E4A5 /* NSAttributeDescription.swift in Sources */,
 				24F799581B39459B00F7E4A5 /* SerializationInfo.swift in Sources */,
-				24F7995A1B39459B00F7E4A5 /* NSRelationshipDescription+Deserializer.swift in Sources */,
-				24F799801B399AAF00F7E4A5 /* EntityDeserializer.swift in Sources */,
-				24F7997D1B397F8400F7E4A5 /* Cache.swift in Sources */,
-				24F799561B39459B00F7E4A5 /* ObjectDeserializer.swift in Sources */,
+				24513EB71C89F6A10080D250 /* NSManagedObject.swift in Sources */,
+				24513EAD1C89E5850080D250 /* NSPropertyDescription.swift in Sources */,
+				24F7995A1B39459B00F7E4A5 /* NSRelationshipDescription.swift in Sources */,
+				24513EBA1C89FB7F0080D250 /* Value.swift in Sources */,
+				24513EB11C89F2B50080D250 /* NSEntityDescription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,7 +862,6 @@
 			files = (
 				24F7993E1B39457000F7E4A5 /* Event.m in Sources */,
 				24F799381B39457000F7E4A5 /* DeserializerTests.swift in Sources */,
-				24F7994A1B39457000F7E4A5 /* SerializationInfoTests.swift in Sources */,
 				24F799461B39457000F7E4A5 /* PerformanceTest.swift in Sources */,
 				24F799501B39457000F7E4A5 /* URLTransformer.swift in Sources */,
 				24F799441B39457000F7E4A5 /* Person.m in Sources */,
@@ -869,7 +878,6 @@
 			files = (
 				24F7993F1B39457000F7E4A5 /* Event.m in Sources */,
 				24F799391B39457000F7E4A5 /* DeserializerTests.swift in Sources */,
-				24F7994B1B39457000F7E4A5 /* SerializationInfoTests.swift in Sources */,
 				24F799471B39457000F7E4A5 /* PerformanceTest.swift in Sources */,
 				24F799511B39457000F7E4A5 /* URLTransformer.swift in Sources */,
 				24F799451B39457000F7E4A5 /* Person.m in Sources */,
@@ -1201,6 +1209,7 @@
 				24F798521B393FFE00F7E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24F798631B39415600F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS Tests" */ = {
 			isa = XCConfigurationList;
@@ -1209,6 +1218,7 @@
 				24F798651B39415600F7E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24F798721B3941AF00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X Tests" */ = {
 			isa = XCConfigurationList;
@@ -1217,6 +1227,7 @@
 				24F798741B3941AF00F7E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24F798881B3941E900F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization iOS App" */ = {
 			isa = XCConfigurationList;
@@ -1225,6 +1236,7 @@
 				24F7988A1B3941E900F7E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24F7989B1B3941FE00F7E4A5 /* Build configuration list for PBXNativeTarget "DCTManagedObjectSerialization OS X App" */ = {
 			isa = XCConfigurationList;
@@ -1233,6 +1245,7 @@
 				24F7989D1B3941FE00F7E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24F798B41B39421A00F7E4A5 /* Build configuration list for PBXNativeTarget "Tweets iOS" */ = {
 			isa = XCConfigurationList;
@@ -1241,6 +1254,7 @@
 				24F798B61B39421A00F7E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24F798D01B39423400F7E4A5 /* Build configuration list for PBXNativeTarget "Tweets OS X" */ = {
 			isa = XCConfigurationList;
@@ -1249,6 +1263,7 @@
 				24F798D21B39423400F7E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -10,7 +10,7 @@ public class Tweets {
 		return NSBundle(forClass: self)
 	}
 
-	public static func importTweets(completion: [NSManagedObject] -> Void) {
+	public static func importTweets(completion: [Tweet] -> Void) {
 
 		let queue = dispatch_queue_create("Tweets", nil)
 		dispatch_async(queue) {
@@ -42,7 +42,7 @@ public class Tweets {
 				}
 
 				let tweetEntity = Tweet.entityInManagedObjectContext(managedObjectContext)
-				deserializer.deserializeObjectsWithEntity(tweetEntity, array: tweetsArray, completion: completion)
+				deserializer.deserialize(entity: tweetEntity, array: tweetsArray, completion: completion)
 
 			} catch {}
 		}
