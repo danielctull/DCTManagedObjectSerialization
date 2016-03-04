@@ -1,7 +1,7 @@
 
 import XCTest
 import CoreData
-import DCTManagedObjectSerialization
+import Deserializer
 import Tweets
 
 class SerializationInfoTests: XCTestCase {

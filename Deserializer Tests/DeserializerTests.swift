@@ -1,7 +1,7 @@
 
 import XCTest
 import CoreData
-import DCTManagedObjectSerialization
+import Deserializer
 
 func assertOptionalEqual<T: Comparable>(value: T?, expected: T) {
 	guard let left = value else {

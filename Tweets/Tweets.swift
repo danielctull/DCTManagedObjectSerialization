@@ -1,5 +1,5 @@
 
-import DCTManagedObjectSerialization
+import Deserializer
 import Foundation
 import CoreData
 
