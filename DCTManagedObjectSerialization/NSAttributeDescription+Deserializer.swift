@@ -1,25 +1,10 @@
 
 import CoreData
 
-enum AttributeValue: CustomStringConvertible {
+enum AttributeValue {
 	case One(AnyObject)
 	case Nil
 	case None
-
-	var description: String {
-
-		switch self {
-
-		case let .One(object):
-			return "AttributeValue.One(\(object))"
-
-		case .Nil:
-			return "AttributeValue.Nil"
-
-		case .None:
-			return "AttributeValue.None"
-		}
-	}
 }
 
 extension NSAttributeDescription {
@@ -27,11 +12,14 @@ extension NSAttributeDescription {
 	func valueForSerializedDictionary(serializedDictionary: SerializedDictionary, serializationInfo: SerializationInfo) -> AttributeValue {
 
 		let serializationName = serializationInfo.serializationName[self]
+
+		// If there is no value in the dictionary, return .None
 		guard let serializedValue = serializedDictionary[serializationName] else {
 			return .None
 		}
 
-		if serializedValue as? NSNull != nil {
+		// If the value is NSNull, treat as .Nil
+		guard !(serializedValue is NSNull) else {
 			return .Nil
 		}
 
@@ -51,5 +39,23 @@ extension NSAttributeDescription {
 		}
 
 		return .One(value)
+	}
+}
+
+extension AttributeValue: CustomStringConvertible {
+
+	var description: String {
+
+		switch self {
+
+		case let .One(object):
+			return "AttributeValue.One(\(object))"
+
+		case .Nil:
+			return "AttributeValue.Nil"
+
+		case .None:
+			return "AttributeValue.None"
+		}
 	}
 }
