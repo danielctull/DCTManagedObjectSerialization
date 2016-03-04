@@ -11,13 +11,13 @@ class SerializationInfoTests: XCTestCase {
 	var serializationInfo: SerializationInfo!
 
 	var tweetEntity: NSEntityDescription {
-		return Tweet.entityInManagedObjectContext(managedObjectContext)
+		return Tweet.entity(managedObjectContext)
 	}
 	var tweetID: NSAttributeDescription {
-		return tweetEntity.attributesByName[TweetAttributes.tweetID as String]!
+		return tweetEntity.attributesByName[TweetAttributes.tweetID]!
 	}
 	var tweetText: NSAttributeDescription {
-		return tweetEntity.attributesByName[TweetAttributes.text as String]!
+		return tweetEntity.attributesByName[TweetAttributes.text]!
 	}
 
 	override func setUp() {
@@ -38,38 +38,38 @@ class SerializationInfoTests: XCTestCase {
 
 	// uniqueKeys not set, returns []
 	func testNoUniqueKeys() {
-		let entity = Hashtag.entityInManagedObjectContext(managedObjectContext)
+		let entity = Hashtag.entity(managedObjectContext)
 		let uniqueAttributes = serializationInfo.uniqueAttributes[entity]
 		XCTAssertEqual(uniqueAttributes.count, 0)
 	}
 
 	// shouldDeserializeNilValues not set, returns false
 	func testNoShouldDeserializeNilValues() {
-		let entity = Hashtag.entityInManagedObjectContext(managedObjectContext)
+		let entity = Hashtag.entity(managedObjectContext)
 		let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[entity]
 		XCTAssertFalse(shouldDeserializeNilValues)
 	}
 
 	// serializationName not set, returns property.name
 	func testNoSerializationName() {
-		let hashtagEntity = Hashtag.entityInManagedObjectContext(managedObjectContext)
-		let hashtagName = hashtagEntity.attributesByName[HashtagAttributes.name as String]!
+		let hashtagEntity = Hashtag.entity(managedObjectContext)
+		let hashtagName = hashtagEntity.attributesByName[HashtagAttributes.name]!
 		let serializationName = serializationInfo.serializationName[hashtagName]
 		XCTAssertEqual(serializationName, hashtagName.name)
 	}
 
 	// transformers not set, returns []
 	func testNoTransformerNames() {
-		let hashtagEntity = Hashtag.entityInManagedObjectContext(managedObjectContext)
-		let hashtagName = hashtagEntity.attributesByName[HashtagAttributes.name as String]!
+		let hashtagEntity = Hashtag.entity(managedObjectContext)
+		let hashtagName = hashtagEntity.attributesByName[HashtagAttributes.name]!
 		let transformers = serializationInfo.transformers[hashtagName]
 		XCTAssertEqual(transformers.count, 0)
 	}
 
 	// shouldBeUnion not set, returns false
 	func testNoShouldBeUnion() {
-		let placeEntity = Place.entityInManagedObjectContext(managedObjectContext)
-		let placeTweets = placeEntity.relationshipsByName[PlaceRelationships.tweets as String]!
+		let placeEntity = Place.entity(managedObjectContext)
+		let placeTweets = placeEntity.relationshipsByName[PlaceRelationships.tweets]!
 		let shouldBeUnion = serializationInfo.shouldBeUnion[placeTweets]
 		XCTAssertFalse(shouldBeUnion)
 	}
@@ -83,7 +83,7 @@ class SerializationInfoTests: XCTestCase {
 	}
 
 	func testSettingShouldDeserializeNilValues() {
-		let entity = Tweet.entityInManagedObjectContext(managedObjectContext)
+		let entity = Tweet.entity(managedObjectContext)
 		serializationInfo.shouldDeserializeNilValues[entity] = true
 		let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[entity]
 		XCTAssertTrue(shouldDeserializeNilValues)
@@ -97,16 +97,16 @@ class SerializationInfoTests: XCTestCase {
 	}
 
 	func testSettingTransformers() {
-		let expectedTransformers = [DCTTestNumberToStringValueTransformer()]
-		let tweetText = tweetEntity.attributesByName[TweetAttributes.text as String]!
+		let expectedTransformers = [NumberToStringValueTransformer()]
+		let tweetText = tweetEntity.attributesByName[TweetAttributes.text]!
 		serializationInfo.transformers[tweetText] = expectedTransformers
 		let transformers = serializationInfo.transformers[tweetText]
 		XCTAssertEqual(transformers, expectedTransformers)
 	}
 
 	func testSettingShouldBeUnion() {
-		let userEntity = User.entityInManagedObjectContext(managedObjectContext)
-		let userTweets = userEntity.relationshipsByName[UserRelationships.tweets as String]!
+		let userEntity = User.entity(managedObjectContext)
+		let userTweets = userEntity.relationshipsByName[UserRelationships.tweets]!
 		serializationInfo.shouldBeUnion[userTweets] = true
 		let shouldBeUnion = serializationInfo.shouldBeUnion[userTweets]
 		XCTAssertTrue(shouldBeUnion)
@@ -126,8 +126,8 @@ class SerializationInfoTests: XCTestCase {
 	}
 
 	func testModelDefinedTransformers() {
-		let placeEntity = Place.entityInManagedObjectContext(managedObjectContext)
-		let placeURL = placeEntity.attributesByName[PlaceAttributes.placeURL as String]!
+		let placeEntity = Place.entity(managedObjectContext)
+		let placeURL = placeEntity.attributesByName[PlaceAttributes.placeURL]!
 		let transformers = serializationInfo.transformers[placeURL]
 		XCTAssertEqual(transformers.count, 1)
 		XCTAssert(transformers[0] as? URLTransformer != nil)
@@ -137,7 +137,7 @@ class SerializationInfoTests: XCTestCase {
 
 	func setupTwoContexts(completion: (NSManagedObjectContext, NSManagedObjectContext) -> Void ) {
 
-		let bundle = NSBundle(forClass: self.dynamicType)
+		let bundle = NSBundle(forClass: Tweet.self)
 		let managedObjectModel1 = NSManagedObjectModel.mergedModelFromBundles([bundle])!
 		let persistentStoreCoordinator1 = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel1)
 		let managedObjectContext1 = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
@@ -157,11 +157,12 @@ class SerializationInfoTests: XCTestCase {
 
 			var serializationInfo = SerializationInfo()
 
-			let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
-			let tweetIDs1 = [tweetEntity1.attributesByName[TweetAttributes.tweetID as String]!]
+			let tweetEntity1 = Tweet.entity(managedObjectContext1)
+			print(tweetEntity1.attributesByName)
+			let tweetIDs1 = [tweetEntity1.attributesByName[TweetAttributes.tweetID]!]
 			serializationInfo.uniqueAttributes[tweetEntity1] = tweetIDs1
 
-			let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
+			let tweetEntity2 = Tweet.entity(managedObjectContext2)
 			let tweetIDs2 = serializationInfo.uniqueAttributes[tweetEntity2]
 
 			XCTAssert(tweetEntity1 !== tweetEntity2)
@@ -176,10 +177,10 @@ class SerializationInfoTests: XCTestCase {
 
 			var serializationInfo = SerializationInfo()
 
-			let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
+			let tweetEntity1 = Tweet.entity(managedObjectContext1)
 			serializationInfo.shouldDeserializeNilValues[tweetEntity1] = true
 
-			let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
+			let tweetEntity2 = Tweet.entity(managedObjectContext2)
 			let shouldDeserializeNilValues = serializationInfo.shouldDeserializeNilValues[tweetEntity2]
 
 			XCTAssert(tweetEntity1 !== tweetEntity2)
@@ -194,12 +195,12 @@ class SerializationInfoTests: XCTestCase {
 
 			var serializationInfo = SerializationInfo()
 
-			let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
-			let tweetID1 = tweetEntity1.attributesByName[TweetAttributes.tweetID as String]!
+			let tweetEntity1 = Tweet.entity(managedObjectContext1)
+			let tweetID1 = tweetEntity1.attributesByName[TweetAttributes.tweetID]!
 			serializationInfo.serializationName[tweetID1] = "NAME"
 
-			let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
-			let tweetID2 = tweetEntity2.attributesByName[TweetAttributes.tweetID as String]!
+			let tweetEntity2 = Tweet.entity(managedObjectContext2)
+			let tweetID2 = tweetEntity2.attributesByName[TweetAttributes.tweetID]!
 			let name = serializationInfo.serializationName[tweetID2]
 
 			XCTAssert(tweetEntity1 !== tweetEntity2)
@@ -215,14 +216,14 @@ class SerializationInfoTests: XCTestCase {
 		setupTwoContexts() { (managedObjectContext1, managedObjectContext2) in
 
 			var serializationInfo = SerializationInfo()
-			let expectedTransformers = [DCTTestNumberToStringValueTransformer()]
+			let expectedTransformers = [NumberToStringValueTransformer()]
 
-			let tweetEntity1 = Tweet.entityInManagedObjectContext(managedObjectContext1)
-			let tweetID1 = tweetEntity1.attributesByName[TweetAttributes.tweetID as String]!
+			let tweetEntity1 = Tweet.entity(managedObjectContext1)
+			let tweetID1 = tweetEntity1.attributesByName[TweetAttributes.tweetID]!
 			serializationInfo.transformers[tweetID1] = expectedTransformers
 
-			let tweetEntity2 = Tweet.entityInManagedObjectContext(managedObjectContext2)
-			let tweetID2 = tweetEntity2.attributesByName[TweetAttributes.tweetID as String]!
+			let tweetEntity2 = Tweet.entity(managedObjectContext2)
+			let tweetID2 = tweetEntity2.attributesByName[TweetAttributes.tweetID]!
 			let transformers = serializationInfo.transformers[tweetID2]
 
 			XCTAssert(tweetEntity1 !== tweetEntity2)
@@ -239,12 +240,12 @@ class SerializationInfoTests: XCTestCase {
 
 			var serializationInfo = SerializationInfo()
 
-			let userEntity1 = User.entityInManagedObjectContext(managedObjectContext1)
-			let userTweets1 = userEntity1.relationshipsByName[UserRelationships.tweets as String]!
+			let userEntity1 = User.entity(managedObjectContext1)
+			let userTweets1 = userEntity1.relationshipsByName[UserRelationships.tweets]!
 			serializationInfo.shouldBeUnion[userTweets1] = true
 
-			let userEntity2 = User.entityInManagedObjectContext(managedObjectContext2)
-			let userTweets2 = userEntity2.relationshipsByName[UserRelationships.tweets as String]!
+			let userEntity2 = User.entity(managedObjectContext2)
+			let userTweets2 = userEntity2.relationshipsByName[UserRelationships.tweets]!
 			serializationInfo.shouldBeUnion[userTweets2] = true
 			let shouldBeUnion = serializationInfo.shouldBeUnion[userTweets2]
 

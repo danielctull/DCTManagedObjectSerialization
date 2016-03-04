@@ -41,7 +41,7 @@ public class Tweets {
 					return
 				}
 
-				let tweetEntity = Tweet.entityInManagedObjectContext(managedObjectContext)
+				let tweetEntity = Tweet.entity(managedObjectContext)
 				deserializer.deserialize(entity: tweetEntity, array: tweetsArray, completion: completion)
 
 			} catch {}

@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		244E82991C8A455200F42D2B /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */; };
+		244E829A1C8A455300F42D2B /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */; };
+		244E829B1C8A455300F42D2B /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */; };
+		244E82A01C8A473300F42D2B /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E829C1C8A473300F42D2B /* Hashtag.swift */; };
+		244E82A11C8A473300F42D2B /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E829C1C8A473300F42D2B /* Hashtag.swift */; };
+		244E82A21C8A473300F42D2B /* Hashtag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E829C1C8A473300F42D2B /* Hashtag.swift */; };
+		244E82A31C8A473300F42D2B /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E829D1C8A473300F42D2B /* Place.swift */; };
+		244E82A41C8A473300F42D2B /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E829D1C8A473300F42D2B /* Place.swift */; };
+		244E82A51C8A473300F42D2B /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E829D1C8A473300F42D2B /* Place.swift */; };
+		244E82A61C8A473300F42D2B /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E829E1C8A473300F42D2B /* Tweet.swift */; };
+		244E82A71C8A473300F42D2B /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E829E1C8A473300F42D2B /* Tweet.swift */; };
+		244E82A81C8A473300F42D2B /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E829E1C8A473300F42D2B /* Tweet.swift */; };
+		244E82A91C8A473300F42D2B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E829F1C8A473300F42D2B /* User.swift */; };
+		244E82AA1C8A473300F42D2B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E829F1C8A473300F42D2B /* User.swift */; };
+		244E82AB1C8A473300F42D2B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244E829F1C8A473300F42D2B /* User.swift */; };
 		24513EAC1C89E5850080D250 /* NSPropertyDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EAB1C89E5850080D250 /* NSPropertyDescription.swift */; };
 		24513EAD1C89E5850080D250 /* NSPropertyDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EAB1C89E5850080D250 /* NSPropertyDescription.swift */; };
 		24513EB01C89F2B50080D250 /* NSEntityDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EAF1C89F2B50080D250 /* NSEntityDescription.swift */; };
@@ -18,26 +33,10 @@
 		24513EB91C89FB7F0080D250 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB81C89FB7F0080D250 /* Value.swift */; };
 		24513EBA1C89FB7F0080D250 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB81C89FB7F0080D250 /* Value.swift */; };
 		24513EF91C8A123C0080D250 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24513EE81C8A119D0080D250 /* Deserializer.framework */; };
-		24513F011C8A12640080D250 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798EA1B39425000F7E4A5 /* User.m */; };
-		24513F021C8A12640080D250 /* Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E41B39425000F7E4A5 /* Hashtag.m */; };
-		24513F031C8A12640080D250 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E21B39425000F7E4A5 /* _User.m */; };
-		24513F041C8A12640080D250 /* _Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798DC1B39425000F7E4A5 /* _Hashtag.m */; };
-		24513F051C8A12640080D250 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E81B39425000F7E4A5 /* Tweet.m */; };
-		24513F061C8A12640080D250 /* Twitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F798ED1B39425000F7E4A5 /* Twitter.xcdatamodeld */; };
+		24513F061C8A12640080D250 /* Tweets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F798ED1B39425000F7E4A5 /* Tweets.xcdatamodeld */; };
 		24513F071C8A12640080D250 /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F798EC1B39425000F7E4A5 /* Tweets.swift */; };
-		24513F081C8A12640080D250 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E61B39425000F7E4A5 /* Place.m */; };
-		24513F091C8A12640080D250 /* _Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E01B39425000F7E4A5 /* _Tweet.m */; };
-		24513F0A1C8A12640080D250 /* _Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798DE1B39425000F7E4A5 /* _Place.m */; };
 		24513F0C1C8A12640080D250 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F7983F1B393FFE00F7E4A5 /* Deserializer.framework */; };
 		24513F0E1C8A12640080D250 /* Tweets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798EB1B39425000F7E4A5 /* Tweets.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24513F0F1C8A12640080D250 /* _User.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E11B39425000F7E4A5 /* _User.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24513F101C8A12640080D250 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E91B39425000F7E4A5 /* User.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24513F111C8A12640080D250 /* Place.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E51B39425000F7E4A5 /* Place.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24513F121C8A12640080D250 /* _Place.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DD1B39425000F7E4A5 /* _Place.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24513F131C8A12640080D250 /* Hashtag.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E31B39425000F7E4A5 /* Hashtag.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24513F141C8A12640080D250 /* _Tweet.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DF1B39425000F7E4A5 /* _Tweet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24513F151C8A12640080D250 /* Tweet.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E71B39425000F7E4A5 /* Tweet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24513F161C8A12640080D250 /* _Hashtag.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DB1B39425000F7E4A5 /* _Hashtag.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24513F181C8A12640080D250 /* Tweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 24F7995B1B3945D200F7E4A5 /* Tweets.json */; };
 		24513F1D1C8A129A0080D250 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799781B3972C100F7E4A5 /* Deserializer.swift */; };
 		24513F1E1C8A129A0080D250 /* SerializationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799531B39459B00F7E4A5 /* SerializationInfo.swift */; };
@@ -75,44 +74,12 @@
 		24F798941B3941FE00F7E4A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F798931B3941FE00F7E4A5 /* ViewController.swift */; };
 		24F798961B3941FE00F7E4A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F798951B3941FE00F7E4A5 /* Assets.xcassets */; };
 		24F798991B3941FE00F7E4A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F798971B3941FE00F7E4A5 /* Main.storyboard */; };
-		24F798F31B39425000F7E4A5 /* _Hashtag.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DB1B39425000F7E4A5 /* _Hashtag.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F798F41B39425000F7E4A5 /* _Hashtag.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DB1B39425000F7E4A5 /* _Hashtag.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F798F51B39425000F7E4A5 /* _Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798DC1B39425000F7E4A5 /* _Hashtag.m */; };
-		24F798F61B39425000F7E4A5 /* _Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798DC1B39425000F7E4A5 /* _Hashtag.m */; };
-		24F798F71B39425000F7E4A5 /* _Place.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DD1B39425000F7E4A5 /* _Place.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F798F81B39425000F7E4A5 /* _Place.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DD1B39425000F7E4A5 /* _Place.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F798F91B39425000F7E4A5 /* _Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798DE1B39425000F7E4A5 /* _Place.m */; };
-		24F798FA1B39425000F7E4A5 /* _Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798DE1B39425000F7E4A5 /* _Place.m */; };
-		24F798FB1B39425000F7E4A5 /* _Tweet.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DF1B39425000F7E4A5 /* _Tweet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F798FC1B39425000F7E4A5 /* _Tweet.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798DF1B39425000F7E4A5 /* _Tweet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F798FD1B39425000F7E4A5 /* _Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E01B39425000F7E4A5 /* _Tweet.m */; };
-		24F798FE1B39425000F7E4A5 /* _Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E01B39425000F7E4A5 /* _Tweet.m */; };
-		24F798FF1B39425000F7E4A5 /* _User.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E11B39425000F7E4A5 /* _User.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F799001B39425000F7E4A5 /* _User.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E11B39425000F7E4A5 /* _User.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F799011B39425000F7E4A5 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E21B39425000F7E4A5 /* _User.m */; };
-		24F799021B39425000F7E4A5 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E21B39425000F7E4A5 /* _User.m */; };
-		24F799031B39425000F7E4A5 /* Hashtag.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E31B39425000F7E4A5 /* Hashtag.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F799041B39425000F7E4A5 /* Hashtag.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E31B39425000F7E4A5 /* Hashtag.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F799051B39425000F7E4A5 /* Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E41B39425000F7E4A5 /* Hashtag.m */; };
-		24F799061B39425000F7E4A5 /* Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E41B39425000F7E4A5 /* Hashtag.m */; };
-		24F799071B39425000F7E4A5 /* Place.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E51B39425000F7E4A5 /* Place.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F799081B39425000F7E4A5 /* Place.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E51B39425000F7E4A5 /* Place.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F799091B39425000F7E4A5 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E61B39425000F7E4A5 /* Place.m */; };
-		24F7990A1B39425000F7E4A5 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E61B39425000F7E4A5 /* Place.m */; };
-		24F7990B1B39425000F7E4A5 /* Tweet.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E71B39425000F7E4A5 /* Tweet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F7990C1B39425000F7E4A5 /* Tweet.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E71B39425000F7E4A5 /* Tweet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F7990D1B39425000F7E4A5 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E81B39425000F7E4A5 /* Tweet.m */; };
-		24F7990E1B39425000F7E4A5 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798E81B39425000F7E4A5 /* Tweet.m */; };
-		24F7990F1B39425000F7E4A5 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E91B39425000F7E4A5 /* User.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F799101B39425000F7E4A5 /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798E91B39425000F7E4A5 /* User.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F799111B39425000F7E4A5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798EA1B39425000F7E4A5 /* User.m */; };
-		24F799121B39425000F7E4A5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F798EA1B39425000F7E4A5 /* User.m */; };
 		24F799131B39425000F7E4A5 /* Tweets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798EB1B39425000F7E4A5 /* Tweets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F799141B39425000F7E4A5 /* Tweets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798EB1B39425000F7E4A5 /* Tweets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F799151B39425000F7E4A5 /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F798EC1B39425000F7E4A5 /* Tweets.swift */; };
 		24F799161B39425000F7E4A5 /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F798EC1B39425000F7E4A5 /* Tweets.swift */; };
-		24F799171B39425000F7E4A5 /* Twitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F798ED1B39425000F7E4A5 /* Twitter.xcdatamodeld */; };
-		24F799181B39425000F7E4A5 /* Twitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F798ED1B39425000F7E4A5 /* Twitter.xcdatamodeld */; };
+		24F799171B39425000F7E4A5 /* Tweets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F798ED1B39425000F7E4A5 /* Tweets.xcdatamodeld */; };
+		24F799181B39425000F7E4A5 /* Tweets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F798ED1B39425000F7E4A5 /* Tweets.xcdatamodeld */; };
 		24F799381B39457000F7E4A5 /* DeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */; };
 		24F799391B39457000F7E4A5 /* DeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */; };
 		24F799461B39457000F7E4A5 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */; };
@@ -237,6 +204,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		244E829C1C8A473300F42D2B /* Hashtag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
+		244E829D1C8A473300F42D2B /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		244E829E1C8A473300F42D2B /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		244E829F1C8A473300F42D2B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		24513EAB1C89E5850080D250 /* NSPropertyDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPropertyDescription.swift; sourceTree = "<group>"; };
 		24513EAF1C89F2B50080D250 /* NSEntityDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSEntityDescription.swift; sourceTree = "<group>"; };
 		24513EB21C89F5400080D250 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
@@ -305,25 +276,9 @@
 		24F798A31B39421A00F7E4A5 /* Tweets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tweets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F798BF1B39423300F7E4A5 /* Tweets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tweets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F798D81B39425000F7E4A5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24F798DB1B39425000F7E4A5 /* _Hashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Hashtag.h; sourceTree = "<group>"; };
-		24F798DC1B39425000F7E4A5 /* _Hashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Hashtag.m; sourceTree = "<group>"; };
-		24F798DD1B39425000F7E4A5 /* _Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Place.h; sourceTree = "<group>"; };
-		24F798DE1B39425000F7E4A5 /* _Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Place.m; sourceTree = "<group>"; };
-		24F798DF1B39425000F7E4A5 /* _Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Tweet.h; sourceTree = "<group>"; };
-		24F798E01B39425000F7E4A5 /* _Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Tweet.m; sourceTree = "<group>"; };
-		24F798E11B39425000F7E4A5 /* _User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _User.h; sourceTree = "<group>"; };
-		24F798E21B39425000F7E4A5 /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
-		24F798E31B39425000F7E4A5 /* Hashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hashtag.h; sourceTree = "<group>"; };
-		24F798E41B39425000F7E4A5 /* Hashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hashtag.m; sourceTree = "<group>"; };
-		24F798E51B39425000F7E4A5 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
-		24F798E61B39425000F7E4A5 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
-		24F798E71B39425000F7E4A5 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
-		24F798E81B39425000F7E4A5 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
-		24F798E91B39425000F7E4A5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		24F798EA1B39425000F7E4A5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		24F798EB1B39425000F7E4A5 /* Tweets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweets.h; sourceTree = "<group>"; };
 		24F798EC1B39425000F7E4A5 /* Tweets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweets.swift; sourceTree = "<group>"; };
-		24F798EE1B39425000F7E4A5 /* Twitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Twitter.xcdatamodel; sourceTree = "<group>"; };
+		24F798EE1B39425000F7E4A5 /* Tweets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tweets.xcdatamodel; sourceTree = "<group>"; };
 		24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeserializerTests.swift; sourceTree = "<group>"; };
 		24F799221B39456F00F7E4A5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTest.swift; sourceTree = "<group>"; };
@@ -590,45 +545,17 @@
 		24F798D61B39425000F7E4A5 /* Tweets */ = {
 			isa = PBXGroup;
 			children = (
-				24F798D81B39425000F7E4A5 /* Info.plist */,
-				24F798D91B39425000F7E4A5 /* Model */,
 				24F798EB1B39425000F7E4A5 /* Tweets.h */,
 				24F798EC1B39425000F7E4A5 /* Tweets.swift */,
+				244E829C1C8A473300F42D2B /* Hashtag.swift */,
+				244E829D1C8A473300F42D2B /* Place.swift */,
+				244E829E1C8A473300F42D2B /* Tweet.swift */,
+				244E829F1C8A473300F42D2B /* User.swift */,
+				24F798ED1B39425000F7E4A5 /* Tweets.xcdatamodeld */,
 				24F7995B1B3945D200F7E4A5 /* Tweets.json */,
-				24F798ED1B39425000F7E4A5 /* Twitter.xcdatamodeld */,
+				24F798D81B39425000F7E4A5 /* Info.plist */,
 			);
 			path = Tweets;
-			sourceTree = "<group>";
-		};
-		24F798D91B39425000F7E4A5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				24F798DA1B39425000F7E4A5 /* Generated */,
-				24F798E31B39425000F7E4A5 /* Hashtag.h */,
-				24F798E41B39425000F7E4A5 /* Hashtag.m */,
-				24F798E51B39425000F7E4A5 /* Place.h */,
-				24F798E61B39425000F7E4A5 /* Place.m */,
-				24F798E71B39425000F7E4A5 /* Tweet.h */,
-				24F798E81B39425000F7E4A5 /* Tweet.m */,
-				24F798E91B39425000F7E4A5 /* User.h */,
-				24F798EA1B39425000F7E4A5 /* User.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		24F798DA1B39425000F7E4A5 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				24F798DB1B39425000F7E4A5 /* _Hashtag.h */,
-				24F798DC1B39425000F7E4A5 /* _Hashtag.m */,
-				24F798DD1B39425000F7E4A5 /* _Place.h */,
-				24F798DE1B39425000F7E4A5 /* _Place.m */,
-				24F798DF1B39425000F7E4A5 /* _Tweet.h */,
-				24F798E01B39425000F7E4A5 /* _Tweet.m */,
-				24F798E11B39425000F7E4A5 /* _User.h */,
-				24F798E21B39425000F7E4A5 /* _User.m */,
-			);
-			path = Generated;
 			sourceTree = "<group>";
 		};
 		24F799191B39456F00F7E4A5 /* Deserializer Tests */ = {
@@ -661,14 +588,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24513F0E1C8A12640080D250 /* Tweets.h in Headers */,
-				24513F0F1C8A12640080D250 /* _User.h in Headers */,
-				24513F101C8A12640080D250 /* User.h in Headers */,
-				24513F111C8A12640080D250 /* Place.h in Headers */,
-				24513F121C8A12640080D250 /* _Place.h in Headers */,
-				24513F131C8A12640080D250 /* Hashtag.h in Headers */,
-				24513F141C8A12640080D250 /* _Tweet.h in Headers */,
-				24513F151C8A12640080D250 /* Tweet.h in Headers */,
-				24513F161C8A12640080D250 /* _Hashtag.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,14 +612,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F799131B39425000F7E4A5 /* Tweets.h in Headers */,
-				24F798FF1B39425000F7E4A5 /* _User.h in Headers */,
-				24F7990F1B39425000F7E4A5 /* User.h in Headers */,
-				24F799071B39425000F7E4A5 /* Place.h in Headers */,
-				24F798F71B39425000F7E4A5 /* _Place.h in Headers */,
-				24F799031B39425000F7E4A5 /* Hashtag.h in Headers */,
-				24F798FB1B39425000F7E4A5 /* _Tweet.h in Headers */,
-				24F7990B1B39425000F7E4A5 /* Tweet.h in Headers */,
-				24F798F31B39425000F7E4A5 /* _Hashtag.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,14 +620,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F799141B39425000F7E4A5 /* Tweets.h in Headers */,
-				24F799001B39425000F7E4A5 /* _User.h in Headers */,
-				24F799101B39425000F7E4A5 /* User.h in Headers */,
-				24F799081B39425000F7E4A5 /* Place.h in Headers */,
-				24F798F81B39425000F7E4A5 /* _Place.h in Headers */,
-				24F799041B39425000F7E4A5 /* Hashtag.h in Headers */,
-				24F798FC1B39425000F7E4A5 /* _Tweet.h in Headers */,
-				24F7990C1B39425000F7E4A5 /* Tweet.h in Headers */,
-				24F798F41B39425000F7E4A5 /* _Hashtag.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1116,6 +1019,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24513F401C8A19090080D250 /* Person.swift in Sources */,
+				244E829B1C8A455300F42D2B /* SerializationInfoTests.swift in Sources */,
 				24513F2A1C8A12AA0080D250 /* PerformanceTest.swift in Sources */,
 				24513F291C8A12AA0080D250 /* DeserializerTests.swift in Sources */,
 				24513F2C1C8A12AA0080D250 /* URLTransformer.swift in Sources */,
@@ -1128,16 +1032,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24513F011C8A12640080D250 /* User.m in Sources */,
-				24513F021C8A12640080D250 /* Hashtag.m in Sources */,
-				24513F031C8A12640080D250 /* _User.m in Sources */,
-				24513F041C8A12640080D250 /* _Hashtag.m in Sources */,
-				24513F051C8A12640080D250 /* Tweet.m in Sources */,
-				24513F061C8A12640080D250 /* Twitter.xcdatamodeld in Sources */,
+				244E82A21C8A473300F42D2B /* Hashtag.swift in Sources */,
+				244E82A51C8A473300F42D2B /* Place.swift in Sources */,
+				244E82A81C8A473300F42D2B /* Tweet.swift in Sources */,
+				244E82AB1C8A473300F42D2B /* User.swift in Sources */,
+				24513F061C8A12640080D250 /* Tweets.xcdatamodeld in Sources */,
 				24513F071C8A12640080D250 /* Tweets.swift in Sources */,
-				24513F081C8A12640080D250 /* Place.m in Sources */,
-				24513F091C8A12640080D250 /* _Tweet.m in Sources */,
-				24513F0A1C8A12640080D250 /* _Place.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1181,6 +1081,7 @@
 				24F799461B39457000F7E4A5 /* PerformanceTest.swift in Sources */,
 				24513F431C8A1B670080D250 /* NumberToStringValueTransformer.swift in Sources */,
 				24F799501B39457000F7E4A5 /* URLTransformer.swift in Sources */,
+				244E82991C8A455200F42D2B /* SerializationInfoTests.swift in Sources */,
 				24513F3B1C8A19090080D250 /* Event.swift in Sources */,
 				24513F3E1C8A19090080D250 /* Person.swift in Sources */,
 				24F799481B39457000F7E4A5 /* Person.xcdatamodeld in Sources */,
@@ -1195,6 +1096,7 @@
 				24F799471B39457000F7E4A5 /* PerformanceTest.swift in Sources */,
 				24513F441C8A1B670080D250 /* NumberToStringValueTransformer.swift in Sources */,
 				24F799511B39457000F7E4A5 /* URLTransformer.swift in Sources */,
+				244E829A1C8A455300F42D2B /* SerializationInfoTests.swift in Sources */,
 				24513F3C1C8A19090080D250 /* Event.swift in Sources */,
 				24513F3F1C8A19090080D250 /* Person.swift in Sources */,
 				24F799491B39457000F7E4A5 /* Person.xcdatamodeld in Sources */,
@@ -1223,16 +1125,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F799111B39425000F7E4A5 /* User.m in Sources */,
-				24F799051B39425000F7E4A5 /* Hashtag.m in Sources */,
-				24F799011B39425000F7E4A5 /* _User.m in Sources */,
-				24F798F51B39425000F7E4A5 /* _Hashtag.m in Sources */,
-				24F7990D1B39425000F7E4A5 /* Tweet.m in Sources */,
-				24F799171B39425000F7E4A5 /* Twitter.xcdatamodeld in Sources */,
+				244E82A01C8A473300F42D2B /* Hashtag.swift in Sources */,
+				244E82A31C8A473300F42D2B /* Place.swift in Sources */,
+				244E82A61C8A473300F42D2B /* Tweet.swift in Sources */,
+				244E82A91C8A473300F42D2B /* User.swift in Sources */,
+				24F799171B39425000F7E4A5 /* Tweets.xcdatamodeld in Sources */,
 				24F799151B39425000F7E4A5 /* Tweets.swift in Sources */,
-				24F799091B39425000F7E4A5 /* Place.m in Sources */,
-				24F798FD1B39425000F7E4A5 /* _Tweet.m in Sources */,
-				24F798F91B39425000F7E4A5 /* _Place.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1240,16 +1138,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F799121B39425000F7E4A5 /* User.m in Sources */,
-				24F799061B39425000F7E4A5 /* Hashtag.m in Sources */,
-				24F799021B39425000F7E4A5 /* _User.m in Sources */,
-				24F798F61B39425000F7E4A5 /* _Hashtag.m in Sources */,
-				24F7990E1B39425000F7E4A5 /* Tweet.m in Sources */,
-				24F799181B39425000F7E4A5 /* Twitter.xcdatamodeld in Sources */,
+				244E82A11C8A473300F42D2B /* Hashtag.swift in Sources */,
+				244E82A41C8A473300F42D2B /* Place.swift in Sources */,
+				244E82A71C8A473300F42D2B /* Tweet.swift in Sources */,
+				244E82AA1C8A473300F42D2B /* User.swift in Sources */,
+				24F799181B39425000F7E4A5 /* Tweets.xcdatamodeld in Sources */,
 				24F799161B39425000F7E4A5 /* Tweets.swift in Sources */,
-				24F7990A1B39425000F7E4A5 /* Place.m in Sources */,
-				24F798FE1B39425000F7E4A5 /* _Tweet.m in Sources */,
-				24F798FA1B39425000F7E4A5 /* _Place.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1547,6 +1441,7 @@
 				24513EEF1C8A119D0080D250 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24513EFC1C8A123C0080D250 /* Build configuration list for PBXNativeTarget "Deserializer tvOS Tests" */ = {
 			isa = XCConfigurationList;
@@ -1555,6 +1450,7 @@
 				24513EFE1C8A123C0080D250 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24513F191C8A12640080D250 /* Build configuration list for PBXNativeTarget "Tweets tvOS" */ = {
 			isa = XCConfigurationList;
@@ -1649,13 +1545,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		24F798ED1B39425000F7E4A5 /* Twitter.xcdatamodeld */ = {
+		24F798ED1B39425000F7E4A5 /* Tweets.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				24F798EE1B39425000F7E4A5 /* Twitter.xcdatamodel */,
+				24F798EE1B39425000F7E4A5 /* Tweets.xcdatamodel */,
 			);
-			currentVersion = 24F798EE1B39425000F7E4A5 /* Twitter.xcdatamodel */;
-			path = Twitter.xcdatamodeld;
+			currentVersion = 24F798EE1B39425000F7E4A5 /* Tweets.xcdatamodel */;
+			path = Tweets.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

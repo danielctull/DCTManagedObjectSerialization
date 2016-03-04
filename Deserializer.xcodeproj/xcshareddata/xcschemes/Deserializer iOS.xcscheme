@@ -34,7 +34,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "24F7985A1B39415600F7E4A5"
-               BuildableName = "Deserializer.xctest"
+               BuildableName = "Deserializer Tests.xctest"
                BlueprintName = "Deserializer iOS Tests"
                ReferencedContainer = "container:Deserializer.xcodeproj">
             </BuildableReference>

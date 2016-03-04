@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8118.17" systemVersion="14D136" minimumToolsVersion="Xcode 4.3">
-    <entity name="Hashtag" representedClassName="Hashtag" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Xcode 4.3">
+    <entity name="Hashtag" representedClassName=".Hashtag" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Place" representedClassName="Place" syncable="YES">
+    <entity name="Place" representedClassName=".Place" syncable="YES">
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="countryCode" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
@@ -34,7 +34,7 @@
         </attribute>
         <relationship name="tweets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tweet" inverseName="place" inverseEntity="Tweet" syncable="YES"/>
     </entity>
-    <entity name="Tweet" representedClassName="Tweet" syncable="YES">
+    <entity name="Tweet" representedClassName=".Tweet" syncable="YES">
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tweetID" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
@@ -47,7 +47,7 @@
             <entry key="uniqueKeys" value="tweetID"/>
         </userInfo>
     </entity>
-    <entity name="User" representedClassName="User" syncable="YES">
+    <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
