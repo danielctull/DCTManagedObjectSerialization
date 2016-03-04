@@ -48,12 +48,9 @@
 		24513F231C8A129A0080D250 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB21C89F5400080D250 /* NSManagedObjectContext.swift */; };
 		24513F241C8A129A0080D250 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB51C89F6A10080D250 /* NSManagedObject.swift */; };
 		24513F251C8A129A0080D250 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB81C89FB7F0080D250 /* Value.swift */; };
-		24513F261C8A12A80080D250 /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */; };
-		24513F271C8A12A90080D250 /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */; };
 		24513F281C8A12AA0080D250 /* DCTTestNumberToStringValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991E1B39456F00F7E4A5 /* DCTTestNumberToStringValueTransformer.m */; };
 		24513F291C8A12AA0080D250 /* DeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7991F1B39456F00F7E4A5 /* DeserializerTests.swift */; };
 		24513F2A1C8A12AA0080D250 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7992D1B39456F00F7E4A5 /* PerformanceTest.swift */; };
-		24513F2B1C8A12AA0080D250 /* SerializationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799301B39456F00F7E4A5 /* SerializationInfoTests.swift */; };
 		24513F2C1C8A12AA0080D250 /* URLTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799331B39457000F7E4A5 /* URLTransformer.swift */; };
 		24513F2F1C8A134D0080D250 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24513F1C1C8A12640080D250 /* Tweets.framework */; };
 		24513F321C8A142E0080D250 /* Deserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* Deserializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -168,6 +165,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 24F798BE1B39423300F7E4A5;
 			remoteInfo = "Tweets OS X";
+		};
+		24513F331C8A14CF0080D250 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F797FE1B393D1300F7E4A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24F7983E1B393FFE00F7E4A5;
+			remoteInfo = "Deserializer OS X";
+		};
+		24513F351C8A14D30080D250 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F797FE1B393D1300F7E4A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24F798061B393D1300F7E4A5;
+			remoteInfo = "Deserializer iOS";
+		};
+		24513F371C8A14D70080D250 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F797FE1B393D1300F7E4A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24513EE71C8A119D0080D250;
+			remoteInfo = "Deserializer tvOS";
 		};
 		24F798701B3941AF00F7E4A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -791,6 +809,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				24513F381C8A14D70080D250 /* PBXTargetDependency */,
 			);
 			name = "Tweets tvOS";
 			productName = "Tweets OS X";
@@ -921,6 +940,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				24513F361C8A14D30080D250 /* PBXTargetDependency */,
 			);
 			name = "Tweets iOS";
 			productName = "Tweets iOS";
@@ -939,6 +959,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				24513F341C8A14CF0080D250 /* PBXTargetDependency */,
 			);
 			name = "Tweets OS X";
 			productName = "Tweets OS X";
@@ -1124,7 +1145,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24513F2B1C8A12AA0080D250 /* SerializationInfoTests.swift in Sources */,
 				24513F2A1C8A12AA0080D250 /* PerformanceTest.swift in Sources */,
 				24513F291C8A12AA0080D250 /* DeserializerTests.swift in Sources */,
 				24513F2C1C8A12AA0080D250 /* URLTransformer.swift in Sources */,
@@ -1187,7 +1207,6 @@
 			files = (
 				24F7993E1B39457000F7E4A5 /* Event.m in Sources */,
 				24F799381B39457000F7E4A5 /* DeserializerTests.swift in Sources */,
-				24513F271C8A12A90080D250 /* SerializationInfoTests.swift in Sources */,
 				24F799461B39457000F7E4A5 /* PerformanceTest.swift in Sources */,
 				24F799501B39457000F7E4A5 /* URLTransformer.swift in Sources */,
 				24F799441B39457000F7E4A5 /* Person.m in Sources */,
@@ -1204,7 +1223,6 @@
 			files = (
 				24F7993F1B39457000F7E4A5 /* Event.m in Sources */,
 				24F799391B39457000F7E4A5 /* DeserializerTests.swift in Sources */,
-				24513F261C8A12A80080D250 /* SerializationInfoTests.swift in Sources */,
 				24F799471B39457000F7E4A5 /* PerformanceTest.swift in Sources */,
 				24F799511B39457000F7E4A5 /* URLTransformer.swift in Sources */,
 				24F799451B39457000F7E4A5 /* Person.m in Sources */,
@@ -1285,6 +1303,21 @@
 			target = 24F798BE1B39423300F7E4A5 /* Tweets OS X */;
 			targetProxy = 24513F301C8A13590080D250 /* PBXContainerItemProxy */;
 		};
+		24513F341C8A14CF0080D250 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24F7983E1B393FFE00F7E4A5 /* Deserializer OS X */;
+			targetProxy = 24513F331C8A14CF0080D250 /* PBXContainerItemProxy */;
+		};
+		24513F361C8A14D30080D250 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24F798061B393D1300F7E4A5 /* Deserializer iOS */;
+			targetProxy = 24513F351C8A14D30080D250 /* PBXContainerItemProxy */;
+		};
+		24513F381C8A14D70080D250 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24513EE71C8A119D0080D250 /* Deserializer tvOS */;
+			targetProxy = 24513F371C8A14D70080D250 /* PBXContainerItemProxy */;
+		};
 		24F798711B3941AF00F7E4A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 24F7983E1B393FFE00F7E4A5 /* Deserializer OS X */;
@@ -1361,6 +1394,7 @@
 			baseConfigurationReference = 24513ED91C8A104D0080D250 /* tvOS Tests.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "Deserializer Tests";
+				SWIFT_OBJC_BRIDGING_HEADER = "Deserializer Tests/Bridging.h";
 			};
 			name = Debug;
 		};
@@ -1369,6 +1403,7 @@
 			baseConfigurationReference = 24513ED91C8A104D0080D250 /* tvOS Tests.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "Deserializer Tests";
+				SWIFT_OBJC_BRIDGING_HEADER = "Deserializer Tests/Bridging.h";
 			};
 			name = Release;
 		};
@@ -1443,7 +1478,7 @@
 			baseConfigurationReference = 24513EC81C8A104D0080D250 /* iOS Tests.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "Deserializer Tests";
-				SWIFT_OBJC_BRIDGING_HEADER = "DCTManagedObjectSerialization Tests/Bridging.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Deserializer Tests/Bridging.h";
 			};
 			name = Debug;
 		};
@@ -1452,7 +1487,7 @@
 			baseConfigurationReference = 24513EC81C8A104D0080D250 /* iOS Tests.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "Deserializer Tests";
-				SWIFT_OBJC_BRIDGING_HEADER = "DCTManagedObjectSerialization Tests/Bridging.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Deserializer Tests/Bridging.h";
 			};
 			name = Release;
 		};
@@ -1461,6 +1496,7 @@
 			baseConfigurationReference = 24513ECF1C8A104D0080D250 /* OS X Tests.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "Deserializer Tests";
+				SWIFT_OBJC_BRIDGING_HEADER = "Deserializer Tests/Bridging.h";
 			};
 			name = Debug;
 		};
@@ -1469,6 +1505,7 @@
 			baseConfigurationReference = 24513ECF1C8A104D0080D250 /* OS X Tests.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "Deserializer Tests";
+				SWIFT_OBJC_BRIDGING_HEADER = "Deserializer Tests/Bridging.h";
 			};
 			name = Release;
 		};
