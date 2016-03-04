@@ -65,15 +65,6 @@
 		24F798561B39402500F7E4A5 /* Deserializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F7980A1B393D1300F7E4A5 /* Deserializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F798601B39415600F7E4A5 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* Deserializer.framework */; };
 		24F7986F1B3941AF00F7E4A5 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F7983F1B393FFE00F7E4A5 /* Deserializer.framework */; };
-		24F7987C1B3941E900F7E4A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7987B1B3941E900F7E4A5 /* AppDelegate.swift */; };
-		24F7987E1B3941E900F7E4A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7987D1B3941E900F7E4A5 /* ViewController.swift */; };
-		24F798811B3941E900F7E4A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F7987F1B3941E900F7E4A5 /* Main.storyboard */; };
-		24F798831B3941E900F7E4A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F798821B3941E900F7E4A5 /* Assets.xcassets */; };
-		24F798861B3941E900F7E4A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F798841B3941E900F7E4A5 /* LaunchScreen.storyboard */; };
-		24F798921B3941FE00F7E4A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F798911B3941FE00F7E4A5 /* AppDelegate.swift */; };
-		24F798941B3941FE00F7E4A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F798931B3941FE00F7E4A5 /* ViewController.swift */; };
-		24F798961B3941FE00F7E4A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F798951B3941FE00F7E4A5 /* Assets.xcassets */; };
-		24F798991B3941FE00F7E4A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F798971B3941FE00F7E4A5 /* Main.storyboard */; };
 		24F799131B39425000F7E4A5 /* Tweets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798EB1B39425000F7E4A5 /* Tweets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F799141B39425000F7E4A5 /* Tweets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F798EB1B39425000F7E4A5 /* Tweets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F799151B39425000F7E4A5 /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F798EC1B39425000F7E4A5 /* Tweets.swift */; };
@@ -98,10 +89,6 @@
 		24F7995F1B3945EF00F7E4A5 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F7983F1B393FFE00F7E4A5 /* Deserializer.framework */; };
 		24F799601B39460700F7E4A5 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; };
 		24F799611B39460B00F7E4A5 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798BF1B39423300F7E4A5 /* Tweets.framework */; };
-		24F799681B394E7B00F7E4A5 /* Tweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; };
-		24F799691B394E7B00F7E4A5 /* Tweets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798A31B39421A00F7E4A5 /* Tweets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		24F799711B39532D00F7E4A5 /* Deserializer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* Deserializer.framework */; };
-		24F799721B39532D00F7E4A5 /* Deserializer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24F798071B393D1300F7E4A5 /* Deserializer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24F799761B396B8100F7E4A5 /* NSAttributeDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799751B396B8100F7E4A5 /* NSAttributeDescription.swift */; };
 		24F799771B396B8100F7E4A5 /* NSAttributeDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799751B396B8100F7E4A5 /* NSAttributeDescription.swift */; };
 		24F799791B3972C100F7E4A5 /* Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F799781B3972C100F7E4A5 /* Deserializer.swift */; };
@@ -158,13 +145,6 @@
 			remoteGlobalIDString = 24F7983E1B393FFE00F7E4A5;
 			remoteInfo = "DCTManagedObjectSerialization OS X";
 		};
-		24F7996A1B394E7B00F7E4A5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24F797FE1B393D1300F7E4A5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 24F798A21B39421A00F7E4A5;
-			remoteInfo = "Tweets iOS";
-		};
 		24F7996D1B39503E00F7E4A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24F797FE1B393D1300F7E4A5 /* Project object */;
@@ -179,29 +159,7 @@
 			remoteGlobalIDString = 24F798A21B39421A00F7E4A5;
 			remoteInfo = "Tweets iOS";
 		};
-		24F799731B39532D00F7E4A5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24F797FE1B393D1300F7E4A5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 24F798061B393D1300F7E4A5;
-			remoteInfo = "DCTManagedObjectSerialization iOS";
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		24F7996C1B394E7B00F7E4A5 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				24F799721B39532D00F7E4A5 /* Deserializer.framework in Embed Frameworks */,
-				24F799691B394E7B00F7E4A5 /* Tweets.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		244E829C1C8A473300F42D2B /* Hashtag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hashtag.swift; sourceTree = "<group>"; };
@@ -260,19 +218,6 @@
 		24F7983F1B393FFE00F7E4A5 /* Deserializer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deserializer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F7985B1B39415600F7E4A5 /* Deserializer Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Deserializer Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F7986A1B3941AF00F7E4A5 /* Deserializer Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Deserializer Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		24F798791B3941E900F7E4A5 /* Deserializer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deserializer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		24F7987B1B3941E900F7E4A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		24F7987D1B3941E900F7E4A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		24F798801B3941E900F7E4A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		24F798821B3941E900F7E4A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		24F798851B3941E900F7E4A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		24F798871B3941E900F7E4A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24F7988F1B3941FE00F7E4A5 /* Deserializer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deserializer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		24F798911B3941FE00F7E4A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		24F798931B3941FE00F7E4A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		24F798951B3941FE00F7E4A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		24F798981B3941FE00F7E4A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		24F7989A1B3941FE00F7E4A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24F798A31B39421A00F7E4A5 /* Tweets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tweets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F798BF1B39423300F7E4A5 /* Tweets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tweets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F798D81B39425000F7E4A5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -346,22 +291,6 @@
 			files = (
 				24F7986F1B3941AF00F7E4A5 /* Deserializer.framework in Frameworks */,
 				24F799611B39460B00F7E4A5 /* Tweets.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24F798761B3941E900F7E4A5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24F799711B39532D00F7E4A5 /* Deserializer.framework in Frameworks */,
-				24F799681B394E7B00F7E4A5 /* Tweets.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24F7988C1B3941FE00F7E4A5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,8 +402,6 @@
 			children = (
 				24F798091B393D1300F7E4A5 /* Deserializer */,
 				24F799191B39456F00F7E4A5 /* Deserializer Tests */,
-				24F7987A1B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App */,
-				24F798901B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App */,
 				24F798D61B39425000F7E4A5 /* Tweets */,
 				24513EBB1C8A104D0080D250 /* Configurations */,
 				24F798081B393D1300F7E4A5 /* Products */,
@@ -488,8 +415,6 @@
 				24F7983F1B393FFE00F7E4A5 /* Deserializer.framework */,
 				24F7985B1B39415600F7E4A5 /* Deserializer Tests.xctest */,
 				24F7986A1B3941AF00F7E4A5 /* Deserializer Tests.xctest */,
-				24F798791B3941E900F7E4A5 /* Deserializer.app */,
-				24F7988F1B3941FE00F7E4A5 /* Deserializer.app */,
 				24F798A31B39421A00F7E4A5 /* Tweets.framework */,
 				24F798BF1B39423300F7E4A5 /* Tweets.framework */,
 				24513EE81C8A119D0080D250 /* Deserializer.framework */,
@@ -515,31 +440,6 @@
 				24F7980C1B393D1300F7E4A5 /* Info.plist */,
 			);
 			path = Deserializer;
-			sourceTree = "<group>";
-		};
-		24F7987A1B3941E900F7E4A5 /* DCTManagedObjectSerialization iOS App */ = {
-			isa = PBXGroup;
-			children = (
-				24F7987B1B3941E900F7E4A5 /* AppDelegate.swift */,
-				24F7987D1B3941E900F7E4A5 /* ViewController.swift */,
-				24F7987F1B3941E900F7E4A5 /* Main.storyboard */,
-				24F798821B3941E900F7E4A5 /* Assets.xcassets */,
-				24F798841B3941E900F7E4A5 /* LaunchScreen.storyboard */,
-				24F798871B3941E900F7E4A5 /* Info.plist */,
-			);
-			path = "DCTManagedObjectSerialization iOS App";
-			sourceTree = "<group>";
-		};
-		24F798901B3941FE00F7E4A5 /* DCTManagedObjectSerialization OS X App */ = {
-			isa = PBXGroup;
-			children = (
-				24F798911B3941FE00F7E4A5 /* AppDelegate.swift */,
-				24F798931B3941FE00F7E4A5 /* ViewController.swift */,
-				24F798951B3941FE00F7E4A5 /* Assets.xcassets */,
-				24F798971B3941FE00F7E4A5 /* Main.storyboard */,
-				24F7989A1B3941FE00F7E4A5 /* Info.plist */,
-			);
-			path = "DCTManagedObjectSerialization OS X App";
 			sourceTree = "<group>";
 		};
 		24F798D61B39425000F7E4A5 /* Tweets */ = {
@@ -764,43 +664,6 @@
 			productReference = 24F7986A1B3941AF00F7E4A5 /* Deserializer Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		24F798781B3941E900F7E4A5 /* Deserializer iOS App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 24F798881B3941E900F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer iOS App" */;
-			buildPhases = (
-				24F798751B3941E900F7E4A5 /* Sources */,
-				24F798761B3941E900F7E4A5 /* Frameworks */,
-				24F798771B3941E900F7E4A5 /* Resources */,
-				24F7996C1B394E7B00F7E4A5 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				24F7996B1B394E7B00F7E4A5 /* PBXTargetDependency */,
-				24F799741B39532D00F7E4A5 /* PBXTargetDependency */,
-			);
-			name = "Deserializer iOS App";
-			productName = "DCTManagedObjectSerialization iOS App";
-			productReference = 24F798791B3941E900F7E4A5 /* Deserializer.app */;
-			productType = "com.apple.product-type.application";
-		};
-		24F7988E1B3941FE00F7E4A5 /* Deserializer OS X App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 24F7989B1B3941FE00F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer OS X App" */;
-			buildPhases = (
-				24F7988B1B3941FE00F7E4A5 /* Sources */,
-				24F7988C1B3941FE00F7E4A5 /* Frameworks */,
-				24F7988D1B3941FE00F7E4A5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Deserializer OS X App";
-			productName = "DCTManagedObjectSerialization OS X App";
-			productReference = 24F7988F1B3941FE00F7E4A5 /* Deserializer.app */;
-			productType = "com.apple.product-type.application";
-		};
 		24F798A21B39421A00F7E4A5 /* Tweets iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24F798B41B39421A00F7E4A5 /* Build configuration list for PBXNativeTarget "Tweets iOS" */;
@@ -867,12 +730,6 @@
 					24F798691B3941AF00F7E4A5 = {
 						CreatedOnToolsVersion = 7.0;
 					};
-					24F798781B3941E900F7E4A5 = {
-						CreatedOnToolsVersion = 7.0;
-					};
-					24F7988E1B3941FE00F7E4A5 = {
-						CreatedOnToolsVersion = 7.0;
-					};
 					24F798A21B39421A00F7E4A5 = {
 						CreatedOnToolsVersion = 7.0;
 					};
@@ -900,8 +757,6 @@
 				24F7985A1B39415600F7E4A5 /* Deserializer iOS Tests */,
 				24F798691B3941AF00F7E4A5 /* Deserializer OS X Tests */,
 				24513EF31C8A123B0080D250 /* Deserializer tvOS Tests */,
-				24F798781B3941E900F7E4A5 /* Deserializer iOS App */,
-				24F7988E1B3941FE00F7E4A5 /* Deserializer OS X App */,
 				24F798A21B39421A00F7E4A5 /* Tweets iOS */,
 				24F798BE1B39423300F7E4A5 /* Tweets OS X */,
 				24513EFF1C8A12640080D250 /* Tweets tvOS */,
@@ -957,25 +812,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24F798771B3941E900F7E4A5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24F798861B3941E900F7E4A5 /* LaunchScreen.storyboard in Resources */,
-				24F798831B3941E900F7E4A5 /* Assets.xcassets in Resources */,
-				24F798811B3941E900F7E4A5 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24F7988D1B3941FE00F7E4A5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24F798961B3941FE00F7E4A5 /* Assets.xcassets in Resources */,
-				24F798991B3941FE00F7E4A5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1103,24 +939,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		24F798751B3941E900F7E4A5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24F7987E1B3941E900F7E4A5 /* ViewController.swift in Sources */,
-				24F7987C1B3941E900F7E4A5 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24F7988B1B3941FE00F7E4A5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24F798941B3941FE00F7E4A5 /* ViewController.swift in Sources */,
-				24F798921B3941FE00F7E4A5 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		24F7989E1B39421A00F7E4A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1185,11 +1003,6 @@
 			target = 24F7983E1B393FFE00F7E4A5 /* Deserializer OS X */;
 			targetProxy = 24F798701B3941AF00F7E4A5 /* PBXContainerItemProxy */;
 		};
-		24F7996B1B394E7B00F7E4A5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 24F798A21B39421A00F7E4A5 /* Tweets iOS */;
-			targetProxy = 24F7996A1B394E7B00F7E4A5 /* PBXContainerItemProxy */;
-		};
 		24F7996E1B39503E00F7E4A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 24F798061B393D1300F7E4A5 /* Deserializer iOS */;
@@ -1200,39 +1013,7 @@
 			target = 24F798A21B39421A00F7E4A5 /* Tweets iOS */;
 			targetProxy = 24F7996F1B39503E00F7E4A5 /* PBXContainerItemProxy */;
 		};
-		24F799741B39532D00F7E4A5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 24F798061B393D1300F7E4A5 /* Deserializer iOS */;
-			targetProxy = 24F799731B39532D00F7E4A5 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		24F7987F1B3941E900F7E4A5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24F798801B3941E900F7E4A5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		24F798841B3941E900F7E4A5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24F798851B3941E900F7E4A5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		24F798971B3941FE00F7E4A5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24F798981B3941FE00F7E4A5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		24513EEE1C8A119D0080D250 /* Debug */ = {
@@ -1365,40 +1146,6 @@
 			};
 			name = Release;
 		};
-		24F798891B3941E900F7E4A5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24513EC31C8A104D0080D250 /* iOS Application.xcconfig */;
-			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				PRODUCT_NAME = Deserializer;
-			};
-			name = Debug;
-		};
-		24F7988A1B3941E900F7E4A5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24513EC31C8A104D0080D250 /* iOS Application.xcconfig */;
-			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				PRODUCT_NAME = Deserializer;
-			};
-			name = Release;
-		};
-		24F7989C1B3941FE00F7E4A5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24513ECC1C8A104D0080D250 /* OS X Application.xcconfig */;
-			buildSettings = {
-				PRODUCT_NAME = Deserializer;
-			};
-			name = Debug;
-		};
-		24F7989D1B3941FE00F7E4A5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24513ECC1C8A104D0080D250 /* OS X Application.xcconfig */;
-			buildSettings = {
-				PRODUCT_NAME = Deserializer;
-			};
-			name = Release;
-		};
 		24F798B51B39421A00F7E4A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24513EC61C8A104D0080D250 /* iOS Framework.xcconfig */;
@@ -1502,24 +1249,6 @@
 			buildConfigurations = (
 				24F798731B3941AF00F7E4A5 /* Debug */,
 				24F798741B3941AF00F7E4A5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		24F798881B3941E900F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer iOS App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				24F798891B3941E900F7E4A5 /* Debug */,
-				24F7988A1B3941E900F7E4A5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		24F7989B1B3941FE00F7E4A5 /* Build configuration list for PBXNativeTarget "Deserializer OS X App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				24F7989C1B3941FE00F7E4A5 /* Debug */,
-				24F7989D1B3941FE00F7E4A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
