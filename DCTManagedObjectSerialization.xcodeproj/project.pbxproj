@@ -525,7 +525,7 @@
 		245CD68C164EA29300600BFF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Daniel Tull";
 				TargetAttributes = {
 					2426195219669EDD008B8862 = {
@@ -741,6 +741,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24CCFEEA1D9EA07200228331 /* macOS Framework.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				PRODUCT_NAME = DCTManagedObjectSerialization;
 			};
 			name = Debug;
@@ -781,6 +782,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24CCFEF91D9EA07200228331 /* tvOS Framework.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				PRODUCT_NAME = DCTManagedObjectSerialization;
 			};
 			name = Debug;
